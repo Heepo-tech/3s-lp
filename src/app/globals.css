@@ -1,56 +1,56 @@
 @import 'tailwindcss';
 
-/* Refined Minimalist Pastel Design System */
+/* PT. Sekawan Sahabat Sejati - Plywood Theme Color System */
 :root {
-  /* Primary Color Palette - Sophisticated Pastels */
-  --primary-cream: #f8f7f3; /* Main background - warm off-white */
-  --primary-soft-blue: #edf4fd; /* Refined soft blue */
-  --primary-pale-rose: #fdf4f4; /* Delicate rose accent */
-  --primary-sage: #f2f6f2; /* Elevated sage green */
-  --primary-lavender: #f7f4fe; /* Sophisticated lavender */
-  --primary-pearl: #f9f8f6; /* Warm pearl undertone */
-  --primary-mist: #f5f6f8; /* Cool mist accent */
+  /* Primary Color Palette - Plywood Natural Theme */
+  --primary-cream: #F8F4E1; /* Main background - warm cream */
+  --primary-gold: #FEBA17; /* Golden yellow accent */
+  --primary-brown: #74512D; /* Medium brown - wood tone */
+  --primary-dark-brown: #4E1F00; /* Dark brown - rich wood */
+  --primary-light-gold: #FFD166; /* Light gold for highlights */
+  --primary-soft-cream: #FBF8EF; /* Soft cream for cards */
+  --primary-warm-beige: #E8DCC5; /* Warm beige accent */
 
-  /* Text Colors - Refined Hierarchy */
-  --text-primary: #2c3e50; /* Refined charcoal for main text */
-  --text-secondary: #5a6c7d; /* Sophisticated gray for secondary */
-  --text-muted: #8b9caf; /* Elegant muted text */
-  --text-accent: #4a90e2; /* Premium blue accent */
-  --text-subtle: #b8c5d1; /* Very light text for hints */
+  /* Text Colors - Natural Wood Hierarchy */
+  --text-primary: #4E1F00; /* Dark brown for main text */
+  --text-secondary: #74512D; /* Medium brown for secondary */
+  --text-muted: #996633; /* Lighter brown for muted text */
+  --text-accent: #FEBA17; /* Gold accent */
+  --text-subtle: #B89968; /* Light tan for hints */
 
-  /* Neutral Pastels - Enhanced Range */
-  --neutral-white: #fefefe; /* Pure white with warmth */
-  --neutral-light: #f9f8f6; /* Warm light gray */
-  --neutral-medium: #e8e6e3; /* Sophisticated medium gray */
-  --neutral-soft: #d4d2cf; /* Soft neutral */
-  --neutral-dark: #9b9b9b; /* Refined dark gray */
+  /* Neutral Tones - Wood Inspired */
+  --neutral-white: #FFFFFF; /* Pure white */
+  --neutral-light: #F8F4E1; /* Light cream */
+  --neutral-medium: #E8DCC5; /* Medium beige */
+  --neutral-soft: #D4C4A8; /* Soft tan */
+  --neutral-dark: #74512D; /* Dark brown */
 
-  /* Semantic Colors - Refined Pastels */
-  --success-pastel: #edf7ed; /* Sophisticated green */
-  --warning-pastel: #fef9e7; /* Refined yellow */
-  --error-pastel: #fdf2f2; /* Elegant error red */
-  --info-pastel: var(--primary-soft-blue);
+  /* Semantic Colors - Wood Theme */
+  --success-pastel: #E8F5E9; /* Soft green */
+  --warning-pastel: #FFF8E1; /* Soft yellow */
+  --error-pastel: #FFEBEE; /* Soft red */
+  --info-pastel: #FBF8EF; /* Soft cream */
 
-  /* Gradient Backgrounds */
+  /* Gradient Backgrounds - Wood Theme */
   --gradient-primary: linear-gradient(
     135deg,
     var(--primary-cream) 0%,
-    var(--primary-pearl) 100%
+    var(--primary-soft-cream) 100%
   );
-  --gradient-soft-blue: linear-gradient(
+  --gradient-gold: linear-gradient(
     135deg,
-    var(--primary-soft-blue) 0%,
-    #e3f2fd 100%
+    var(--primary-gold) 0%,
+    var(--primary-light-gold) 100%
   );
-  --gradient-rose: linear-gradient(
+  --gradient-brown: linear-gradient(
     135deg,
-    var(--primary-pale-rose) 0%,
-    #fcf4f4 100%
+    var(--primary-brown) 0%,
+    var(--primary-dark-brown) 100%
   );
-  --gradient-sage: linear-gradient(
+  --gradient-warm: linear-gradient(
     135deg,
-    var(--primary-sage) 0%,
-    #eef4ee 100%
+    var(--primary-soft-cream) 0%,
+    var(--primary-warm-beige) 100%
   );
   --gradient-subtle: linear-gradient(
     135deg,
@@ -102,19 +102,21 @@
     0 12px 24px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.08);
   --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.02);
 
-  /* Refined Color Shadows */
-  --shadow-blue:
-    0 4px 8px rgba(74, 144, 226, 0.08), 0 2px 4px rgba(74, 144, 226, 0.04);
-  --shadow-rose:
-    0 4px 8px rgba(253, 244, 244, 0.3), 0 2px 4px rgba(253, 244, 244, 0.2);
-  --shadow-sage:
-    0 4px 8px rgba(242, 246, 242, 0.3), 0 2px 4px rgba(242, 246, 242, 0.2);
+  /* Plywood Color Shadows */
+  --shadow-gold:
+    0 4px 8px rgba(254, 186, 23, 0.15), 0 2px 4px rgba(254, 186, 23, 0.1);
+  --shadow-brown:
+    0 4px 8px rgba(116, 81, 45, 0.2), 0 2px 4px rgba(116, 81, 45, 0.1);
+  --shadow-dark-brown:
+    0 8px 16px rgba(78, 31, 0, 0.25), 0 4px 8px rgba(78, 31, 0, 0.15);
 }
 
 @theme inline {
-  /* Tailwind CSS Custom Properties */
+  /* Tailwind CSS Custom Properties - Plywood Theme */
   --color-primary-cream: var(--primary-cream);
-  --color-primary-soft-blue: var(--primary-soft-blue);
+  --color-primary-gold: var(--primary-gold);
+  --color-primary-brown: var(--primary-brown);
+  --color-primary-dark-brown: var(--primary-dark-brown);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
