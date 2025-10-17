@@ -2,60 +2,46 @@
 
 /* PT. Sekawan Sahabat Sejati - Plywood Theme Color System */
 :root {
-  /* Primary Color Palette - Plywood Natural Theme */
-  --primary-cream: #F8F4E1; /* Main background - warm cream */
-  --primary-gold: #FEBA17; /* Golden yellow accent */
-  --primary-brown: #74512D; /* Medium brown - wood tone */
-  --primary-dark-brown: #4E1F00; /* Dark brown - rich wood */
-  --primary-light-gold: #FFD166; /* Light gold for highlights */
-  --primary-soft-cream: #FBF8EF; /* Soft cream for cards */
-  --primary-warm-beige: #E8DCC5; /* Warm beige accent */
+  /* Primary Color Palette - Minimalist 2-Color Theme */
+  --primary-cream: #f8f7f3; /* Main background - clean cream */
+  --primary-brown: #522405; /* Primary accent - deep brown */
+  --primary-dark-brown: #522405; /* Dark brown - same as primary */
+  --primary-soft-cream: #f8f7f3; /* Soft cream for cards */
+  --primary-warm-beige: #e8e6e1; /* Warm beige accent */
 
-  /* Text Colors - Natural Wood Hierarchy */
-  --text-primary: #4E1F00; /* Dark brown for main text */
-  --text-secondary: #74512D; /* Medium brown for secondary */
-  --text-muted: #996633; /* Lighter brown for muted text */
-  --text-accent: #FEBA17; /* Gold accent */
-  --text-subtle: #B89968; /* Light tan for hints */
+  /* Text Colors - Minimalist Hierarchy */
+  --text-primary: #522405; /* Dark brown for main text */
+  --text-secondary: #522405; /* Brown for secondary */
+  --text-muted: #8b7355; /* Lighter brown for muted text */
+  --text-accent: #522405; /* Brown accent (no gold) */
+  --text-subtle: #b89968; /* Light tan for hints */
 
-  /* Neutral Tones - Wood Inspired */
-  --neutral-white: #FFFFFF; /* Pure white */
-  --neutral-light: #F8F4E1; /* Light cream */
-  --neutral-medium: #E8DCC5; /* Medium beige */
-  --neutral-soft: #D4C4A8; /* Soft tan */
-  --neutral-dark: #74512D; /* Dark brown */
+  /* Neutral Tones - Clean Inspired */
+  --neutral-white: #ffffff; /* Pure white */
+  --neutral-light: #f8f7f3; /* Light cream */
+  --neutral-medium: #e8e6e1; /* Medium beige */
+  --neutral-soft: #d4c4a8; /* Soft tan */
+  --neutral-dark: #522405; /* Dark brown */
 
-  /* Semantic Colors - Wood Theme */
-  --success-pastel: #E8F5E9; /* Soft green */
-  --warning-pastel: #FFF8E1; /* Soft yellow */
-  --error-pastel: #FFEBEE; /* Soft red */
-  --info-pastel: #FBF8EF; /* Soft cream */
+  /* Semantic Colors - Subtle Theme */
+  --success-pastel: #e8f5e9; /* Soft green */
+  --warning-pastel: #fff8e1; /* Soft yellow */
+  --error-pastel: #ffebee; /* Soft red */
+  --info-pastel: #f8f7f3; /* Soft cream */
 
-  /* Gradient Backgrounds - Wood Theme */
+  /* Gradient Backgrounds - Minimalist Gradients */
   --gradient-primary: linear-gradient(
     135deg,
-    var(--primary-cream) 0%,
-    var(--primary-soft-cream) 100%
+    #f8f7f3 0%,
+    rgba(82, 36, 5, 0.05) 100%
   );
-  --gradient-gold: linear-gradient(
+  --gradient-brown: linear-gradient(135deg, #522405 0%, #3a1803 100%);
+  --gradient-warm: linear-gradient(135deg, #f8f7f3 0%, #e8e6e1 100%);
+  --gradient-subtle: linear-gradient(135deg, #ffffff 0%, #f8f7f3 100%);
+  --gradient-brown-soft: linear-gradient(
     135deg,
-    var(--primary-gold) 0%,
-    var(--primary-light-gold) 100%
-  );
-  --gradient-brown: linear-gradient(
-    135deg,
-    var(--primary-brown) 0%,
-    var(--primary-dark-brown) 100%
-  );
-  --gradient-warm: linear-gradient(
-    135deg,
-    var(--primary-soft-cream) 0%,
-    var(--primary-warm-beige) 100%
-  );
-  --gradient-subtle: linear-gradient(
-    135deg,
-    var(--neutral-white) 0%,
-    var(--neutral-light) 100%
+    rgba(82, 36, 5, 0.9) 0%,
+    rgba(82, 36, 5, 1) 100%
   );
 
   /* Typography */
@@ -102,19 +88,16 @@
     0 12px 24px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.08);
   --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.02);
 
-  /* Plywood Color Shadows */
-  --shadow-gold:
-    0 4px 8px rgba(254, 186, 23, 0.15), 0 2px 4px rgba(254, 186, 23, 0.1);
+  /* Brown Color Shadows */
   --shadow-brown:
-    0 4px 8px rgba(116, 81, 45, 0.2), 0 2px 4px rgba(116, 81, 45, 0.1);
+    0 4px 8px rgba(82, 36, 5, 0.2), 0 2px 4px rgba(82, 36, 5, 0.1);
   --shadow-dark-brown:
-    0 8px 16px rgba(78, 31, 0, 0.25), 0 4px 8px rgba(78, 31, 0, 0.15);
+    0 8px 16px rgba(82, 36, 5, 0.25), 0 4px 8px rgba(82, 36, 5, 0.15);
 }
 
 @theme inline {
-  /* Tailwind CSS Custom Properties - Plywood Theme */
+  /* Tailwind CSS Custom Properties - Minimalist Theme */
   --color-primary-cream: var(--primary-cream);
-  --color-primary-gold: var(--primary-gold);
   --color-primary-brown: var(--primary-brown);
   --color-primary-dark-brown: var(--primary-dark-brown);
   --color-text-primary: var(--text-primary);
@@ -285,7 +268,7 @@ a {
 }
 
 /* Only apply hover color to regular links, not buttons */
-a:hover:not([class*="btn-"]) {
+a:hover:not([class*='btn-']) {
   color: var(--primary-dark-brown);
   text-decoration: none;
 }
@@ -988,7 +971,7 @@ a.elegant-link:hover::after {
   margin-bottom: var(--space-lg);
 }
 
-/* Button Utility Classes - Plywood Theme (Simplified) */
+/* Button Utility Classes - Minimalist 2-Color Theme */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -999,10 +982,10 @@ a.elegant-link:hover::after {
   font-weight: 700;
   font-family: var(--font-primary);
   color: white;
-  background: var(--gradient-gold);
+  background: var(--gradient-brown);
   border: none;
   border-radius: 9999px;
-  box-shadow: 0 6px 16px rgba(254, 186, 23, 0.25);
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.25);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
@@ -1011,8 +994,8 @@ a.elegant-link:hover::after {
 
 .btn-primary:hover {
   color: white !important;
-  background: linear-gradient(135deg, #e6a715 0%, #f5c133 100%);
-  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.35);
+  background: linear-gradient(135deg, #3a1803 0%, #522405 100%);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.35);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -1027,7 +1010,7 @@ a.elegant-link:hover::after {
 
 .btn-primary:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 8px rgba(254, 186, 23, 0.2);
+  box-shadow: 0 2px 8px rgba(82, 36, 5, 0.2);
 }
 
 .btn-secondary {
@@ -1039,11 +1022,11 @@ a.elegant-link:hover::after {
   font-size: 1rem;
   font-weight: 700;
   font-family: var(--font-primary);
-  color: var(--primary-gold);
+  color: var(--primary-brown);
   background: transparent;
-  border: 2px solid var(--primary-gold);
+  border: 2px solid var(--primary-brown);
   border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(254, 186, 23, 0.1);
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
@@ -1052,9 +1035,9 @@ a.elegant-link:hover::after {
 
 .btn-secondary:hover {
   color: white !important;
-  background: var(--gradient-gold);
-  border-color: var(--primary-gold);
-  box-shadow: 0 6px 18px rgba(254, 186, 23, 0.3);
+  background: var(--gradient-brown);
+  border-color: var(--primary-brown);
+  box-shadow: 0 6px 18px rgba(82, 36, 5, 0.3);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -1084,7 +1067,7 @@ a.elegant-link:hover::after {
   background: var(--gradient-brown);
   border: none;
   border-radius: 9999px;
-  box-shadow: 0 6px 16px rgba(78, 31, 0, 0.3);
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
@@ -1093,8 +1076,8 @@ a.elegant-link:hover::after {
 
 .btn-dark:hover {
   color: white !important;
-  background: linear-gradient(135deg, #5f3a1e 0%, #3a1800 100%);
-  box-shadow: 0 8px 20px rgba(78, 31, 0, 0.4);
+  background: linear-gradient(135deg, #3a1803 0%, #522405 100%);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.4);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -1109,7 +1092,7 @@ a.elegant-link:hover::after {
 
 .btn-dark:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 8px rgba(78, 31, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(82, 36, 5, 0.25);
 }
 
 .btn-outline-light {
@@ -1124,7 +1107,7 @@ a.elegant-link:hover::after {
   color: white;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border: 2px solid var(--primary-gold);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 9999px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1134,10 +1117,10 @@ a.elegant-link:hover::after {
 }
 
 .btn-outline-light:hover {
-  color: white !important;
-  background: var(--gradient-gold);
-  border-color: var(--primary-gold);
-  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.4);
+  color: var(--primary-brown) !important;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -1163,11 +1146,11 @@ a.elegant-link:hover::after {
   font-size: 1rem;
   font-weight: 700;
   font-family: var(--font-primary);
-  color: var(--primary-gold);
+  color: var(--primary-brown);
   background: transparent;
-  border: 2px solid var(--primary-gold);
+  border: 2px solid var(--primary-brown);
   border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(254, 186, 23, 0.1);
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
@@ -1176,9 +1159,9 @@ a.elegant-link:hover::after {
 
 .btn-outline-dark:hover {
   color: white !important;
-  background: var(--gradient-gold);
-  border-color: var(--primary-gold);
-  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.4);
+  background: var(--gradient-brown);
+  border-color: var(--primary-brown);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.4);
   transform: translateY(-2px) scale(1.02);
 }
 

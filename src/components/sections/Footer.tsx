@@ -1,7 +1,14 @@
 'use client'
 
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from 'lucide-react'
 import Link from 'next/link'
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -28,33 +35,84 @@ export default function Footer() {
   }
 
   return (
-    <footer className="sticky z-0 bottom-0 left-0 w-full overflow-hidden" style={{ backgroundColor: 'var(--primary-dark-brown)' }}>
+    <footer
+      className="sticky z-0 bottom-0 left-0 w-full overflow-hidden"
+      style={{ backgroundColor: '#2D1404' }}
+    >
       <div className="relative w-full h-full px-6 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <h3 className="mb-3 text-base font-semibold text-white" style={{ fontFamily: 'var(--font-primary)' }}>
+              <h3
+                className="mb-3 text-base font-semibold text-white"
+                style={{ fontFamily: 'var(--font-primary)' }}
+              >
                 Kontak
               </h3>
-              <div className="space-y-2 text-sm text-white/70">
+              <div
+                className="space-y-2 text-sm"
+                style={{ color: '#F8F7F3', opacity: 0.7 }}
+              >
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--primary-gold)' }} />
+                  <MapPin
+                    className="h-5 w-5 flex-shrink-0 mt-0.5"
+                    style={{ color: '#F8F7F3' }}
+                  />
                   <div>
-                    <div className="font-semibold text-white mb-1">Alamat Pabrik:</div>
-                    <div>Jl. Industri Raya No. 123<br />Kawasan Industri Jababeka<br />Cikarang, Bekasi 17530<br />Jawa Barat, Indonesia</div>
+                    <div
+                      className="font-semibold mb-1"
+                      style={{ color: '#F8F7F3' }}
+                    >
+                      Alamat Pabrik:
+                    </div>
+                    <div>
+                      Jl. Industri Raya No. 123
+                      <br />
+                      Kawasan Industri Jababeka
+                      <br />
+                      Cikarang, Bekasi 17530
+                      <br />
+                      Jawa Barat, Indonesia
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 flex-shrink-0" style={{ color: 'var(--primary-gold)' }} />
+                  <Phone
+                    className="h-5 w-5 flex-shrink-0"
+                    style={{ color: '#F8F7F3' }}
+                  />
                   <div>
-                    <a href="tel:+622112345678" className="hover:text-white transition-colors">+62 21 1234 5678</a>
+                    <a
+                      href="tel:+622112345678"
+                      className="transition-colors"
+                      style={{ color: '#F8F7F3' }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={e =>
+                        (e.currentTarget.style.opacity = '0.7')
+                      }
+                    >
+                      +62 21 1234 5678
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 flex-shrink-0" style={{ color: 'var(--primary-gold)' }} />
+                  <Mail
+                    className="h-5 w-5 flex-shrink-0"
+                    style={{ color: '#F8F7F3' }}
+                  />
                   <div>
-                    <a href="mailto:info@3s-plywood.com" className="hover:text-white transition-colors">info@3s-plywood.com</a>
+                    <a
+                      href="mailto:info@3s-plywood.com"
+                      className="transition-colors"
+                      style={{ color: '#F8F7F3' }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={e =>
+                        (e.currentTarget.style.opacity = '0.7')
+                      }
+                    >
+                      info@3s-plywood.com
+                    </a>
                   </div>
                 </div>
               </div>
@@ -62,13 +120,24 @@ export default function Footer() {
 
             {/* Produk */}
             <div>
-              <h3 className="mb-3 text-base font-semibold text-white" style={{ fontFamily: 'var(--font-primary)' }}>
+              <h3
+                className="mb-3 text-base font-semibold"
+                style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
+              >
                 Produk
               </h3>
               <ul className="space-y-2 text-sm">
-                {quickLinks.produk.map((link) => (
+                {quickLinks.produk.map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-white/70 hover:text-white transition-colors">
+                    <Link
+                      href={link.href}
+                      className="transition-colors"
+                      style={{ color: '#F8F7F3', opacity: 0.7 }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={e =>
+                        (e.currentTarget.style.opacity = '0.7')
+                      }
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -78,13 +147,24 @@ export default function Footer() {
 
             {/* Perusahaan */}
             <div>
-              <h3 className="mb-3 text-base font-semibold text-white" style={{ fontFamily: 'var(--font-primary)' }}>
+              <h3
+                className="mb-3 text-base font-semibold"
+                style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
+              >
                 Perusahaan
               </h3>
               <ul className="space-y-2 text-sm">
-                {quickLinks.perusahaan.map((link) => (
+                {quickLinks.perusahaan.map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-white/70 hover:text-white transition-colors">
+                    <Link
+                      href={link.href}
+                      className="transition-colors"
+                      style={{ color: '#F8F7F3', opacity: 0.7 }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={e =>
+                        (e.currentTarget.style.opacity = '0.7')
+                      }
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -94,13 +174,24 @@ export default function Footer() {
 
             {/* Bantuan */}
             <div>
-              <h3 className="mb-3 text-base font-semibold text-white" style={{ fontFamily: 'var(--font-primary)' }}>
+              <h3
+                className="mb-3 text-base font-semibold"
+                style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
+              >
                 Bantuan
               </h3>
               <ul className="space-y-2 text-sm">
-                {quickLinks.bantuan.map((link) => (
+                {quickLinks.bantuan.map(link => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-white/70 hover:text-white transition-colors">
+                    <Link
+                      href={link.href}
+                      className="transition-colors"
+                      style={{ color: '#F8F7F3', opacity: 0.7 }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={e =>
+                        (e.currentTarget.style.opacity = '0.7')
+                      }
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -110,7 +201,10 @@ export default function Footer() {
           </div>
 
           {/* Google Maps Embed */}
-          <div className="mt-8 overflow-hidden rounded-xl border" style={{ borderColor: 'rgba(254, 186, 23, 0.2)' }}>
+          <div
+            className="mt-8 overflow-hidden rounded-xl border"
+            style={{ borderColor: 'rgba(248, 247, 243, 0.2)' }}
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d107.1534!3d-6.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwN8KwMDknMTIuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
               width="100%"
@@ -124,8 +218,11 @@ export default function Footer() {
           </div>
 
           {/* Social Media & Copyright */}
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
-            <p className="text-sm text-white/60">
+          <div
+            className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row"
+            style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}
+          >
+            <p className="text-sm" style={{ color: '#F8F7F3', opacity: 0.6 }}>
               © {currentYear} PT. Sekawan Sahabat Sejati. All rights reserved.
             </p>
 
@@ -136,27 +233,27 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
-                style={{ backgroundColor: 'rgba(254, 186, 23, 0.1)' }}
+                style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Linkedin className="h-5 w-5" style={{ color: 'var(--primary-gold)' }} />
+                <Linkedin className="h-5 w-5" style={{ color: '#F8F7F3' }} />
               </a>
               <a
                 href="https://instagram.com/3splywood"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
-                style={{ backgroundColor: 'rgba(254, 186, 23, 0.1)' }}
+                style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Instagram className="h-5 w-5" style={{ color: 'var(--primary-gold)' }} />
+                <Instagram className="h-5 w-5" style={{ color: '#F8F7F3' }} />
               </a>
               <a
                 href="https://facebook.com/3splywood"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
-                style={{ backgroundColor: 'rgba(254, 186, 23, 0.1)' }}
+                style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Facebook className="h-5 w-5" style={{ color: 'var(--primary-gold)' }} />
+                <Facebook className="h-5 w-5" style={{ color: '#F8F7F3' }} />
               </a>
             </div>
           </div>
@@ -168,12 +265,12 @@ export default function Footer() {
             className="font-black leading-none whitespace-nowrap"
             style={{
               fontSize: 'clamp(60px, 8vw, 110px)',
-              color: 'var(--primary-gold)',
+              color: '#F8F7F3',
               fontFamily: 'var(--font-primary)',
               letterSpacing: '-0.04em',
               opacity: 0.15,
               transform: 'translateY(35%)',
-              paddingLeft: '2rem'
+              paddingLeft: '2rem',
             }}
           >
             PT. Sekawan Sahabat Sejati

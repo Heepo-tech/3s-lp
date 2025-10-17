@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Globe, Award, Users, Factory } from 'lucide-react'
+
 import TextHighlighter from '@/components/fancy/text/text-highlighter'
 
 export default function CompanyProfile() {
@@ -9,27 +10,34 @@ export default function CompanyProfile() {
     {
       icon: Globe,
       title: 'Jangkauan Global',
-      description: 'Produk kami telah dipercaya di lebih dari 50 negara di seluruh dunia',
+      description:
+        'Produk kami telah dipercaya di lebih dari 50 negara di seluruh dunia',
     },
     {
       icon: Award,
       title: 'Sertifikasi Internasional',
-      description: 'Memiliki sertifikasi ISO 9001, FSC, dan standar internasional lainnya',
+      description:
+        'Memiliki sertifikasi ISO 9001, FSC, dan standar internasional lainnya',
     },
     {
       icon: Users,
       title: 'Tim Profesional',
-      description: 'Didukung oleh tim berpengalaman lebih dari 25 tahun di industri plywood',
+      description:
+        'Didukung oleh tim berpengalaman lebih dari 25 tahun di industri plywood',
     },
     {
       icon: Factory,
       title: 'Fasilitas Modern',
-      description: 'Pabrik dengan teknologi terkini untuk hasil presisi dan berkualitas tinggi',
+      description:
+        'Pabrik dengan teknologi terkini untuk hasil presisi dan berkualitas tinggi',
     },
   ]
 
   return (
-    <section className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--primary-cream)' }}>
+    <section
+      className="py-20 px-6 lg:px-8"
+      style={{ backgroundColor: 'var(--primary-cream)' }}
+    >
       <div className="mx-auto max-w-7xl">
         {/* Title */}
         <motion.div
@@ -41,9 +49,15 @@ export default function CompanyProfile() {
         >
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+            style={{
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-primary)',
+            }}
           >
-            Tentang <span style={{ color: 'var(--primary-gold)' }}>PT. Sekawan Sahabat Sejati</span>
+            Tentang{' '}
+            <span style={{ color: 'var(--primary-brown)' }}>
+              PT. Sekawan Sahabat Sejati
+            </span>
           </h2>
         </motion.div>
 
@@ -57,13 +71,21 @@ export default function CompanyProfile() {
         >
           <TextHighlighter
             className="text-lg md:text-xl leading-relaxed"
-            highlightColor="var(--primary-gold)"
+            highlightColor="var(--primary-brown)"
             triggerType="inView"
           >
-            <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}>
-              PT. Sekawan Sahabat Sejati adalah produsen plywood premium yang telah berdiri sejak 1998.
-              Dengan komitmen terhadap kualitas dan inovasi, kami menghadirkan produk plywood berkelas internasional yang ramah lingkungan.
-              Pengalaman lebih dari 25 tahun membuat kami menjadi mitra terpercaya untuk proyek konstruksi, furniture, dan kebutuhan industri di pasar lokal maupun global.
+            <p
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
+            >
+              PT. Sekawan Sahabat Sejati adalah produsen plywood premium yang
+              telah berdiri sejak 1998. Dengan komitmen terhadap kualitas dan
+              inovasi, kami menghadirkan produk plywood berkelas internasional
+              yang ramah lingkungan. Pengalaman lebih dari 25 tahun membuat kami
+              menjadi mitra terpercaya untuk proyek konstruksi, furniture, dan
+              kebutuhan industri di pasar lokal maupun global.
             </p>
           </TextHighlighter>
         </motion.div>
@@ -84,10 +106,10 @@ export default function CompanyProfile() {
                   backgroundColor: 'var(--neutral-white)',
                   borderColor: 'var(--neutral-medium)',
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--primary-gold)'
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'var(--primary-brown)'
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={e => {
                   e.currentTarget.style.borderColor = 'var(--neutral-medium)'
                 }}
               >
@@ -96,13 +118,19 @@ export default function CompanyProfile() {
                   className="mb-4 inline-flex rounded-lg p-3 transition-all duration-300"
                   style={{ backgroundColor: 'var(--primary-cream)' }}
                 >
-                  <Icon className="h-6 w-6" style={{ color: 'var(--primary-gold)' }} />
+                  <Icon
+                    className="h-6 w-6"
+                    style={{ color: 'var(--primary-brown)' }}
+                  />
                 </div>
 
                 {/* Title */}
                 <h3
                   className="mb-2 text-lg font-semibold"
-                  style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                  style={{
+                    color: 'var(--text-primary)',
+                    fontFamily: 'var(--font-primary)',
+                  }}
                 >
                   {element.title}
                 </h3>
@@ -110,7 +138,10 @@ export default function CompanyProfile() {
                 {/* Description */}
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                  style={{
+                    color: 'var(--text-secondary)',
+                    fontFamily: 'var(--font-secondary)',
+                  }}
                 >
                   {element.description}
                 </p>
@@ -118,7 +149,7 @@ export default function CompanyProfile() {
                 {/* Decorative gradient line on hover */}
                 <div
                   className="absolute bottom-0 left-0 h-1 w-0 rounded-full transition-all duration-300 group-hover:w-full"
-                  style={{ background: 'var(--gradient-gold)' }}
+                  style={{ background: 'var(--gradient-brown)' }}
                 />
               </motion.div>
             )
@@ -137,11 +168,17 @@ export default function CompanyProfile() {
           <div className="text-center">
             <div
               className="text-4xl md:text-5xl font-bold mb-2"
-              style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--primary-dark-brown)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
               1998
             </div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-secondary)' }}>
+            <div
+              className="text-sm md:text-base"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Tahun Berdiri
             </div>
           </div>
@@ -149,11 +186,17 @@ export default function CompanyProfile() {
           <div className="text-center">
             <div
               className="text-4xl md:text-5xl font-bold mb-2"
-              style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--primary-dark-brown)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
               50+
             </div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-secondary)' }}>
+            <div
+              className="text-sm md:text-base"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Negara Export
             </div>
           </div>
@@ -161,11 +204,17 @@ export default function CompanyProfile() {
           <div className="text-center">
             <div
               className="text-4xl md:text-5xl font-bold mb-2"
-              style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--primary-dark-brown)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
               500+
             </div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-secondary)' }}>
+            <div
+              className="text-sm md:text-base"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Karyawan Terampil
             </div>
           </div>
@@ -173,11 +222,17 @@ export default function CompanyProfile() {
           <div className="text-center">
             <div
               className="text-4xl md:text-5xl font-bold mb-2"
-              style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--primary-dark-brown)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
               100K+
             </div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-secondary)' }}>
+            <div
+              className="text-sm md:text-base"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               m³ Kapasitas/Tahun
             </div>
           </div>
