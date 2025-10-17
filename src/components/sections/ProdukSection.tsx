@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Package } from 'lucide-react'
 
 import { products } from '@/data/products'
 
@@ -142,9 +142,9 @@ export default function ProdukSection() {
         >
           <Link
             href="/#produk"
-            className="inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
-            style={{ background: 'var(--gradient-brown)' }}
+            className="btn-dark btn-icon"
           >
+            <Package className="h-5 w-5" />
             Lihat Semua Produk
             <ArrowRight className="h-5 w-5" />
           </Link>

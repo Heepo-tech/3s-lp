@@ -5,7 +5,7 @@ import { Mail, FileText } from 'lucide-react'
 
 export default function CTASection() {
   return (
-    <section className="py-20 px-6 lg:px-8 relative overflow-hidden" style={{ backgroundColor: 'var(--primary-dark-brown)' }}>
+    <section className="py-20 px-6 lg:px-8 relative overflow-hidden" style={{ backgroundColor: 'var(--primary-cream)' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -35,16 +35,16 @@ export default function CTASection() {
 
           {/* Headline */}
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: 'var(--font-primary)' }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            style={{ fontFamily: 'var(--font-primary)', color: 'var(--primary-dark-brown)' }}
           >
             Konsultasi Gratis dengan Tim Kami <span style={{ color: 'var(--primary-gold)' }}>Sekarang!</span>
           </h2>
 
           {/* Description */}
           <p
-            className="text-lg md:text-xl mb-10 text-white/80 max-w-3xl mx-auto"
-            style={{ fontFamily: 'var(--font-secondary)' }}
+            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto"
+            style={{ fontFamily: 'var(--font-secondary)', color: 'var(--primary-brown)' }}
           >
             Dapatkan solusi terbaik untuk kebutuhan plywood Anda. Tim ahli kami siap membantu
             dengan konsultasi gratis dan penawaran harga terbaik.
@@ -58,8 +58,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="group flex items-center gap-3 rounded-lg px-8 py-4 text-base font-semibold text-white shadow-xl transition-all hover:shadow-2xl hover:scale-105"
-              style={{ background: 'var(--gradient-gold)' }}
+              className="btn-primary btn-icon"
             >
               <Mail className="h-5 w-5" />
               Hubungi Kami Sekarang
@@ -71,8 +70,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="group flex items-center gap-3 rounded-lg border-2 bg-white/10 backdrop-blur-sm px-8 py-4 text-base font-semibold text-white shadow-xl transition-all hover:bg-white/20 hover:shadow-2xl hover:scale-105"
-              style={{ borderColor: 'var(--primary-gold)' }}
+              className="btn-outline-dark btn-icon"
             >
               <FileText className="h-5 w-5" />
               Request Quotation
@@ -85,7 +83,8 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-12 flex flex-wrap justify-center gap-8 text-white/70 text-sm"
+            className="mt-12 flex flex-wrap justify-center gap-8 text-sm"
+            style={{ color: 'var(--primary-brown)' }}
           >
             <div className="flex items-center gap-2">
               <span className="font-semibold" style={{ color: 'var(--primary-gold)' }}>Email:</span>

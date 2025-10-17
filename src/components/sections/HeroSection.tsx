@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Info, Eye } from 'lucide-react'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
 
 export default function HeroSection() {
@@ -64,46 +65,19 @@ export default function HeroSection() {
           >
             <Link
               href="/tentang-kami"
-              className="group relative overflow-hidden rounded-lg px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
-              style={{ background: 'var(--gradient-gold)' }}
+              className="btn-primary btn-icon"
             >
+              <Info className="h-5 w-5" />
               Tentang Kami
             </Link>
 
             <Link
               href="#produk"
-              className="group relative overflow-hidden rounded-lg border-2 bg-white/10 backdrop-blur-sm px-8 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-white/20 hover:shadow-xl hover:scale-105"
-              style={{ borderColor: 'var(--primary-gold)' }}
+              className="btn-outline-light btn-icon"
             >
+              <Eye className="h-5 w-5" />
               Lihat Produk
             </Link>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="pt-12 flex flex-wrap justify-center gap-8 md:gap-12 text-white"
-          >
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--primary-gold)' }}>
-                25+
-              </div>
-              <div className="text-sm md:text-base text-white/80">Tahun Pengalaman</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--primary-gold)' }}>
-                100+
-              </div>
-              <div className="text-sm md:text-base text-white/80">Klien Puas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--primary-gold)' }}>
-                50+
-              </div>
-              <div className="text-sm md:text-base text-white/80">Negara Tujuan Export</div>
-            </div>
           </motion.div>
         </motion.div>
       </div>

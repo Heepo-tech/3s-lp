@@ -158,9 +158,9 @@ export default function Sertifikasi() {
           </p>
           <a
             href="/downloads/certifications.pdf"
-            className="inline-block rounded-lg px-8 py-3 text-base font-semibold text-white transition-all hover:scale-105"
-            style={{ background: 'var(--gradient-brown)' }}
+            className="btn-dark btn-icon"
           >
+            <Award className="h-5 w-5" />
             Download Katalog Sertifikasi
           </a>
         </motion.div>

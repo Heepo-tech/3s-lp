@@ -11,9 +11,9 @@ import Footer from '@/components/sections/Footer'
 
 export default function Home() {
   return (
-    <div className="w-full overflow-auto">
+    <div className="w-full h-screen overflow-auto" style={{ backgroundColor: 'var(--primary-dark-brown)' }}>
       {/* Main Content with higher z-index for sticky footer */}
-      <div className="relative z-10 min-h-screen" style={{ backgroundColor: 'var(--primary-cream)' }}>
+      <div className="relative z-10" style={{ backgroundColor: 'var(--primary-cream)' }}>
         <Header />
         <HeroSection />
         <CompanyProfile />

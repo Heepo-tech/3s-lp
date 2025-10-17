@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Mail, MessageCircle } from 'lucide-react'
 
 const faqs = [
   {
@@ -113,24 +113,53 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 text-center p-6 rounded-xl border"
+          className="mt-12 text-center p-8 rounded-2xl border-2 relative overflow-hidden"
           style={{
-            backgroundColor: 'var(--neutral-white)',
-            borderColor: 'var(--neutral-medium)',
+            background: 'var(--gradient-warm)',
+            borderColor: 'var(--primary-gold)',
           }}
         >
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 20% 50%, var(--primary-gold) 1px, transparent 1px)',
+              backgroundSize: '30px 30px'
+            }} />
+          </div>
+
+          {/* Icon */}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
+            className="relative mb-4 inline-flex rounded-full p-3"
+            style={{ backgroundColor: 'rgba(254, 186, 23, 0.15)' }}
+          >
+            <MessageCircle className="h-8 w-8" style={{ color: 'var(--primary-gold)' }} />
+          </motion.div>
+
+          {/* Text */}
           <p
-            className="text-base mb-2"
-            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+            className="relative text-lg font-semibold mb-2"
+            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
           >
             Masih ada pertanyaan?
           </p>
+          <p
+            className="relative text-base mb-4"
+            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+          >
+            Tim ahli kami siap membantu Anda dengan solusi terbaik
+          </p>
+
+          {/* Button */}
           <a
             href="mailto:info@3s-plywood.com"
-            className="font-semibold hover:opacity-80 transition-opacity"
-            style={{ color: 'var(--primary-gold)' }}
+            className="btn-primary btn-icon relative"
           >
-            Hubungi tim kami →
+            <Mail className="h-5 w-5" />
+            Hubungi tim kami
           </a>
         </motion.div>
       </div>

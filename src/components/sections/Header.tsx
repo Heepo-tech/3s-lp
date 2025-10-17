@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Mail } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
@@ -146,9 +146,9 @@ export default function Header() {
         <div className="hidden lg:flex">
           <Link
             href="mailto:info@3s-plywood.com"
-            className="rounded-lg px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:shadow-md"
-            style={{ background: 'var(--gradient-gold)' }}
+            className="btn-primary btn-icon"
           >
+            <Mail className="h-5 w-5" />
             Hubungi Kami
           </Link>
         </div>
@@ -260,10 +260,10 @@ export default function Header() {
 
               <Link
                 href="mailto:info@3s-plywood.com"
-                className="block mt-4 rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm"
-                style={{ background: 'var(--gradient-gold)' }}
+                className="btn-primary btn-icon block mt-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
+                <Mail className="h-5 w-5" />
                 Hubungi Kami
               </Link>
             </div>
