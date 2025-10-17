@@ -167,7 +167,7 @@ export default function Footer() {
           <h2
             className="font-black leading-none whitespace-nowrap"
             style={{
-              fontSize: 'clamp(80px, 10vw, 140px)',
+              fontSize: 'clamp(60px, 8vw, 110px)',
               color: 'var(--primary-gold)',
               fontFamily: 'var(--font-primary)',
               letterSpacing: '-0.04em',
