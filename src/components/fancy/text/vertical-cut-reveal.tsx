@@ -65,8 +65,20 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
     ref
   ) => {
     const containerRef = useRef<HTMLSpanElement>(null)
-    const text =
-      typeof children === "string" ? children : children?.toString() || ""
+
+    // Extract text content from children (supports string, React elements with text)
+    const getText = (node: React.ReactNode): string => {
+      if (typeof node === "string") return node
+      if (typeof node === "number") return String(node)
+      if (Array.isArray(node)) return node.map(getText).join("")
+      if (node && typeof node === "object" && "props" in node) {
+        const element = node as { props: { children?: React.ReactNode } }
+        return getText(element.props.children)
+      }
+      return ""
+    }
+
+    const text = getText(children)
     const [isAnimating, setIsAnimating] = useState(false)
 
     // handy function to split text into characters with support for unicode and emojis

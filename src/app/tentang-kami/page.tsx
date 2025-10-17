@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function TentangKamiPage() {
   return (
-    <div className="w-full overflow-auto">
+    <div className="w-full h-screen overflow-auto">
       {/* Main Content with higher z-index for sticky footer */}
-      <div className="relative z-10 min-h-screen" style={{ backgroundColor: 'var(--primary-cream)' }}>
+      <div className="relative z-10" style={{ backgroundColor: 'var(--primary-cream)' }}>
         <Header />
         <TentangKamiContent />
       </div>

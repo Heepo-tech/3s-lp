@@ -284,8 +284,9 @@ a {
   position: relative;
 }
 
-a:hover {
-  color: #2c5aa0;
+/* Only apply hover color to regular links, not buttons */
+a:hover:not([class*="btn-"]) {
+  color: var(--primary-dark-brown);
   text-decoration: none;
 }
 
@@ -307,7 +308,7 @@ a.elegant-link::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--text-accent), #2c5aa0);
+  background: var(--gradient-gold);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -373,8 +374,8 @@ a.elegant-link:hover::after {
   background: linear-gradient(
     135deg,
     var(--text-primary) 0%,
-    var(--text-accent) 70%,
-    #2c5aa0 100%
+    var(--primary-gold) 70%,
+    var(--primary-light-gold) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -985,6 +986,270 @@ a.elegant-link:hover::after {
 
 .prose-spacing h3 {
   margin-bottom: var(--space-lg);
+}
+
+/* Button Utility Classes - Plywood Theme (Simplified) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: var(--gradient-gold);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(254, 186, 23, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-primary:hover {
+  color: white !important;
+  background: linear-gradient(135deg, #e6a715 0%, #f5c133 100%);
+  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.35);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-primary.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(254, 186, 23, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--primary-gold);
+  background: transparent;
+  border: 2px solid var(--primary-gold);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(254, 186, 23, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-secondary:hover {
+  color: white !important;
+  background: var(--gradient-gold);
+  border-color: var(--primary-gold);
+  box-shadow: 0 6px 18px rgba(254, 186, 23, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-secondary.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: var(--gradient-brown);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(78, 31, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-dark:hover {
+  color: white !important;
+  background: linear-gradient(135deg, #5f3a1e 0%, #3a1800 100%);
+  box-shadow: 0 8px 20px rgba(78, 31, 0, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-dark.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-dark.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-dark:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(78, 31, 0, 0.25);
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--primary-gold);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-outline-light:hover {
+  color: white !important;
+  background: var(--gradient-gold);
+  border-color: var(--primary-gold);
+  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-outline-light.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-light.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-outline-light:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--primary-gold);
+  background: transparent;
+  border: 2px solid var(--primary-gold);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(254, 186, 23, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-outline-dark:hover {
+  color: white !important;
+  background: var(--gradient-gold);
+  border-color: var(--primary-gold);
+  box-shadow: 0 8px 20px rgba(254, 186, 23, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-outline-dark.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-dark.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-outline-dark:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Button Size Variations */
+.btn-sm {
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1.25rem 3rem;
+  font-size: 1.125rem;
+}
+
+/* Button with Icon */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Responsive Button Styles */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-dark,
+  .btn-outline-light,
+  .btn-outline-dark {
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  .btn-sm {
+    padding: 0.625rem 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Reduce animation intensity on mobile */
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-dark:hover,
+  .btn-outline-light:hover,
+  .btn-outline-dark:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
 }
 
 /* Responsive Typography - Enhanced for Mobile */

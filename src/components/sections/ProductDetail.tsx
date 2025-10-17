@@ -148,8 +148,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="mailto:info@3s-plywood.com"
-                  className="flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:scale-105"
-                  style={{ background: 'var(--gradient-gold)' }}
+                  className="btn-primary btn-icon"
                 >
                   <Mail className="h-5 w-5" />
                   Hubungi Kami
@@ -157,12 +156,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
                 <a
                   href="/quotation"
-                  className="flex items-center justify-center gap-2 rounded-lg border-2 px-6 py-3 text-base font-semibold transition-all hover:shadow-lg hover:scale-105"
-                  style={{
-                    borderColor: 'var(--primary-gold)',
-                    color: 'var(--primary-dark-brown)',
-                    backgroundColor: 'var(--neutral-white)',
-                  }}
+                  className="btn-outline-dark btn-icon"
                 >
                   <FileText className="h-5 w-5" />
                   Request Quote
@@ -287,8 +281,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:info@3s-plywood.com"
-                className="inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-base font-semibold text-white shadow-xl transition-all hover:shadow-2xl hover:scale-105"
-                style={{ background: 'var(--gradient-gold)' }}
+                className="btn-primary btn-icon"
               >
                 <Mail className="h-5 w-5" />
                 Hubungi Kami
@@ -296,8 +289,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
               <a
                 href="/downloads/product-catalog.pdf"
-                className="inline-flex items-center gap-2 rounded-lg border-2 bg-white/10 backdrop-blur-sm px-8 py-3.5 text-base font-semibold text-white shadow-xl transition-all hover:bg-white/20 hover:shadow-2xl hover:scale-105"
-                style={{ borderColor: 'var(--primary-gold)' }}
+                className="btn-outline-light btn-icon"
               >
                 <Download className="h-5 w-5" />
                 Download Katalog
