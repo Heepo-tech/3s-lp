@@ -30,10 +30,10 @@ export default function Header() {
   const LogoContent = () => (
     <>
       <div
-        className="flex h-10 w-10 items-center justify-center rounded-lg font-bold text-white"
+        className="flex h-9 w-9 items-center justify-center rounded-lg font-bold text-white"
         style={{ background: 'var(--gradient-brown)' }}
       >
-        <span className="text-lg">3S</span>
+        <span className="text-base">3S</span>
       </div>
       <div className="hidden md:flex flex-col">
         <span
