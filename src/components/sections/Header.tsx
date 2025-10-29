@@ -1,9 +1,19 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Menu, X, ChevronDown, Mail } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, Mail } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
+
+import {
+  Navbar,
+  NavBody,
+  MobileNav,
+  NavbarLogo,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from '@/components/ui/resizable-navbar'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -17,33 +27,50 @@ export default function Header() {
     { name: 'Plywood Decorative', slug: 'plywood-decorative' },
   ]
 
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-lg" style={{ borderColor: 'var(--neutral-medium)' }}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg font-bold text-white" style={{ background: 'var(--gradient-brown)' }}>
-            <span className="text-xl">3S</span>
-          </div>
-          <div className="hidden md:flex flex-col">
-            <span className="text-sm font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-              PT. Sekawan
-            </span>
-            <span className="text-sm font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-              Sahabat Sejati
-            </span>
-          </div>
-        </Link>
+  const LogoContent = () => (
+    <>
+      <div
+        className="flex h-10 w-10 items-center justify-center rounded-lg font-bold text-white"
+        style={{ background: 'var(--gradient-brown)' }}
+      >
+        <span className="text-lg">3S</span>
+      </div>
+      <div className="hidden md:flex flex-col">
+        <span
+          className="text-xs font-bold leading-tight"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          PT. Sekawan
+        </span>
+        <span
+          className="text-xs font-bold leading-tight"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          Sahabat Sejati
+        </span>
+      </div>
+    </>
+  )
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-8 items-center">
+  return (
+    <Navbar>
+      {/* Desktop Navigation */}
+      <NavBody>
+        <NavbarLogo>
+          <LogoContent />
+        </NavbarLogo>
+
+        <div className="flex flex-1 items-center justify-center gap-x-8">
           {/* Produk Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setProdukDropdownOpen(true)}
             onMouseLeave={() => setProdukDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-base font-medium transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            <button
+              className="flex items-center gap-1 text-base font-medium transition-colors"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Produk
               <ChevronDown className="h-4 w-4" />
             </button>
@@ -57,19 +84,20 @@ export default function Header() {
                   className="absolute left-0 mt-2 w-56 rounded-lg border bg-white p-2 shadow-lg"
                   style={{ borderColor: 'var(--neutral-medium)' }}
                 >
-                  {products.map((product) => (
+                  {products.map(product => (
                     <Link
                       key={product.slug}
                       href={`/produk/${product.slug}`}
-                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-opacity-10"
+                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
                       style={{
                         color: 'var(--text-secondary)',
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--primary-cream)'
+                      onMouseEnter={e => {
+                        e.currentTarget.style.backgroundColor =
+                          'var(--primary-cream)'
                         e.currentTarget.style.color = 'var(--text-primary)'
                       }}
-                      onMouseLeave={(e) => {
+                      onMouseLeave={e => {
                         e.currentTarget.style.backgroundColor = 'transparent'
                         e.currentTarget.style.color = 'var(--text-secondary)'
                       }}
@@ -88,7 +116,10 @@ export default function Header() {
             onMouseEnter={() => setPerusahaanDropdownOpen(true)}
             onMouseLeave={() => setPerusahaanDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-base font-medium transition-colors" style={{ color: 'var(--text-secondary)' }}>
+            <button
+              className="flex items-center gap-1 text-base font-medium transition-colors"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Perusahaan
               <ChevronDown className="h-4 w-4" />
             </button>
@@ -106,11 +137,12 @@ export default function Header() {
                     href="/tentang-kami"
                     className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
                     style={{ color: 'var(--text-secondary)' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--primary-cream)'
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor =
+                        'var(--primary-cream)'
                       e.currentTarget.style.color = 'var(--text-primary)'
                     }}
-                    onMouseLeave={(e) => {
+                    onMouseLeave={e => {
                       e.currentTarget.style.backgroundColor = 'transparent'
                       e.currentTarget.style.color = 'var(--text-secondary)'
                     }}
@@ -121,11 +153,12 @@ export default function Header() {
                     href="/blog"
                     className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
                     style={{ color: 'var(--text-secondary)' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--primary-cream)'
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor =
+                        'var(--primary-cream)'
                       e.currentTarget.style.color = 'var(--text-primary)'
                     }}
-                    onMouseLeave={(e) => {
+                    onMouseLeave={e => {
                       e.currentTarget.style.backgroundColor = 'transparent'
                       e.currentTarget.style.color = 'var(--text-secondary)'
                     }}
@@ -137,139 +170,138 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <Link href="/sertifikasi" className="text-base font-medium transition-colors hover:opacity-80" style={{ color: 'var(--text-secondary)' }}>
+          <Link
+            href="/sertifikasi"
+            className="text-base font-medium transition-colors hover:opacity-80"
+            style={{ color: 'var(--text-secondary)' }}
+          >
             Sertifikasi
           </Link>
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:flex">
+        <Link
+          href="mailto:info@3s-plywood.com"
+          className="btn-primary btn-icon"
+        >
+          <Mail className="h-5 w-5" />
+          Hubungi Kami
+        </Link>
+      </NavBody>
+
+      {/* Mobile Navigation */}
+      <MobileNav>
+        <MobileNavHeader>
+          <NavbarLogo>
+            <LogoContent />
+          </NavbarLogo>
+          <MobileNavToggle
+            isOpen={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu isOpen={mobileMenuOpen}>
+          <div className="w-full space-y-1">
+            {/* Produk */}
+            <div className="space-y-2">
+              <button
+                onClick={() => setProdukDropdownOpen(!produkDropdownOpen)}
+                className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                Produk
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${produkDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <AnimatePresence>
+                {produkDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="space-y-1 pl-4"
+                  >
+                    {products.map(product => (
+                      <Link
+                        key={product.slug}
+                        href={`/produk/${product.slug}`}
+                        className="block rounded-md px-3 py-2 text-sm font-medium"
+                        style={{ color: 'var(--text-secondary)' }}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {product.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Perusahaan */}
+            <div className="space-y-2">
+              <button
+                onClick={() =>
+                  setPerusahaanDropdownOpen(!perusahaanDropdownOpen)
+                }
+                className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                Perusahaan
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${perusahaanDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <AnimatePresence>
+                {perusahaanDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="space-y-1 pl-4"
+                  >
+                    <Link
+                      href="/tentang-kami"
+                      className="block rounded-md px-3 py-2 text-sm font-medium"
+                      style={{ color: 'var(--text-secondary)' }}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Tentang Kami
+                    </Link>
+                    <Link
+                      href="/blog"
+                      className="block rounded-md px-3 py-2 text-sm font-medium"
+                      style={{ color: 'var(--text-secondary)' }}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Blog
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link
+              href="/sertifikasi"
+              className="block rounded-md px-3 py-2 text-base font-medium"
+              style={{ color: 'var(--text-primary)' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Sertifikasi
+            </Link>
+          </div>
+
           <Link
             href="mailto:info@3s-plywood.com"
-            className="btn-primary btn-icon"
+            className="btn-primary btn-icon w-full mt-4 justify-center"
+            onClick={() => setMobileMenuOpen(false)}
           >
             <Mail className="h-5 w-5" />
             Hubungi Kami
           </Link>
-        </div>
-
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          className="lg:hidden rounded-md p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          style={{ color: 'var(--text-primary)' }}
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-white border-t"
-            style={{ borderColor: 'var(--neutral-medium)' }}
-          >
-            <div className="space-y-1 px-6 py-4">
-              {/* Produk */}
-              <div className="space-y-2">
-                <button
-                  onClick={() => setProdukDropdownOpen(!produkDropdownOpen)}
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  Produk
-                  <ChevronDown className={`h-4 w-4 transition-transform ${produkDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {produkDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="space-y-1 pl-4"
-                    >
-                      {products.map((product) => (
-                        <Link
-                          key={product.slug}
-                          href={`/produk/${product.slug}`}
-                          className="block rounded-md px-3 py-2 text-sm font-medium"
-                          style={{ color: 'var(--text-secondary)' }}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {product.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Perusahaan */}
-              <div className="space-y-2">
-                <button
-                  onClick={() => setPerusahaanDropdownOpen(!perusahaanDropdownOpen)}
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  Perusahaan
-                  <ChevronDown className={`h-4 w-4 transition-transform ${perusahaanDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {perusahaanDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="space-y-1 pl-4"
-                    >
-                      <Link
-                        href="/tentang-kami"
-                        className="block rounded-md px-3 py-2 text-sm font-medium"
-                        style={{ color: 'var(--text-secondary)' }}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        Tentang Kami
-                      </Link>
-                      <Link
-                        href="/blog"
-                        className="block rounded-md px-3 py-2 text-sm font-medium"
-                        style={{ color: 'var(--text-secondary)' }}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        Blog
-                      </Link>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              <Link
-                href="/sertifikasi"
-                className="block rounded-md px-3 py-2 text-base font-medium"
-                style={{ color: 'var(--text-primary)' }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Sertifikasi
-              </Link>
-
-              <Link
-                href="mailto:info@3s-plywood.com"
-                className="btn-primary btn-icon block mt-4"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Mail className="h-5 w-5" />
-                Hubungi Kami
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
   )
 }

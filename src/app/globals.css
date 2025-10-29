@@ -977,7 +977,7 @@ a.elegant-link:hover::after {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 1rem 2.5rem;
+  padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 700;
   font-family: var(--font-primary);
