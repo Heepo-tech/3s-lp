@@ -4,26 +4,65 @@ import { motion } from 'framer-motion'
 import { Info, Eye } from 'lucide-react'
 import Link from 'next/link'
 
+import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
 
 export default function HeroSection() {
+  const heroMapDots = [
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 35.6762, lng: 139.6503 },
+    }, // Tokyo
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 31.2304, lng: 121.4737 },
+    }, // Shanghai
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 1.3521, lng: 103.8198 },
+    }, // Singapore
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 51.5074, lng: -0.1278 },
+    }, // London
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 40.7128, lng: -74.006 },
+    }, // New York
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 37.7749, lng: -122.4194 },
+    }, // San Francisco
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 25.2048, lng: 55.2708 },
+    }, // Dubai
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: -33.8688, lng: 151.2093 },
+    }, // Sydney
+    {
+      start: { lat: -6.2088, lng: 106.8456 },
+      end: { lat: 13.7563, lng: 100.5018 },
+    }, // Bangkok
+  ]
+
   return (
     <section
       className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
-      {/* Dot Pattern Background with Fade Effect */}
-      <div className="absolute inset-0 z-0">
-        {/* Dot Pattern */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'radial-gradient(rgba(82, 36, 5, 0.15) 2px, transparent 0)',
-            backgroundSize: '30px 30px',
-            backgroundPosition: '-5px -5px',
-          }}
+      {/* World Map Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <WorldMap
+          dots={heroMapDots}
+          lineColor="rgba(82, 36, 5, 0.25)"
+          mapDotsColor="rgba(82, 36, 5, 0.1)"
         />
+      </div>
+
+      {/* Fade Effects for World Map */}
+      <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Fade Effect - Top */}
         <div
           className="absolute top-0 left-0 right-0 h-32"

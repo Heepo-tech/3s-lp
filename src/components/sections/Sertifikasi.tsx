@@ -8,44 +8,58 @@ const certifications = [
     name: 'ISO 9001:2015',
     description: 'Quality Management System',
     year: '2020',
-    category: 'Quality'
+    category: 'Quality',
   },
   {
     name: 'FSC Certified',
     description: 'Forest Stewardship Council',
     year: '2019',
-    category: 'Sustainability'
+    category: 'Sustainability',
   },
   {
     name: 'ISO 14001:2015',
     description: 'Environmental Management',
     year: '2021',
-    category: 'Environment'
+    category: 'Environment',
   },
   {
     name: 'CARB P2',
     description: 'California Air Resources Board',
     year: '2020',
-    category: 'Safety'
+    category: 'Safety',
   },
   {
     name: 'CE Marking',
     description: 'European Conformity',
     year: '2021',
-    category: 'Standard'
+    category: 'Standard',
   },
   {
     name: 'JAS Standard',
     description: 'Japanese Agricultural Standard',
     year: '2022',
-    category: 'Quality'
-  }
+    category: 'Quality',
+  },
 ]
 
 export default function Sertifikasi() {
   return (
-    <section className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--neutral-white)' }}>
-      <div className="mx-auto max-w-7xl">
+    <section
+      className="relative py-20 px-6 lg:px-8"
+      style={{ backgroundColor: 'var(--neutral-white)' }}
+    >
+      {/* Dotted Background Pattern */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, rgba(82, 36, 5, 0.15) 2px, transparent 2px)',
+          backgroundSize: '40px 40px',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,19 +68,30 @@ export default function Sertifikasi() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <Award className="h-8 w-8" style={{ color: 'var(--primary-gold)' }} />
+            <Award
+              className="h-8 w-8"
+              style={{ color: 'var(--primary-gold)' }}
+            />
           </div>
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+            style={{
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-primary)',
+            }}
           >
-            Sertifikasi <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
+            Sertifikasi{' '}
+            <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
           </h2>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto"
-            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
-            Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan berbagai sertifikasi internasional
+            Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan
+            berbagai sertifikasi internasional
           </p>
         </motion.div>
 
@@ -100,21 +125,30 @@ export default function Sertifikasi() {
                   className="inline-flex rounded-lg p-3"
                   style={{ backgroundColor: 'var(--primary-cream)' }}
                 >
-                  <CheckCircle2 className="h-8 w-8" style={{ color: 'var(--primary-gold)' }} />
+                  <CheckCircle2
+                    className="h-8 w-8"
+                    style={{ color: 'var(--primary-gold)' }}
+                  />
                 </div>
               </div>
 
               {/* Content */}
               <h3
                 className="mb-2 text-2xl font-bold"
-                style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                style={{
+                  color: 'var(--text-primary)',
+                  fontFamily: 'var(--font-primary)',
+                }}
               >
                 {cert.name}
               </h3>
 
               <p
                 className="mb-4 text-base"
-                style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-secondary)',
+                }}
               >
                 {cert.description}
               </p>
@@ -146,20 +180,23 @@ export default function Sertifikasi() {
         >
           <h3
             className="text-2xl font-bold mb-3"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+            style={{
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-primary)',
+            }}
           >
             Ingin Mengetahui Lebih Lanjut?
           </h3>
           <p
             className="mb-6 text-base"
-            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
             Download katalog lengkap sertifikasi dan spesifikasi produk kami
           </p>
-          <a
-            href="/downloads/certifications.pdf"
-            className="btn-dark btn-icon"
-          >
+          <a href="/downloads/certifications.pdf" className="btn-dark btn-icon">
             <Award className="h-5 w-5" />
             Download Katalog Sertifikasi
           </a>

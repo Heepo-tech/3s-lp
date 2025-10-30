@@ -36,10 +36,21 @@ export default function Footer() {
 
   return (
     <footer
-      className="sticky z-0 bottom-0 left-0 w-full overflow-hidden"
+      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden"
       style={{ backgroundColor: '#2D1404' }}
     >
-      <div className="relative w-full h-full px-6 py-12 lg:px-8">
+      {/* Dotted Background Pattern */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, rgba(248, 244, 225, 0.08) 1.5px, transparent 1.5px)',
+          backgroundSize: '40px 40px',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      <div className="relative z-10 w-full h-full px-6 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Contact Info */}

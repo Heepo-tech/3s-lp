@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Package } from 'lucide-react'
+import Link from 'next/link'
 
 import { products } from '@/data/products'
 
@@ -11,8 +11,23 @@ export default function ProdukSection() {
   const featuredProducts = products.slice(0, 6)
 
   return (
-    <section id="produk" className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--neutral-white)' }}>
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="produk"
+      className="relative py-20 px-6 lg:px-8"
+      style={{ backgroundColor: 'var(--neutral-white)' }}
+    >
+      {/* Dotted Background Pattern */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, rgba(82, 36, 5, 0.15) 2px, transparent 2px)',
+          backgroundSize: '40px 40px',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,15 +38,23 @@ export default function ProdukSection() {
         >
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+            style={{
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-primary)',
+            }}
           >
-            Produk <span style={{ color: 'var(--primary-gold)' }}>Plywood</span> Kami
+            Produk <span style={{ color: 'var(--primary-gold)' }}>Plywood</span>{' '}
+            Kami
           </h2>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto"
-            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
-            Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan proyek Anda
+            Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan
+            proyek Anda
           </p>
         </motion.div>
 
@@ -49,25 +72,29 @@ export default function ProdukSection() {
                 href={`/produk/${product.slug}`}
                 className="group block h-full"
               >
-                <div className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                <div
+                  className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                   style={{
                     backgroundColor: 'var(--neutral-white)',
                     borderColor: 'var(--neutral-medium)',
                   }}
                 >
                   {/* Product Image */}
-                  <div className="relative h-64 overflow-hidden"
+                  <div
+                    className="relative h-64 overflow-hidden"
                     style={{ backgroundColor: 'var(--primary-cream)' }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-6xl font-bold opacity-10"
+                      <div
+                        className="text-6xl font-bold opacity-10"
                         style={{ color: 'var(--primary-brown)' }}
                       >
                         {product.category}
                       </div>
                     </div>
                     {/* Category Badge */}
-                    <div className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
+                    <div
+                      className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
                       style={{ background: 'var(--gradient-gold)' }}
                     >
                       {product.category}
@@ -76,28 +103,37 @@ export default function ProdukSection() {
 
                   {/* Product Info */}
                   <div className="p-6">
-                    <h3 className="mb-2 text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
-                      style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                    <h3
+                      className="mb-2 text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
+                      style={{
+                        color: 'var(--text-primary)',
+                        fontFamily: 'var(--font-primary)',
+                      }}
                     >
                       {product.name}
                     </h3>
 
-                    <p className="mb-4 text-sm leading-relaxed"
-                      style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                    <p
+                      className="mb-4 text-sm leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontFamily: 'var(--font-secondary)',
+                      }}
                     >
                       {product.shortDescription}
                     </p>
 
                     {/* Specifications */}
                     <div className="mb-4 space-y-2">
-                      <div className="flex items-center gap-2 text-xs"
+                      <div
+                        className="flex items-center gap-2 text-xs"
                         style={{ color: 'var(--text-muted)' }}
                       >
                         <span className="font-semibold">Grade:</span>
                         <span>{product.grade}</span>
                       </div>
                       <div className="flex flex-wrap gap-1">
-                        {product.thickness.slice(0, 4).map((thick) => (
+                        {product.thickness.slice(0, 4).map(thick => (
                           <span
                             key={thick}
                             className="rounded-md px-2 py-0.5 text-xs font-medium"
@@ -113,7 +149,8 @@ export default function ProdukSection() {
                     </div>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
+                    <div
+                      className="flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
                       style={{ color: 'var(--primary-gold)' }}
                     >
                       Lihat Detail
@@ -140,10 +177,7 @@ export default function ProdukSection() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <Link
-            href="/#produk"
-            className="btn-dark btn-icon"
-          >
+          <Link href="/#produk" className="btn-dark btn-icon">
             <Package className="h-5 w-5" />
             Lihat Semua Produk
             <ArrowRight className="h-5 w-5" />

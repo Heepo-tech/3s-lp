@@ -9,17 +9,19 @@ interface WorldMapProps {
     end: { lat: number; lng: number; label?: string }
   }>
   lineColor?: string
+  mapDotsColor?: string
 }
 
 export function WorldMap({
   dots = [],
   lineColor = 'rgba(82, 36, 5, 0.6)',
+  mapDotsColor = 'rgba(82, 36, 5, 0.3)',
 }: WorldMapProps) {
   const map = new DottedMap({ height: 100, grid: 'diagonal' })
 
   const svgMap = map.getSVG({
     radius: 0.22,
-    color: 'rgba(82, 36, 5, 0.3)',
+    color: mapDotsColor,
     shape: 'circle',
     backgroundColor: 'transparent',
   })
