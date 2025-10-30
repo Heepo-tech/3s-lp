@@ -12,7 +12,7 @@ import Sertifikasi from '@/components/sections/Sertifikasi'
 export default function Home() {
   return (
     <div
-      className="w-full overflow-auto"
+      className="w-full"
       style={{ backgroundColor: 'var(--primary-dark-brown)' }}
     >
       <Header />

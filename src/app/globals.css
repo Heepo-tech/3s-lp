@@ -121,6 +121,7 @@ body {
     'kern' 1,
     'liga' 1;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Typography Hierarchy - Compact & Clean */
