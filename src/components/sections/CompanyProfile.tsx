@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Globe, Award, Users, Factory } from 'lucide-react'
 
+import { WorldMapDemo } from '@/components/fancy/blocks/world-map-demo'
 import TextHighlighter from '@/components/fancy/text/text-highlighter'
 
 export default function CompanyProfile() {
@@ -236,6 +237,17 @@ export default function CompanyProfile() {
               m³ Kapasitas/Tahun
             </div>
           </div>
+        </motion.div>
+
+        {/* World Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-16"
+        >
+          <WorldMapDemo />
         </motion.div>
       </div>
     </section>

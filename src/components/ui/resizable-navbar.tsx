@@ -166,7 +166,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         ease: 'easeOut',
       }}
       className={cn(
-        'relative z-50 mx-auto flex w-full flex-col items-center justify-between bg-white/80 border border-neutral-200 px-6 py-2 lg:hidden rounded-full dark:bg-neutral-950/80 dark:border-neutral-800',
+        'relative z-50 mx-auto flex w-full flex-col items-center justify-between bg-white border border-neutral-200 px-6 py-2 lg:hidden rounded-2xl dark:bg-neutral-950 dark:border-neutral-800',
         className
       )}
     >
@@ -205,7 +205,7 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
           className={cn(
-            'w-full flex flex-col items-start justify-start gap-4 overflow-hidden px-0 py-4',
+            'w-full flex flex-col items-start justify-start gap-4 px-0 py-4',
             className
           )}
         >
