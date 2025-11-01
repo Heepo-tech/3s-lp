@@ -45,7 +45,7 @@ const certifications = [
 export default function Sertifikasi() {
   return (
     <section
-      className="relative py-20 px-6 lg:px-8"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--neutral-white)' }}
     >
       {/* Dotted Background Pattern */}
@@ -74,7 +74,7 @@ export default function Sertifikasi() {
             />
           </div>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
             style={{
               color: 'var(--text-primary)',
               fontFamily: 'var(--font-primary)',
@@ -84,7 +84,7 @@ export default function Sertifikasi() {
             <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
           </h2>
           <p
-            className="text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -95,7 +95,7 @@ export default function Sertifikasi() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -103,7 +103,7 @@ export default function Sertifikasi() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-xl border p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl border p-6 sm:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               style={{
                 backgroundColor: 'var(--neutral-white)',
                 borderColor: 'var(--neutral-medium)',
@@ -126,7 +126,7 @@ export default function Sertifikasi() {
                   style={{ backgroundColor: 'var(--primary-cream)' }}
                 >
                   <CheckCircle2
-                    className="h-8 w-8"
+                    className="h-6 w-6 sm:h-8 sm:w-8"
                     style={{ color: 'var(--primary-gold)' }}
                   />
                 </div>
@@ -134,7 +134,7 @@ export default function Sertifikasi() {
 
               {/* Content */}
               <h3
-                className="mb-2 text-2xl font-bold"
+                className="mb-2 text-xl sm:text-2xl font-bold"
                 style={{
                   color: 'var(--text-primary)',
                   fontFamily: 'var(--font-primary)',
@@ -144,7 +144,7 @@ export default function Sertifikasi() {
               </h3>
 
               <p
-                className="mb-4 text-base"
+                className="mb-3 sm:mb-4 text-sm sm:text-base"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -154,7 +154,7 @@ export default function Sertifikasi() {
               </p>
 
               <div
-                className="text-sm font-semibold"
+                className="text-xs sm:text-sm font-semibold"
                 style={{ color: 'var(--text-muted)' }}
               >
                 Certified since {cert.year}
@@ -175,11 +175,11 @@ export default function Sertifikasi() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-16 text-center p-8 rounded-2xl"
+          className="mt-12 sm:mt-16 text-center p-6 sm:p-8 rounded-2xl"
           style={{ background: 'var(--gradient-warm)' }}
         >
           <h3
-            className="text-2xl font-bold mb-3"
+            className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3"
             style={{
               color: 'var(--text-primary)',
               fontFamily: 'var(--font-primary)',
@@ -188,7 +188,7 @@ export default function Sertifikasi() {
             Ingin Mengetahui Lebih Lanjut?
           </h3>
           <p
-            className="mb-6 text-base"
+            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

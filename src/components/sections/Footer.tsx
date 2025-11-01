@@ -36,7 +36,8 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden"
+      id="footer"
+      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden pt-20 sm:pt-24"
       style={{ backgroundColor: '#2D1404' }}
     >
       {/* Dotted Background Pattern */}
@@ -50,9 +51,9 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10 w-full h-full px-6 py-12 lg:px-8">
+      <div className="relative z-10 w-full h-full px-4 sm:px-6 py-8 sm:py-10 md:py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <h3
@@ -62,7 +63,7 @@ export default function Footer() {
                 Kontak
               </h3>
               <div
-                className="space-y-2 text-sm"
+                className="space-y-2 text-xs sm:text-sm"
                 style={{ color: '#F8F7F3', opacity: 0.7 }}
               >
                 <div className="flex items-start gap-3">
@@ -72,7 +73,7 @@ export default function Footer() {
                   />
                   <div>
                     <div
-                      className="font-semibold mb-1"
+                      className="font-semibold mb-1 text-xs sm:text-sm"
                       style={{ color: '#F8F7F3' }}
                     >
                       Alamat Pabrik:
@@ -132,7 +133,7 @@ export default function Footer() {
             {/* Produk */}
             <div>
               <h3
-                className="mb-3 text-base font-semibold"
+                className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
                 Produk
@@ -159,7 +160,7 @@ export default function Footer() {
             {/* Perusahaan */}
             <div>
               <h3
-                className="mb-3 text-base font-semibold"
+                className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
                 Perusahaan
@@ -186,7 +187,7 @@ export default function Footer() {
             {/* Bantuan */}
             <div>
               <h3
-                className="mb-3 text-base font-semibold"
+                className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
                 Bantuan
@@ -213,13 +214,14 @@ export default function Footer() {
 
           {/* Google Maps Embed */}
           <div
-            className="mt-8 overflow-hidden rounded-xl border"
+            className="mt-6 sm:mt-8 overflow-hidden rounded-xl border"
             style={{ borderColor: 'rgba(248, 247, 243, 0.2)' }}
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d107.1534!3d-6.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwN8KwMDknMTIuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
               width="100%"
-              height="250"
+              height="200"
+              className="sm:h-[250px] md:h-[300px]"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -230,41 +232,53 @@ export default function Footer() {
 
           {/* Social Media & Copyright */}
           <div
-            className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row"
+            className="mt-6 sm:mt-8 flex flex-col items-center justify-between gap-4 border-t pt-4 sm:pt-6 md:flex-row"
             style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}
           >
-            <p className="text-sm" style={{ color: '#F8F7F3', opacity: 0.6 }}>
+            <p
+              className="text-xs sm:text-sm text-center md:text-left"
+              style={{ color: '#F8F7F3', opacity: 0.6 }}
+            >
               © {currentYear} PT. Sekawan Sahabat Sejati. All rights reserved.
             </p>
 
             {/* Social Media Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               <a
                 href="https://linkedin.com/company/3s-plywood"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
+                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
                 style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Linkedin className="h-5 w-5" style={{ color: '#F8F7F3' }} />
+                <Linkedin
+                  className="h-4 w-4 sm:h-5 sm:w-5"
+                  style={{ color: '#F8F7F3' }}
+                />
               </a>
               <a
                 href="https://instagram.com/3splywood"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
+                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
                 style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Instagram className="h-5 w-5" style={{ color: '#F8F7F3' }} />
+                <Instagram
+                  className="h-4 w-4 sm:h-5 sm:w-5"
+                  style={{ color: '#F8F7F3' }}
+                />
               </a>
               <a
                 href="https://facebook.com/3splywood"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
+                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg transition-all hover:scale-110"
                 style={{ backgroundColor: 'rgba(248, 247, 243, 0.1)' }}
               >
-                <Facebook className="h-5 w-5" style={{ color: '#F8F7F3' }} />
+                <Facebook
+                  className="h-4 w-4 sm:h-5 sm:w-5"
+                  style={{ color: '#F8F7F3' }}
+                />
               </a>
             </div>
           </div>
@@ -275,13 +289,13 @@ export default function Footer() {
           <h2
             className="font-black leading-none whitespace-nowrap"
             style={{
-              fontSize: 'clamp(60px, 8vw, 110px)',
+              fontSize: 'clamp(40px, 8vw, 110px)',
               color: '#F8F7F3',
               fontFamily: 'var(--font-primary)',
               letterSpacing: '-0.04em',
               opacity: 0.15,
               transform: 'translateY(35%)',
-              paddingLeft: '2rem',
+              paddingLeft: 'clamp(1rem, 2vw, 2rem)',
             }}
           >
             PT. Sekawan Sahabat Sejati

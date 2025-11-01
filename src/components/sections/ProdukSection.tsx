@@ -13,7 +13,7 @@ export default function ProdukSection() {
   return (
     <section
       id="produk"
-      className="relative py-20 px-6 lg:px-8"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--neutral-white)' }}
     >
       {/* Dotted Background Pattern */}
@@ -37,7 +37,7 @@ export default function ProdukSection() {
           className="text-center mb-16"
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
             style={{
               color: 'var(--text-primary)',
               fontFamily: 'var(--font-primary)',
@@ -47,7 +47,7 @@ export default function ProdukSection() {
             Kami
           </h2>
           <p
-            className="text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -59,7 +59,7 @@ export default function ProdukSection() {
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredProducts.map((product, index) => (
             <motion.div
               key={product.id}
@@ -81,7 +81,7 @@ export default function ProdukSection() {
                 >
                   {/* Product Image */}
                   <div
-                    className="relative h-64 overflow-hidden"
+                    className="relative h-48 sm:h-56 md:h-64 overflow-hidden"
                     style={{ backgroundColor: 'var(--primary-cream)' }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -102,9 +102,9 @@ export default function ProdukSection() {
                   </div>
 
                   {/* Product Info */}
-                  <div className="p-6">
+                  <div className="p-4 sm:p-6">
                     <h3
-                      className="mb-2 text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
+                      className="mb-2 text-xl sm:text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
                       style={{
                         color: 'var(--text-primary)',
                         fontFamily: 'var(--font-primary)',
@@ -114,7 +114,7 @@ export default function ProdukSection() {
                     </h3>
 
                     <p
-                      className="mb-4 text-sm leading-relaxed"
+                      className="mb-3 sm:mb-4 text-sm leading-relaxed"
                       style={{
                         color: 'var(--text-secondary)',
                         fontFamily: 'var(--font-secondary)',
@@ -136,7 +136,7 @@ export default function ProdukSection() {
                         {product.thickness.slice(0, 4).map(thick => (
                           <span
                             key={thick}
-                            className="rounded-md px-2 py-0.5 text-xs font-medium"
+                            className="rounded-md px-1.5 sm:px-2 py-0.5 text-xs font-medium"
                             style={{
                               backgroundColor: 'var(--primary-cream)',
                               color: 'var(--text-secondary)',
@@ -150,7 +150,7 @@ export default function ProdukSection() {
 
                     {/* CTA */}
                     <div
-                      className="flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
+                      className="flex items-center gap-2 text-xs sm:text-sm font-semibold group-hover:gap-3 transition-all"
                       style={{ color: 'var(--primary-gold)' }}
                     >
                       Lihat Detail

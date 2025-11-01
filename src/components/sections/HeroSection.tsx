@@ -49,11 +49,11 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* World Map Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none scale-150 sm:scale-125 md:scale-110 lg:scale-100">
         <WorldMap
           dots={heroMapDots}
           lineColor="rgba(82, 36, 5, 0.25)"
@@ -65,7 +65,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Fade Effect - Top */}
         <div
-          className="absolute top-0 left-0 right-0 h-32"
+          className="absolute top-0 left-0 right-0 h-16 sm:h-24 md:h-32"
           style={{
             background:
               'linear-gradient(to bottom, var(--primary-cream), transparent)',
@@ -73,7 +73,7 @@ export default function HeroSection() {
         />
         {/* Fade Effect - Bottom */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-32"
+          className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 md:h-32"
           style={{
             background:
               'linear-gradient(to top, var(--primary-cream), transparent)',
@@ -81,7 +81,7 @@ export default function HeroSection() {
         />
         {/* Fade Effect - Left */}
         <div
-          className="absolute top-0 bottom-0 left-0 w-32"
+          className="absolute top-0 bottom-0 left-0 w-16 sm:w-24 md:w-32"
           style={{
             background:
               'linear-gradient(to right, var(--primary-cream), transparent)',
@@ -89,7 +89,7 @@ export default function HeroSection() {
         />
         {/* Fade Effect - Right */}
         <div
-          className="absolute top-0 bottom-0 right-0 w-32"
+          className="absolute top-0 bottom-0 right-0 w-16 sm:w-24 md:w-32"
           style={{
             background:
               'linear-gradient(to left, var(--primary-cream), transparent)',
@@ -98,7 +98,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 text-center lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 text-center lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export default function HeroSection() {
             <div className="w-full flex justify-center">
               <div className="block w-full max-w-5xl text-center">
                 <VerticalCutReveal
-                  containerClassName="!flex !justify-center !items-center !w-full text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                  containerClassName="!flex !justify-center !items-center !w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
                   wordLevelClassName="!inline"
                   autoStart={true}
                 >
@@ -136,7 +136,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto max-w-3xl text-lg md:text-xl leading-relaxed"
+            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4"
             style={{
               fontFamily: 'var(--font-secondary)',
               color: 'var(--primary-brown)',
@@ -152,7 +152,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 w-full sm:w-auto"
           >
             <Link href="/tentang-kami" className="btn-primary btn-icon">
               <Info className="h-5 w-5" />

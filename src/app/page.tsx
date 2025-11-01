@@ -18,7 +18,7 @@ export default function Home() {
       <Header />
       {/* Main Content with higher z-index for sticky footer */}
       <div
-        className="relative z-10"
+        className="relative z-10 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <HeroSection />

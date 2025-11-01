@@ -17,7 +17,14 @@ export function WorldMap({
   lineColor = 'rgba(82, 36, 5, 0.6)',
   mapDotsColor = 'rgba(82, 36, 5, 0.3)',
 }: WorldMapProps) {
-  const map = new DottedMap({ height: 100, grid: 'diagonal' })
+  const map = new DottedMap({
+    height: 100,
+    grid: 'diagonal',
+    region: {
+      lat: { min: -45, max: 60 }, // Australia to North China
+      lng: { min: -180, max: 180 }, // Full width to include Americas
+    },
+  })
 
   const svgMap = map.getSVG({
     radius: 0.22,
@@ -27,8 +34,13 @@ export function WorldMap({
   })
 
   const projectPoint = (lat: number, lng: number) => {
-    const x = (lng + 180) * (800 / 360)
-    const y = (90 - lat) * (400 / 180)
+    const latMin = -45
+    const latMax = 60
+    const lngMin = -180
+    const lngMax = 180
+
+    const x = ((lng - lngMin) / (lngMax - lngMin)) * 800
+    const y = ((latMax - lat) / (latMax - latMin)) * 400
     return { x, y }
   }
 
@@ -43,10 +55,11 @@ export function WorldMap({
   }
 
   return (
-    <div className="w-full aspect-[2/1] bg-transparent relative font-sans">
+    <div className="w-full aspect-[3/2] sm:aspect-[2/1] bg-transparent relative font-sans">
       <svg
         viewBox="0 0 800 400"
         className="w-full h-full"
+        preserveAspectRatio="xMidYMid meet"
         style={{ filter: 'drop-shadow(0 0 10px rgba(82, 36, 5, 0.2))' }}
       >
         <image
@@ -87,7 +100,7 @@ export function WorldMap({
               <motion.circle
                 cx={startPoint.x}
                 cy={startPoint.y}
-                r="2"
+                r="1.5"
                 fill={lineColor}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{
@@ -104,7 +117,7 @@ export function WorldMap({
               <motion.circle
                 cx={endPoint.x}
                 cy={endPoint.y}
-                r="3"
+                r="2.5"
                 fill={lineColor}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{
@@ -121,7 +134,7 @@ export function WorldMap({
               <motion.circle
                 cx={endPoint.x}
                 cy={endPoint.y}
-                r="3"
+                r="2.5"
                 fill="none"
                 stroke={lineColor}
                 strokeWidth="1"

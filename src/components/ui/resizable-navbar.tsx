@@ -1,14 +1,10 @@
 'use client'
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
+import { useFooterVisibility } from '@/hooks/useFooterVisibility'
 import { cn } from '@/lib/utils'
 
 interface NavbarProps {
@@ -49,22 +45,24 @@ interface MobileNavMenuProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
-  const { scrollY } = useScroll()
-  const [visible, setVisible] = useState<boolean>(false)
-
-  useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest > 100) {
-      setVisible(true)
-    } else {
-      setVisible(false)
-    }
-  })
+  const [visible] = useState<boolean>(true) // Always visible
+  const isFooterVisible = useFooterVisibility(0.7)
 
   return (
     <motion.div
+      initial={{
+        paddingLeft: '0.5rem',
+        paddingRight: '0.5rem',
+        opacity: 1,
+        y: 0,
+        pointerEvents: 'auto',
+      }}
       animate={{
         paddingLeft: visible ? '0.5rem' : '0.75rem',
         paddingRight: visible ? '0.5rem' : '0.75rem',
+        opacity: isFooterVisible ? 0 : 1,
+        y: isFooterVisible ? -100 : 0,
+        pointerEvents: isFooterVisible ? 'none' : 'auto',
       }}
       transition={{
         type: 'tween',
@@ -110,7 +108,25 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         className
       )}
     >
-      {children}
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          // Only pass visible prop to custom components (non-HTML elements)
+          // Check if the element type is a string (HTML element) or a component
+          const isHTMLElement = typeof child.type === 'string'
+
+          if (isHTMLElement) {
+            // Don't pass visible to HTML elements
+            return child
+          } else {
+            // Pass visible to custom components
+            return React.cloneElement(
+              child as React.ReactElement<{ visible?: boolean }>,
+              { visible }
+            )
+          }
+        }
+        return child
+      })}
     </motion.div>
   )
 }

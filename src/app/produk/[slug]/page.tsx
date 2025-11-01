@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Header from '@/components/sections/Header'
+
 import Footer from '@/components/sections/Footer'
+import Header from '@/components/sections/Header'
 import ProductDetail from '@/components/sections/ProductDetail'
 import { getProductBySlug, getAllProductSlugs } from '@/data/products'
 
@@ -11,7 +12,7 @@ type Props = {
 
 export async function generateStaticParams() {
   const slugs = getAllProductSlugs()
-  return slugs.map((slug) => ({ slug }))
+  return slugs.map(slug => ({ slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -46,7 +47,10 @@ export default function ProductPage({ params }: Props) {
   return (
     <div className="w-full h-screen overflow-auto">
       {/* Main Content with higher z-index for sticky footer */}
-      <div className="relative z-10" style={{ backgroundColor: 'var(--primary-cream)' }}>
+      <div
+        className="relative z-10 pb-8 sm:pb-12"
+        style={{ backgroundColor: 'var(--primary-cream)' }}
+      >
         <Header />
         <ProductDetail product={product} />
       </div>

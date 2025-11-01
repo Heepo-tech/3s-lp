@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Mail } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   Navbar,
@@ -14,11 +14,20 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from '@/components/ui/resizable-navbar'
+import { useFooterVisibility } from '@/hooks/useFooterVisibility'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [produkDropdownOpen, setProdukDropdownOpen] = useState(false)
   const [perusahaanDropdownOpen, setPerusahaanDropdownOpen] = useState(false)
+  const isFooterVisible = useFooterVisibility(0.7)
+
+  // Auto-close mobile menu when footer becomes visible
+  useEffect(() => {
+    if (isFooterVisible && mobileMenuOpen) {
+      setMobileMenuOpen(false)
+    }
+  }, [isFooterVisible, mobileMenuOpen])
 
   const products = [
     { name: 'Plywood Standar', slug: 'plywood-standar' },
@@ -50,6 +59,29 @@ export default function Header() {
         </span>
       </div>
     </>
+  )
+
+  const CTAButtonWrapper = ({
+    children,
+    visible,
+  }: {
+    children: React.ReactNode
+    visible?: boolean
+  }) => (
+    <motion.div
+      animate={{
+        opacity: visible ? 1 : 0,
+        scale: visible ? 1 : 0.95,
+        x: visible ? 0 : 20,
+      }}
+      transition={{
+        type: 'tween',
+        duration: 0.3,
+        ease: 'easeOut',
+      }}
+    >
+      {children}
+    </motion.div>
   )
 
   return (
@@ -188,14 +220,16 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* CTA Button */}
-          <Link
-            href="mailto:info@3s-plywood.com"
-            className="btn-primary btn-icon"
-          >
-            <Mail className="h-5 w-5" />
-            Hubungi Kami
-          </Link>
+          {/* CTA Button - Wrapped with motion for synchronized animation */}
+          <CTAButtonWrapper>
+            <Link
+              href="mailto:info@3s-plywood.com"
+              className="btn-primary btn-icon"
+            >
+              <Mail className="h-5 w-5" />
+              Hubungi Kami
+            </Link>
+          </CTAButtonWrapper>
         </NavBody>
 
         {/* Mobile Navigation */}

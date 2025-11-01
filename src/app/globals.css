@@ -1014,6 +1014,27 @@ a.elegant-link:hover::after {
   box-shadow: 0 2px 8px rgba(82, 36, 5, 0.2);
 }
 
+.btn-primary:visited {
+  color: white;
+  background: var(--gradient-brown);
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.btn-primary:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow:
+    0 6px 16px rgba(82, 36, 5, 0.25),
+    0 0 0 3px rgba(82, 36, 5, 0.15);
+}
+
+.btn-primary:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -1148,7 +1169,7 @@ a.elegant-link:hover::after {
   font-weight: 700;
   font-family: var(--font-primary);
   color: var(--primary-brown);
-  background: transparent;
+  background: white;
   border: 2px solid var(--primary-brown);
   border-radius: 9999px;
   box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
@@ -1177,6 +1198,28 @@ a.elegant-link:hover::after {
 
 .btn-outline-dark:active {
   transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-dark:visited {
+  color: var(--primary-brown);
+  background: white;
+  border: 2px solid var(--primary-brown);
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.btn-outline-dark:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow:
+    0 4px 12px rgba(82, 36, 5, 0.1),
+    0 0 0 3px rgba(82, 36, 5, 0.15);
+}
+
+.btn-outline-dark:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
 }
 
 /* Button Size Variations */

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
 const clients = [
@@ -20,14 +21,14 @@ export default function ClientShowcase() {
   const clientItems = clients.map((client, index) => (
     <div
       key={index}
-      className="flex items-center justify-center h-24 w-48 mx-6 rounded-lg border transition-all duration-300 hover:shadow-md"
+      className="flex items-center justify-center h-16 sm:h-20 md:h-24 w-32 sm:w-40 md:w-48 mx-3 sm:mx-4 md:mx-6 rounded-lg border transition-all duration-300 hover:shadow-md"
       style={{
         backgroundColor: 'var(--neutral-white)',
         borderColor: 'var(--neutral-medium)',
       }}
     >
       <div
-        className="text-xl font-bold text-center px-4"
+        className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-center px-2 sm:px-4"
         style={{ color: 'var(--text-muted)' }}
       >
         {client.name}
@@ -36,7 +37,10 @@ export default function ClientShowcase() {
   ))
 
   return (
-    <section className="py-20 px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: 'var(--primary-cream)' }}>
+    <section
+      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      style={{ backgroundColor: 'var(--primary-cream)' }}
+    >
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,16 +50,26 @@ export default function ClientShowcase() {
           className="text-center mb-12"
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            style={{
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-primary)',
+            }}
           >
-            Dipercaya oleh <span style={{ color: 'var(--primary-gold)' }}>Perusahaan Terkemuka</span>
+            Dipercaya oleh{' '}
+            <span style={{ color: 'var(--primary-gold)' }}>
+              Perusahaan Terkemuka
+            </span>
           </h2>
           <p
-            className="text-lg md:text-xl max-w-3xl mx-auto"
-            style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
-            Lebih dari 100 perusahaan di seluruh dunia mempercayai kualitas produk kami
+            Lebih dari 100 perusahaan di seluruh dunia mempercayai kualitas
+            produk kami
           </p>
         </motion.div>
 

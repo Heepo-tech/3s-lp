@@ -36,7 +36,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="py-20 px-6 lg:px-8"
+      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       <div className="mx-auto max-w-4xl">
@@ -48,7 +48,7 @@ export default function FAQ() {
           className="text-center mb-16"
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
             style={{
               color: 'var(--text-primary)',
               fontFamily: 'var(--font-primary)',
@@ -60,7 +60,7 @@ export default function FAQ() {
             </span>
           </h2>
           <p
-            className="text-lg md:text-xl"
+            className="text-base sm:text-lg md:text-xl px-4 sm:px-0"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -92,7 +92,7 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="flex w-full items-center justify-between py-6 px-6 text-left transition-all duration-300"
+                className="flex w-full items-center justify-between py-4 sm:py-6 px-4 sm:px-6 text-left transition-all duration-300"
                 style={{
                   backgroundColor: 'transparent',
                   outline: 'none',
@@ -107,7 +107,7 @@ export default function FAQ() {
                 }}
               >
                 <span
-                  className="text-lg font-semibold pr-4"
+                  className="text-base sm:text-lg font-semibold pr-3 sm:pr-4"
                   style={{
                     color: 'var(--text-primary)',
                     fontFamily: 'var(--font-primary)',
@@ -127,7 +127,7 @@ export default function FAQ() {
                       transition={{ duration: 0.2 }}
                     >
                       <X
-                        className="h-5 w-5 flex-shrink-0"
+                        className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0"
                         style={{ color: 'var(--primary-brown)' }}
                       />
                     </motion.div>
@@ -139,7 +139,7 @@ export default function FAQ() {
                       transition={{ duration: 0.2 }}
                     >
                       <Plus
-                        className="h-5 w-5 flex-shrink-0"
+                        className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0"
                         style={{ color: 'var(--primary-brown)' }}
                       />
                     </motion.div>
@@ -157,7 +157,7 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div
-                      className="px-6 pb-6 pt-2 text-base leading-relaxed"
+                      className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 text-sm sm:text-base leading-relaxed"
                       style={{
                         color: 'var(--text-secondary)',
                         fontFamily: 'var(--font-secondary)',
@@ -178,7 +178,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 text-center p-8 rounded-2xl border-2 relative overflow-hidden"
+          className="mt-8 sm:mt-12 text-center p-6 sm:p-8 rounded-2xl border-2 relative overflow-hidden"
           style={{
             background: 'var(--gradient-warm)',
             borderColor: 'var(--primary-brown)',
@@ -206,14 +206,14 @@ export default function FAQ() {
             style={{ backgroundColor: 'rgba(82, 36, 5, 0.15)' }}
           >
             <MessageCircle
-              className="h-8 w-8"
+              className="h-6 w-6 sm:h-8 sm:w-8"
               style={{ color: 'var(--primary-brown)' }}
             />
           </motion.div>
 
           {/* Text */}
           <p
-            className="relative text-lg font-semibold mb-2"
+            className="relative text-base sm:text-lg font-semibold mb-2"
             style={{
               color: 'var(--text-primary)',
               fontFamily: 'var(--font-primary)',
@@ -222,7 +222,7 @@ export default function FAQ() {
             Masih ada pertanyaan?
           </p>
           <p
-            className="relative text-base mb-4"
+            className="relative text-sm sm:text-base mb-4 px-4 sm:px-0"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

@@ -6,7 +6,7 @@ import { Mail, FileText } from 'lucide-react'
 export default function CTASection() {
   return (
     <section
-      className="py-20 px-6 lg:px-8 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* Background Pattern */}
@@ -34,18 +34,18 @@ export default function CTASection() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="mb-8 inline-flex rounded-full p-4"
+            className="mb-6 sm:mb-8 inline-flex rounded-full p-3 sm:p-4"
             style={{ backgroundColor: 'rgba(254, 186, 23, 0.1)' }}
           >
             <FileText
-              className="h-12 w-12"
+              className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
               style={{ color: 'var(--primary-gold)' }}
             />
           </motion.div>
 
           {/* Headline */}
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0"
             style={{
               fontFamily: 'var(--font-primary)',
               color: 'var(--primary-dark-brown)',
@@ -57,7 +57,7 @@ export default function CTASection() {
 
           {/* Description */}
           <p
-            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto px-4 sm:px-0"
             style={{
               fontFamily: 'var(--font-secondary)',
               color: 'var(--primary-brown)',
@@ -68,14 +68,14 @@ export default function CTASection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto px-4 sm:px-0">
             <motion.a
               href="mailto:info@3s-plywood.com"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="btn-primary btn-icon w-full sm:flex-1"
+              className="btn-primary btn-icon w-full sm:w-auto sm:flex-1"
             >
               <Mail className="h-5 w-5" />
               Hubungi Kami Sekarang
@@ -87,7 +87,7 @@ export default function CTASection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="btn-outline-dark btn-icon w-full sm:flex-1"
+              className="btn-outline-dark btn-icon w-full sm:w-auto sm:flex-1"
             >
               <FileText className="h-5 w-5" />
               Request Quotation
@@ -100,10 +100,10 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-12 flex flex-wrap justify-center gap-8 text-sm"
+            className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm px-4 sm:px-0"
             style={{ color: 'var(--primary-brown)' }}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
               <span
                 className="font-semibold"
                 style={{ color: 'var(--primary-gold)' }}
@@ -112,7 +112,7 @@ export default function CTASection() {
               </span>
               <span>info@3s-plywood.com</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
               <span
                 className="font-semibold"
                 style={{ color: 'var(--primary-gold)' }}
@@ -121,7 +121,7 @@ export default function CTASection() {
               </span>
               <span>+62 21 1234 5678</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
               <span
                 className="font-semibold"
                 style={{ color: 'var(--primary-gold)' }}
