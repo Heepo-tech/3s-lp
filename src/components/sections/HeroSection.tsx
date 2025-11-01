@@ -56,19 +56,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 pointer-events-none scale-150 sm:scale-125 md:scale-110 lg:scale-100">
         <WorldMap
           dots={heroMapDots}
-          lineColor="rgba(82, 36, 5, 0.25)"
-          mapDotsColor="rgba(82, 36, 5, 0.1)"
+          lineColor="rgba(82, 36, 5, 0.35)"
+          mapDotsColor="rgba(82, 36, 5, 0.15)"
         />
       </div>
 
       {/* Fade Effects for World Map */}
       <div className="absolute inset-0 z-[2] pointer-events-none">
-        {/* Fade Effect - Top */}
+        {/* Fade Effect - Top (Extended and stronger) */}
         <div
-          className="absolute top-0 left-0 right-0 h-16 sm:h-24 md:h-32"
+          className="absolute top-0 left-0 right-0 h-48 sm:h-56 md:h-64 lg:h-72"
           style={{
             background:
-              'linear-gradient(to bottom, var(--primary-cream), transparent)',
+              'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 40%, transparent 100%)',
           }}
         />
         {/* Fade Effect - Bottom */}
