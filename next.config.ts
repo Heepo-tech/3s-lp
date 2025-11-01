@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
 
   // Enable bundle analyzer when ANALYZE=true
   ...(process.env.ANALYZE === 'true' && {

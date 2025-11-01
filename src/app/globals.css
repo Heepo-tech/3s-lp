@@ -1,61 +1,47 @@
 @import 'tailwindcss';
 
-/* Refined Minimalist Pastel Design System */
+/* PT. Sekawan Sahabat Sejati - Plywood Theme Color System */
 :root {
-  /* Primary Color Palette - Sophisticated Pastels */
-  --primary-cream: #f8f7f3; /* Main background - warm off-white */
-  --primary-soft-blue: #edf4fd; /* Refined soft blue */
-  --primary-pale-rose: #fdf4f4; /* Delicate rose accent */
-  --primary-sage: #f2f6f2; /* Elevated sage green */
-  --primary-lavender: #f7f4fe; /* Sophisticated lavender */
-  --primary-pearl: #f9f8f6; /* Warm pearl undertone */
-  --primary-mist: #f5f6f8; /* Cool mist accent */
+  /* Primary Color Palette - Minimalist 2-Color Theme */
+  --primary-cream: #f8f7f3; /* Main background - clean cream */
+  --primary-brown: #522405; /* Primary accent - deep brown */
+  --primary-dark-brown: #522405; /* Dark brown - same as primary */
+  --primary-soft-cream: #f8f7f3; /* Soft cream for cards */
+  --primary-warm-beige: #e8e6e1; /* Warm beige accent */
 
-  /* Text Colors - Refined Hierarchy */
-  --text-primary: #2c3e50; /* Refined charcoal for main text */
-  --text-secondary: #5a6c7d; /* Sophisticated gray for secondary */
-  --text-muted: #8b9caf; /* Elegant muted text */
-  --text-accent: #4a90e2; /* Premium blue accent */
-  --text-subtle: #b8c5d1; /* Very light text for hints */
+  /* Text Colors - Minimalist Hierarchy */
+  --text-primary: #522405; /* Dark brown for main text */
+  --text-secondary: #522405; /* Brown for secondary */
+  --text-muted: #8b7355; /* Lighter brown for muted text */
+  --text-accent: #522405; /* Brown accent (no gold) */
+  --text-subtle: #b89968; /* Light tan for hints */
 
-  /* Neutral Pastels - Enhanced Range */
-  --neutral-white: #fefefe; /* Pure white with warmth */
-  --neutral-light: #f9f8f6; /* Warm light gray */
-  --neutral-medium: #e8e6e3; /* Sophisticated medium gray */
-  --neutral-soft: #d4d2cf; /* Soft neutral */
-  --neutral-dark: #9b9b9b; /* Refined dark gray */
+  /* Neutral Tones - Clean Inspired */
+  --neutral-white: #ffffff; /* Pure white */
+  --neutral-light: #f8f7f3; /* Light cream */
+  --neutral-medium: #e8e6e1; /* Medium beige */
+  --neutral-soft: #d4c4a8; /* Soft tan */
+  --neutral-dark: #522405; /* Dark brown */
 
-  /* Semantic Colors - Refined Pastels */
-  --success-pastel: #edf7ed; /* Sophisticated green */
-  --warning-pastel: #fef9e7; /* Refined yellow */
-  --error-pastel: #fdf2f2; /* Elegant error red */
-  --info-pastel: var(--primary-soft-blue);
+  /* Semantic Colors - Subtle Theme */
+  --success-pastel: #e8f5e9; /* Soft green */
+  --warning-pastel: #fff8e1; /* Soft yellow */
+  --error-pastel: #ffebee; /* Soft red */
+  --info-pastel: #f8f7f3; /* Soft cream */
 
-  /* Gradient Backgrounds */
+  /* Gradient Backgrounds - Minimalist Gradients */
   --gradient-primary: linear-gradient(
     135deg,
-    var(--primary-cream) 0%,
-    var(--primary-pearl) 100%
+    #f8f7f3 0%,
+    rgba(82, 36, 5, 0.05) 100%
   );
-  --gradient-soft-blue: linear-gradient(
+  --gradient-brown: linear-gradient(135deg, #522405 0%, #3a1803 100%);
+  --gradient-warm: linear-gradient(135deg, #f8f7f3 0%, #e8e6e1 100%);
+  --gradient-subtle: linear-gradient(135deg, #ffffff 0%, #f8f7f3 100%);
+  --gradient-brown-soft: linear-gradient(
     135deg,
-    var(--primary-soft-blue) 0%,
-    #e3f2fd 100%
-  );
-  --gradient-rose: linear-gradient(
-    135deg,
-    var(--primary-pale-rose) 0%,
-    #fcf4f4 100%
-  );
-  --gradient-sage: linear-gradient(
-    135deg,
-    var(--primary-sage) 0%,
-    #eef4ee 100%
-  );
-  --gradient-subtle: linear-gradient(
-    135deg,
-    var(--neutral-white) 0%,
-    var(--neutral-light) 100%
+    rgba(82, 36, 5, 0.9) 0%,
+    rgba(82, 36, 5, 1) 100%
   );
 
   /* Typography */
@@ -102,19 +88,18 @@
     0 12px 24px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.08);
   --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.02);
 
-  /* Refined Color Shadows */
-  --shadow-blue:
-    0 4px 8px rgba(74, 144, 226, 0.08), 0 2px 4px rgba(74, 144, 226, 0.04);
-  --shadow-rose:
-    0 4px 8px rgba(253, 244, 244, 0.3), 0 2px 4px rgba(253, 244, 244, 0.2);
-  --shadow-sage:
-    0 4px 8px rgba(242, 246, 242, 0.3), 0 2px 4px rgba(242, 246, 242, 0.2);
+  /* Brown Color Shadows */
+  --shadow-brown:
+    0 4px 8px rgba(82, 36, 5, 0.2), 0 2px 4px rgba(82, 36, 5, 0.1);
+  --shadow-dark-brown:
+    0 8px 16px rgba(82, 36, 5, 0.25), 0 4px 8px rgba(82, 36, 5, 0.15);
 }
 
 @theme inline {
-  /* Tailwind CSS Custom Properties */
+  /* Tailwind CSS Custom Properties - Minimalist Theme */
   --color-primary-cream: var(--primary-cream);
-  --color-primary-soft-blue: var(--primary-soft-blue);
+  --color-primary-brown: var(--primary-brown);
+  --color-primary-dark-brown: var(--primary-dark-brown);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
@@ -136,6 +121,7 @@ body {
     'kern' 1,
     'liga' 1;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Typography Hierarchy - Compact & Clean */
@@ -282,8 +268,9 @@ a {
   position: relative;
 }
 
-a:hover {
-  color: #2c5aa0;
+/* Only apply hover color to regular links, not buttons */
+a:hover:not([class*='btn-']) {
+  color: var(--primary-dark-brown);
   text-decoration: none;
 }
 
@@ -305,7 +292,7 @@ a.elegant-link::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--text-accent), #2c5aa0);
+  background: var(--gradient-gold);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -371,8 +358,8 @@ a.elegant-link:hover::after {
   background: linear-gradient(
     135deg,
     var(--text-primary) 0%,
-    var(--text-accent) 70%,
-    #2c5aa0 100%
+    var(--primary-gold) 70%,
+    var(--primary-light-gold) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -983,6 +970,313 @@ a.elegant-link:hover::after {
 
 .prose-spacing h3 {
   margin-bottom: var(--space-lg);
+}
+
+/* Button Utility Classes - Minimalist 2-Color Theme */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: var(--gradient-brown);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-primary:hover {
+  color: white !important;
+  background: linear-gradient(135deg, #3a1803 0%, #522405 100%);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.35);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-primary.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(82, 36, 5, 0.2);
+}
+
+.btn-primary:visited {
+  color: white;
+  background: var(--gradient-brown);
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.btn-primary:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow:
+    0 6px 16px rgba(82, 36, 5, 0.25),
+    0 0 0 3px rgba(82, 36, 5, 0.15);
+}
+
+.btn-primary:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--primary-brown);
+  background: transparent;
+  border: 2px solid var(--primary-brown);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-secondary:hover {
+  color: white !important;
+  background: var(--gradient-brown);
+  border-color: var(--primary-brown);
+  box-shadow: 0 6px 18px rgba(82, 36, 5, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-secondary.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: var(--gradient-brown);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-dark:hover {
+  color: white !important;
+  background: linear-gradient(135deg, #3a1803 0%, #522405 100%);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-dark.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-dark.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-dark:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(82, 36, 5, 0.25);
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-outline-light:hover {
+  color: var(--primary-brown) !important;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-outline-light.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-light.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-outline-light:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--primary-brown);
+  background: white;
+  border: 2px solid var(--primary-brown);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-outline-dark:hover {
+  color: white !important;
+  background: var(--gradient-brown);
+  border-color: var(--primary-brown);
+  box-shadow: 0 8px 20px rgba(82, 36, 5, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Icon slide animation - subtle */
+.btn-outline-dark.btn-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-dark.btn-icon:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-outline-dark:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-dark:visited {
+  color: var(--primary-brown);
+  background: white;
+  border: 2px solid var(--primary-brown);
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.btn-outline-dark:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow:
+    0 4px 12px rgba(82, 36, 5, 0.1),
+    0 0 0 3px rgba(82, 36, 5, 0.15);
+}
+
+.btn-outline-dark:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
+}
+
+/* Button Size Variations */
+.btn-sm {
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1.25rem 3rem;
+  font-size: 1.125rem;
+}
+
+/* Button with Icon */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Responsive Button Styles */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-dark,
+  .btn-outline-light,
+  .btn-outline-dark {
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  .btn-sm {
+    padding: 0.625rem 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Reduce animation intensity on mobile */
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-dark:hover,
+  .btn-outline-light:hover,
+  .btn-outline-dark:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
 }
 
 /* Responsive Typography - Enhanced for Mobile */
