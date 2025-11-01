@@ -18,7 +18,8 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'PT. Sekawan Sahabat Sejati - Plywood Premium Berkualitas Internasional',
+    default:
+      'PT. Sekawan Sahabat Sejati - Plywood Premium Berkualitas Internasional',
     template: '%s | PT. Sekawan Sahabat Sejati',
   },
   description:
@@ -51,7 +52,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: process.env.NEXT_PUBLIC_APP_URL || 'https://www.3s-plywood.com',
-    title: 'PT. Sekawan Sahabat Sejati - Plywood Premium Bersertifikat Internasional',
+    title:
+      'PT. Sekawan Sahabat Sejati - Plywood Premium Bersertifikat Internasional',
     description:
       'Produsen plywood premium dengan sertifikasi internasional. Plywood kuat, presisi, dan ramah lingkungan untuk proyek Anda di pasar lokal dan internasional.',
     siteName: 'PT. Sekawan Sahabat Sejati',

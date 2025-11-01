@@ -25,8 +25,10 @@ export const products: Product[] = [
     name: 'Plywood Standar',
     slug: 'plywood-standar',
     category: 'Standard',
-    shortDescription: 'Plywood serbaguna untuk berbagai kebutuhan konstruksi dan furniture',
-    description: 'Plywood standar kami dirancang untuk memenuhi kebutuhan umum dalam konstruksi dan pembuatan furniture. Terbuat dari kayu berkualitas tinggi dengan proses produksi yang presisi, plywood ini menawarkan kekuatan dan daya tahan yang optimal untuk berbagai aplikasi.',
+    shortDescription:
+      'Plywood serbaguna untuk berbagai kebutuhan konstruksi dan furniture',
+    description:
+      'Plywood standar kami dirancang untuk memenuhi kebutuhan umum dalam konstruksi dan pembuatan furniture. Terbuat dari kayu berkualitas tinggi dengan proses produksi yang presisi, plywood ini menawarkan kekuatan dan daya tahan yang optimal untuk berbagai aplikasi.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm', 'Custom'],
     thickness: ['6mm', '9mm', '12mm', '15mm', '18mm', '21mm'],
     grade: 'BB/CC, C/D',
@@ -35,22 +37,22 @@ export const products: Product[] = [
       'Kekuatan struktural tinggi',
       'Mudah dipotong dan dibentuk',
       'Harga kompetitif',
-      'Stok selalu tersedia'
+      'Stok selalu tersedia',
     ],
     applications: [
       'Konstruksi rumah dan bangunan',
       'Furniture rumah tangga',
       'Packing dan crating',
       'Interior design',
-      'Partisi dan dinding'
+      'Partisi dan dinding',
     ],
     image: '/images/products/plywood-standar.jpg',
     specifications: {
       material: 'Hardwood/Softwood mix',
       glue: 'MR/WBP',
       moisture: '8-14%',
-      density: '550-700 kg/m³'
-    }
+      density: '550-700 kg/m³',
+    },
   },
   {
     id: '2',
@@ -58,7 +60,8 @@ export const products: Product[] = [
     slug: 'plywood-marine',
     category: 'Premium',
     shortDescription: 'Plywood tahan air untuk aplikasi maritim dan outdoor',
-    description: 'Plywood Marine grade premium dengan ketahanan air superior. Dibuat dengan lem WBP (Water Boil Proof) dan kayu pilihan, produk ini ideal untuk aplikasi yang terpapar air dan kelembaban tinggi.',
+    description:
+      'Plywood Marine grade premium dengan ketahanan air superior. Dibuat dengan lem WBP (Water Boil Proof) dan kayu pilihan, produk ini ideal untuk aplikasi yang terpapar air dan kelembaban tinggi.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm'],
     thickness: ['12mm', '15mm', '18mm', '21mm', '25mm'],
     grade: 'A/B, BB/BB',
@@ -67,30 +70,32 @@ export const products: Product[] = [
       'Lem WBP berkualitas tinggi',
       'Tidak mudah delaminasi',
       'Tahan terhadap jamur dan rayap',
-      'Cocok untuk outdoor'
+      'Cocok untuk outdoor',
     ],
     applications: [
       'Pembuatan kapal dan perahu',
       'Konstruksi dermaga',
       'Furniture outdoor',
       'Bathroom dan kitchen cabinet',
-      'Basement dan area lembab'
+      'Basement dan area lembab',
     ],
     image: '/images/products/plywood-marine.jpg',
     specifications: {
       material: '100% Hardwood',
       glue: 'WBP (Phenolic)',
       moisture: '8-12%',
-      density: '650-750 kg/m³'
-    }
+      density: '650-750 kg/m³',
+    },
   },
   {
     id: '3',
     name: 'Plywood Film Faced',
     slug: 'plywood-film-faced',
     category: 'Professional',
-    shortDescription: 'Plywood dengan lapisan film untuk bekisting dan formwork',
-    description: 'Film Faced Plywood dengan permukaan dilapisi film phenolic resin berkualitas tinggi. Sangat ideal untuk bekisting beton karena permukaannya yang halus, tahan air, dan dapat digunakan berulang kali.',
+    shortDescription:
+      'Plywood dengan lapisan film untuk bekisting dan formwork',
+    description:
+      'Film Faced Plywood dengan permukaan dilapisi film phenolic resin berkualitas tinggi. Sangat ideal untuk bekisting beton karena permukaannya yang halus, tahan air, dan dapat digunakan berulang kali.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm'],
     thickness: ['12mm', '15mm', '18mm', '21mm'],
     grade: 'A/A',
@@ -99,30 +104,32 @@ export const products: Product[] = [
       'Tahan air dan cuaca ekstrem',
       'Dapat digunakan 15-20 kali',
       'Hasil cor beton halus',
-      'Mudah dibersihkan'
+      'Mudah dibersihkan',
     ],
     applications: [
       'Bekisting beton',
       'Formwork konstruksi',
       'Concrete shuttering',
       'Proyek infrastruktur',
-      'High-rise building'
+      'High-rise building',
     ],
     image: '/images/products/plywood-film-faced.jpg',
     specifications: {
       material: 'Birch/Hardwood',
       glue: 'WBP (Phenolic)',
       moisture: '8-12%',
-      density: '700-800 kg/m³'
-    }
+      density: '700-800 kg/m³',
+    },
   },
   {
     id: '4',
     name: 'Plywood Decorative',
     slug: 'plywood-decorative',
     category: 'Premium',
-    shortDescription: 'Plywood dekoratif dengan finish natural untuk interior mewah',
-    description: 'Plywood dekoratif premium dengan veneer kayu pilihan untuk hasil finishing yang indah. Cocok untuk interior mewah, furniture high-end, dan aplikasi yang mengutamakan estetika.',
+    shortDescription:
+      'Plywood dekoratif dengan finish natural untuk interior mewah',
+    description:
+      'Plywood dekoratif premium dengan veneer kayu pilihan untuk hasil finishing yang indah. Cocok untuk interior mewah, furniture high-end, dan aplikasi yang mengutamakan estetika.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm', 'Custom'],
     thickness: ['6mm', '9mm', '12mm', '15mm', '18mm'],
     grade: 'A/A, A/B',
@@ -131,22 +138,22 @@ export const products: Product[] = [
       'Motif kayu alami indah',
       'Permukaan siap finishing',
       'Warna dan tekstur konsisten',
-      'Berbagai pilihan veneer'
+      'Berbagai pilihan veneer',
     ],
     applications: [
       'Interior design premium',
       'Furniture mewah',
       'Wall paneling',
       'Ceiling dekoratif',
-      'Custom woodwork'
+      'Custom woodwork',
     ],
     image: '/images/products/plywood-decorative.jpg',
     specifications: {
       material: 'Premium Hardwood',
       glue: 'E1 Low Emission',
       moisture: '8-12%',
-      density: '600-700 kg/m³'
-    }
+      density: '600-700 kg/m³',
+    },
   },
   {
     id: '5',
@@ -154,7 +161,8 @@ export const products: Product[] = [
     slug: 'plywood-commercial',
     category: 'Standard',
     shortDescription: 'Plywood komersial ekonomis untuk proyek skala besar',
-    description: 'Plywood komersial dengan kualitas standar dan harga ekonomis. Ideal untuk proyek-proyek skala besar yang membutuhkan volume tinggi dengan budget efisien.',
+    description:
+      'Plywood komersial dengan kualitas standar dan harga ekonomis. Ideal untuk proyek-proyek skala besar yang membutuhkan volume tinggi dengan budget efisien.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm'],
     thickness: ['9mm', '12mm', '15mm', '18mm'],
     grade: 'C/D, D/E',
@@ -163,22 +171,22 @@ export const products: Product[] = [
       'Tersedia dalam volume besar',
       'Kualitas konsisten',
       'Cocok untuk mass production',
-      'Delivery cepat'
+      'Delivery cepat',
     ],
     applications: [
       'Packing dan export crating',
       'Furniture produksi massal',
       'Konstruksi sementara',
       'Pallet dan container flooring',
-      'General purpose'
+      'General purpose',
     ],
     image: '/images/products/plywood-commercial.jpg',
     specifications: {
       material: 'Mixed Hardwood',
       glue: 'MR',
       moisture: '8-14%',
-      density: '500-650 kg/m³'
-    }
+      density: '500-650 kg/m³',
+    },
   },
   {
     id: '6',
@@ -186,7 +194,8 @@ export const products: Product[] = [
     slug: 'plywood-engineered',
     category: 'Professional',
     shortDescription: 'Plywood engineered untuk aplikasi struktural demanding',
-    description: 'Engineered Plywood dengan standar struktural tinggi. Dirancang khusus untuk aplikasi yang membutuhkan kekuatan dan stabilitas dimensional superior.',
+    description:
+      'Engineered Plywood dengan standar struktural tinggi. Dirancang khusus untuk aplikasi yang membutuhkan kekuatan dan stabilitas dimensional superior.',
     sizes: ['1220 x 2440 mm', '1250 x 2500 mm'],
     thickness: ['12mm', '15mm', '18mm', '21mm', '25mm'],
     grade: 'B/BB, BB/CC',
@@ -195,23 +204,23 @@ export const products: Product[] = [
       'Stabilitas dimensional tinggi',
       'Minimal warping',
       'Certified structural grade',
-      'Konsisten layer by layer'
+      'Konsisten layer by layer',
     ],
     applications: [
       'Structural flooring',
       'Roof decking',
       'Industrial application',
       'Heavy duty furniture',
-      'Engineered construction'
+      'Engineered construction',
     ],
     image: '/images/products/plywood-engineered.jpg',
     specifications: {
       material: 'Select Hardwood',
       glue: 'WBP',
       moisture: '8-12%',
-      density: '650-750 kg/m³'
-    }
-  }
+      density: '650-750 kg/m³',
+    },
+  },
 ]
 
 export function getProductBySlug(slug: string): Product | undefined {
