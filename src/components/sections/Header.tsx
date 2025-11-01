@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Mail } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
@@ -38,11 +39,15 @@ export default function Header() {
 
   const LogoContent = () => (
     <>
-      <div
-        className="flex h-9 w-9 items-center justify-center rounded-lg font-bold text-white"
-        style={{ background: 'var(--gradient-brown)' }}
-      >
-        <span className="text-base">3S</span>
+      <div className="flex h-10 w-10 items-center justify-center">
+        <Image
+          src="/Logo.PNG"
+          alt="PT. Sekawan Sahabat Sejati Logo"
+          width={40}
+          height={40}
+          className="object-contain"
+          priority
+        />
       </div>
       <div className="hidden md:flex flex-col">
         <span

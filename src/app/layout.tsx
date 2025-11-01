@@ -85,6 +85,19 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/Logo.PNG', sizes: '32x32', type: 'image/png' },
+      { url: '/Logo.PNG', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/Logo.PNG', sizes: '180x180', type: 'image/png' }],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/Logo.PNG',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
