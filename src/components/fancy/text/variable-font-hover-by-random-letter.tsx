@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { useMemo } from "react"
-import { motion, Transition } from "motion/react"
+import { motion, Transition } from 'motion/react'
+import { useMemo } from 'react'
 
 // Function to shuffle an array
 function shuffleArray(array: number[]) {
@@ -26,7 +26,7 @@ const VariableFontHoverByRandomLetter = ({
   fromFontVariationSettings = "'wght' 400, 'slnt' 0",
   toFontVariationSettings = "'wght' 900, 'slnt' -10",
   transition = {
-    type: "spring",
+    type: 'spring',
     duration: 0.7,
   },
   staggerDuration = 0.03,
@@ -67,7 +67,7 @@ const VariableFontHoverByRandomLetter = ({
     >
       <span className="sr-only">{label}</span>
 
-      {label.split("").map((letter: string, i: number) => {
+      {label.split('').map((letter: string, i: number) => {
         const index = shuffledIndices[i]
         return (
           <motion.span

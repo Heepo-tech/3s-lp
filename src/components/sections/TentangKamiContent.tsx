@@ -1,9 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 import { Users, Award, Target, Heart } from 'lucide-react'
-import Image from 'next/image'
+
+import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
 const achievements = [
   { year: '1998', title: 'Berdiri sebagai produsen plywood' },
@@ -18,23 +18,27 @@ const values = [
   {
     icon: Users,
     title: 'Integritas',
-    description: 'Menjalankan bisnis dengan transparansi dan kejujuran dalam setiap aspek operasional kami.'
+    description:
+      'Menjalankan bisnis dengan transparansi dan kejujuran dalam setiap aspek operasional kami.',
   },
   {
     icon: Award,
     title: 'Kualitas',
-    description: 'Komitmen terhadap standar kualitas tertinggi dalam setiap produk yang kami hasilkan.'
+    description:
+      'Komitmen terhadap standar kualitas tertinggi dalam setiap produk yang kami hasilkan.',
   },
   {
     icon: Target,
     title: 'Inovasi',
-    description: 'Terus berinovasi untuk menghadirkan solusi terbaik dan teknologi terkini di industri plywood.'
+    description:
+      'Terus berinovasi untuk menghadirkan solusi terbaik dan teknologi terkini di industri plywood.',
   },
   {
     icon: Heart,
     title: 'Keberlanjutan',
-    description: 'Peduli terhadap lingkungan dengan praktik bisnis berkelanjutan dan ramah lingkungan.'
-  }
+    description:
+      'Peduli terhadap lingkungan dengan praktik bisnis berkelanjutan dan ramah lingkungan.',
+  },
 ]
 
 export default function TentangKamiContent() {
@@ -49,13 +53,19 @@ export default function TentangKamiContent() {
     >
       <div
         className="mb-3 text-4xl font-bold"
-        style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-primary)' }}
+        style={{
+          color: 'var(--primary-gold)',
+          fontFamily: 'var(--font-primary)',
+        }}
       >
         {achievement.year}
       </div>
       <div
         className="text-center text-sm font-medium"
-        style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+        style={{
+          color: 'var(--text-secondary)',
+          fontFamily: 'var(--font-secondary)',
+        }}
       >
         {achievement.title}
       </div>
@@ -65,12 +75,19 @@ export default function TentangKamiContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: 'var(--primary-dark-brown)' }}>
+      <section
+        className="relative py-20 px-6 lg:px-8 overflow-hidden"
+        style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+      >
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, var(--primary-gold) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 20% 50%, var(--primary-gold) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+            }}
+          />
         </div>
 
         <div className="relative mx-auto max-w-4xl text-center">
@@ -83,20 +100,27 @@ export default function TentangKamiContent() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
               style={{ fontFamily: 'var(--font-primary)' }}
             >
-              Tentang <span style={{ color: 'var(--primary-gold)' }}>PT. Sekawan Sahabat Sejati</span>
+              Tentang{' '}
+              <span style={{ color: 'var(--primary-gold)' }}>
+                PT. Sekawan Sahabat Sejati
+              </span>
             </h1>
             <p
               className="text-lg md:text-xl text-white/80 leading-relaxed"
               style={{ fontFamily: 'var(--font-secondary)' }}
             >
-              Lebih dari 25 tahun menjadi mitra terpercaya dalam industri plywood premium
+              Lebih dari 25 tahun menjadi mitra terpercaya dalam industri
+              plywood premium
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Perjalanan Kami - Marquee Section */}
-      <section className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--primary-cream)' }}>
+      <section
+        className="py-20 px-6 lg:px-8"
+        style={{ backgroundColor: 'var(--primary-cream)' }}
+      >
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -107,13 +131,20 @@ export default function TentangKamiContent() {
           >
             <h2
               className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
-              Perjalanan <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+              Perjalanan{' '}
+              <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
             </h2>
             <p
               className="text-lg md:text-xl max-w-3xl mx-auto"
-              style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
             >
               Milestone penting dalam sejarah perusahaan kami
             </p>
@@ -137,7 +168,10 @@ export default function TentangKamiContent() {
       </section>
 
       {/* Visi & Misi */}
-      <section className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--neutral-white)' }}>
+      <section
+        className="py-20 px-6 lg:px-8"
+        style={{ backgroundColor: 'var(--neutral-white)' }}
+      >
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
@@ -153,15 +187,23 @@ export default function TentangKamiContent() {
             >
               <h3
                 className="text-3xl font-bold mb-6"
-                style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                style={{
+                  color: 'var(--text-primary)',
+                  fontFamily: 'var(--font-primary)',
+                }}
               >
                 Visi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
               </h3>
               <p
                 className="text-lg leading-relaxed"
-                style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-secondary)',
+                }}
               >
-                Menjadi produsen plywood terdepan di Asia Tenggara yang diakui secara internasional atas komitmen terhadap kualitas, inovasi, dan keberlanjutan lingkungan.
+                Menjadi produsen plywood terdepan di Asia Tenggara yang diakui
+                secara internasional atas komitmen terhadap kualitas, inovasi,
+                dan keberlanjutan lingkungan.
               </p>
             </motion.div>
 
@@ -178,22 +220,40 @@ export default function TentangKamiContent() {
             >
               <h3
                 className="text-3xl font-bold mb-6"
-                style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                style={{
+                  color: 'var(--text-primary)',
+                  fontFamily: 'var(--font-primary)',
+                }}
               >
                 Misi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
               </h3>
-              <ul className="space-y-3 text-base leading-relaxed" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}>
+              <ul
+                className="space-y-3 text-base leading-relaxed"
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-secondary)',
+                }}
+              >
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>Menghasilkan produk plywood berkualitas tinggi dengan standar internasional</span>
+                  <span>
+                    Menghasilkan produk plywood berkualitas tinggi dengan
+                    standar internasional
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>Memberikan solusi terbaik untuk kebutuhan industri dan konstruksi</span>
+                  <span>
+                    Memberikan solusi terbaik untuk kebutuhan industri dan
+                    konstruksi
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>Menjalankan praktik bisnis berkelanjutan yang ramah lingkungan</span>
+                  <span>
+                    Menjalankan praktik bisnis berkelanjutan yang ramah
+                    lingkungan
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
@@ -206,7 +266,10 @@ export default function TentangKamiContent() {
       </section>
 
       {/* Nilai-nilai Kami */}
-      <section className="py-20 px-6 lg:px-8" style={{ background: 'var(--gradient-warm)' }}>
+      <section
+        className="py-20 px-6 lg:px-8"
+        style={{ background: 'var(--gradient-warm)' }}
+      >
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -217,13 +280,20 @@ export default function TentangKamiContent() {
           >
             <h2
               className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
-              Nilai-nilai <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+              Nilai-nilai{' '}
+              <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
             </h2>
             <p
               className="text-lg md:text-xl max-w-3xl mx-auto"
-              style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
             >
               Prinsip-prinsip yang menjadi fondasi kesuksesan kami
             </p>
@@ -246,17 +316,26 @@ export default function TentangKamiContent() {
                     className="mb-4 inline-flex rounded-xl p-4"
                     style={{ backgroundColor: 'var(--primary-cream)' }}
                   >
-                    <Icon className="h-8 w-8" style={{ color: 'var(--primary-gold)' }} />
+                    <Icon
+                      className="h-8 w-8"
+                      style={{ color: 'var(--primary-gold)' }}
+                    />
                   </div>
                   <h3
                     className="mb-3 text-xl font-bold"
-                    style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                    style={{
+                      color: 'var(--text-primary)',
+                      fontFamily: 'var(--font-primary)',
+                    }}
                   >
                     {value.title}
                   </h3>
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                    style={{
+                      color: 'var(--text-secondary)',
+                      fontFamily: 'var(--font-secondary)',
+                    }}
                   >
                     {value.description}
                   </p>
@@ -268,7 +347,10 @@ export default function TentangKamiContent() {
       </section>
 
       {/* Tim & Fasilitas */}
-      <section className="py-20 px-6 lg:px-8" style={{ backgroundColor: 'var(--primary-cream)' }}>
+      <section
+        className="py-20 px-6 lg:px-8"
+        style={{ backgroundColor: 'var(--primary-cream)' }}
+      >
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -279,24 +361,60 @@ export default function TentangKamiContent() {
             >
               <h2
                 className="text-3xl md:text-4xl font-bold mb-6"
-                style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-primary)' }}
+                style={{
+                  color: 'var(--text-primary)',
+                  fontFamily: 'var(--font-primary)',
+                }}
               >
-                Tim Profesional & Fasilitas <span style={{ color: 'var(--primary-gold)' }}>Modern</span>
+                Tim Profesional & Fasilitas{' '}
+                <span style={{ color: 'var(--primary-gold)' }}>Modern</span>
               </h2>
               <p
                 className="text-lg leading-relaxed mb-6"
-                style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-secondary)' }}
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontFamily: 'var(--font-secondary)',
+                }}
               >
-                Didukung oleh lebih dari 500 karyawan terampil dan fasilitas produksi berteknologi tinggi seluas 10 hektar. Kami memiliki mesin-mesin modern dari Jerman dan Jepang untuk menghasilkan plywood dengan presisi tinggi.
+                Didukung oleh lebih dari 500 karyawan terampil dan fasilitas
+                produksi berteknologi tinggi seluas 10 hektar. Kami memiliki
+                mesin-mesin modern dari Jerman dan Jepang untuk menghasilkan
+                plywood dengan presisi tinggi.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <div className="text-4xl font-bold mb-2" style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}>500+</div>
-                  <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Karyawan Terampil</div>
+                  <div
+                    className="text-4xl font-bold mb-2"
+                    style={{
+                      color: 'var(--primary-dark-brown)',
+                      fontFamily: 'var(--font-primary)',
+                    }}
+                  >
+                    500+
+                  </div>
+                  <div
+                    className="text-sm"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    Karyawan Terampil
+                  </div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-2" style={{ color: 'var(--primary-dark-brown)', fontFamily: 'var(--font-primary)' }}>10Ha</div>
-                  <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Luas Pabrik</div>
+                  <div
+                    className="text-4xl font-bold mb-2"
+                    style={{
+                      color: 'var(--primary-dark-brown)',
+                      fontFamily: 'var(--font-primary)',
+                    }}
+                  >
+                    10Ha
+                  </div>
+                  <div
+                    className="text-sm"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    Luas Pabrik
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -308,7 +426,8 @@ export default function TentangKamiContent() {
               transition={{ duration: 0.6 }}
               className="rounded-2xl overflow-hidden"
             >
-              <div className="aspect-video rounded-2xl flex items-center justify-center text-white text-2xl font-bold"
+              <div
+                className="aspect-video rounded-2xl flex items-center justify-center text-white text-2xl font-bold"
                 style={{ background: 'var(--gradient-brown)' }}
               >
                 [Factory Image/Video Placeholder]

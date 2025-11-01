@@ -1,4 +1,3 @@
-import { RefObject, useRef } from "react"
 import {
   motion,
   SpringOptions,
@@ -8,9 +7,10 @@ import {
   useSpring,
   useTransform,
   useVelocity,
-} from "motion/react"
+} from 'motion/react'
+import { RefObject, useRef } from 'react'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 // Custom wrap function
 const wrap = (min: number, max: number, value: number): number => {
@@ -21,7 +21,7 @@ const wrap = (min: number, max: number, value: number): number => {
 interface SimpleMarqueeProps {
   children: React.ReactNode // The elements to be scrolled
   className?: string // Additional CSS classes for the container
-  direction?: "left" | "right" | "up" | "down" // The direction of the marquee
+  direction?: 'left' | 'right' | 'up' | 'down' // The direction of the marquee
   baseVelocity?: number // The base velocity of the marquee in pixels per second
   easing?: (value: number) => number // The easing function for the animation
   slowdownOnHover?: boolean // Whether to slow down the animation on hover
@@ -43,7 +43,7 @@ interface SimpleMarqueeProps {
 const SimpleMarquee = ({
   children,
   className,
-  direction = "right",
+  direction = 'right',
   baseVelocity = 5,
   slowdownOnHover = false,
   slowDownFactor = 0.3,
@@ -95,11 +95,11 @@ const SimpleMarquee = ({
   )
 
   // Determine if movement is horizontal or vertical.
-  const isHorizontal = direction === "left" || direction === "right"
+  const isHorizontal = direction === 'left' || direction === 'right'
 
   // Convert baseVelocity to the correct direction
   const actualBaseVelocity =
-    direction === "left" || direction === "up" ? -baseVelocity : baseVelocity
+    direction === 'left' || direction === 'up' ? -baseVelocity : baseVelocity
 
   // Reference to track if mouse is hovering
   const isHovered = useRef(false)
@@ -109,12 +109,12 @@ const SimpleMarquee = ({
 
   // Transform baseX/baseY into a percentage for the transform
   // The wrap function ensures the value stays between 0 and -100
-  const x = useTransform(baseX, (v) => {
+  const x = useTransform(baseX, v => {
     // Apply easing if provided, otherwise use linear (v directly)
     const wrappedValue = wrap(0, -100, v)
     return `${easing ? easing(wrappedValue / -100) * -100 : wrappedValue}%`
   })
-  const y = useTransform(baseY, (v) => {
+  const y = useTransform(baseY, v => {
     // Apply easing if provided, otherwise use linear (v directly)
     const wrappedValue = wrap(0, -100, v)
     return `${easing ? easing(wrappedValue / -100) * -100 : wrappedValue}%`
@@ -198,7 +198,7 @@ const SimpleMarquee = ({
     ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
 
     if (grabCursor) {
-      ;(e.currentTarget as HTMLElement).style.cursor = "grabbing"
+      ;(e.currentTarget as HTMLElement).style.cursor = 'grabbing'
     }
 
     isDragging.current = true
@@ -244,7 +244,7 @@ const SimpleMarquee = ({
 
   return (
     <motion.div
-      className={cn("flex", isHorizontal ? "flex-row" : "flex-col", className)}
+      className={cn('flex', isHorizontal ? 'flex-row' : 'flex-col', className)}
       onHoverStart={() => (isHovered.current = true)}
       onHoverEnd={() => (isHovered.current = false)}
       onPointerDown={handlePointerDown}
@@ -252,13 +252,13 @@ const SimpleMarquee = ({
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      {Array.from({ length: repeat }, (_, i) => i).map((i) => (
+      {Array.from({ length: repeat }, (_, i) => i).map(i => (
         <motion.div
           key={i}
           className={cn(
-            "shrink-0",
-            isHorizontal && "flex",
-            draggable && grabCursor && "cursor-grab"
+            'shrink-0',
+            isHorizontal && 'flex',
+            draggable && grabCursor && 'cursor-grab'
           )}
           style={isHorizontal ? { x } : { y }}
           aria-hidden={i > 0}

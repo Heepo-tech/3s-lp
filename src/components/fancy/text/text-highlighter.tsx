@@ -1,5 +1,6 @@
-"use client"
+'use client'
 
+import { motion, Transition, useInView, UseInViewOptions } from 'motion/react'
 import {
   ElementType,
   forwardRef,
@@ -8,12 +9,11 @@ import {
   useMemo,
   useRef,
   useState,
-} from "react"
-import { motion, Transition, useInView, UseInViewOptions } from "motion/react"
+} from 'react'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
-type HighlightDirection = "ltr" | "rtl" | "ttb" | "btt"
+type HighlightDirection = 'ltr' | 'rtl' | 'ttb' | 'btt'
 
 type TextHighlighterProps = {
   /**
@@ -31,7 +31,7 @@ type TextHighlighterProps = {
    * How to trigger the animation
    * @default "inView"
    */
-  triggerType?: "hover" | "ref" | "inView" | "auto"
+  triggerType?: 'hover' | 'ref' | 'inView' | 'auto'
 
   /**
    * Animation transition configuration
@@ -82,17 +82,17 @@ export const TextHighlighter = forwardRef<
   (
     {
       children,
-      as = "span",
-      triggerType = "inView",
-      transition = { type: "spring", duration: 1, delay: 0, bounce: 0 },
+      as = 'span',
+      triggerType = 'inView',
+      transition = { type: 'spring', duration: 1, delay: 0, bounce: 0 },
       useInViewOptions = {
         once: true,
         initial: false,
         amount: 0.1,
       },
       className,
-      highlightColor = "hsl(25, 90%, 80%)",
-      direction = "ltr",
+      highlightColor = 'hsl(25, 90%, 80%)',
+      direction = 'ltr',
       ...props
     },
     ref
@@ -108,10 +108,9 @@ export const TextHighlighter = forwardRef<
       setCurrentDirection(direction)
     }, [direction])
 
-    const isInView =
-      triggerType === "inView"
-        ? useInView(componentRef, useInViewOptions)
-        : false
+    // Call hook unconditionally, then use the result conditionally
+    const inViewResult = useInView(componentRef, useInViewOptions)
+    const isInView = triggerType === 'inView' ? inViewResult : false
 
     useImperativeHandle(ref, () => ({
       animate: (animationDirection?: HighlightDirection) => {
@@ -124,72 +123,81 @@ export const TextHighlighter = forwardRef<
     }))
 
     const shouldAnimate =
-      triggerType === "hover"
+      triggerType === 'hover'
         ? isHovered
-        : triggerType === "inView"
+        : triggerType === 'inView'
           ? isInView
-          : triggerType === "ref"
+          : triggerType === 'ref'
             ? isAnimating
-            : triggerType === "auto"
+            : triggerType === 'auto'
               ? true
               : false
 
-    const ElementTag = as || "span"
+    const ElementTag = as || 'span'
 
     // Get background size based on direction
     const getBackgroundSize = (animated: boolean) => {
       switch (currentDirection) {
-        case "ltr":
-          return animated ? "100% 100%" : "0% 100%"
-        case "rtl":
-          return animated ? "100% 100%" : "0% 100%"
-        case "ttb":
-          return animated ? "100% 100%" : "100% 0%"
-        case "btt":
-          return animated ? "100% 100%" : "100% 0%"
+        case 'ltr':
+          return animated ? '100% 100%' : '0% 100%'
+        case 'rtl':
+          return animated ? '100% 100%' : '0% 100%'
+        case 'ttb':
+          return animated ? '100% 100%' : '100% 0%'
+        case 'btt':
+          return animated ? '100% 100%' : '100% 0%'
         default:
-          return animated ? "100% 100%" : "0% 100%"
+          return animated ? '100% 100%' : '0% 100%'
       }
     }
 
     // Get background position based on direction
     const getBackgroundPosition = () => {
       switch (currentDirection) {
-        case "ltr":
-          return "0% 0%"
-        case "rtl":
-          return "100% 0%"
-        case "ttb":
-          return "0% 0%"
-        case "btt":
-          return "0% 100%"
+        case 'ltr':
+          return '0% 0%'
+        case 'rtl':
+          return '100% 0%'
+        case 'ttb':
+          return '0% 0%'
+        case 'btt':
+          return '0% 100%'
         default:
-          return "0% 0%"
+          return '0% 0%'
       }
     }
 
-    const animatedSize = useMemo(() => getBackgroundSize(shouldAnimate), [shouldAnimate, currentDirection])
-    const initialSize = useMemo(() => getBackgroundSize(false), [currentDirection])
-    const backgroundPosition = useMemo(() => getBackgroundPosition(), [currentDirection])
+    const animatedSize = useMemo(
+      () => getBackgroundSize(shouldAnimate),
+      [shouldAnimate, currentDirection]
+    )
+    const initialSize = useMemo(
+      () => getBackgroundSize(false),
+      [currentDirection]
+    )
+    const backgroundPosition = useMemo(
+      () => getBackgroundPosition(),
+      [currentDirection]
+    )
 
     const highlightStyle = {
       backgroundImage: `linear-gradient(${highlightColor}, ${highlightColor})`,
-      backgroundRepeat: "no-repeat",
+      backgroundRepeat: 'no-repeat',
       backgroundPosition: backgroundPosition,
       backgroundSize: animatedSize,
-      boxDecorationBreak: "clone",
-      WebkitBoxDecorationBreak: "clone",
+      boxDecorationBreak: 'clone',
+      WebkitBoxDecorationBreak: 'clone',
     } as React.CSSProperties
 
     return (
       <ElementTag
         ref={componentRef}
-        onMouseEnter={() => triggerType === "hover" && setIsHovered(true)}
-        onMouseLeave={() => triggerType === "hover" && setIsHovered(false)}
+        onMouseEnter={() => triggerType === 'hover' && setIsHovered(true)}
+        onMouseLeave={() => triggerType === 'hover' && setIsHovered(false)}
         {...props}
       >
         <motion.span
-          className={cn("inline", className)}
+          className={cn('inline', className)}
           style={highlightStyle}
           animate={{
             backgroundSize: animatedSize,
@@ -206,6 +214,6 @@ export const TextHighlighter = forwardRef<
   }
 )
 
-TextHighlighter.displayName = "TextHighlighter"
+TextHighlighter.displayName = 'TextHighlighter'
 
 export default TextHighlighter
