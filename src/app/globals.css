@@ -1339,3 +1339,35 @@ a.elegant-link:hover::after {
     padding: var(--space-md) var(--space-lg);
   }
 }
+
+/* =================================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================================================= */
+.btn-primary,
+.btn-outline-dark,
+.btn-outline-light {
+  will-change: transform;
+}
+
+/* Disable hover transitions on touch devices */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline-dark:hover,
+  .btn-outline-light:hover {
+    transform: none;
+  }
+}

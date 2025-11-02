@@ -101,13 +101,15 @@ export default function CompanyProfile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-2"
                 style={{
                   backgroundColor: 'var(--neutral-white)',
                   borderColor: 'var(--neutral-medium)',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'var(--primary-brown)'
+                  if (window.innerWidth >= 768) {
+                    e.currentTarget.style.borderColor = 'var(--primary-brown)'
+                  }
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.borderColor = 'var(--neutral-medium)'
@@ -119,7 +121,7 @@ export default function CompanyProfile() {
                   style={{ backgroundColor: 'var(--primary-cream)' }}
                 >
                   <Icon
-                    className="h-6 w-6"
+                    className="h-6 w-6 sm:h-7 sm:w-7"
                     style={{ color: 'var(--primary-brown)' }}
                   />
                 </div>

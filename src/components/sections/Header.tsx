@@ -30,6 +30,18 @@ export default function Header() {
     }
   }, [isFooterVisible, mobileMenuOpen])
 
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [mobileMenuOpen])
+
   const products = [
     { name: 'Plywood Standar', slug: 'plywood-standar' },
     { name: 'Plywood Marine', slug: 'plywood-marine' },
@@ -243,10 +255,12 @@ export default function Header() {
             <NavbarLogo>
               <LogoContent />
             </NavbarLogo>
-            <MobileNavToggle
-              isOpen={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            />
+            <div className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+              <MobileNavToggle
+                isOpen={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              />
+            </div>
           </MobileNavHeader>
 
           <MobileNavMenu isOpen={mobileMenuOpen}>
@@ -255,7 +269,7 @@ export default function Header() {
               <div className="space-y-2">
                 <button
                   onClick={() => setProdukDropdownOpen(!produkDropdownOpen)}
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
+                  className="flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-medium min-h-[44px]"
                   style={{ color: 'var(--text-primary)' }}
                 >
                   Produk
@@ -275,7 +289,7 @@ export default function Header() {
                         <Link
                           key={product.slug}
                           href={`/produk/${product.slug}`}
-                          className="block rounded-md px-3 py-2 text-sm font-medium"
+                          className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
                           style={{ color: 'var(--text-secondary)' }}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -293,7 +307,7 @@ export default function Header() {
                   onClick={() =>
                     setPerusahaanDropdownOpen(!perusahaanDropdownOpen)
                   }
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium"
+                  className="flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-medium min-h-[44px]"
                   style={{ color: 'var(--text-primary)' }}
                 >
                   Perusahaan
@@ -311,7 +325,7 @@ export default function Header() {
                     >
                       <Link
                         href="/tentang-kami"
-                        className="block rounded-md px-3 py-2 text-sm font-medium"
+                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
                         style={{ color: 'var(--text-secondary)' }}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -319,7 +333,7 @@ export default function Header() {
                       </Link>
                       <Link
                         href="/blog"
-                        className="block rounded-md px-3 py-2 text-sm font-medium"
+                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
                         style={{ color: 'var(--text-secondary)' }}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -332,7 +346,7 @@ export default function Header() {
 
               <Link
                 href="/sertifikasi"
-                className="block rounded-md px-3 py-2 text-base font-medium"
+                className="block rounded-md px-3 py-3 text-base font-medium min-h-[44px] flex items-center"
                 style={{ color: 'var(--text-primary)' }}
                 onClick={() => setMobileMenuOpen(false)}
               >

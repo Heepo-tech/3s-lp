@@ -49,11 +49,11 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] pt-20 sm:pt-24 md:pt-0 flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* World Map Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none scale-150 sm:scale-125 md:scale-110 lg:scale-100">
+      <div className="absolute inset-0 mt-12 sm:mt-0 z-0 pointer-events-none scale-110 sm:scale-105 md:scale-100 lg:scale-100">
         <WorldMap
           dots={heroMapDots}
           lineColor="rgba(82, 36, 5, 0.35)"
@@ -65,10 +65,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Fade Effect - Top (Extended and stronger) */}
         <div
-          className="absolute top-0 left-0 right-0 h-48 sm:h-56 md:h-64 lg:h-72"
+          className="absolute top-0 left-0 right-0 h-24 sm:h-32 md:h-48 lg:h-56"
           style={{
             background:
-              'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 40%, transparent 100%)',
+              'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 20%, transparent 100%)',
           }}
         />
         {/* Fade Effect - Bottom */}

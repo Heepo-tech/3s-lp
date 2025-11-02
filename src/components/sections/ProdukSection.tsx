@@ -73,7 +73,7 @@ export default function ProdukSection() {
                 className="group block h-full"
               >
                 <div
-                  className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                  className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2"
                   style={{
                     backgroundColor: 'var(--neutral-white)',
                     borderColor: 'var(--neutral-medium)',
@@ -126,7 +126,7 @@ export default function ProdukSection() {
                     {/* Specifications */}
                     <div className="mb-4 space-y-2">
                       <div
-                        className="flex items-center gap-2 text-xs"
+                        className="flex items-center gap-2 text-sm sm:text-xs"
                         style={{ color: 'var(--text-muted)' }}
                       >
                         <span className="font-semibold">Grade:</span>

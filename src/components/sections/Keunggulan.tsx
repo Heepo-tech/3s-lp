@@ -94,7 +94,7 @@ export default function Keunggulan() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative p-6 sm:p-8 rounded-2xl border bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group relative p-6 sm:p-8 rounded-2xl border bg-white transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2"
                 style={{ borderColor: 'var(--neutral-medium)' }}
               >
                 <div

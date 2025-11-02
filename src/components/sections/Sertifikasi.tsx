@@ -103,7 +103,7 @@ export default function Sertifikasi() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-xl border p-6 sm:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl border p-6 sm:p-8 transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-1"
               style={{
                 backgroundColor: 'var(--neutral-white)',
                 borderColor: 'var(--neutral-medium)',
