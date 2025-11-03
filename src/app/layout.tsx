@@ -2,6 +2,11 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
+
+import QuoteRequestForm from '@/components/QuoteRequestForm'
+import { QuoteRequestModalProvider } from '@/contexts/QuoteRequestModalContext'
+
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -110,7 +115,11 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
       >
-        {children}
+        <QuoteRequestModalProvider>
+          {children}
+          <QuoteRequestForm />
+          <Toaster />
+        </QuoteRequestModalProvider>
         <Analytics />
         <SpeedInsights />
       </body>

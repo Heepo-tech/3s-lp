@@ -233,7 +233,7 @@ export default function FAQ() {
 
           {/* Button */}
           <a
-            href="mailto:info@3s-plywood.com"
+            href="mailto:info@3s-plywood.com?subject=Pertanyaan tentang Produk Plywood"
             className="btn-primary btn-icon relative"
           >
             <Mail className="h-5 w-5" />

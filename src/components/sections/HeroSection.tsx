@@ -1,13 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Info, Eye } from 'lucide-react'
+import { Send, Eye } from 'lucide-react'
 import Link from 'next/link'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
+import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
 export default function HeroSection() {
+  const { openModal } = useQuoteRequestModal()
   const heroMapDots = [
     {
       start: { lat: -6.2088, lng: 106.8456 },
@@ -65,10 +67,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Fade Effect - Top (Extended and stronger) */}
         <div
-          className="absolute top-0 left-0 right-0 h-24 sm:h-32 md:h-48 lg:h-56"
+          className="absolute top-0 left-0 right-0 h-40 sm:h-48 md:h-64 lg:h-72"
           style={{
             background:
-              'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 20%, transparent 100%)',
+              'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 40%, transparent 100%)',
           }}
         />
         {/* Fade Effect - Bottom */}
@@ -142,9 +144,10 @@ export default function HeroSection() {
               color: 'var(--primary-brown)',
             }}
           >
-            Dengan sertifikasi internasional dan pengalaman bertahun-tahun, kami
-            menghadirkan plywood kuat, presisi, dan ramah lingkungan untuk
-            proyek Anda di mana saja.
+            Dengan sertifikasi internasional, kontrol kualitas ketat, dan
+            jaringan distribusi global, kami memastikan pasokan plywood yang
+            konsisten, tepat waktu, dan sesuai standar proyek Anda. Tidak ada
+            penundaan, tidak ada kompromi kualitas.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -154,14 +157,14 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 w-full sm:w-auto"
           >
-            <Link href="/tentang-kami" className="btn-primary btn-icon">
-              <Info className="h-5 w-5" />
-              Tentang Kami
-            </Link>
+            <button onClick={openModal} className="btn-primary btn-icon">
+              <Send className="h-5 w-5" />
+              Ajukan Permintaan Penawaran
+            </button>
 
             <Link href="#produk" className="btn-outline-dark btn-icon">
               <Eye className="h-5 w-5" />
-              Lihat Produk
+              Lihat Spesifikasi Produk
             </Link>
           </motion.div>
         </motion.div>
