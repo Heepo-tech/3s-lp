@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
-import QuoteRequestForm from '@/components/QuoteRequestForm'
+import LazyQuoteRequestForm from '@/components/QuoteRequestForm.lazy'
 import { QuoteRequestModalProvider } from '@/contexts/QuoteRequestModalContext'
 
 import './globals.css'
@@ -117,7 +117,7 @@ export default function RootLayout({
       >
         <QuoteRequestModalProvider>
           {children}
-          <QuoteRequestForm />
+          <LazyQuoteRequestForm />
           <Toaster />
         </QuoteRequestModalProvider>
         <Analytics />

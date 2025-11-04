@@ -6,10 +6,17 @@ import Link from 'next/link'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
+import { preloadQuoteForm } from '@/components/QuoteRequestForm.lazy'
 import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
 export default function HeroSection() {
   const { openModal } = useQuoteRequestModal()
+
+  // Preload handler for hover/touch events
+  const handlePreload = () => {
+    preloadQuoteForm()
+  }
+
   const heroMapDots = [
     {
       start: { lat: -6.2088, lng: 106.8456 },
@@ -157,7 +164,12 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 w-full sm:w-auto"
           >
-            <button onClick={openModal} className="btn-primary btn-icon">
+            <button
+              onClick={openModal}
+              onMouseEnter={handlePreload}
+              onTouchStart={handlePreload}
+              className="btn-primary btn-icon"
+            >
               <Send className="h-5 w-5" />
               Ajukan Permintaan Penawaran
             </button>
