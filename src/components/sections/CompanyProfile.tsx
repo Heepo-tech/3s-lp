@@ -69,25 +69,65 @@ export default function CompanyProfile() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="mb-16 max-w-4xl mx-auto"
         >
-          <TextHighlighter
+          <p
             className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0"
-            highlightColor="var(--primary-brown)"
-            triggerType="inView"
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
-            <p
-              style={{
-                color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-secondary)',
-              }}
+            PT. Sekawan Sahabat Sejati adalah produsen{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
             >
-              PT. Sekawan Sahabat Sejati adalah produsen plywood premium yang
-              telah berdiri sejak 1998. Dengan komitmen terhadap kualitas dan
-              inovasi, kami menghadirkan produk plywood berkelas internasional
-              yang ramah lingkungan. Pengalaman lebih dari 25 tahun membuat kami
-              menjadi mitra terpercaya untuk proyek konstruksi, furniture, dan
-              kebutuhan industri di pasar lokal maupun global.
-            </p>
-          </TextHighlighter>
+              plywood premium
+            </TextHighlighter>{' '}
+            yang telah berdiri{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              sejak 1998
+            </TextHighlighter>
+            . Dengan komitmen terhadap kualitas dan inovasi, kami menghadirkan
+            produk plywood{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              berkelas internasional
+            </TextHighlighter>{' '}
+            yang{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              ramah lingkungan
+            </TextHighlighter>
+            . Pengalaman{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              lebih dari 25 tahun
+            </TextHighlighter>{' '}
+            membuat kami menjadi{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              mitra terpercaya
+            </TextHighlighter>{' '}
+            untuk proyek konstruksi, furniture, dan kebutuhan industri di pasar
+            lokal maupun global.
+          </p>
         </motion.div>
 
         {/* Trust Elements Grid */}
@@ -101,7 +141,7 @@ export default function CompanyProfile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-2"
+                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-2 overflow-hidden"
                 style={{
                   backgroundColor: 'var(--neutral-white)',
                   borderColor: 'var(--neutral-medium)',
