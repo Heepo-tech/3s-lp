@@ -62,7 +62,7 @@ export default function ClientShowcase() {
             </span>
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

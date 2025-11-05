@@ -68,7 +68,7 @@ export default function CTASection() {
                     style={{ color: 'var(--primary-gold)' }}
                   />
                   <span
-                    className="text-sm sm:text-base md:text-lg"
+                    className="text-sm sm:text-base md:text-lg text-justified"
                     style={{
                       fontFamily: 'var(--font-secondary)',
                       color: 'var(--primary-brown)',

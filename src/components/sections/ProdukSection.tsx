@@ -47,7 +47,7 @@ export default function ProdukSection() {
             Kami
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -114,7 +114,7 @@ export default function ProdukSection() {
                     </h3>
 
                     <p
-                      className="mb-3 sm:mb-4 text-sm leading-relaxed"
+                      className="mb-3 sm:mb-4 text-sm leading-relaxed text-justified"
                       style={{
                         color: 'var(--text-secondary)',
                         fontFamily: 'var(--font-secondary)',

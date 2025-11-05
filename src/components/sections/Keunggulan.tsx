@@ -74,7 +74,7 @@ export default function Keunggulan() {
             <span style={{ color: 'var(--primary-gold)' }}>Kami?</span>
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -118,7 +118,7 @@ export default function Keunggulan() {
                 </h3>
 
                 <p
-                  className="text-sm sm:text-base leading-relaxed"
+                  className="text-sm sm:text-base leading-relaxed text-justified"
                   style={{
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-secondary)',

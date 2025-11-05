@@ -120,7 +120,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               </h1>
 
               <p
-                className="text-lg mb-6 leading-relaxed"
+                className="text-lg mb-6 leading-relaxed text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',

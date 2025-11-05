@@ -114,7 +114,7 @@ export default function QuoteRequestForm() {
                     Ajukan Permintaan Penawaran
                   </Dialog.Title>
                   <Dialog.Description
-                    className="mt-2 text-sm sm:text-base"
+                    className="mt-2 text-sm sm:text-base text-justified"
                     style={{ color: 'var(--text-secondary)' }}
                   >
                     Isi formulir di bawah ini dan tim kami akan menghubungi Anda

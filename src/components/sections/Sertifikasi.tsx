@@ -84,7 +84,7 @@ export default function Sertifikasi() {
             <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -144,7 +144,7 @@ export default function Sertifikasi() {
               </h3>
 
               <p
-                className="mb-3 sm:mb-4 text-sm sm:text-base"
+                className="mb-3 sm:mb-4 text-sm sm:text-base text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -188,7 +188,7 @@ export default function Sertifikasi() {
             Ingin Mengetahui Lebih Lanjut?
           </h3>
           <p
-            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0"
+            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

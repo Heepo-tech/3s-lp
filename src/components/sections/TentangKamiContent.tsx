@@ -106,7 +106,7 @@ export default function TentangKamiContent() {
               </span>
             </h1>
             <p
-              className="text-lg md:text-xl text-white/80 leading-relaxed"
+              className="text-lg md:text-xl text-white/80 leading-relaxed text-justified"
               style={{ fontFamily: 'var(--font-secondary)' }}
             >
               Lebih dari 25 tahun menjadi mitra terpercaya dalam industri
@@ -195,7 +195,7 @@ export default function TentangKamiContent() {
                 Visi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
               </h3>
               <p
-                className="text-lg leading-relaxed"
+                className="text-lg leading-relaxed text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -228,7 +228,7 @@ export default function TentangKamiContent() {
                 Misi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
               </h3>
               <ul
-                className="space-y-3 text-base leading-relaxed"
+                className="space-y-3 text-base leading-relaxed text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -331,7 +331,7 @@ export default function TentangKamiContent() {
                     {value.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed"
+                    className="text-sm leading-relaxed text-justified"
                     style={{
                       color: 'var(--text-secondary)',
                       fontFamily: 'var(--font-secondary)',
@@ -370,7 +370,7 @@ export default function TentangKamiContent() {
                 <span style={{ color: 'var(--primary-gold)' }}>Modern</span>
               </h2>
               <p
-                className="text-lg leading-relaxed mb-6"
+                className="text-lg leading-relaxed mb-6 text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',

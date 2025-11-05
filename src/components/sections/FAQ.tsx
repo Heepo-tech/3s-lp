@@ -60,7 +60,7 @@ export default function FAQ() {
             </span>
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -157,7 +157,7 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div
-                      className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 text-sm sm:text-base leading-relaxed"
+                      className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 text-sm sm:text-base leading-relaxed text-justified"
                       style={{
                         color: 'var(--text-secondary)',
                         fontFamily: 'var(--font-secondary)',
@@ -222,7 +222,7 @@ export default function FAQ() {
             Masih ada pertanyaan?
           </p>
           <p
-            className="relative text-sm sm:text-base mb-4 px-4 sm:px-0"
+            className="relative text-sm sm:text-base mb-4 px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

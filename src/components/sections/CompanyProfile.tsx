@@ -70,7 +70,7 @@ export default function CompanyProfile() {
           className="mb-16 max-w-4xl mx-auto"
         >
           <p
-            className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -179,7 +179,7 @@ export default function CompanyProfile() {
 
                 {/* Description */}
                 <p
-                  className="text-sm leading-relaxed"
+                  className="text-sm leading-relaxed text-justified"
                   style={{
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-secondary)',

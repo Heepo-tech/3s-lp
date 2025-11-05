@@ -74,6 +74,8 @@ export default function BlogPostContent({ children }: BlogPostContentProps) {
           margin-top: 1.5em;
           margin-bottom: 1.5em;
           color: var(--text-secondary);
+          text-align: justify;
+          text-justify: inter-word;
         }
 
         /* Links */
@@ -100,6 +102,8 @@ export default function BlogPostContent({ children }: BlogPostContentProps) {
           margin-top: 0.5em;
           margin-bottom: 0.5em;
           color: var(--text-secondary);
+          text-align: justify;
+          text-justify: inter-word;
         }
 
         .prose ul > li {

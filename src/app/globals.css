@@ -973,6 +973,12 @@ a.elegant-link:hover::after {
   margin-bottom: var(--space-lg);
 }
 
+/* Text Justification Utility */
+.text-justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /* Button Utility Classes - Minimalist 2-Color Theme */
 .btn-primary {
   display: inline-flex;

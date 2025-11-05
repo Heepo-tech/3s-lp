@@ -60,7 +60,7 @@ export default function BlogPage() {
             </div>
 
             <p
-              className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed px-4"
+              className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed px-4 text-justified"
               style={{
                 fontFamily: 'var(--font-secondary)',
                 color: 'var(--primary-brown)',
