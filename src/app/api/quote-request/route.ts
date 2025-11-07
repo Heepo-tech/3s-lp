@@ -5,10 +5,29 @@ import AdminNotificationEmail from '@/emails/AdminNotificationEmail'
 import QuoteRequestEmail from '@/emails/QuoteRequestEmail'
 import { quoteRequestSchema } from '@/lib/schemas/quoteRequest'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend with API key from environment variable
+// Use a dummy key for build time if not available (will fail at runtime if actually called)
+const resend = new Resend(
+  process.env.RESEND_API_KEY || 're_placeholder_for_build'
+)
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if API key is actually configured at runtime
+    if (
+      !process.env.RESEND_API_KEY ||
+      process.env.RESEND_API_KEY === 're_placeholder_for_build'
+    ) {
+      // eslint-disable-next-line no-console
+      console.error('RESEND_API_KEY is not configured')
+      return NextResponse.json(
+        {
+          error: 'Server configuration error. Please contact administrator.',
+        },
+        { status: 500 }
+      )
+    }
+
     // Parse request body
     const body = await request.json()
 
@@ -59,6 +78,7 @@ export async function POST(request: NextRequest) {
 
     // Check for errors
     if (customerEmailResult.error || adminEmailResult.error) {
+      // eslint-disable-next-line no-console
       console.error('Email sending error:', {
         customer: customerEmailResult.error,
         admin: adminEmailResult.error,
@@ -89,6 +109,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Quote request API error:', error)
 
     return NextResponse.json(
