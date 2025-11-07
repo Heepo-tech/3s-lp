@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import type { ReactNode } from 'react'
 
 import BlogPostContent from '@/components/blog/BlogPostContent'
 import BlogPostHeader from '@/components/blog/BlogPostHeader'
@@ -9,17 +13,95 @@ import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 
+// MDX components for custom styling
+const mdxComponents = {
+  h1: ({ children }: { children: ReactNode }) => (
+    <h1
+      style={{
+        fontFamily: 'var(--font-primary)',
+        color: 'var(--text-primary)',
+      }}
+    >
+      {children}
+    </h1>
+  ),
+  h2: ({ children }: { children: ReactNode }) => (
+    <h2
+      style={{
+        fontFamily: 'var(--font-primary)',
+        color: 'var(--text-primary)',
+      }}
+    >
+      {children}
+    </h2>
+  ),
+  h3: ({ children }: { children: ReactNode }) => (
+    <h3
+      style={{
+        fontFamily: 'var(--font-primary)',
+        color: 'var(--text-primary)',
+      }}
+    >
+      {children}
+    </h3>
+  ),
+  h4: ({ children }: { children: ReactNode }) => (
+    <h4
+      style={{
+        fontFamily: 'var(--font-primary)',
+        color: 'var(--text-primary)',
+      }}
+    >
+      {children}
+    </h4>
+  ),
+  p: ({ children }: { children: ReactNode }) => (
+    <p
+      style={{
+        fontFamily: 'var(--font-secondary)',
+        color: 'var(--text-secondary)',
+      }}
+    >
+      {children}
+    </p>
+  ),
+  a: ({ href, children }: { href?: string; children: ReactNode }) => (
+    <Link
+      href={href || '#'}
+      style={{ color: 'var(--primary-brown)' }}
+      className="hover:opacity-80 transition-opacity"
+    >
+      {children}
+    </Link>
+  ),
+  img: (props: { src?: string; alt?: string }) => (
+    <Image
+      src={props.src || ''}
+      alt={props.alt || ''}
+      width={800}
+      height={600}
+      className="rounded-lg shadow-md"
+    />
+  ),
+}
+
 interface BlogPostPageProps {
   params: Promise<{
+    locale: string
     slug: string
   }>
 }
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
-  return posts.map(post => ({
-    slug: post.slug,
-  }))
+  const locales = ['id', 'en']
+
+  return locales.flatMap(locale =>
+    posts.map(post => ({
+      locale,
+      slug: post.slug,
+    }))
+  )
 }
 
 export async function generateMetadata({
@@ -72,11 +154,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = getRelatedPosts(slug, post.category, 3)
 
-  // Dynamically import MDX content
-  const MDXContent = await import(`../../../../content/blog/${slug}.mdx`).then(
-    mod => mod.default
-  )
-
   return (
     <div className="w-full h-screen overflow-auto">
       {/* Main Content with higher z-index for sticky footer */}
@@ -91,7 +168,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Blog Post Content */}
         <BlogPostContent>
-          <MDXContent />
+          <MDXRemote source={post.content} components={mdxComponents} />
         </BlogPostContent>
 
         {/* Related Posts */}

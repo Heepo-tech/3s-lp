@@ -3,12 +3,39 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Package } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { products } from '@/data/products'
 
 export default function ProdukSection() {
+  const t = useTranslations()
+
+  // Map product slugs to translation keys
+  const productKeyMap: Record<string, string> = {
+    'plywood-standar': 'standard',
+    'plywood-marine': 'marine',
+    'plywood-film-faced': 'filmFaced',
+    'plywood-decorative': 'decorative',
+    'plywood-commercial': 'commercial',
+    'plywood-engineered': 'engineered',
+  }
+
+  // Get translated product data
+  const getTranslatedProduct = (product: (typeof products)[0]) => {
+    const key = productKeyMap[product.slug]
+    if (!key) return product
+
+    return {
+      ...product,
+      name: t(`productData.${key}.name`),
+      shortDescription: t(`productData.${key}.shortDescription`),
+      category: t(`productData.${key}.category`),
+      grade: t(`productData.${key}.grade`),
+    }
+  }
+
   // Ambil 6 produk pertama untuk ditampilkan
-  const featuredProducts = products.slice(0, 6)
+  const featuredProducts = products.slice(0, 6).map(getTranslatedProduct)
 
   return (
     <section
@@ -43,8 +70,7 @@ export default function ProdukSection() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Produk <span style={{ color: 'var(--primary-gold)' }}>Plywood</span>{' '}
-            Kami
+            {t('productsSection.title')}
           </h2>
           <p
             className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
@@ -53,8 +79,7 @@ export default function ProdukSection() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan
-            proyek Anda
+            {t('productsSection.subtitle')}
           </p>
         </motion.div>
 
@@ -129,7 +154,9 @@ export default function ProdukSection() {
                         className="flex items-center gap-2 text-sm sm:text-xs"
                         style={{ color: 'var(--text-muted)' }}
                       >
-                        <span className="font-semibold">Grade:</span>
+                        <span className="font-semibold">
+                          {t('productsSection.gradeLabel')}
+                        </span>
                         <span>{product.grade}</span>
                       </div>
                       <div className="flex flex-wrap gap-1">
@@ -153,7 +180,7 @@ export default function ProdukSection() {
                       className="flex items-center gap-2 text-xs sm:text-sm font-semibold group-hover:gap-3 transition-all"
                       style={{ color: 'var(--primary-gold)' }}
                     >
-                      Lihat Detail
+                      {t('buttons.viewDetail')}
                       <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
@@ -179,7 +206,7 @@ export default function ProdukSection() {
         >
           <Link href="/#produk" className="btn-dark btn-icon">
             <Package className="h-5 w-5" />
-            Lihat Semua Produk
+            {t('buttons.viewAll')}
             <ArrowRight className="h-5 w-5" />
           </Link>
         </motion.div>

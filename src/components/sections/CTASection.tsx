@@ -2,14 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Phone, CheckCircle } from 'lucide-react'
-
-const benefits = [
-  'Konsultasi gratis dengan product expert',
-  'Response time 1x24 jam',
-  'Penawaran dengan harga terbaik',
-]
+import { useTranslations } from 'next-intl'
 
 export default function CTASection() {
+  const t = useTranslations()
   return (
     <section
       className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
@@ -42,7 +38,7 @@ export default function CTASection() {
               color: 'var(--primary-dark-brown)',
             }}
           >
-            Butuh Rekomendasi Produk yang Tepat?
+            {t('cta.title')}
           </h2>
 
           {/* Benefits List */}
@@ -54,7 +50,11 @@ export default function CTASection() {
             className="mb-8 sm:mb-10 max-w-2xl mx-auto"
           >
             <div className="flex flex-col gap-3 sm:gap-4 items-start text-left px-4 sm:px-0">
-              {benefits.map((benefit, index) => (
+              {[
+                t('cta.benefits.consultation'),
+                t('cta.benefits.response'),
+                t('cta.benefits.pricing'),
+              ].map((benefit, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -92,7 +92,7 @@ export default function CTASection() {
               className="btn-primary btn-icon w-full sm:w-auto sm:flex-1"
             >
               <Mail className="h-5 w-5" />
-              Kirim Email
+              {t('buttons.sendEmail')}
             </motion.a>
 
             <motion.a
@@ -104,7 +104,7 @@ export default function CTASection() {
               className="btn-outline-dark btn-icon w-full sm:w-auto sm:flex-1"
             >
               <Phone className="h-5 w-5" />
-              Telepon Sekarang
+              {t('buttons.callNow')}
             </motion.a>
           </div>
         </motion.div>

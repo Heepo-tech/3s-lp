@@ -1,0 +1,465 @@
+{
+  "navigation": {
+    "products": "Produk",
+    "company": "Perusahaan",
+    "certification": "Sertifikasi",
+    "aboutUs": "Tentang Kami",
+    "blog": "Blog"
+  },
+  "buttons": {
+    "contactUs": "Hubungi Kami",
+    "requestQuote": "Ajukan Permintaan Penawaran",
+    "viewProductSpecs": "Lihat Spesifikasi Produk",
+    "viewProducts": "Lihat Produk",
+    "viewDetail": "Lihat Detail",
+    "viewAll": "Lihat Semua Produk",
+    "readMore": "Baca Selengkapnya",
+    "submit": "Kirim",
+    "close": "Tutup",
+    "sendEmail": "Kirim Email",
+    "callNow": "Telepon Sekarang",
+    "downloadCatalog": "Download Katalog Sertifikasi",
+    "contactTeam": "Hubungi tim kami"
+  },
+  "products": {
+    "standard": "Plywood Standar",
+    "marine": "Plywood Marine",
+    "filmFaced": "Plywood Film Faced",
+    "decorative": "Plywood Decorative"
+  },
+  "hero": {
+    "title": "Plywood Premium, Dipercaya Pasar Lokal & Internasional",
+    "subtitle": "Dengan sertifikasi internasional, kontrol kualitas ketat, dan jaringan distribusi global, kami memastikan pasokan plywood yang konsisten, tepat waktu, dan sesuai standar proyek Anda. Tidak ada penundaan, tidak ada kompromi kualitas.",
+    "cta1": "Tentang Kami",
+    "cta2": "Lihat Produk"
+  },
+  "company": {
+    "titlePrefix": "Tentang",
+    "companyName": "PT. Sekawan Sahabat Sejati",
+    "title": "Tentang Perusahaan",
+    "description": "PT. Sekawan Sahabat Sejati",
+    "stats": {
+      "foundedLabel": "Tahun Berdiri",
+      "countriesLabel": "Negara Export",
+      "employeesLabel": "Karyawan Terampil",
+      "capacityLabel": "m³ Kapasitas/Tahun"
+    }
+  },
+  "productsSection": {
+    "title": "Produk Plywood Kami",
+    "subtitle": "Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan proyek Anda",
+    "description": "Produk berkualitas tinggi untuk kebutuhan konstruksi Anda",
+    "gradeLabel": "Grade:"
+  },
+  "advantages": {
+    "title": "Mengapa Memilih Kami?",
+    "subtitle": "Keunggulan yang membuat kami menjadi pilihan utama para profesional"
+  },
+  "clients": {
+    "title": "Dipercaya oleh Perusahaan Terkemuka",
+    "subtitle": "Lebih dari 100 perusahaan di seluruh dunia mempercayai kualitas produk kami"
+  },
+  "certification": {
+    "title": "Sertifikasi Internasional",
+    "subtitle": "Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan berbagai sertifikasi internasional",
+    "certifiedSince": "Certified since",
+    "ctaTitle": "Ingin Mengetahui Lebih Lanjut?",
+    "ctaDescription": "Download katalog lengkap sertifikasi dan spesifikasi produk kami"
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Temukan jawaban untuk pertanyaan umum tentang produk dan layanan kami",
+    "ctaTitle": "Masih ada pertanyaan?",
+    "ctaDescription": "Tim ahli kami siap membantu Anda dengan solusi terbaik"
+  },
+  "cta": {
+    "title": "Butuh Rekomendasi Produk yang Tepat?",
+    "benefits": {
+      "consultation": "Konsultasi gratis dengan product expert",
+      "response": "Response time 1x24 jam",
+      "pricing": "Penawaran dengan harga terbaik"
+    }
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "message": "Pesan",
+    "send": "Kirim Pesan"
+  },
+  "footer": {
+    "company": "PT. Sekawan Sahabat Sejati",
+    "contact": "Kontak",
+    "factoryAddress": "Alamat Pabrik:",
+    "fullAddress": "Jl. Industri Raya No. 123, Kawasan Industri, Jakarta 12345, Indonesia",
+    "products": "Produk",
+    "companySection": "Perusahaan",
+    "help": "Bantuan",
+    "address": "Alamat",
+    "quickLinks": "Tautan Cepat",
+    "followUs": "Ikuti Kami",
+    "allRightsReserved": "Semua Hak Dilindungi",
+    "copyright": "© {year} PT. Sekawan Sahabat Sejati. Semua Hak Dilindungi.",
+    "links": {
+      "career": "Karir",
+      "faq": "FAQ",
+      "contact": "Kontak",
+      "requestQuote": "Request Quotation",
+      "downloadCatalog": "Download Katalog"
+    }
+  },
+  "common": {
+    "language": "Bahasa",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "success": "Berhasil"
+  },
+  "companyProfile": {
+    "titlePrefix": "Tentang",
+    "companyName": "PT. Sekawan Sahabat Sejati",
+    "description": {
+      "intro": "PT. Sekawan Sahabat Sejati adalah produsen",
+      "highlight1": "plywood premium",
+      "text1": "yang telah berdiri",
+      "highlight2": "sejak 1998",
+      "text2": ". Dengan komitmen terhadap kualitas dan inovasi, kami menghadirkan produk plywood",
+      "highlight3": "berkelas internasional",
+      "text3": "yang",
+      "highlight4": "ramah lingkungan",
+      "text4": ". Pengalaman",
+      "highlight5": "lebih dari 25 tahun",
+      "text5": "membuat kami menjadi",
+      "highlight6": "mitra terpercaya",
+      "text6": "untuk proyek konstruksi, furniture, dan kebutuhan industri di pasar lokal maupun global."
+    },
+    "trustElements": {
+      "globalReach": {
+        "title": "Jangkauan Global",
+        "description": "Produk kami telah dipercaya di lebih dari 50 negara di seluruh dunia"
+      },
+      "certification": {
+        "title": "Sertifikasi Internasional",
+        "description": "Memiliki sertifikasi ISO 9001, FSC, dan standar internasional lainnya"
+      },
+      "professional": {
+        "title": "Tim Profesional",
+        "description": "Didukung oleh tim berpengalaman lebih dari 25 tahun di industri plywood"
+      },
+      "modern": {
+        "title": "Fasilitas Modern",
+        "description": "Pabrik dengan teknologi terkini untuk hasil presisi dan berkualitas tinggi"
+      }
+    },
+    "stats": {
+      "foundedLabel": "Tahun Berdiri",
+      "countriesLabel": "Negara Export",
+      "employeesLabel": "Karyawan Terampil",
+      "capacityLabel": "m³ Kapasitas/Tahun"
+    }
+  },
+  "advantagesSection": {
+    "title": "Mengapa Memilih Kami?",
+    "subtitle": "Keunggulan yang membuat kami menjadi pilihan utama para profesional",
+    "features": {
+      "quality": {
+        "title": "Kualitas Terjamin",
+        "description": "Setiap produk melalui quality control ketat untuk memastikan standar tertinggi"
+      },
+      "certification": {
+        "title": "Bersertifikat Internasional",
+        "description": "Memiliki sertifikasi ISO 9001, FSC, dan standar kualitas global lainnya"
+      },
+      "customization": {
+        "title": "Custom Ukuran",
+        "description": "Layanan custom sesuai spesifikasi proyek Anda dengan minimum order"
+      },
+      "delivery": {
+        "title": "Pengiriman Tepat Waktu",
+        "description": "Sistem logistik terintegrasi memastikan produk sampai sesuai jadwal"
+      },
+      "support": {
+        "title": "Dukungan Teknis",
+        "description": "Tim ahli siap membantu konsultasi produk dan solusi terbaik"
+      },
+      "price": {
+        "title": "Harga Kompetitif",
+        "description": "Penawaran terbaik tanpa mengorbankan kualitas produk premium kami"
+      }
+    }
+  },
+  "certificationSection": {
+    "title": "Sertifikasi Internasional",
+    "subtitle": "Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan berbagai sertifikasi internasional",
+    "certifiedSince": "Certified since",
+    "ctaTitle": "Ingin Mengetahui Lebih Lanjut?",
+    "ctaDescription": "Download katalog lengkap sertifikasi dan spesifikasi produk kami"
+  },
+  "faqSection": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Temukan jawaban untuk pertanyaan umum tentang produk dan layanan kami",
+    "faqs": {
+      "customSize": {
+        "category": "Getting Started",
+        "question": "Apakah plywood bisa custom ukuran?",
+        "answer": "Ya, kami melayani pemesanan custom ukuran sesuai kebutuhan proyek Anda. Ukuran standar kami adalah 1220 x 2440 mm dan 1250 x 2500 mm, namun kami dapat memproduksi ukuran khusus dengan minimum order quantity (MOQ) tertentu. Silakan hubungi tim sales kami untuk diskusi lebih lanjut mengenai spesifikasi custom Anda."
+      },
+      "minimumOrder": {
+        "category": "Pemesanan",
+        "question": "Minimum order berapa?",
+        "answer": "Minimum order quantity (MOQ) bervariasi tergantung jenis produk dan spesifikasi. Untuk produk standar, MOQ dimulai dari 1 kontainer 20 feet (sekitar 22-25m³). Untuk produk custom atau special order, MOQ mungkin lebih tinggi. Kami juga melayani pemesanan retail dalam jumlah lebih kecil dengan harga yang berbeda."
+      },
+      "shipping": {
+        "category": "Pengiriman",
+        "question": "Pengiriman ke luar kota/provinsi tersedia?",
+        "answer": "Ya, kami melayani pengiriman ke seluruh Indonesia maupun export ke berbagai negara. Kami memiliki sistem logistik terintegrasi yang bekerjasama dengan berbagai perusahaan ekspedisi terpercaya untuk memastikan produk sampai dengan aman dan tepat waktu. Biaya pengiriman akan dihitung berdasarkan lokasi tujuan dan volume pemesanan."
+      },
+      "payment": {
+        "category": "Pembayaran",
+        "question": "Apa saja metode pembayaran yang diterima?",
+        "answer": "Kami menerima berbagai metode pembayaran untuk kemudahan transaksi Anda: Transfer Bank (BCA, Mandiri, BNI), Letter of Credit (L/C) untuk transaksi export, dan Cash/Tunai untuk pembelian langsung di lokasi. Untuk pelanggan regular, kami juga menyediakan opsi payment term dengan syarat dan ketentuan yang berlaku."
+      }
+    },
+    "ctaTitle": "Masih ada pertanyaan?",
+    "ctaDescription": "Tim ahli kami siap membantu Anda dengan solusi terbaik"
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "Tentang PT. Sekawan Sahabat Sejati",
+      "subtitle": "Lebih dari 25 tahun menjadi mitra terpercaya dalam industri plywood",
+      "description": "Kami adalah produsen plywood premium yang berkomitmen menghadirkan produk berkualitas internasional dengan standar keberlanjutan tinggi untuk pasar lokal dan global."
+    },
+    "journey": {
+      "title": "Perjalanan Kami",
+      "subtitle": "Dari tahun ke tahun, kami terus berinovasi dan berkembang",
+      "achievements": {
+        "item1": {
+          "year": "1998",
+          "title": "Berdiri sebagai produsen plywood"
+        },
+        "item2": {
+          "year": "2005",
+          "title": "Ekspansi pabrik dan sertifikasi ISO 9001"
+        },
+        "item3": {
+          "year": "2010",
+          "title": "Menembus pasar internasional"
+        },
+        "item4": {
+          "year": "2015",
+          "title": "Sertifikasi FSC dan ekspansi kapasitas produksi"
+        },
+        "item5": {
+          "year": "2020",
+          "title": "Implementasi teknologi produksi modern"
+        },
+        "item6": {
+          "year": "2024",
+          "title": "Ekspor ke 50+ negara di seluruh dunia"
+        }
+      }
+    },
+    "vision": {
+      "title": "Visi Kami",
+      "content": "Menjadi produsen plywood terkemuka di Asia Tenggara yang dikenal dengan kualitas premium, inovasi berkelanjutan, dan komitmen terhadap lingkungan.",
+      "image": "Visi Perusahaan"
+    },
+    "mission": {
+      "title": "Misi Kami",
+      "items": {
+        "item1": "Menghasilkan produk plywood berkualitas tinggi dengan standar internasional",
+        "item2": "Menerapkan praktik produksi yang ramah lingkungan dan berkelanjutan",
+        "item3": "Memberikan pelayanan terbaik kepada pelanggan di seluruh dunia",
+        "item4": "Terus berinovasi dalam teknologi dan proses produksi"
+      }
+    },
+    "values": {
+      "title": "Nilai-nilai Kami",
+      "subtitle": "Prinsip yang memandu setiap langkah kami",
+      "items": {
+        "integrity": {
+          "title": "Integritas",
+          "description": "Menjalankan bisnis dengan transparansi dan kejujuran dalam setiap aspek"
+        },
+        "quality": {
+          "title": "Kualitas",
+          "description": "Komitmen terhadap standar kualitas tertinggi dalam setiap produk yang kami hasilkan"
+        },
+        "innovation": {
+          "title": "Inovasi",
+          "description": "Terus berinovasi untuk menghadirkan solusi terbaik bagi pelanggan"
+        },
+        "sustainability": {
+          "title": "Keberlanjutan",
+          "description": "Menjaga kelestarian lingkungan untuk generasi mendatang"
+        }
+      }
+    },
+    "team": {
+      "title": "Tim Profesional & Fasilitas Modern",
+      "description": "Didukung oleh tim berpengalaman dan fasilitas produksi berteknologi tinggi",
+      "stats": {
+        "employees": {
+          "value": "500+",
+          "label": "Karyawan Profesional"
+        },
+        "engineers": {
+          "value": "50+",
+          "label": "Engineer & QC"
+        },
+        "factory": {
+          "value": "10 Ha",
+          "label": "Area Pabrik"
+        }
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog & Artikel - Insight Industri Plywood",
+      "description": "Baca artikel terbaru seputar industri plywood, tips pemilihan material, standar kualitas, dan perkembangan teknologi produksi dari PT. Sekawan Sahabat Sejati"
+    },
+    "hero": {
+      "title": "Blog & Artikel Industri Plywood",
+      "description": "Dapatkan insight terkini seputar industri plywood, tips pemilihan material, dan informasi standar kualitas internasional"
+    },
+    "empty": "Belum ada artikel yang dipublikasikan. Nantikan artikel menarik kami segera!",
+    "card": {
+      "readMore": "Baca Selengkapnya"
+    }
+  },
+  "productData": {
+    "standard": {
+      "name": "Plywood Standar",
+      "category": "Standard",
+      "shortDescription": "Plywood serbaguna untuk berbagai kebutuhan konstruksi dan furniture",
+      "description": "Plywood standar kami dirancang untuk memenuhi kebutuhan umum dalam konstruksi dan pembuatan furniture. Terbuat dari kayu berkualitas tinggi dengan proses produksi yang presisi, plywood ini menawarkan kekuatan dan daya tahan yang optimal untuk berbagai aplikasi.",
+      "grade": "BB/CC, C/D",
+      "features": {
+        "feature1": "Permukaan halus dan rata",
+        "feature2": "Kekuatan struktural tinggi",
+        "feature3": "Mudah dipotong dan dibentuk",
+        "feature4": "Harga kompetitif",
+        "feature5": "Stok selalu tersedia"
+      },
+      "applications": {
+        "app1": "Konstruksi rumah dan bangunan",
+        "app2": "Furniture rumah tangga",
+        "app3": "Packing dan crating",
+        "app4": "Interior design",
+        "app5": "Partisi dan dinding"
+      }
+    },
+    "marine": {
+      "name": "Plywood Marine",
+      "category": "Premium",
+      "shortDescription": "Plywood tahan air untuk aplikasi maritim dan outdoor",
+      "description": "Plywood Marine grade premium dengan ketahanan air superior. Dibuat dengan lem WBP (Water Boil Proof) dan kayu pilihan, produk ini ideal untuk aplikasi yang terpapar air dan kelembaban tinggi.",
+      "grade": "A/B, BB/BB",
+      "features": {
+        "feature1": "Tahan air 100%",
+        "feature2": "Lem WBP berkualitas tinggi",
+        "feature3": "Tidak mudah delaminasi",
+        "feature4": "Tahan terhadap jamur dan rayap",
+        "feature5": "Cocok untuk outdoor"
+      },
+      "applications": {
+        "app1": "Pembuatan kapal dan perahu",
+        "app2": "Konstruksi dermaga",
+        "app3": "Furniture outdoor",
+        "app4": "Bathroom dan kitchen cabinet",
+        "app5": "Basement dan area lembab"
+      }
+    },
+    "filmFaced": {
+      "name": "Plywood Film Faced",
+      "category": "Professional",
+      "shortDescription": "Plywood dengan lapisan film untuk bekisting dan formwork",
+      "description": "Film Faced Plywood dengan permukaan dilapisi film phenolic resin berkualitas tinggi. Sangat ideal untuk bekisting beton karena permukaannya yang halus, tahan air, dan dapat digunakan berulang kali.",
+      "grade": "A/A",
+      "features": {
+        "feature1": "Permukaan film anti lengket",
+        "feature2": "Tahan air dan cuaca ekstrem",
+        "feature3": "Dapat digunakan 15-20 kali",
+        "feature4": "Hasil cor beton halus",
+        "feature5": "Mudah dibersihkan"
+      },
+      "applications": {
+        "app1": "Bekisting beton",
+        "app2": "Formwork konstruksi",
+        "app3": "Concrete shuttering",
+        "app4": "Proyek infrastruktur",
+        "app5": "High-rise building"
+      }
+    },
+    "decorative": {
+      "name": "Plywood Decorative",
+      "category": "Premium",
+      "shortDescription": "Plywood dekoratif dengan finish natural untuk interior mewah",
+      "description": "Plywood dekoratif premium dengan veneer kayu pilihan untuk hasil finishing yang indah. Cocok untuk interior mewah, furniture high-end, dan aplikasi yang mengutamakan estetika.",
+      "grade": "A/A, A/B",
+      "features": {
+        "feature1": "Veneer kayu natural premium",
+        "feature2": "Motif kayu alami indah",
+        "feature3": "Permukaan siap finishing",
+        "feature4": "Warna dan tekstur konsisten",
+        "feature5": "Berbagai pilihan veneer"
+      },
+      "applications": {
+        "app1": "Interior design premium",
+        "app2": "Furniture mewah",
+        "app3": "Wall paneling",
+        "app4": "Ceiling dekoratif",
+        "app5": "Custom woodwork"
+      }
+    },
+    "commercial": {
+      "name": "Plywood Commercial",
+      "category": "Standard",
+      "shortDescription": "Plywood komersial ekonomis untuk proyek skala besar",
+      "description": "Plywood komersial dengan kualitas standar dan harga ekonomis. Ideal untuk proyek-proyek skala besar yang membutuhkan volume tinggi dengan budget efisien.",
+      "grade": "C/D, D/E",
+      "features": {
+        "feature1": "Harga sangat kompetitif",
+        "feature2": "Tersedia dalam volume besar",
+        "feature3": "Kualitas konsisten",
+        "feature4": "Cocok untuk mass production",
+        "feature5": "Delivery cepat"
+      },
+      "applications": {
+        "app1": "Packing dan export crating",
+        "app2": "Furniture produksi massal",
+        "app3": "Konstruksi sementara",
+        "app4": "Pallet dan container flooring",
+        "app5": "General purpose"
+      }
+    },
+    "engineered": {
+      "name": "Plywood Engineered",
+      "category": "Professional",
+      "shortDescription": "Plywood engineered untuk aplikasi struktural demanding",
+      "description": "Engineered Plywood dengan standar struktural tinggi. Dirancang khusus untuk aplikasi yang membutuhkan kekuatan dan stabilitas dimensional superior.",
+      "grade": "B/BB, BB/CC",
+      "features": {
+        "feature1": "Kekuatan struktural maksimal",
+        "feature2": "Stabilitas dimensional tinggi",
+        "feature3": "Minimal warping",
+        "feature4": "Certified structural grade",
+        "feature5": "Konsisten layer by layer"
+      },
+      "applications": {
+        "app1": "Structural flooring",
+        "app2": "Roof decking",
+        "app3": "Industrial application",
+        "app4": "Heavy duty furniture",
+        "app5": "Engineered construction"
+      }
+    },
+    "specifications": {
+      "material": "Material",
+      "glue": "Lem",
+      "moisture": "Kadar Air",
+      "density": "Densitas"
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Award, CheckCircle2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const certifications = [
   {
@@ -43,6 +44,7 @@ const certifications = [
 ]
 
 export default function Sertifikasi() {
+  const t = useTranslations()
   return (
     <section
       className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
@@ -80,8 +82,7 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Sertifikasi{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
+            {t('certificationSection.title')}
           </h2>
           <p
             className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
@@ -90,8 +91,7 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan
-            berbagai sertifikasi internasional
+            {t('certificationSection.subtitle')}
           </p>
         </motion.div>
 
@@ -157,7 +157,7 @@ export default function Sertifikasi() {
                 className="text-xs sm:text-sm font-semibold"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Certified since {cert.year}
+                {t('certificationSection.certifiedSince')} {cert.year}
               </div>
 
               {/* Hover effect */}
@@ -185,7 +185,7 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Ingin Mengetahui Lebih Lanjut?
+            {t('certificationSection.ctaTitle')}
           </h3>
           <p
             className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0 text-justified"
@@ -194,11 +194,11 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Download katalog lengkap sertifikasi dan spesifikasi produk kami
+            {t('certificationSection.ctaDescription')}
           </p>
           <a href="/downloads/certifications.pdf" className="btn-dark btn-icon">
             <Award className="h-5 w-5" />
-            Download Katalog Sertifikasi
+            {t('buttons.downloadCatalog')}
           </a>
         </motion.div>
       </div>

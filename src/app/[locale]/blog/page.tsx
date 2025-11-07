@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 import BlogCard from '@/components/blog/BlogCard'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
@@ -7,19 +8,32 @@ import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import { getAllPosts } from '@/lib/blog'
 
-export const metadata: Metadata = {
-  title: 'Blog & Artikel - Insight Industri Plywood',
-  description:
-    'Baca artikel terbaru seputar industri plywood, tips pemilihan material, standar kualitas internasional, dan informasi terkini dari PT. Sekawan Sahabat Sejati.',
-  openGraph: {
-    title: 'Blog & Artikel - PT. Sekawan Sahabat Sejati',
-    description:
-      'Insight dan artikel terbaru seputar industri plywood dan kayu lapis berkualitas.',
-    type: 'website',
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'blog' })
+
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+    openGraph: {
+      title: t('meta.title'),
+      description: t('meta.description'),
+      type: 'website',
+    },
+  }
 }
 
-export default function BlogPage() {
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getTranslations({ locale })
   const posts = getAllPosts()
 
   return (
@@ -52,7 +66,7 @@ export default function BlogPage() {
                         margin: '0 auto',
                       }}
                     >
-                      Blog & Artikel Industri Plywood
+                      {t('blog.hero.title')}
                     </h1>
                   </VerticalCutReveal>
                 </div>
@@ -60,15 +74,13 @@ export default function BlogPage() {
             </div>
 
             <p
-              className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed px-4 text-justified"
+              className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed px-4 text-center"
               style={{
                 fontFamily: 'var(--font-secondary)',
                 color: 'var(--primary-brown)',
               }}
             >
-              Dapatkan insight terkini seputar industri plywood, tips pemilihan
-              material berkualitas, standar internasional, dan informasi terbaru
-              dari ahlinya.
+              {t('blog.hero.description')}
             </p>
           </div>
         </section>
@@ -88,14 +100,18 @@ export default function BlogPage() {
                     color: 'var(--text-secondary)',
                   }}
                 >
-                  Belum ada artikel yang dipublikasikan. Nantikan artikel
-                  menarik dari kami!
+                  {t('blog.empty')}
                 </p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {posts.map((post, index) => (
-                  <BlogCard key={post.slug} post={post} index={index} />
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    index={index}
+                    locale={locale}
+                  />
                 ))}
               </div>
             )}

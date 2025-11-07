@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
@@ -18,6 +19,8 @@ const clients = [
 ]
 
 export default function ClientShowcase() {
+  const t = useTranslations()
+
   const clientItems = clients.map((client, index) => (
     <div
       key={index}
@@ -56,10 +59,7 @@ export default function ClientShowcase() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Dipercaya oleh{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>
-              Perusahaan Terkemuka
-            </span>
+            {t('clients.title')}
           </h2>
           <p
             className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"

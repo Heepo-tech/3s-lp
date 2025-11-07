@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useParams } from 'next/navigation'
 
 import type { BlogPost } from '@/types/blog'
 
@@ -11,6 +12,9 @@ interface RelatedPostsProps {
 }
 
 export default function RelatedPosts({ posts }: RelatedPostsProps) {
+  const params = useParams()
+  const locale = params.locale as string
+
   if (posts.length === 0) {
     return null
   }
@@ -50,7 +54,12 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {posts.map((post, index) => (
-            <BlogCard key={post.slug} post={post} index={index} />
+            <BlogCard
+              key={post.slug}
+              post={post}
+              index={index}
+              locale={locale}
+            />
           ))}
         </div>
       </div>
