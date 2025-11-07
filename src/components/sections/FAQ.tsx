@@ -2,37 +2,35 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, X, Mail, MessageCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
-const faqs = [
-  {
-    category: 'Getting Started',
-    question: 'Apakah plywood bisa custom ukuran?',
-    answer:
-      'Ya, kami melayani pemesanan custom ukuran sesuai kebutuhan proyek Anda. Ukuran standar kami adalah 1220 x 2440 mm dan 1250 x 2500 mm, namun kami dapat memproduksi ukuran khusus dengan minimum order quantity (MOQ) tertentu. Silakan hubungi tim sales kami untuk diskusi lebih lanjut mengenai spesifikasi custom Anda.',
-  },
-  {
-    category: 'Pemesanan',
-    question: 'Minimum order berapa?',
-    answer:
-      'Minimum order quantity (MOQ) bervariasi tergantung jenis produk dan spesifikasi. Untuk produk standar, MOQ dimulai dari 1 kontainer 20 feet (sekitar 22-25m³). Untuk produk custom atau special order, MOQ mungkin lebih tinggi. Kami juga melayani pemesanan retail dalam jumlah lebih kecil dengan harga yang berbeda.',
-  },
-  {
-    category: 'Pengiriman',
-    question: 'Pengiriman ke luar kota/provinsi tersedia?',
-    answer:
-      'Ya, kami melayani pengiriman ke seluruh Indonesia maupun export ke berbagai negara. Kami memiliki sistem logistik terintegrasi yang bekerjasama dengan berbagai perusahaan ekspedisi terpercaya untuk memastikan produk sampai dengan aman dan tepat waktu. Biaya pengiriman akan dihitung berdasarkan lokasi tujuan dan volume pemesanan.',
-  },
-  {
-    category: 'Pembayaran',
-    question: 'Apa saja metode pembayaran yang diterima?',
-    answer:
-      'Kami menerima berbagai metode pembayaran untuk kemudahan transaksi Anda: Transfer Bank (BCA, Mandiri, BNI), Letter of Credit (L/C) untuk transaksi export, dan Cash/Tunai untuk pembelian langsung di lokasi. Untuk pelanggan regular, kami juga menyediakan opsi payment term dengan syarat dan ketentuan yang berlaku.',
-  },
-]
-
 export default function FAQ() {
+  const t = useTranslations()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+  const faqs = [
+    {
+      category: t('faqSection.faqs.customSize.category'),
+      question: t('faqSection.faqs.customSize.question'),
+      answer: t('faqSection.faqs.customSize.answer'),
+    },
+    {
+      category: t('faqSection.faqs.minimumOrder.category'),
+      question: t('faqSection.faqs.minimumOrder.question'),
+      answer: t('faqSection.faqs.minimumOrder.answer'),
+    },
+    {
+      category: t('faqSection.faqs.shipping.category'),
+      question: t('faqSection.faqs.shipping.question'),
+      answer: t('faqSection.faqs.shipping.answer'),
+    },
+    {
+      category: t('faqSection.faqs.payment.category'),
+      question: t('faqSection.faqs.payment.question'),
+      answer: t('faqSection.faqs.payment.answer'),
+    },
+  ]
 
   return (
     <section
@@ -54,10 +52,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Pertanyaan{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>
-              yang Sering Diajukan
-            </span>
+            {t('faqSection.title')}
           </h2>
           <p
             className="text-base sm:text-lg md:text-xl px-4 sm:px-0 text-justified"
@@ -66,8 +61,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Temukan jawaban untuk pertanyaan umum tentang produk dan layanan
-            kami
+            {t('faqSection.subtitle')}
           </p>
         </motion.div>
 
@@ -219,7 +213,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Masih ada pertanyaan?
+            {t('faqSection.ctaTitle')}
           </p>
           <p
             className="relative text-sm sm:text-base mb-4 px-4 sm:px-0 text-justified"
@@ -228,7 +222,7 @@ export default function FAQ() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Tim ahli kami siap membantu Anda dengan solusi terbaik
+            {t('faqSection.ctaDescription')}
           </p>
 
           {/* Button */}
@@ -237,7 +231,7 @@ export default function FAQ() {
             className="btn-primary btn-icon relative"
           >
             <Mail className="h-5 w-5" />
-            Hubungi tim kami
+            {t('buttons.contactTeam')}
           </a>
         </motion.div>
       </div>

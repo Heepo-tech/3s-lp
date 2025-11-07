@@ -8,29 +8,46 @@ import {
   MapPin,
   Phone,
 } from 'lucide-react'
-import Link from 'next/link'
+import NextLink from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export default function Footer() {
+  const t = useTranslations()
   const currentYear = new Date().getFullYear()
 
   const quickLinks = {
     produk: [
-      { name: 'Plywood Standar', href: '/produk/plywood-standar' },
-      { name: 'Plywood Marine', href: '/produk/plywood-marine' },
-      { name: 'Plywood Film Faced', href: '/produk/plywood-film-faced' },
-      { name: 'Plywood Decorative', href: '/produk/plywood-decorative' },
+      {
+        name: t('productData.standard.name'),
+        href: '/produk/plywood-standar' as const,
+      },
+      {
+        name: t('productData.marine.name'),
+        href: '/produk/plywood-marine' as const,
+      },
+      {
+        name: t('productData.filmFaced.name'),
+        href: '/produk/plywood-film-faced' as const,
+      },
+      {
+        name: t('productData.decorative.name'),
+        href: '/produk/plywood-decorative' as const,
+      },
     ],
     perusahaan: [
-      { name: 'Tentang Kami', href: '/tentang-kami' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Sertifikasi', href: '/sertifikasi' },
-      { name: 'Karir', href: '/karir' },
+      { name: t('navigation.aboutUs'), href: '/tentang-kami' as const },
+      { name: t('navigation.blog'), href: '/blog' as const },
+      { name: t('navigation.certification'), href: '/sertifikasi' as const },
+      { name: t('footer.links.career'), href: '/karir' as const },
     ],
     bantuan: [
-      { name: 'FAQ', href: '/#faq' },
-      { name: 'Kontak', href: '/#contact' },
-      { name: 'Request Quotation', href: '/quotation' },
-      { name: 'Download Katalog', href: '/downloads/catalog.pdf' },
+      { name: t('footer.links.faq'), href: '/#faq' as const },
+      { name: t('footer.links.contact'), href: '/#contact' as const },
+      { name: t('footer.links.requestQuote'), href: '/quotation' as const },
+      {
+        name: t('footer.links.downloadCatalog'),
+        href: '/downloads/catalog.pdf' as const,
+      },
     ],
   }
 
@@ -60,7 +77,7 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold text-white"
                 style={{ fontFamily: 'var(--font-primary)' }}
               >
-                Kontak
+                {t('footer.contact')}
               </h3>
               <div
                 className="space-y-2 text-sm sm:text-sm"
@@ -76,17 +93,9 @@ export default function Footer() {
                       className="font-semibold mb-1 text-sm sm:text-sm"
                       style={{ color: '#F8F7F3' }}
                     >
-                      Alamat Pabrik:
+                      {t('footer.factoryAddress')}
                     </div>
-                    <div>
-                      Jl. Industri Raya No. 123
-                      <br />
-                      Kawasan Industri Jababeka
-                      <br />
-                      Cikarang, Bekasi 17530
-                      <br />
-                      Jawa Barat, Indonesia
-                    </div>
+                    <div>{t('footer.fullAddress')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -136,12 +145,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Produk
+                {t('footer.products')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.produk.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -151,7 +160,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -163,12 +172,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Perusahaan
+                {t('footer.companySection')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.perusahaan.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -178,7 +187,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -190,12 +199,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Bantuan
+                {t('footer.help')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.bantuan.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -205,7 +214,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -239,7 +248,7 @@ export default function Footer() {
               className="text-xs sm:text-sm text-center md:text-left"
               style={{ color: '#F8F7F3', opacity: 0.6 }}
             >
-              © {currentYear} PT. Sekawan Sahabat Sejati. All rights reserved.
+              {t('footer.copyright', { year: currentYear })}
             </p>
 
             {/* Social Media Links */}

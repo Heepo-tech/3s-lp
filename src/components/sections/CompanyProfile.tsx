@@ -2,34 +2,33 @@
 
 import { motion } from 'framer-motion'
 import { Globe, Award, Users, Factory } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import TextHighlighter from '@/components/fancy/text/text-highlighter'
 
 export default function CompanyProfile() {
+  const t = useTranslations()
+
   const trustElements = [
     {
       icon: Globe,
-      title: 'Jangkauan Global',
-      description:
-        'Produk kami telah dipercaya di lebih dari 50 negara di seluruh dunia',
+      title: t('companyProfile.trustElements.globalReach.title'),
+      description: t('companyProfile.trustElements.globalReach.description'),
     },
     {
       icon: Award,
-      title: 'Sertifikasi Internasional',
-      description:
-        'Memiliki sertifikasi ISO 9001, FSC, dan standar internasional lainnya',
+      title: t('companyProfile.trustElements.certification.title'),
+      description: t('companyProfile.trustElements.certification.description'),
     },
     {
       icon: Users,
-      title: 'Tim Profesional',
-      description:
-        'Didukung oleh tim berpengalaman lebih dari 25 tahun di industri plywood',
+      title: t('companyProfile.trustElements.professional.title'),
+      description: t('companyProfile.trustElements.professional.description'),
     },
     {
       icon: Factory,
-      title: 'Fasilitas Modern',
-      description:
-        'Pabrik dengan teknologi terkini untuk hasil presisi dan berkualitas tinggi',
+      title: t('companyProfile.trustElements.modern.title'),
+      description: t('companyProfile.trustElements.modern.description'),
     },
   ]
 
@@ -54,9 +53,9 @@ export default function CompanyProfile() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Tentang{' '}
+            {t('companyProfile.titlePrefix')}{' '}
             <span style={{ color: 'var(--primary-brown)' }}>
-              PT. Sekawan Sahabat Sejati
+              {t('companyProfile.companyName')}
             </span>
           </h2>
         </motion.div>
@@ -76,57 +75,55 @@ export default function CompanyProfile() {
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            PT. Sekawan Sahabat Sejati adalah produsen{' '}
+            {t('companyProfile.description.intro')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              plywood premium
+              {t('companyProfile.description.highlight1')}
             </TextHighlighter>{' '}
-            yang telah berdiri{' '}
+            {t('companyProfile.description.text1')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              sejak 1998
+              {t('companyProfile.description.highlight2')}
             </TextHighlighter>
-            . Dengan komitmen terhadap kualitas dan inovasi, kami menghadirkan
-            produk plywood{' '}
+            {t('companyProfile.description.text2')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              berkelas internasional
+              {t('companyProfile.description.highlight3')}
             </TextHighlighter>{' '}
-            yang{' '}
+            {t('companyProfile.description.text3')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              ramah lingkungan
+              {t('companyProfile.description.highlight4')}
             </TextHighlighter>
-            . Pengalaman{' '}
+            {t('companyProfile.description.text4')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              lebih dari 25 tahun
+              {t('companyProfile.description.highlight5')}
             </TextHighlighter>{' '}
-            membuat kami menjadi{' '}
+            {t('companyProfile.description.text5')}{' '}
             <TextHighlighter
               as="span"
               highlightColor="rgba(251, 191, 36, 0.3)"
               triggerType="inView"
             >
-              mitra terpercaya
+              {t('companyProfile.description.highlight6')}
             </TextHighlighter>{' '}
-            untuk proyek konstruksi, furniture, dan kebutuhan industri di pasar
-            lokal maupun global.
+            {t('companyProfile.description.text6')}
           </p>
         </motion.div>
 
@@ -221,7 +218,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Tahun Berdiri
+              {t('companyProfile.stats.foundedLabel')}
             </div>
           </div>
 
@@ -239,7 +236,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Negara Export
+              {t('companyProfile.stats.countriesLabel')}
             </div>
           </div>
 
@@ -257,7 +254,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Karyawan Terampil
+              {t('companyProfile.stats.employeesLabel')}
             </div>
           </div>
 
@@ -275,7 +272,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              m³ Kapasitas/Tahun
+              {t('companyProfile.stats.capacityLabel')}
             </div>
           </div>
         </motion.div>

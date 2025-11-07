@@ -2,46 +2,65 @@
 
 import { motion } from 'framer-motion'
 import { Users, Award, Target, Heart } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
-const achievements = [
-  { year: '1998', title: 'Berdiri sebagai produsen plywood' },
-  { year: '2005', title: 'Ekspansi pabrik dan sertifikasi ISO 9001' },
-  { year: '2010', title: 'Menembus pasar export ke 20 negara' },
-  { year: '2015', title: 'Sertifikasi FSC dan CARB P2' },
-  { year: '2020', title: 'Kapasitas produksi mencapai 100K m³/tahun' },
-  { year: '2023', title: 'Melayani lebih dari 50 negara di seluruh dunia' },
-]
-
-const values = [
-  {
-    icon: Users,
-    title: 'Integritas',
-    description:
-      'Menjalankan bisnis dengan transparansi dan kejujuran dalam setiap aspek operasional kami.',
-  },
-  {
-    icon: Award,
-    title: 'Kualitas',
-    description:
-      'Komitmen terhadap standar kualitas tertinggi dalam setiap produk yang kami hasilkan.',
-  },
-  {
-    icon: Target,
-    title: 'Inovasi',
-    description:
-      'Terus berinovasi untuk menghadirkan solusi terbaik dan teknologi terkini di industri plywood.',
-  },
-  {
-    icon: Heart,
-    title: 'Keberlanjutan',
-    description:
-      'Peduli terhadap lingkungan dengan praktik bisnis berkelanjutan dan ramah lingkungan.',
-  },
-]
-
 export default function TentangKamiContent() {
+  const t = useTranslations()
+
+  // Build achievements array from translations
+  const achievements = [
+    {
+      year: t('aboutUs.journey.achievements.item1.year'),
+      title: t('aboutUs.journey.achievements.item1.title'),
+    },
+    {
+      year: t('aboutUs.journey.achievements.item2.year'),
+      title: t('aboutUs.journey.achievements.item2.title'),
+    },
+    {
+      year: t('aboutUs.journey.achievements.item3.year'),
+      title: t('aboutUs.journey.achievements.item3.title'),
+    },
+    {
+      year: t('aboutUs.journey.achievements.item4.year'),
+      title: t('aboutUs.journey.achievements.item4.title'),
+    },
+    {
+      year: t('aboutUs.journey.achievements.item5.year'),
+      title: t('aboutUs.journey.achievements.item5.title'),
+    },
+    {
+      year: t('aboutUs.journey.achievements.item6.year'),
+      title: t('aboutUs.journey.achievements.item6.title'),
+    },
+  ]
+
+  // Build values array from translations
+  const values = [
+    {
+      icon: Users,
+      title: t('aboutUs.values.items.integrity.title'),
+      description: t('aboutUs.values.items.integrity.description'),
+    },
+    {
+      icon: Award,
+      title: t('aboutUs.values.items.quality.title'),
+      description: t('aboutUs.values.items.quality.description'),
+    },
+    {
+      icon: Target,
+      title: t('aboutUs.values.items.innovation.title'),
+      description: t('aboutUs.values.items.innovation.description'),
+    },
+    {
+      icon: Heart,
+      title: t('aboutUs.values.items.sustainability.title'),
+      description: t('aboutUs.values.items.sustainability.description'),
+    },
+  ]
+
   const marqueeItems = achievements.map((achievement, index) => (
     <div
       key={index}
@@ -90,27 +109,23 @@ export default function TentangKamiContent() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-4xl text-center">
+        <div className="relative mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white whitespace-nowrap overflow-hidden text-ellipsis px-4"
               style={{ fontFamily: 'var(--font-primary)' }}
             >
-              Tentang{' '}
-              <span style={{ color: 'var(--primary-gold)' }}>
-                PT. Sekawan Sahabat Sejati
-              </span>
+              {t('aboutUs.hero.title')}
             </h1>
             <p
-              className="text-lg md:text-xl text-white/80 leading-relaxed text-justified"
+              className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed text-center max-w-3xl mx-auto"
               style={{ fontFamily: 'var(--font-secondary)' }}
             >
-              Lebih dari 25 tahun menjadi mitra terpercaya dalam industri
-              plywood premium
+              {t('aboutUs.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -136,8 +151,7 @@ export default function TentangKamiContent() {
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              Perjalanan{' '}
-              <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+              {t('aboutUs.journey.title')}
             </h2>
             <p
               className="text-lg md:text-xl max-w-3xl mx-auto"
@@ -146,7 +160,7 @@ export default function TentangKamiContent() {
                 fontFamily: 'var(--font-secondary)',
               }}
             >
-              Milestone penting dalam sejarah perusahaan kami
+              {t('aboutUs.journey.subtitle')}
             </p>
           </motion.div>
 
@@ -192,7 +206,7 @@ export default function TentangKamiContent() {
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                Visi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+                {t('aboutUs.vision.title')}
               </h3>
               <p
                 className="text-lg leading-relaxed text-justified"
@@ -201,9 +215,7 @@ export default function TentangKamiContent() {
                   fontFamily: 'var(--font-secondary)',
                 }}
               >
-                Menjadi produsen plywood terdepan di Asia Tenggara yang diakui
-                secara internasional atas komitmen terhadap kualitas, inovasi,
-                dan keberlanjutan lingkungan.
+                {t('aboutUs.vision.content')}
               </p>
             </motion.div>
 
@@ -225,7 +237,7 @@ export default function TentangKamiContent() {
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                Misi <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+                {t('aboutUs.mission.title')}
               </h3>
               <ul
                 className="space-y-3 text-base leading-relaxed text-justified"
@@ -236,28 +248,19 @@ export default function TentangKamiContent() {
               >
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>
-                    Menghasilkan produk plywood berkualitas tinggi dengan
-                    standar internasional
-                  </span>
+                  <span>{t('aboutUs.mission.items.item1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>
-                    Memberikan solusi terbaik untuk kebutuhan industri dan
-                    konstruksi
-                  </span>
+                  <span>{t('aboutUs.mission.items.item2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>
-                    Menjalankan praktik bisnis berkelanjutan yang ramah
-                    lingkungan
-                  </span>
+                  <span>{t('aboutUs.mission.items.item3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: 'var(--primary-gold)' }}>•</span>
-                  <span>Memberdayakan karyawan dan masyarakat sekitar</span>
+                  <span>{t('aboutUs.mission.items.item4')}</span>
                 </li>
               </ul>
             </motion.div>
@@ -285,8 +288,7 @@ export default function TentangKamiContent() {
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              Nilai-nilai{' '}
-              <span style={{ color: 'var(--primary-gold)' }}>Kami</span>
+              {t('aboutUs.values.title')}
             </h2>
             <p
               className="text-lg md:text-xl max-w-3xl mx-auto"
@@ -295,7 +297,7 @@ export default function TentangKamiContent() {
                 fontFamily: 'var(--font-secondary)',
               }}
             >
-              Prinsip-prinsip yang menjadi fondasi kesuksesan kami
+              {t('aboutUs.values.subtitle')}
             </p>
           </motion.div>
 
@@ -366,8 +368,7 @@ export default function TentangKamiContent() {
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                Tim Profesional & Fasilitas{' '}
-                <span style={{ color: 'var(--primary-gold)' }}>Modern</span>
+                {t('aboutUs.team.title')}
               </h2>
               <p
                 className="text-lg leading-relaxed mb-6 text-justified"
@@ -376,10 +377,7 @@ export default function TentangKamiContent() {
                   fontFamily: 'var(--font-secondary)',
                 }}
               >
-                Didukung oleh lebih dari 500 karyawan terampil dan fasilitas
-                produksi berteknologi tinggi seluas 10 hektar. Kami memiliki
-                mesin-mesin modern dari Jerman dan Jepang untuk menghasilkan
-                plywood dengan presisi tinggi.
+                {t('aboutUs.team.description')}
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div>
@@ -390,13 +388,13 @@ export default function TentangKamiContent() {
                       fontFamily: 'var(--font-primary)',
                     }}
                   >
-                    500+
+                    {t('aboutUs.team.stats.employees.value')}
                   </div>
                   <div
                     className="text-sm"
                     style={{ color: 'var(--text-muted)' }}
                   >
-                    Karyawan Terampil
+                    {t('aboutUs.team.stats.employees.label')}
                   </div>
                 </div>
                 <div>
@@ -407,13 +405,30 @@ export default function TentangKamiContent() {
                       fontFamily: 'var(--font-primary)',
                     }}
                   >
-                    10Ha
+                    {t('aboutUs.team.stats.engineers.value')}
                   </div>
                   <div
                     className="text-sm"
                     style={{ color: 'var(--text-muted)' }}
                   >
-                    Luas Pabrik
+                    {t('aboutUs.team.stats.engineers.label')}
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="text-4xl font-bold mb-2"
+                    style={{
+                      color: 'var(--primary-dark-brown)',
+                      fontFamily: 'var(--font-primary)',
+                    }}
+                  >
+                    {t('aboutUs.team.stats.factory.value')}
+                  </div>
+                  <div
+                    className="text-sm"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {t('aboutUs.team.stats.factory.label')}
                   </div>
                 </div>
               </div>

@@ -3,16 +3,20 @@
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Tag } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
+import { Link } from '@/i18n/routing'
 import type { BlogPost } from '@/types/blog'
 
 interface BlogCardProps {
   post: BlogPost
   index?: number
+  locale: string
 }
 
-export default function BlogCard({ post, index = 0 }: BlogCardProps) {
+export default function BlogCard({ post, index = 0, locale }: BlogCardProps) {
+  const t = useTranslations()
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
@@ -20,7 +24,13 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
     >
-      <Link href={`/blog/${post.slug}`} className="block group">
+      <Link
+        href={{
+          pathname: '/blog/[slug]',
+          params: { slug: post.slug },
+        }}
+        className="block group"
+      >
         <div
           className="relative h-full rounded-xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden"
           style={{
@@ -77,11 +87,14 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
                 style={{ color: 'var(--text-muted)' }}
               >
                 <Calendar className="h-4 w-4" />
-                {new Date(post.date).toLocaleDateString('id-ID', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
+                {new Date(post.date).toLocaleDateString(
+                  locale === 'id' ? 'id-ID' : 'en-US',
+                  {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  }
+                )}
               </span>
               {post.readingTime && (
                 <span
@@ -121,7 +134,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
               className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3"
               style={{ color: 'var(--primary-brown)' }}
             >
-              Baca Selengkapnya
+              {t('blog.card.readMore')}
               <svg
                 className="h-4 w-4"
                 fill="none"

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Send, Eye } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
@@ -10,6 +11,7 @@ import { preloadQuoteForm } from '@/components/QuoteRequestForm.lazy'
 import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
 export default function HeroSection() {
+  const t = useTranslations()
   const { openModal } = useQuoteRequestModal()
 
   // Preload handler for hover/touch events
@@ -133,7 +135,7 @@ export default function HeroSection() {
                       margin: '0 auto',
                     }}
                   >
-                    Plywood Premium, Dipercaya Pasar Lokal & Internasional
+                    {t('hero.title')}
                   </h1>
                 </VerticalCutReveal>
               </div>
@@ -151,10 +153,7 @@ export default function HeroSection() {
               color: 'var(--primary-brown)',
             }}
           >
-            Dengan sertifikasi internasional, kontrol kualitas ketat, dan
-            jaringan distribusi global, kami memastikan pasokan plywood yang
-            konsisten, tepat waktu, dan sesuai standar proyek Anda. Tidak ada
-            penundaan, tidak ada kompromi kualitas.
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -171,12 +170,12 @@ export default function HeroSection() {
               className="btn-primary btn-icon"
             >
               <Send className="h-5 w-5" />
-              Ajukan Permintaan Penawaran
+              {t('buttons.requestQuote')}
             </button>
 
             <Link href="#produk" className="btn-outline-dark btn-icon">
               <Eye className="h-5 w-5" />
-              Lihat Spesifikasi Produk
+              {t('buttons.viewProductSpecs')}
             </Link>
           </motion.div>
         </motion.div>
