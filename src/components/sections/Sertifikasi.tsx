@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Award, CheckCircle2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const certifications = [
   {
@@ -43,6 +44,7 @@ const certifications = [
 ]
 
 export default function Sertifikasi() {
+  const t = useTranslations()
   return (
     <section
       className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
@@ -80,18 +82,16 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Sertifikasi{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>Internasional</span>
+            {t('certificationSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Komitmen kami terhadap kualitas dan keberlanjutan dibuktikan dengan
-            berbagai sertifikasi internasional
+            {t('certificationSection.subtitle')}
           </p>
         </motion.div>
 
@@ -103,7 +103,7 @@ export default function Sertifikasi() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-xl border p-6 sm:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl border p-6 sm:p-8 transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-1"
               style={{
                 backgroundColor: 'var(--neutral-white)',
                 borderColor: 'var(--neutral-medium)',
@@ -144,7 +144,7 @@ export default function Sertifikasi() {
               </h3>
 
               <p
-                className="mb-3 sm:mb-4 text-sm sm:text-base"
+                className="mb-3 sm:mb-4 text-sm sm:text-base text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -157,7 +157,7 @@ export default function Sertifikasi() {
                 className="text-xs sm:text-sm font-semibold"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Certified since {cert.year}
+                {t('certificationSection.certifiedSince')} {cert.year}
               </div>
 
               {/* Hover effect */}
@@ -185,20 +185,20 @@ export default function Sertifikasi() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Ingin Mengetahui Lebih Lanjut?
+            {t('certificationSection.ctaTitle')}
           </h3>
           <p
-            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0"
+            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Download katalog lengkap sertifikasi dan spesifikasi produk kami
+            {t('certificationSection.ctaDescription')}
           </p>
           <a href="/downloads/certifications.pdf" className="btn-dark btn-icon">
             <Award className="h-5 w-5" />
-            Download Katalog Sertifikasi
+            {t('buttons.downloadCatalog')}
           </a>
         </motion.div>
       </div>

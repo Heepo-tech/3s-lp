@@ -2,34 +2,33 @@
 
 import { motion } from 'framer-motion'
 import { Globe, Award, Users, Factory } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import TextHighlighter from '@/components/fancy/text/text-highlighter'
 
 export default function CompanyProfile() {
+  const t = useTranslations()
+
   const trustElements = [
     {
       icon: Globe,
-      title: 'Jangkauan Global',
-      description:
-        'Produk kami telah dipercaya di lebih dari 50 negara di seluruh dunia',
+      title: t('companyProfile.trustElements.globalReach.title'),
+      description: t('companyProfile.trustElements.globalReach.description'),
     },
     {
       icon: Award,
-      title: 'Sertifikasi Internasional',
-      description:
-        'Memiliki sertifikasi ISO 9001, FSC, dan standar internasional lainnya',
+      title: t('companyProfile.trustElements.certification.title'),
+      description: t('companyProfile.trustElements.certification.description'),
     },
     {
       icon: Users,
-      title: 'Tim Profesional',
-      description:
-        'Didukung oleh tim berpengalaman lebih dari 25 tahun di industri plywood',
+      title: t('companyProfile.trustElements.professional.title'),
+      description: t('companyProfile.trustElements.professional.description'),
     },
     {
       icon: Factory,
-      title: 'Fasilitas Modern',
-      description:
-        'Pabrik dengan teknologi terkini untuk hasil presisi dan berkualitas tinggi',
+      title: t('companyProfile.trustElements.modern.title'),
+      description: t('companyProfile.trustElements.modern.description'),
     },
   ]
 
@@ -54,9 +53,9 @@ export default function CompanyProfile() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Tentang{' '}
+            {t('companyProfile.titlePrefix')}{' '}
             <span style={{ color: 'var(--primary-brown)' }}>
-              PT. Sekawan Sahabat Sejati
+              {t('companyProfile.companyName')}
             </span>
           </h2>
         </motion.div>
@@ -69,25 +68,63 @@ export default function CompanyProfile() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="mb-16 max-w-4xl mx-auto"
         >
-          <TextHighlighter
-            className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0"
-            highlightColor="var(--primary-brown)"
-            triggerType="inView"
+          <p
+            className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0 text-justified"
+            style={{
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-secondary)',
+            }}
           >
-            <p
-              style={{
-                color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-secondary)',
-              }}
+            {t('companyProfile.description.intro')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
             >
-              PT. Sekawan Sahabat Sejati adalah produsen plywood premium yang
-              telah berdiri sejak 1998. Dengan komitmen terhadap kualitas dan
-              inovasi, kami menghadirkan produk plywood berkelas internasional
-              yang ramah lingkungan. Pengalaman lebih dari 25 tahun membuat kami
-              menjadi mitra terpercaya untuk proyek konstruksi, furniture, dan
-              kebutuhan industri di pasar lokal maupun global.
-            </p>
-          </TextHighlighter>
+              {t('companyProfile.description.highlight1')}
+            </TextHighlighter>{' '}
+            {t('companyProfile.description.text1')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              {t('companyProfile.description.highlight2')}
+            </TextHighlighter>
+            {t('companyProfile.description.text2')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              {t('companyProfile.description.highlight3')}
+            </TextHighlighter>{' '}
+            {t('companyProfile.description.text3')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              {t('companyProfile.description.highlight4')}
+            </TextHighlighter>
+            {t('companyProfile.description.text4')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              {t('companyProfile.description.highlight5')}
+            </TextHighlighter>{' '}
+            {t('companyProfile.description.text5')}{' '}
+            <TextHighlighter
+              as="span"
+              highlightColor="rgba(251, 191, 36, 0.3)"
+              triggerType="inView"
+            >
+              {t('companyProfile.description.highlight6')}
+            </TextHighlighter>{' '}
+            {t('companyProfile.description.text6')}
+          </p>
         </motion.div>
 
         {/* Trust Elements Grid */}
@@ -101,13 +138,15 @@ export default function CompanyProfile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+                className="group relative p-4 sm:p-6 rounded-xl border transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-2 overflow-hidden"
                 style={{
                   backgroundColor: 'var(--neutral-white)',
                   borderColor: 'var(--neutral-medium)',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'var(--primary-brown)'
+                  if (window.innerWidth >= 768) {
+                    e.currentTarget.style.borderColor = 'var(--primary-brown)'
+                  }
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.borderColor = 'var(--neutral-medium)'
@@ -119,7 +158,7 @@ export default function CompanyProfile() {
                   style={{ backgroundColor: 'var(--primary-cream)' }}
                 >
                   <Icon
-                    className="h-6 w-6"
+                    className="h-6 w-6 sm:h-7 sm:w-7"
                     style={{ color: 'var(--primary-brown)' }}
                   />
                 </div>
@@ -137,7 +176,7 @@ export default function CompanyProfile() {
 
                 {/* Description */}
                 <p
-                  className="text-sm leading-relaxed"
+                  className="text-sm leading-relaxed text-justified"
                   style={{
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-secondary)',
@@ -179,7 +218,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Tahun Berdiri
+              {t('companyProfile.stats.foundedLabel')}
             </div>
           </div>
 
@@ -197,7 +236,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Negara Export
+              {t('companyProfile.stats.countriesLabel')}
             </div>
           </div>
 
@@ -215,7 +254,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Karyawan Terampil
+              {t('companyProfile.stats.employeesLabel')}
             </div>
           </div>
 
@@ -233,7 +272,7 @@ export default function CompanyProfile() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: 'var(--text-secondary)' }}
             >
-              m³ Kapasitas/Tahun
+              {t('companyProfile.stats.capacityLabel')}
             </div>
           </div>
         </motion.div>

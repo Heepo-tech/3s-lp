@@ -2,6 +2,11 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
+
+import LazyQuoteRequestForm from '@/components/QuoteRequestForm.lazy'
+import { QuoteRequestModalProvider } from '@/contexts/QuoteRequestModalContext'
+
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -85,19 +90,37 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/Logo.PNG', sizes: '32x32', type: 'image/png' },
+      { url: '/Logo.PNG', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/Logo.PNG', sizes: '180x180', type: 'image/png' }],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/Logo.PNG',
+      },
+    ],
+  },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning>
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
+        suppressHydrationWarning
       >
-        {children}
+        <QuoteRequestModalProvider>
+          {children}
+          <LazyQuoteRequestForm />
+          <Toaster />
+        </QuoteRequestModalProvider>
         <Analytics />
         <SpeedInsights />
       </body>

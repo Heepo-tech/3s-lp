@@ -11,13 +11,15 @@ concurrency:
 
 jobs:
   lint:
-    name: ⬣ ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
+    name: ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
     runs-on: ubuntu-latest
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: ⎔ Setup node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20

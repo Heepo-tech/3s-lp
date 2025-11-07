@@ -36,6 +36,7 @@
     rgba(82, 36, 5, 0.05) 100%
   );
   --gradient-brown: linear-gradient(135deg, #522405 0%, #3a1803 100%);
+  --gradient-gold: linear-gradient(90deg, #feba17 0%, #74512d 100%);
   --gradient-warm: linear-gradient(135deg, #f8f7f3 0%, #e8e6e1 100%);
   --gradient-subtle: linear-gradient(135deg, #ffffff 0%, #f8f7f3 100%);
   --gradient-brown-soft: linear-gradient(
@@ -972,6 +973,12 @@ a.elegant-link:hover::after {
   margin-bottom: var(--space-lg);
 }
 
+/* Text Justification Utility */
+.text-justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /* Button Utility Classes - Minimalist 2-Color Theme */
 .btn-primary {
   display: inline-flex;
@@ -1337,5 +1344,37 @@ a.elegant-link:hover::after {
 
   .social-link {
     padding: var(--space-md) var(--space-lg);
+  }
+}
+
+/* =================================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================================================= */
+.btn-primary,
+.btn-outline-dark,
+.btn-outline-light {
+  will-change: transform;
+}
+
+/* Disable hover transitions on touch devices */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline-dark:hover,
+  .btn-outline-light:hover {
+    transform: none;
   }
 }

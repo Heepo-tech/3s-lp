@@ -120,7 +120,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               </h1>
 
               <p
-                className="text-lg mb-6 leading-relaxed"
+                className="text-lg mb-6 leading-relaxed text-justified"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -204,10 +204,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   Hubungi Kami
                 </a>
 
-                <a href="/quotation" className="btn-outline-dark btn-icon">
+                <Link href="/quotation" className="btn-outline-dark btn-icon">
                   <FileText className="h-5 w-5" />
                   Request Quote
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

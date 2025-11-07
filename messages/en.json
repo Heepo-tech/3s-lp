@@ -1,0 +1,465 @@
+{
+  "navigation": {
+    "products": "Products",
+    "company": "Company",
+    "certification": "Certification",
+    "aboutUs": "About Us",
+    "blog": "Blog"
+  },
+  "buttons": {
+    "contactUs": "Contact Us",
+    "requestQuote": "Request a Quote",
+    "viewProductSpecs": "View Product Specifications",
+    "viewProducts": "View Products",
+    "viewDetail": "View Detail",
+    "viewAll": "View All Products",
+    "readMore": "Read More",
+    "submit": "Submit",
+    "close": "Close",
+    "sendEmail": "Send Email",
+    "callNow": "Call Now",
+    "downloadCatalog": "Download Certification Catalog",
+    "contactTeam": "Contact our team"
+  },
+  "products": {
+    "standard": "Standard Plywood",
+    "marine": "Marine Plywood",
+    "filmFaced": "Film Faced Plywood",
+    "decorative": "Decorative Plywood"
+  },
+  "hero": {
+    "title": "Premium Plywood, Trusted in Local & International Markets",
+    "subtitle": "With international certification, strict quality control, and global distribution network, we ensure consistent, timely supply of plywood that meets your project standards. No delays, no quality compromises.",
+    "cta1": "About Us",
+    "cta2": "View Products"
+  },
+  "company": {
+    "titlePrefix": "About",
+    "companyName": "PT. Sekawan Sahabat Sejati",
+    "title": "About Company",
+    "description": "PT. Sekawan Sahabat Sejati",
+    "stats": {
+      "foundedLabel": "Year Founded",
+      "countriesLabel": "Export Countries",
+      "employeesLabel": "Skilled Employees",
+      "capacityLabel": "m³ Capacity/Year"
+    }
+  },
+  "productsSection": {
+    "title": "Our Plywood Products",
+    "subtitle": "Various types of high-quality plywood to meet your project needs",
+    "description": "High-quality products for your construction needs",
+    "gradeLabel": "Grade:"
+  },
+  "advantages": {
+    "title": "Why Choose Us?",
+    "subtitle": "The advantages that make us the preferred choice for professionals"
+  },
+  "clients": {
+    "title": "Trusted by Leading Companies",
+    "subtitle": "More than 100 companies worldwide trust the quality of our products"
+  },
+  "certification": {
+    "title": "International Certifications",
+    "subtitle": "Our commitment to quality and sustainability is proven by various international certifications",
+    "certifiedSince": "Certified since",
+    "ctaTitle": "Want to Know More?",
+    "ctaDescription": "Download our complete catalog of certifications and product specifications"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our products and services",
+    "ctaTitle": "Still have questions?",
+    "ctaDescription": "Our expert team is ready to help you with the best solutions"
+  },
+  "cta": {
+    "title": "Need the Right Product Recommendation?",
+    "benefits": {
+      "consultation": "Free consultation with product expert",
+      "response": "Response time within 24 hours",
+      "pricing": "Best price offers"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "footer": {
+    "company": "PT. Sekawan Sahabat Sejati",
+    "contact": "Contact",
+    "factoryAddress": "Factory Address:",
+    "fullAddress": "Jl. Industri Raya No. 123, Industrial Area, Jakarta 12345, Indonesia",
+    "products": "Products",
+    "companySection": "Company",
+    "help": "Help",
+    "address": "Address",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All Rights Reserved",
+    "copyright": "© {year} PT. Sekawan Sahabat Sejati. All Rights Reserved.",
+    "links": {
+      "career": "Career",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "requestQuote": "Request Quotation",
+      "downloadCatalog": "Download Catalog"
+    }
+  },
+  "common": {
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success"
+  },
+  "companyProfile": {
+    "titlePrefix": "About",
+    "companyName": "PT. Sekawan Sahabat Sejati",
+    "description": {
+      "intro": "PT. Sekawan Sahabat Sejati is a manufacturer of",
+      "highlight1": "premium plywood",
+      "text1": "established",
+      "highlight2": "since 1998",
+      "text2": ". With our commitment to quality and innovation, we deliver",
+      "highlight3": "international-class",
+      "text3": "plywood products that are",
+      "highlight4": "environmentally friendly",
+      "text4": ". Over",
+      "highlight5": "25 years of experience",
+      "text5": "has made us a",
+      "highlight6": "trusted partner",
+      "text6": "for construction projects, furniture, and industrial needs in both local and global markets."
+    },
+    "trustElements": {
+      "globalReach": {
+        "title": "Global Reach",
+        "description": "Our products are trusted in over 50 countries worldwide"
+      },
+      "certification": {
+        "title": "International Certification",
+        "description": "Certified with ISO 9001, FSC, and other international standards"
+      },
+      "professional": {
+        "title": "Professional Team",
+        "description": "Supported by a team with over 25 years of experience in the plywood industry"
+      },
+      "modern": {
+        "title": "Modern Facilities",
+        "description": "Factory equipped with cutting-edge technology for precision and high-quality results"
+      }
+    },
+    "stats": {
+      "foundedLabel": "Year Founded",
+      "countriesLabel": "Export Countries",
+      "employeesLabel": "Skilled Employees",
+      "capacityLabel": "m³ Capacity/Year"
+    }
+  },
+  "advantagesSection": {
+    "title": "Why Choose Us?",
+    "subtitle": "The advantages that make us the preferred choice for professionals",
+    "features": {
+      "quality": {
+        "title": "Guaranteed Quality",
+        "description": "Every product undergoes strict quality control to ensure the highest standards"
+      },
+      "certification": {
+        "title": "Internationally Certified",
+        "description": "Certified with ISO 9001, FSC, and other global quality standards"
+      },
+      "customization": {
+        "title": "Custom Sizes",
+        "description": "Custom services tailored to your project specifications with minimum order"
+      },
+      "delivery": {
+        "title": "On-Time Delivery",
+        "description": "Integrated logistics system ensures products arrive on schedule"
+      },
+      "support": {
+        "title": "Technical Support",
+        "description": "Expert team ready to assist with product consultation and best solutions"
+      },
+      "price": {
+        "title": "Competitive Pricing",
+        "description": "Best offers without compromising the quality of our premium products"
+      }
+    }
+  },
+  "certificationSection": {
+    "title": "International Certifications",
+    "subtitle": "Our commitment to quality and sustainability is proven by various international certifications",
+    "certifiedSince": "Certified since",
+    "ctaTitle": "Want to Know More?",
+    "ctaDescription": "Download our complete catalog of certifications and product specifications"
+  },
+  "faqSection": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our products and services",
+    "faqs": {
+      "customSize": {
+        "category": "Getting Started",
+        "question": "Can plywood be custom sized?",
+        "answer": "Yes, we provide custom size orders according to your project needs. Our standard sizes are 1220 x 2440 mm and 1250 x 2500 mm, but we can produce custom sizes with certain minimum order quantities (MOQ). Please contact our sales team for further discussion about your custom specifications."
+      },
+      "minimumOrder": {
+        "category": "Ordering",
+        "question": "What is the minimum order?",
+        "answer": "Minimum order quantity (MOQ) varies depending on product type and specifications. For standard products, MOQ starts from 1 x 20-foot container (approximately 22-25m³). For custom or special orders, MOQ may be higher. We also serve retail orders in smaller quantities with different pricing."
+      },
+      "shipping": {
+        "category": "Shipping",
+        "question": "Is delivery to other cities/provinces available?",
+        "answer": "Yes, we serve deliveries throughout Indonesia and exports to various countries. We have an integrated logistics system that partners with trusted courier companies to ensure products arrive safely and on time. Shipping costs will be calculated based on destination and order volume."
+      },
+      "payment": {
+        "category": "Payment",
+        "question": "What payment methods are accepted?",
+        "answer": "We accept various payment methods for your transaction convenience: Bank Transfer (BCA, Mandiri, BNI), Letter of Credit (L/C) for export transactions, and Cash for direct purchases at location. For regular customers, we also provide payment term options with applicable terms and conditions."
+      }
+    },
+    "ctaTitle": "Still have questions?",
+    "ctaDescription": "Our expert team is ready to help you with the best solutions"
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "About PT. Sekawan Sahabat Sejati",
+      "subtitle": "Over 25 years as a trusted partner in the plywood industry",
+      "description": "We are a premium plywood manufacturer committed to delivering international-quality products with high sustainability standards for local and global markets."
+    },
+    "journey": {
+      "title": "Our Journey",
+      "subtitle": "Year after year, we continue to innovate and grow",
+      "achievements": {
+        "item1": {
+          "year": "1998",
+          "title": "Established as a plywood manufacturer"
+        },
+        "item2": {
+          "year": "2005",
+          "title": "Factory expansion and ISO 9001 certification"
+        },
+        "item3": {
+          "year": "2010",
+          "title": "Breaking into international markets"
+        },
+        "item4": {
+          "year": "2015",
+          "title": "FSC certification and production capacity expansion"
+        },
+        "item5": {
+          "year": "2020",
+          "title": "Implementation of modern production technology"
+        },
+        "item6": {
+          "year": "2024",
+          "title": "Exporting to 50+ countries worldwide"
+        }
+      }
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become the leading plywood manufacturer in Southeast Asia, known for premium quality, sustainable innovation, and environmental commitment.",
+      "image": "Company Vision"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "items": {
+        "item1": "Produce high-quality plywood products with international standards",
+        "item2": "Implement environmentally friendly and sustainable production practices",
+        "item3": "Provide the best service to customers worldwide",
+        "item4": "Continuously innovate in technology and production processes"
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "Principles that guide our every step",
+      "items": {
+        "integrity": {
+          "title": "Integrity",
+          "description": "Conducting business with transparency and honesty in every aspect"
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Commitment to the highest quality standards in every product we produce"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Continuously innovating to deliver the best solutions for customers"
+        },
+        "sustainability": {
+          "title": "Sustainability",
+          "description": "Preserving the environment for future generations"
+        }
+      }
+    },
+    "team": {
+      "title": "Professional Team & Modern Facilities",
+      "description": "Supported by an experienced team and high-tech production facilities",
+      "stats": {
+        "employees": {
+          "value": "500+",
+          "label": "Professional Employees"
+        },
+        "engineers": {
+          "value": "50+",
+          "label": "Engineers & QC"
+        },
+        "factory": {
+          "value": "10 Ha",
+          "label": "Factory Area"
+        }
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog & Articles - Plywood Industry Insights",
+      "description": "Read the latest articles about the plywood industry, material selection tips, quality standards, and production technology developments from PT. Sekawan Sahabat Sejati"
+    },
+    "hero": {
+      "title": "Plywood Industry Blog & Articles",
+      "description": "Get the latest insights on the plywood industry, material selection tips, and international quality standards information"
+    },
+    "empty": "No articles published yet. Stay tuned for our interesting articles!",
+    "card": {
+      "readMore": "Read More"
+    }
+  },
+  "productData": {
+    "standard": {
+      "name": "Standard Plywood",
+      "category": "Standard",
+      "shortDescription": "Versatile plywood for various construction and furniture needs",
+      "description": "Our standard plywood is designed to meet general needs in construction and furniture making. Made from high-quality wood with precision production processes, this plywood offers optimal strength and durability for various applications.",
+      "grade": "BB/CC, C/D",
+      "features": {
+        "feature1": "Smooth and even surface",
+        "feature2": "High structural strength",
+        "feature3": "Easy to cut and shape",
+        "feature4": "Competitive pricing",
+        "feature5": "Always in stock"
+      },
+      "applications": {
+        "app1": "House and building construction",
+        "app2": "Household furniture",
+        "app3": "Packing and crating",
+        "app4": "Interior design",
+        "app5": "Partitions and walls"
+      }
+    },
+    "marine": {
+      "name": "Marine Plywood",
+      "category": "Premium",
+      "shortDescription": "Water-resistant plywood for maritime and outdoor applications",
+      "description": "Premium Marine grade plywood with superior water resistance. Made with WBP (Water Boil Proof) glue and select wood, this product is ideal for applications exposed to water and high humidity.",
+      "grade": "A/B, BB/BB",
+      "features": {
+        "feature1": "100% waterproof",
+        "feature2": "High-quality WBP glue",
+        "feature3": "Resistant to delamination",
+        "feature4": "Resistant to fungi and termites",
+        "feature5": "Suitable for outdoor use"
+      },
+      "applications": {
+        "app1": "Boat and ship building",
+        "app2": "Dock construction",
+        "app3": "Outdoor furniture",
+        "app4": "Bathroom and kitchen cabinets",
+        "app5": "Basements and damp areas"
+      }
+    },
+    "filmFaced": {
+      "name": "Film Faced Plywood",
+      "category": "Professional",
+      "shortDescription": "Plywood with film coating for formwork and shuttering",
+      "description": "Film Faced Plywood with surface coated in high-quality phenolic resin film. Ideal for concrete formwork due to its smooth surface, water resistance, and reusability.",
+      "grade": "A/A",
+      "features": {
+        "feature1": "Non-stick film surface",
+        "feature2": "Water and extreme weather resistant",
+        "feature3": "Can be used 15-20 times",
+        "feature4": "Smooth concrete finish",
+        "feature5": "Easy to clean"
+      },
+      "applications": {
+        "app1": "Concrete formwork",
+        "app2": "Construction shuttering",
+        "app3": "Concrete casting",
+        "app4": "Infrastructure projects",
+        "app5": "High-rise buildings"
+      }
+    },
+    "decorative": {
+      "name": "Decorative Plywood",
+      "category": "Premium",
+      "shortDescription": "Decorative plywood with natural finish for luxury interiors",
+      "description": "Premium decorative plywood with select wood veneer for beautiful finishing results. Perfect for luxury interiors, high-end furniture, and applications that prioritize aesthetics.",
+      "grade": "A/A, A/B",
+      "features": {
+        "feature1": "Premium natural wood veneer",
+        "feature2": "Beautiful natural wood patterns",
+        "feature3": "Ready-to-finish surface",
+        "feature4": "Consistent color and texture",
+        "feature5": "Various veneer options"
+      },
+      "applications": {
+        "app1": "Premium interior design",
+        "app2": "Luxury furniture",
+        "app3": "Wall paneling",
+        "app4": "Decorative ceilings",
+        "app5": "Custom woodwork"
+      }
+    },
+    "commercial": {
+      "name": "Commercial Plywood",
+      "category": "Standard",
+      "shortDescription": "Economical commercial plywood for large-scale projects",
+      "description": "Commercial plywood with standard quality and economical pricing. Ideal for large-scale projects requiring high volume with efficient budget.",
+      "grade": "C/D, D/E",
+      "features": {
+        "feature1": "Highly competitive pricing",
+        "feature2": "Available in large volumes",
+        "feature3": "Consistent quality",
+        "feature4": "Suitable for mass production",
+        "feature5": "Fast delivery"
+      },
+      "applications": {
+        "app1": "Packing and export crating",
+        "app2": "Mass production furniture",
+        "app3": "Temporary construction",
+        "app4": "Pallets and container flooring",
+        "app5": "General purpose"
+      }
+    },
+    "engineered": {
+      "name": "Engineered Plywood",
+      "category": "Professional",
+      "shortDescription": "Engineered plywood for demanding structural applications",
+      "description": "Engineered Plywood with high structural standards. Specially designed for applications requiring superior strength and dimensional stability.",
+      "grade": "B/BB, BB/CC",
+      "features": {
+        "feature1": "Maximum structural strength",
+        "feature2": "High dimensional stability",
+        "feature3": "Minimal warping",
+        "feature4": "Certified structural grade",
+        "feature5": "Consistent layer by layer"
+      },
+      "applications": {
+        "app1": "Structural flooring",
+        "app2": "Roof decking",
+        "app3": "Industrial applications",
+        "app4": "Heavy-duty furniture",
+        "app5": "Engineered construction"
+      }
+    },
+    "specifications": {
+      "material": "Material",
+      "glue": "Glue",
+      "moisture": "Moisture Content",
+      "density": "Density"
+    }
+  }
+}

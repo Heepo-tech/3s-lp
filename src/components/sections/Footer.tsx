@@ -8,36 +8,53 @@ import {
   MapPin,
   Phone,
 } from 'lucide-react'
-import Link from 'next/link'
+import NextLink from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export default function Footer() {
+  const t = useTranslations()
   const currentYear = new Date().getFullYear()
 
   const quickLinks = {
     produk: [
-      { name: 'Plywood Standar', href: '/produk/plywood-standar' },
-      { name: 'Plywood Marine', href: '/produk/plywood-marine' },
-      { name: 'Plywood Film Faced', href: '/produk/plywood-film-faced' },
-      { name: 'Plywood Decorative', href: '/produk/plywood-decorative' },
+      {
+        name: t('productData.standard.name'),
+        href: '/produk/plywood-standar' as const,
+      },
+      {
+        name: t('productData.marine.name'),
+        href: '/produk/plywood-marine' as const,
+      },
+      {
+        name: t('productData.filmFaced.name'),
+        href: '/produk/plywood-film-faced' as const,
+      },
+      {
+        name: t('productData.decorative.name'),
+        href: '/produk/plywood-decorative' as const,
+      },
     ],
     perusahaan: [
-      { name: 'Tentang Kami', href: '/tentang-kami' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Sertifikasi', href: '/sertifikasi' },
-      { name: 'Karir', href: '/karir' },
+      { name: t('navigation.aboutUs'), href: '/tentang-kami' as const },
+      { name: t('navigation.blog'), href: '/blog' as const },
+      { name: t('navigation.certification'), href: '/sertifikasi' as const },
+      { name: t('footer.links.career'), href: '/karir' as const },
     ],
     bantuan: [
-      { name: 'FAQ', href: '/#faq' },
-      { name: 'Kontak', href: '/#contact' },
-      { name: 'Request Quotation', href: '/quotation' },
-      { name: 'Download Katalog', href: '/downloads/catalog.pdf' },
+      { name: t('footer.links.faq'), href: '/#faq' as const },
+      { name: t('footer.links.contact'), href: '/#contact' as const },
+      { name: t('footer.links.requestQuote'), href: '/quotation' as const },
+      {
+        name: t('footer.links.downloadCatalog'),
+        href: '/downloads/catalog.pdf' as const,
+      },
     ],
   }
 
   return (
     <footer
       id="footer"
-      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden pt-20 sm:pt-24"
+      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden pt-12 sm:pt-16 lg:pt-20"
       style={{ backgroundColor: '#2D1404' }}
     >
       {/* Dotted Background Pattern */}
@@ -51,47 +68,39 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10 w-full h-full px-4 sm:px-6 py-8 sm:py-10 md:py-12 lg:px-8">
+      <div className="relative z-10 w-full h-full px-4 sm:px-6 py-6 sm:py-8 md:py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <h3
-                className="mb-3 text-base font-semibold text-white"
+                className="mb-3 text-sm sm:text-base font-semibold text-white"
                 style={{ fontFamily: 'var(--font-primary)' }}
               >
-                Kontak
+                {t('footer.contact')}
               </h3>
               <div
-                className="space-y-2 text-xs sm:text-sm"
+                className="space-y-2 text-sm sm:text-sm"
                 style={{ color: '#F8F7F3', opacity: 0.7 }}
               >
                 <div className="flex items-start gap-3">
                   <MapPin
-                    className="h-5 w-5 flex-shrink-0 mt-0.5"
+                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 mt-0.5"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
                     <div
-                      className="font-semibold mb-1 text-xs sm:text-sm"
+                      className="font-semibold mb-1 text-sm sm:text-sm"
                       style={{ color: '#F8F7F3' }}
                     >
-                      Alamat Pabrik:
+                      {t('footer.factoryAddress')}
                     </div>
-                    <div>
-                      Jl. Industri Raya No. 123
-                      <br />
-                      Kawasan Industri Jababeka
-                      <br />
-                      Cikarang, Bekasi 17530
-                      <br />
-                      Jawa Barat, Indonesia
-                    </div>
+                    <div>{t('footer.fullAddress')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone
-                    className="h-5 w-5 flex-shrink-0"
+                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
@@ -110,7 +119,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail
-                    className="h-5 w-5 flex-shrink-0"
+                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
@@ -136,12 +145,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Produk
+                {t('footer.products')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.produk.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -151,7 +160,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -163,12 +172,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Perusahaan
+                {t('footer.companySection')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.perusahaan.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -178,7 +187,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -190,12 +199,12 @@ export default function Footer() {
                 className="mb-3 text-sm sm:text-base font-semibold"
                 style={{ color: '#F8F7F3', fontFamily: 'var(--font-primary)' }}
               >
-                Bantuan
+                {t('footer.help')}
               </h3>
               <ul className="space-y-2 text-sm">
                 {quickLinks.bantuan.map(link => (
                   <li key={link.name}>
-                    <Link
+                    <NextLink
                       href={link.href}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
@@ -205,7 +214,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -220,8 +229,8 @@ export default function Footer() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d107.1534!3d-6.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwN8KwMDknMTIuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
               width="100%"
-              height="200"
-              className="sm:h-[250px] md:h-[300px]"
+              height="160"
+              className="sm:h-[200px] md:h-[250px]"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -239,7 +248,7 @@ export default function Footer() {
               className="text-xs sm:text-sm text-center md:text-left"
               style={{ color: '#F8F7F3', opacity: 0.6 }}
             >
-              © {currentYear} PT. Sekawan Sahabat Sejati. All rights reserved.
+              {t('footer.copyright', { year: currentYear })}
             </p>
 
             {/* Social Media Links */}
@@ -289,12 +298,12 @@ export default function Footer() {
           <h2
             className="font-black leading-none whitespace-nowrap"
             style={{
-              fontSize: 'clamp(40px, 8vw, 110px)',
+              fontSize: 'clamp(24px, 6vw, 110px)',
               color: '#F8F7F3',
               fontFamily: 'var(--font-primary)',
               letterSpacing: '-0.04em',
-              opacity: 0.15,
-              transform: 'translateY(35%)',
+              opacity: 0.08,
+              transform: 'translateY(20%)',
               paddingLeft: 'clamp(1rem, 2vw, 2rem)',
             }}
           >

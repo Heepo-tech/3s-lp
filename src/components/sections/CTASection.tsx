@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, FileText } from 'lucide-react'
+import { Mail, Phone, CheckCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export default function CTASection() {
+  const t = useTranslations()
   return (
     <section
       className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
@@ -28,109 +30,83 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Icon */}
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="mb-6 sm:mb-8 inline-flex rounded-full p-3 sm:p-4"
-            style={{ backgroundColor: 'rgba(254, 186, 23, 0.1)' }}
-          >
-            <FileText
-              className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
-              style={{ color: 'var(--primary-gold)' }}
-            />
-          </motion.div>
-
           {/* Headline */}
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-10 px-4 sm:px-0"
             style={{
               fontFamily: 'var(--font-primary)',
               color: 'var(--primary-dark-brown)',
             }}
           >
-            Konsultasi Gratis dengan Tim Kami{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>Sekarang!</span>
+            {t('cta.title')}
           </h2>
 
-          {/* Description */}
-          <p
-            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto px-4 sm:px-0"
-            style={{
-              fontFamily: 'var(--font-secondary)',
-              color: 'var(--primary-brown)',
-            }}
-          >
-            Dapatkan solusi terbaik untuk kebutuhan plywood Anda. Tim ahli kami
-            siap membantu dengan konsultasi gratis dan penawaran harga terbaik.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto px-4 sm:px-0">
-            <motion.a
-              href="mailto:info@3s-plywood.com"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="btn-primary btn-icon w-full sm:w-auto sm:flex-1"
-            >
-              <Mail className="h-5 w-5" />
-              Hubungi Kami Sekarang
-            </motion.a>
-
-            <motion.a
-              href="/quotation"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="btn-outline-dark btn-icon w-full sm:w-auto sm:flex-1"
-            >
-              <FileText className="h-5 w-5" />
-              Request Quotation
-            </motion.a>
-          </div>
-
-          {/* Contact Info */}
+          {/* Benefits List */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm px-4 sm:px-0"
-            style={{ color: 'var(--primary-brown)' }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-8 sm:mb-10 max-w-2xl mx-auto"
           >
-            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-              <span
-                className="font-semibold"
-                style={{ color: 'var(--primary-gold)' }}
-              >
-                Email:
-              </span>
-              <span>info@3s-plywood.com</span>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-              <span
-                className="font-semibold"
-                style={{ color: 'var(--primary-gold)' }}
-              >
-                Phone:
-              </span>
-              <span>+62 21 1234 5678</span>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-              <span
-                className="font-semibold"
-                style={{ color: 'var(--primary-gold)' }}
-              >
-                WhatsApp:
-              </span>
-              <span>+62 812 3456 7890</span>
+            <div className="flex flex-col gap-3 sm:gap-4 items-start text-left px-4 sm:px-0">
+              {[
+                t('cta.benefits.consultation'),
+                t('cta.benefits.response'),
+                t('cta.benefits.pricing'),
+              ].map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                  className="flex items-center gap-3 w-full"
+                >
+                  <CheckCircle
+                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0"
+                    style={{ color: 'var(--primary-gold)' }}
+                  />
+                  <span
+                    className="text-sm sm:text-base md:text-lg text-justified"
+                    style={{
+                      fontFamily: 'var(--font-secondary)',
+                      color: 'var(--primary-brown)',
+                    }}
+                  >
+                    {benefit}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto px-4 sm:px-0">
+            <motion.a
+              href="mailto:info@3s-plywood.com?subject=Konsultasi Rekomendasi Produk"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="btn-primary btn-icon w-full sm:w-auto sm:flex-1"
+            >
+              <Mail className="h-5 w-5" />
+              {t('buttons.sendEmail')}
+            </motion.a>
+
+            <motion.a
+              href="tel:+622112345678"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="btn-outline-dark btn-icon w-full sm:w-auto sm:flex-1"
+            >
+              <Phone className="h-5 w-5" />
+              {t('buttons.callNow')}
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>

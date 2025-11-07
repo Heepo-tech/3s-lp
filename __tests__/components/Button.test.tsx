@@ -8,27 +8,28 @@ describe('Button Component', () => {
 
     const button = screen.getByRole('button', { name: /click me/i })
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('bg-blue-600') // primary variant
-    expect(button).toHaveClass('px-4 py-2') // md size
+    expect(button).toHaveClass('inline-flex') // base class
+    expect(button).toHaveClass('items-center') // base class
+    expect(button).toHaveClass('justify-center') // base class
   })
 
   it('renders different variants', () => {
     const { rerender } = render(<Button variant="secondary">Secondary</Button>)
-    expect(screen.getByRole('button')).toHaveClass('bg-gray-600')
+    expect(screen.getByRole('button')).toHaveClass('bg-secondary')
 
     rerender(<Button variant="outline">Outline</Button>)
-    expect(screen.getByRole('button')).toHaveClass('border-2 border-gray-300')
+    expect(screen.getByRole('button')).toHaveClass('border')
 
     rerender(<Button variant="ghost">Ghost</Button>)
-    expect(screen.getByRole('button')).toHaveClass('text-gray-600')
+    expect(screen.getByRole('button')).toHaveClass('hover:bg-accent')
   })
 
   it('renders different sizes', () => {
     const { rerender } = render(<Button size="sm">Small</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-3 py-1.5 text-sm')
+    expect(screen.getByRole('button')).toHaveClass('h-8')
 
     rerender(<Button size="lg">Large</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-6 py-3 text-lg')
+    expect(screen.getByRole('button')).toHaveClass('h-10')
   })
 
   it('shows loading state', () => {

@@ -1,13 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Info, Eye } from 'lucide-react'
+import { Send, Eye } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
+import { preloadQuoteForm } from '@/components/QuoteRequestForm.lazy'
+import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
 export default function HeroSection() {
+  const t = useTranslations()
+  const { openModal } = useQuoteRequestModal()
+
+  // Preload handler for hover/touch events
+  const handlePreload = () => {
+    preloadQuoteForm()
+  }
+
   const heroMapDots = [
     {
       start: { lat: -6.2088, lng: 106.8456 },
@@ -49,11 +60,11 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] pt-20 sm:pt-24 md:pt-0 flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* World Map Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none scale-150 sm:scale-125 md:scale-110 lg:scale-100">
+      <div className="absolute inset-0 mt-12 sm:mt-0 z-0 pointer-events-none scale-110 sm:scale-105 md:scale-100 lg:scale-100">
         <WorldMap
           dots={heroMapDots}
           lineColor="rgba(82, 36, 5, 0.35)"
@@ -65,7 +76,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Fade Effect - Top (Extended and stronger) */}
         <div
-          className="absolute top-0 left-0 right-0 h-48 sm:h-56 md:h-64 lg:h-72"
+          className="absolute top-0 left-0 right-0 h-40 sm:h-48 md:h-64 lg:h-72"
           style={{
             background:
               'linear-gradient(to bottom, var(--primary-cream) 0%, var(--primary-cream) 40%, transparent 100%)',
@@ -124,7 +135,7 @@ export default function HeroSection() {
                       margin: '0 auto',
                     }}
                   >
-                    Plywood Premium, Dipercaya Pasar Lokal & Internasional
+                    {t('hero.title')}
                   </h1>
                 </VerticalCutReveal>
               </div>
@@ -136,15 +147,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4"
+            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 text-justified"
             style={{
               fontFamily: 'var(--font-secondary)',
               color: 'var(--primary-brown)',
             }}
           >
-            Dengan sertifikasi internasional dan pengalaman bertahun-tahun, kami
-            menghadirkan plywood kuat, presisi, dan ramah lingkungan untuk
-            proyek Anda di mana saja.
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -154,14 +163,19 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 w-full sm:w-auto"
           >
-            <Link href="/tentang-kami" className="btn-primary btn-icon">
-              <Info className="h-5 w-5" />
-              Tentang Kami
-            </Link>
+            <button
+              onClick={openModal}
+              onMouseEnter={handlePreload}
+              onTouchStart={handlePreload}
+              className="btn-primary btn-icon"
+            >
+              <Send className="h-5 w-5" />
+              {t('buttons.requestQuote')}
+            </button>
 
             <Link href="#produk" className="btn-outline-dark btn-icon">
               <Eye className="h-5 w-5" />
-              Lihat Produk
+              {t('buttons.viewProductSpecs')}
             </Link>
           </motion.div>
         </motion.div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
@@ -18,6 +19,8 @@ const clients = [
 ]
 
 export default function ClientShowcase() {
+  const t = useTranslations()
+
   const clientItems = clients.map((client, index) => (
     <div
       key={index}
@@ -56,13 +59,10 @@ export default function ClientShowcase() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Dipercaya oleh{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>
-              Perusahaan Terkemuka
-            </span>
+            {t('clients.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -78,6 +78,7 @@ export default function ClientShowcase() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
+          className="relative overflow-hidden"
         >
           <SimpleMarquee
             baseVelocity={-2}
@@ -86,6 +87,26 @@ export default function ClientShowcase() {
           >
             {clientItems}
           </SimpleMarquee>
+
+          {/* Fade Effect - Left Side */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 md:w-40 lg:w-48 pointer-events-none"
+            style={{
+              background:
+                'linear-gradient(to right, #f8f7f3 0%, #f8f7f3 20%, rgba(248, 247, 243, 0.8) 40%, rgba(248, 247, 243, 0.4) 60%, rgba(248, 247, 243, 0.1) 80%, transparent 100%)',
+              zIndex: 20,
+            }}
+          />
+
+          {/* Fade Effect - Right Side */}
+          <div
+            className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 md:w-40 lg:w-48 pointer-events-none"
+            style={{
+              background:
+                'linear-gradient(to left, #f8f7f3 0%, #f8f7f3 20%, rgba(248, 247, 243, 0.8) 40%, rgba(248, 247, 243, 0.4) 60%, rgba(248, 247, 243, 0.1) 80%, transparent 100%)',
+              zIndex: 20,
+            }}
+          />
         </motion.div>
       </div>
     </section>

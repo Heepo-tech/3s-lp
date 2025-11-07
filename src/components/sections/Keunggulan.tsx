@@ -9,47 +9,44 @@ import {
   Award,
   HeadphonesIcon,
 } from 'lucide-react'
-
-const keunggulanList = [
-  {
-    icon: Shield,
-    title: 'Kualitas Terjamin',
-    description:
-      'Setiap produk melalui kontrol kualitas ketat dengan standar internasional untuk memastikan hasil terbaik.',
-  },
-  {
-    icon: Leaf,
-    title: 'Ramah Lingkungan',
-    description:
-      'Menggunakan kayu dari hutan berkelanjutan dengan sertifikasi FSC dan proses produksi eco-friendly.',
-  },
-  {
-    icon: Award,
-    title: 'Sertifikasi Internasional',
-    description:
-      'Memiliki ISO 9001, FSC, dan sertifikasi standar internasional lainnya yang diakui global.',
-  },
-  {
-    icon: Truck,
-    title: 'Pengiriman Tepat Waktu',
-    description:
-      'Sistem logistik terintegrasi untuk memastikan produk sampai tepat waktu ke seluruh Indonesia dan dunia.',
-  },
-  {
-    icon: CheckCircle,
-    title: 'Custom Order',
-    description:
-      'Melayani pemesanan khusus sesuai spesifikasi dan kebutuhan proyek Anda dengan MOQ fleksibel.',
-  },
-  {
-    icon: HeadphonesIcon,
-    title: 'Layanan Konsultasi',
-    description:
-      'Tim ahli kami siap membantu konsultasi produk dan solusi terbaik untuk proyek Anda.',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 export default function Keunggulan() {
+  const t = useTranslations()
+
+  const keunggulanList = [
+    {
+      icon: Shield,
+      title: t('advantagesSection.features.quality.title'),
+      description: t('advantagesSection.features.quality.description'),
+    },
+    {
+      icon: Award,
+      title: t('advantagesSection.features.certification.title'),
+      description: t('advantagesSection.features.certification.description'),
+    },
+    {
+      icon: CheckCircle,
+      title: t('advantagesSection.features.customization.title'),
+      description: t('advantagesSection.features.customization.description'),
+    },
+    {
+      icon: Truck,
+      title: t('advantagesSection.features.delivery.title'),
+      description: t('advantagesSection.features.delivery.description'),
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t('advantagesSection.features.support.title'),
+      description: t('advantagesSection.features.support.description'),
+    },
+    {
+      icon: Leaf,
+      title: t('advantagesSection.features.price.title'),
+      description: t('advantagesSection.features.price.description'),
+    },
+  ]
+
   return (
     <section
       className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
@@ -70,17 +67,16 @@ export default function Keunggulan() {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Mengapa Memilih{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>Kami?</span>
+            {t('advantages.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
             }}
           >
-            Keunggulan yang membuat kami menjadi pilihan utama para profesional
+            {t('advantagesSection.subtitle')}
           </p>
         </motion.div>
 
@@ -94,7 +90,7 @@ export default function Keunggulan() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group relative p-6 sm:p-8 rounded-2xl border bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group relative p-6 sm:p-8 rounded-2xl border bg-white transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden"
                 style={{ borderColor: 'var(--neutral-medium)' }}
               >
                 <div
@@ -118,7 +114,7 @@ export default function Keunggulan() {
                 </h3>
 
                 <p
-                  className="text-sm sm:text-base leading-relaxed"
+                  className="text-sm sm:text-base leading-relaxed text-justified"
                   style={{
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-secondary)',
