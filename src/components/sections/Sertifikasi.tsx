@@ -85,7 +85,7 @@ export default function Sertifikasi() {
             {t('certificationSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -113,7 +113,7 @@ export default function Sertifikasi() {
               <div className="absolute top-4 right-4">
                 <div
                   className="rounded-full px-3 py-1 text-xs font-semibold text-white"
-                  style={{ background: 'var(--gradient-gold)' }}
+                  style={{ backgroundColor: 'var(--primary-brown)' }}
                 >
                   {cert.category}
                 </div>
@@ -163,7 +163,7 @@ export default function Sertifikasi() {
               {/* Hover effect */}
               <div
                 className="absolute bottom-0 left-0 h-1.5 w-0 transition-all duration-300 group-hover:w-full"
-                style={{ background: 'var(--gradient-gold)' }}
+                style={{ backgroundColor: 'var(--primary-brown)' }}
               />
             </motion.div>
           ))}
@@ -188,7 +188,7 @@ export default function Sertifikasi() {
             {t('certificationSection.ctaTitle')}
           </h3>
           <p
-            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0 text-justified"
+            className="mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

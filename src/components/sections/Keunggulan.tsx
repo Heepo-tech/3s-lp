@@ -70,7 +70,7 @@ export default function Keunggulan() {
             {t('advantages.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -125,7 +125,7 @@ export default function Keunggulan() {
 
                 <div
                   className="absolute bottom-0 left-0 h-1.5 w-0 rounded-full transition-all duration-300 group-hover:w-full"
-                  style={{ background: 'var(--gradient-gold)' }}
+                  style={{ backgroundColor: 'var(--primary-brown)' }}
                 />
               </motion.div>
             )

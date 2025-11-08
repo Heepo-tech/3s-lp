@@ -55,7 +55,7 @@ export default function FAQ() {
             {t('faqSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -216,7 +216,7 @@ export default function FAQ() {
             {t('faqSection.ctaTitle')}
           </p>
           <p
-            className="relative text-sm sm:text-base mb-4 px-4 sm:px-0 text-justified"
+            className="relative text-sm sm:text-base mb-4 px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',

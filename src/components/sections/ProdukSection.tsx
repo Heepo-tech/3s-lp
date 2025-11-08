@@ -73,7 +73,7 @@ export default function ProdukSection() {
             {t('productsSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -120,7 +120,7 @@ export default function ProdukSection() {
                     {/* Category Badge */}
                     <div
                       className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
-                      style={{ background: 'var(--gradient-gold)' }}
+                      style={{ backgroundColor: 'var(--primary-brown)' }}
                     >
                       {product.category}
                     </div>
@@ -188,7 +188,7 @@ export default function ProdukSection() {
                   {/* Hover Effect Border */}
                   <div
                     className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
-                    style={{ background: 'var(--gradient-gold)' }}
+                    style={{ backgroundColor: 'var(--primary-brown)' }}
                   />
                 </div>
               </Link>
