@@ -22,10 +22,32 @@ const nextConfig: NextConfig = {
     }),
   }),
 
-  // Image optimization
+  // Image optimization with aggressive caching
   images: {
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, // 1 year cache for static images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+
+  // Rewrites for pathname localization
+  async rewrites() {
+    return [
+      {
+        source: '/en/products',
+        destination: '/en/produk',
+      },
+      {
+        source: '/en/products/:slug',
+        destination: '/en/produk/:slug',
+      },
+    ]
   },
 
   // Security headers
@@ -45,6 +67,44 @@ const nextConfig: NextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+      // Aggressive caching for static images
+      {
+        source: '/working/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/products/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache for Next.js optimized images
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
