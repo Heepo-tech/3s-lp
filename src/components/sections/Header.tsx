@@ -130,7 +130,7 @@ export default function Header() {
                           pathname: '/produk/[slug]',
                           params: { slug: product.slug },
                         }}
-                        className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
+                        className="block rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:shadow-none"
                         style={{
                           color: 'var(--text-secondary)',
                         }}
@@ -177,7 +177,7 @@ export default function Header() {
                   >
                     <Link
                       href="/tentang-kami"
-                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
+                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:shadow-none"
                       style={{ color: 'var(--text-secondary)' }}
                       onMouseEnter={e => {
                         e.currentTarget.style.backgroundColor =
@@ -193,7 +193,7 @@ export default function Header() {
                     </Link>
                     <Link
                       href="/blog"
-                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors"
+                      className="block rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:shadow-none"
                       style={{ color: 'var(--text-secondary)' }}
                       onMouseEnter={e => {
                         e.currentTarget.style.backgroundColor =
@@ -280,7 +280,7 @@ export default function Header() {
                             pathname: '/produk/[slug]',
                             params: { slug: product.slug },
                           }}
-                          className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
+                          className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center focus:outline-none focus:shadow-none"
                           style={{ color: 'var(--text-secondary)' }}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -316,7 +316,7 @@ export default function Header() {
                     >
                       <Link
                         href="/tentang-kami"
-                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
+                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center focus:outline-none focus:shadow-none"
                         style={{ color: 'var(--text-secondary)' }}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -324,7 +324,7 @@ export default function Header() {
                       </Link>
                       <Link
                         href="/blog"
-                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center"
+                        className="block rounded-md px-3 py-3 text-sm font-medium min-h-[44px] flex items-center focus:outline-none focus:shadow-none"
                         style={{ color: 'var(--text-secondary)' }}
                         onClick={() => setMobileMenuOpen(false)}
                       >

@@ -1,0 +1,282 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { ArrowRight, Layers } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+
+import { products } from '@/data/products'
+import { Link } from '@/i18n/navigation'
+
+export default function ProductsListingPage() {
+  const t = useTranslations()
+
+  // Map product slugs to translation keys
+  const productKeyMap: Record<string, string> = {
+    'plywood-standar': 'standard',
+    'plywood-marine': 'marine',
+    'plywood-film-faced': 'filmFaced',
+    'plywood-decorative': 'decorative',
+    'plywood-commercial': 'commercial',
+    'plywood-engineered': 'engineered',
+  }
+
+  // Get translated product data
+  const getTranslatedProduct = (product: (typeof products)[0]) => {
+    const key = productKeyMap[product.slug]
+    if (!key) return product
+
+    return {
+      ...product,
+      name: t(`productData.${key}.name`),
+      shortDescription: t(`productData.${key}.shortDescription`),
+      category: t(`productData.${key}.category`),
+      grade: t(`productData.${key}.grade`),
+    }
+  }
+
+  // Get all products with translations
+  const allProducts = products.map(getTranslatedProduct)
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: 'var(--primary-cream)' }}
+      >
+        {/* Dotted Background Pattern */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none opacity-30"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, var(--primary-brown) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+          }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-primary)',
+              }}
+            >
+              {t('productsListingPage.title')}
+            </h1>
+            <p
+              className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
+            >
+              {t('productsListingPage.subtitle')}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Products Grid Section */}
+      <section
+        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: 'var(--neutral-white)' }}
+      >
+        <div className="mx-auto max-w-7xl">
+          {/* Results Count */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-8"
+          >
+            <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+              {t('productsListingPage.showingResults', {
+                count: allProducts.length,
+              })}
+            </p>
+          </motion.div>
+
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {allProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link
+                  href={{
+                    pathname: '/produk/[slug]',
+                    params: { slug: product.slug },
+                  }}
+                  className="group block h-full focus:outline-none focus:shadow-none"
+                >
+                  <div
+                    className="relative flex flex-col h-full min-h-[400px] overflow-hidden rounded-2xl border-2 transition-all duration-300 md:hover:shadow-2xl md:hover:-translate-y-3"
+                    style={{
+                      backgroundColor: 'var(--neutral-white)',
+                      borderColor: 'var(--neutral-medium)',
+                    }}
+                  >
+                    {/* Left Accent Bar */}
+                    <div
+                      className="absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-300 group-hover:w-2"
+                      style={{
+                        background:
+                          'linear-gradient(to bottom, var(--primary-brown), var(--primary-gold))',
+                      }}
+                    />
+
+                    {/* Decorative Pattern Overlay */}
+                    <div
+                      className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                      style={{
+                        backgroundImage:
+                          'radial-gradient(circle, var(--primary-brown) 1.5px, transparent 1.5px)',
+                        backgroundSize: '24px 24px',
+                      }}
+                    />
+
+                    {/* Header with Gradient and Number Badge */}
+                    <div
+                      className="relative h-20 flex items-center justify-between px-6 overflow-hidden"
+                      style={{
+                        background:
+                          'linear-gradient(135deg, var(--primary-brown) 0%, var(--primary-gold) 100%)',
+                      }}
+                    >
+                      {/* Number Badge */}
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-transform duration-300 group-hover:scale-110"
+                          style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                            color: 'var(--neutral-white)',
+                            backdropFilter: 'blur(10px)',
+                          }}
+                        >
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                      </div>
+
+                      {/* Icon */}
+                      <Layers
+                        className="w-8 h-8 opacity-30 transition-all duration-300 group-hover:opacity-50 group-hover:rotate-12"
+                        style={{ color: 'var(--neutral-white)' }}
+                      />
+
+                      {/* Decorative circles */}
+                      <div
+                        className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10"
+                        style={{ backgroundColor: 'var(--neutral-white)' }}
+                      />
+                      <div
+                        className="absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-10"
+                        style={{ backgroundColor: 'var(--neutral-white)' }}
+                      />
+                    </div>
+
+                    {/* Product Content */}
+                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                      {/* Product Name */}
+                      <h3
+                        className="mb-4 text-2xl sm:text-3xl font-bold leading-tight group-hover:text-opacity-80 transition-all"
+                        style={{
+                          color: 'var(--text-primary)',
+                          fontFamily: 'var(--font-primary)',
+                        }}
+                      >
+                        {product.name}
+                      </h3>
+
+                      {/* Product Description */}
+                      <p
+                        className="mb-6 text-base leading-relaxed flex-grow"
+                        style={{
+                          color: 'var(--text-secondary)',
+                          fontFamily: 'var(--font-secondary)',
+                        }}
+                      >
+                        {product.shortDescription}
+                      </p>
+
+                      {/* Specifications */}
+                      <div className="mb-6 space-y-3">
+                        {/* Grade */}
+                        <div
+                          className="flex items-center gap-2 text-sm"
+                          style={{ color: 'var(--text-muted)' }}
+                        >
+                          <span
+                            className="font-semibold"
+                            style={{ color: 'var(--primary-brown)' }}
+                          >
+                            {t('productsSection.gradeLabel')}
+                          </span>
+                          <span>{product.grade}</span>
+                        </div>
+
+                        {/* Thickness Options */}
+                        <div className="flex flex-wrap gap-2">
+                          {product.thickness.slice(0, 4).map(thick => (
+                            <span
+                              key={thick}
+                              className="rounded-lg px-3 py-1.5 text-xs font-semibold border transition-all duration-300 group-hover:border-opacity-70"
+                              style={{
+                                backgroundColor: 'var(--primary-cream)',
+                                color: 'var(--primary-brown)',
+                                borderColor: 'var(--neutral-medium)',
+                              }}
+                            >
+                              {thick}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA with Arrow */}
+                      <div
+                        className="flex items-center justify-between pt-4 border-t"
+                        style={{ borderColor: 'var(--neutral-medium)' }}
+                      >
+                        <span
+                          className="text-sm font-bold transition-colors"
+                          style={{
+                            color: 'var(--primary-gold)',
+                            fontFamily: 'var(--font-primary)',
+                          }}
+                        >
+                          {t('buttons.viewDetail')}
+                        </span>
+                        <ArrowRight
+                          className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2"
+                          style={{ color: 'var(--primary-gold)' }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Bottom Hover Effect Border */}
+                    <div
+                      className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-500 group-hover:w-full"
+                      style={{
+                        background:
+                          'linear-gradient(to right, var(--primary-brown), var(--primary-gold))',
+                      }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

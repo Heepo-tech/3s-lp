@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Package } from 'lucide-react'
-import Link from 'next/link'
+import { ArrowRight, Package, Layers } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { products } from '@/data/products'
+import { Link } from '@/i18n/navigation'
 
 export default function ProdukSection() {
   const t = useTranslations()
@@ -34,8 +34,8 @@ export default function ProdukSection() {
     }
   }
 
-  // Ambil 6 produk pertama untuk ditampilkan
-  const featuredProducts = products.slice(0, 6).map(getTranslatedProduct)
+  // Ambil 3 produk unggulan untuk ditampilkan
+  const featuredProducts = products.slice(0, 3).map(getTranslatedProduct)
 
   return (
     <section
@@ -88,48 +88,84 @@ export default function ProdukSection() {
           {featuredProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <Link
-                href={`/produk/${product.slug}`}
-                className="group block h-full"
+                href={`/produk/${product.slug}` as any}
+                className="group block h-full focus:outline-none focus:shadow-none"
               >
                 <div
-                  className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2"
+                  className="relative flex flex-col h-full min-h-[400px] overflow-hidden rounded-2xl border-2 transition-all duration-300 md:hover:shadow-2xl md:hover:-translate-y-3"
                   style={{
                     backgroundColor: 'var(--neutral-white)',
                     borderColor: 'var(--neutral-medium)',
                   }}
                 >
-                  {/* Product Image */}
+                  {/* Left Accent Bar */}
                   <div
-                    className="relative h-48 sm:h-56 md:h-64 overflow-hidden"
-                    style={{ backgroundColor: 'var(--primary-cream)' }}
+                    className="absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-300 group-hover:w-2"
+                    style={{
+                      background:
+                        'linear-gradient(to bottom, var(--primary-brown), var(--primary-gold))',
+                    }}
+                  />
+
+                  {/* Decorative Pattern Overlay */}
+                  <div
+                    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        'radial-gradient(circle, var(--primary-brown) 1.5px, transparent 1.5px)',
+                      backgroundSize: '24px 24px',
+                    }}
+                  />
+
+                  {/* Header with Gradient and Number Badge */}
+                  <div
+                    className="relative h-20 flex items-center justify-between px-6 overflow-hidden"
+                    style={{
+                      background:
+                        'linear-gradient(135deg, var(--primary-brown) 0%, var(--primary-gold) 100%)',
+                    }}
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    {/* Number Badge */}
+                    <div className="flex items-center gap-3">
                       <div
-                        className="text-6xl font-bold opacity-10"
-                        style={{ color: 'var(--primary-brown)' }}
+                        className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-transform duration-300 group-hover:scale-110"
+                        style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                          color: 'var(--neutral-white)',
+                          backdropFilter: 'blur(10px)',
+                        }}
                       >
-                        {product.category}
+                        {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
-                    {/* Category Badge */}
+
+                    {/* Icon */}
+                    <Layers
+                      className="w-8 h-8 opacity-30 transition-all duration-300 group-hover:opacity-50 group-hover:rotate-12"
+                      style={{ color: 'var(--neutral-white)' }}
+                    />
+
+                    {/* Decorative circles */}
                     <div
-                      className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
-                      style={{ backgroundColor: 'var(--primary-brown)' }}
-                    >
-                      {product.category}
-                    </div>
+                      className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10"
+                      style={{ backgroundColor: 'var(--neutral-white)' }}
+                    />
+                    <div
+                      className="absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-10"
+                      style={{ backgroundColor: 'var(--neutral-white)' }}
+                    />
                   </div>
 
-                  {/* Product Info */}
-                  <div className="p-4 sm:p-6">
+                  {/* Product Content */}
+                  <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                    {/* Product Name */}
                     <h3
-                      className="mb-2 text-xl sm:text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
+                      className="mb-4 text-2xl sm:text-3xl font-bold leading-tight group-hover:text-opacity-80 transition-all"
                       style={{
                         color: 'var(--text-primary)',
                         fontFamily: 'var(--font-primary)',
@@ -138,8 +174,9 @@ export default function ProdukSection() {
                       {product.name}
                     </h3>
 
+                    {/* Product Description */}
                     <p
-                      className="mb-3 sm:mb-4 text-sm leading-relaxed text-justified"
+                      className="mb-6 text-base leading-relaxed flex-grow"
                       style={{
                         color: 'var(--text-secondary)',
                         fontFamily: 'var(--font-secondary)',
@@ -149,24 +186,31 @@ export default function ProdukSection() {
                     </p>
 
                     {/* Specifications */}
-                    <div className="mb-4 space-y-2">
+                    <div className="mb-6 space-y-3">
+                      {/* Grade */}
                       <div
-                        className="flex items-center gap-2 text-sm sm:text-xs"
+                        className="flex items-center gap-2 text-sm"
                         style={{ color: 'var(--text-muted)' }}
                       >
-                        <span className="font-semibold">
+                        <span
+                          className="font-semibold"
+                          style={{ color: 'var(--primary-brown)' }}
+                        >
                           {t('productsSection.gradeLabel')}
                         </span>
                         <span>{product.grade}</span>
                       </div>
-                      <div className="flex flex-wrap gap-1">
+
+                      {/* Thickness Options */}
+                      <div className="flex flex-wrap gap-2">
                         {product.thickness.slice(0, 4).map(thick => (
                           <span
                             key={thick}
-                            className="rounded-md px-1.5 sm:px-2 py-0.5 text-xs font-medium"
+                            className="rounded-lg px-3 py-1.5 text-xs font-semibold border transition-all duration-300 group-hover:border-opacity-70"
                             style={{
                               backgroundColor: 'var(--primary-cream)',
-                              color: 'var(--text-secondary)',
+                              color: 'var(--primary-brown)',
+                              borderColor: 'var(--neutral-medium)',
                             }}
                           >
                             {thick}
@@ -175,20 +219,34 @@ export default function ProdukSection() {
                       </div>
                     </div>
 
-                    {/* CTA */}
+                    {/* CTA with Arrow */}
                     <div
-                      className="flex items-center gap-2 text-xs sm:text-sm font-semibold group-hover:gap-3 transition-all"
-                      style={{ color: 'var(--primary-gold)' }}
+                      className="flex items-center justify-between pt-4 border-t"
+                      style={{ borderColor: 'var(--neutral-medium)' }}
                     >
-                      {t('buttons.viewDetail')}
-                      <ArrowRight className="h-4 w-4" />
+                      <span
+                        className="text-sm font-bold transition-colors"
+                        style={{
+                          color: 'var(--primary-gold)',
+                          fontFamily: 'var(--font-primary)',
+                        }}
+                      >
+                        {t('buttons.viewDetail')}
+                      </span>
+                      <ArrowRight
+                        className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2"
+                        style={{ color: 'var(--primary-gold)' }}
+                      />
                     </div>
                   </div>
 
-                  {/* Hover Effect Border */}
+                  {/* Bottom Hover Effect Border */}
                   <div
-                    className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--primary-brown)' }}
+                    className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-500 group-hover:w-full"
+                    style={{
+                      background:
+                        'linear-gradient(to right, var(--primary-brown), var(--primary-gold))',
+                    }}
                   />
                 </div>
               </Link>
@@ -204,7 +262,7 @@ export default function ProdukSection() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <Link href="/#produk" className="btn-dark btn-icon">
+          <Link href="/produk" className="btn-dark btn-icon">
             <Package className="h-5 w-5" />
             {t('buttons.viewAll')}
             <ArrowRight className="h-5 w-5" />
