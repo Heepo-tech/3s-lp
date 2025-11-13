@@ -134,7 +134,11 @@ export default function TentangKamiContent() {
       {/* Perjalanan Kami - Marquee Section */}
       <section
         className="py-20 px-6 lg:px-8"
-        style={{ backgroundColor: 'var(--primary-cream)' }}
+        style={{
+          backgroundColor: 'var(--primary-cream)',
+          overflowX: 'visible',
+          overflowY: 'visible',
+        }}
       >
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -169,6 +173,7 @@ export default function TentangKamiContent() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
+            className="overflow-visible -mx-6 lg:-mx-8"
           >
             <SimpleMarquee
               baseVelocity={-1.5}

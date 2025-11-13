@@ -1,14 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  CheckCircle,
-  Shield,
-  Leaf,
-  Truck,
-  Award,
-  HeadphonesIcon,
-} from 'lucide-react'
+import { Shield, Leaf, Award } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export default function Keunggulan() {
@@ -24,21 +17,6 @@ export default function Keunggulan() {
       icon: Award,
       title: t('advantagesSection.features.certification.title'),
       description: t('advantagesSection.features.certification.description'),
-    },
-    {
-      icon: CheckCircle,
-      title: t('advantagesSection.features.customization.title'),
-      description: t('advantagesSection.features.customization.description'),
-    },
-    {
-      icon: Truck,
-      title: t('advantagesSection.features.delivery.title'),
-      description: t('advantagesSection.features.delivery.description'),
-    },
-    {
-      icon: HeadphonesIcon,
-      title: t('advantagesSection.features.support.title'),
-      description: t('advantagesSection.features.support.description'),
     },
     {
       icon: Leaf,

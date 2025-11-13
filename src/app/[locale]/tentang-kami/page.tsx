@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 export default function TentangKamiPage() {
   return (
-    <div className="w-full h-screen overflow-auto">
+    <div className="w-full min-h-screen flex flex-col">
       {/* Main Content with higher z-index for sticky footer */}
       <div
-        className="relative z-10 pb-8 sm:pb-12"
+        className="relative z-10 flex-1 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <Header />

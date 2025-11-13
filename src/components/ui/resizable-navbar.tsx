@@ -1,6 +1,5 @@
 'use client'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -15,7 +14,6 @@ interface NavbarProps {
 interface NavBodyProps {
   children: React.ReactNode
   className?: string
-  visible?: boolean
 }
 
 interface NavItemsProps {
@@ -27,39 +25,17 @@ interface NavItemsProps {
   onItemClick?: () => void
 }
 
-interface MobileNavProps {
-  children: React.ReactNode
-  className?: string
-  visible?: boolean
-}
-
-interface MobileNavHeaderProps {
-  children: React.ReactNode
-  className?: string
-}
-
-interface MobileNavMenuProps {
-  children: React.ReactNode
-  className?: string
-  isOpen: boolean
-}
-
 export const Navbar = ({ children, className }: NavbarProps) => {
-  const [visible] = useState<boolean>(true) // Always visible
   const isFooterVisible = useFooterVisibility(0.7)
 
   return (
     <motion.div
       initial={{
-        paddingLeft: '0.5rem',
-        paddingRight: '0.5rem',
         opacity: 1,
         y: 0,
         pointerEvents: 'auto',
       }}
       animate={{
-        paddingLeft: visible ? '0.5rem' : '0.75rem',
-        paddingRight: visible ? '0.5rem' : '0.75rem',
         opacity: isFooterVisible ? 0 : 1,
         y: isFooterVisible ? -100 : 0,
         pointerEvents: isFooterVisible ? 'none' : 'auto',
@@ -70,64 +46,26 @@ export const Navbar = ({ children, className }: NavbarProps) => {
         ease: 'easeOut',
       }}
       className={cn(
-        'fixed inset-x-0 top-0 z-50 w-full flex justify-center pt-3',
+        'fixed inset-x-0 top-0 z-50 w-full flex justify-center pt-3 px-2',
         className
       )}
     >
-      {React.Children.map(children, child =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
-            )
-          : child
-      )}
+      {children}
     </motion.div>
   )
 }
 
-export const NavBody = ({ children, className, visible }: NavBodyProps) => {
+export const NavBody = ({ children, className }: NavBodyProps) => {
   return (
-    <motion.div
-      animate={{
-        backdropFilter: visible ? 'blur(10px)' : 'none',
-        boxShadow: visible
-          ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
-          : '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08)',
-        width: visible ? '60%' : '100%',
-        minWidth: visible ? '700px' : 'auto',
-      }}
-      transition={{
-        type: 'tween',
-        duration: 0.3,
-        ease: 'easeOut',
-      }}
+    <div
       className={cn(
-        'relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between rounded-full bg-white/80 border border-neutral-200 px-3 py-2.5 lg:flex dark:bg-neutral-950/80 dark:border-neutral-800',
-        visible && 'rounded-full',
+        'relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between rounded-full bg-white/80 border border-neutral-200 px-3 py-2.5 lg:flex dark:bg-neutral-950/80 dark:border-neutral-800',
+        'backdrop-blur-md shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset]',
         className
       )}
     >
-      {React.Children.map(children, child => {
-        if (React.isValidElement(child)) {
-          // Only pass visible prop to custom components (non-HTML elements)
-          // Check if the element type is a string (HTML element) or a component
-          const isHTMLElement = typeof child.type === 'string'
-
-          if (isHTMLElement) {
-            // Don't pass visible to HTML elements
-            return child
-          } else {
-            // Pass visible to custom components
-            return React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
-            )
-          }
-        }
-        return child
-      })}
-    </motion.div>
+      {children}
+    </div>
   )
 }
 
@@ -162,95 +100,6 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         </a>
       ))}
     </motion.div>
-  )
-}
-
-export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
-  return (
-    <motion.div
-      animate={{
-        backdropFilter: visible ? 'blur(10px)' : 'none',
-        boxShadow: visible
-          ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
-          : '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08)',
-        width: visible ? '90%' : '100%',
-        minWidth: '90%',
-      }}
-      transition={{
-        type: 'tween',
-        duration: 0.3,
-        ease: 'easeOut',
-      }}
-      className={cn(
-        'relative z-50 mx-auto flex w-full flex-col items-center justify-between bg-white border border-neutral-200 px-6 py-2 lg:hidden rounded-2xl dark:bg-neutral-950 dark:border-neutral-800',
-        className
-      )}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-export const MobileNavHeader = ({
-  children,
-  className,
-}: MobileNavHeaderProps) => {
-  return (
-    <div
-      className={cn(
-        'flex w-full flex-row items-center justify-between',
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
-}
-
-export const MobileNavMenu = ({
-  children,
-  className,
-  isOpen,
-}: MobileNavMenuProps) => {
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className={cn(
-            'w-full flex flex-col items-start justify-start gap-4 px-0 py-4',
-            className
-          )}
-        >
-          {children}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
-
-export const MobileNavToggle = ({
-  isOpen,
-  onClick,
-}: {
-  isOpen: boolean
-  onClick: () => void
-}) => {
-  return isOpen ? (
-    <X
-      className="h-6 w-6 cursor-pointer"
-      onClick={onClick}
-      style={{ color: 'var(--text-primary)' }}
-    />
-  ) : (
-    <Menu
-      className="h-6 w-6 cursor-pointer"
-      onClick={onClick}
-      style={{ color: 'var(--text-primary)' }}
-    />
   )
 }
 
@@ -310,3 +159,6 @@ export const NavbarButton = ({
     </Tag>
   )
 }
+
+// Mobile Navigation Components have been removed
+// Mobile menu is now implemented directly in Header.tsx using Header2 pattern

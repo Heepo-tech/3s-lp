@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Layers } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { products } from '@/data/products'
@@ -107,87 +107,51 @@ export default function ProductsListingPage() {
             {allProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <Link
                   href={{
                     pathname: '/produk/[slug]',
                     params: { slug: product.slug },
                   }}
-                  className="group block h-full focus:outline-none focus:shadow-none"
+                  className="group block h-full"
                 >
                   <div
-                    className="relative flex flex-col h-full min-h-[400px] overflow-hidden rounded-2xl border-2 transition-all duration-300 md:hover:shadow-2xl md:hover:-translate-y-3"
+                    className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2"
                     style={{
                       backgroundColor: 'var(--neutral-white)',
                       borderColor: 'var(--neutral-medium)',
                     }}
                   >
-                    {/* Left Accent Bar */}
+                    {/* Product Image */}
                     <div
-                      className="absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-300 group-hover:w-2"
-                      style={{
-                        background:
-                          'linear-gradient(to bottom, var(--primary-brown), var(--primary-gold))',
-                      }}
-                    />
-
-                    {/* Decorative Pattern Overlay */}
-                    <div
-                      className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                      style={{
-                        backgroundImage:
-                          'radial-gradient(circle, var(--primary-brown) 1.5px, transparent 1.5px)',
-                        backgroundSize: '24px 24px',
-                      }}
-                    />
-
-                    {/* Header with Gradient and Number Badge */}
-                    <div
-                      className="relative h-20 flex items-center justify-between px-6 overflow-hidden"
-                      style={{
-                        background:
-                          'linear-gradient(135deg, var(--primary-brown) 0%, var(--primary-gold) 100%)',
-                      }}
+                      className="relative h-48 sm:h-56 md:h-64 overflow-hidden"
+                      style={{ backgroundColor: 'var(--primary-cream)' }}
                     >
-                      {/* Number Badge */}
-                      <div className="flex items-center gap-3">
+                      <div className="absolute inset-0 flex items-center justify-center">
                         <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-transform duration-300 group-hover:scale-110"
-                          style={{
-                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                            color: 'var(--neutral-white)',
-                            backdropFilter: 'blur(10px)',
-                          }}
+                          className="text-6xl font-bold opacity-10"
+                          style={{ color: 'var(--primary-brown)' }}
                         >
-                          {String(index + 1).padStart(2, '0')}
+                          {product.category}
                         </div>
                       </div>
-
-                      {/* Icon */}
-                      <Layers
-                        className="w-8 h-8 opacity-30 transition-all duration-300 group-hover:opacity-50 group-hover:rotate-12"
-                        style={{ color: 'var(--neutral-white)' }}
-                      />
-
-                      {/* Decorative circles */}
+                      {/* Category Badge */}
                       <div
-                        className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10"
-                        style={{ backgroundColor: 'var(--neutral-white)' }}
-                      />
-                      <div
-                        className="absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-10"
-                        style={{ backgroundColor: 'var(--neutral-white)' }}
-                      />
+                        className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
+                        style={{ backgroundColor: 'var(--primary-brown)' }}
+                      >
+                        {product.category}
+                      </div>
                     </div>
 
-                    {/* Product Content */}
-                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                      {/* Product Name */}
+                    {/* Product Info */}
+                    <div className="p-4 sm:p-6">
                       <h3
-                        className="mb-4 text-2xl sm:text-3xl font-bold leading-tight group-hover:text-opacity-80 transition-all"
+                        className="mb-2 text-xl sm:text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
                         style={{
                           color: 'var(--text-primary)',
                           fontFamily: 'var(--font-primary)',
@@ -196,9 +160,8 @@ export default function ProductsListingPage() {
                         {product.name}
                       </h3>
 
-                      {/* Product Description */}
                       <p
-                        className="mb-6 text-base leading-relaxed flex-grow"
+                        className="mb-3 sm:mb-4 text-sm leading-relaxed text-justified"
                         style={{
                           color: 'var(--text-secondary)',
                           fontFamily: 'var(--font-secondary)',
@@ -208,31 +171,24 @@ export default function ProductsListingPage() {
                       </p>
 
                       {/* Specifications */}
-                      <div className="mb-6 space-y-3">
-                        {/* Grade */}
+                      <div className="mb-4 space-y-2">
                         <div
-                          className="flex items-center gap-2 text-sm"
+                          className="flex items-center gap-2 text-sm sm:text-xs"
                           style={{ color: 'var(--text-muted)' }}
                         >
-                          <span
-                            className="font-semibold"
-                            style={{ color: 'var(--primary-brown)' }}
-                          >
+                          <span className="font-semibold">
                             {t('productsSection.gradeLabel')}
                           </span>
                           <span>{product.grade}</span>
                         </div>
-
-                        {/* Thickness Options */}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1">
                           {product.thickness.slice(0, 4).map(thick => (
                             <span
                               key={thick}
-                              className="rounded-lg px-3 py-1.5 text-xs font-semibold border transition-all duration-300 group-hover:border-opacity-70"
+                              className="rounded-md px-1.5 sm:px-2 py-0.5 text-xs font-medium"
                               style={{
                                 backgroundColor: 'var(--primary-cream)',
-                                color: 'var(--primary-brown)',
-                                borderColor: 'var(--neutral-medium)',
+                                color: 'var(--text-secondary)',
                               }}
                             >
                               {thick}
@@ -241,34 +197,20 @@ export default function ProductsListingPage() {
                         </div>
                       </div>
 
-                      {/* CTA with Arrow */}
+                      {/* CTA */}
                       <div
-                        className="flex items-center justify-between pt-4 border-t"
-                        style={{ borderColor: 'var(--neutral-medium)' }}
+                        className="flex items-center gap-2 text-xs sm:text-sm font-semibold group-hover:gap-3 transition-all"
+                        style={{ color: 'var(--primary-gold)' }}
                       >
-                        <span
-                          className="text-sm font-bold transition-colors"
-                          style={{
-                            color: 'var(--primary-gold)',
-                            fontFamily: 'var(--font-primary)',
-                          }}
-                        >
-                          {t('buttons.viewDetail')}
-                        </span>
-                        <ArrowRight
-                          className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2"
-                          style={{ color: 'var(--primary-gold)' }}
-                        />
+                        {t('buttons.viewDetail')}
+                        <ArrowRight className="h-4 w-4" />
                       </div>
                     </div>
 
-                    {/* Bottom Hover Effect Border */}
+                    {/* Hover Effect Border */}
                     <div
-                      className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-500 group-hover:w-full"
-                      style={{
-                        background:
-                          'linear-gradient(to right, var(--primary-brown), var(--primary-gold))',
-                      }}
+                      className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
+                      style={{ backgroundColor: 'var(--primary-brown)' }}
                     />
                   </div>
                 </Link>
