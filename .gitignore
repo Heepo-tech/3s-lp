@@ -61,3 +61,6 @@ sitemap-*.xml
 .flaskenv*
 !.env.project
 !.env.vault
+
+# Large video files
+public/videos/
