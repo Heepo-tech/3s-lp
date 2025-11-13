@@ -7,7 +7,6 @@ import NextLink from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 import { useState, useEffect } from 'react'
 
-import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { Navbar, NavBody, NavbarLogo } from '@/components/ui/resizable-navbar'
 import { useFooterVisibility } from '@/hooks/useFooterVisibility'
 import { Link } from '@/i18n/navigation'
@@ -19,6 +18,8 @@ export default function Header() {
   const [produkDropdownOpen, setProdukDropdownOpen] = useState(false)
   const [perusahaanDropdownOpen, setPerusahaanDropdownOpen] = useState(false)
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false)
+  const [desktopLanguageDropdownOpen, setDesktopLanguageDropdownOpen] =
+    useState(false)
   const isFooterVisible = useFooterVisibility(0.7)
 
   // Auto-close mobile menu when footer becomes visible
@@ -242,8 +243,79 @@ export default function Header() {
           {/* Language Switcher + CTA Button Group */}
           <div className="flex items-center gap-3 lg:gap-6">
             {/* Language Switcher - Desktop only */}
-            <div className="hidden lg:block">
-              <LanguageSwitcher />
+            <div className="hidden lg:block relative">
+              <button
+                onClick={() =>
+                  setDesktopLanguageDropdownOpen(!desktopLanguageDropdownOpen)
+                }
+                className="flex items-center gap-1.5 px-2 py-1.5 text-sm font-medium rounded-lg transition-all duration-200"
+                style={{
+                  color: 'var(--primary-brown)',
+                  backgroundColor: desktopLanguageDropdownOpen
+                    ? 'var(--primary-cream)'
+                    : 'transparent',
+                }}
+              >
+                <Globe className="h-4 w-4" />
+                <span>{locale === 'id' ? 'ID' : 'EN'}</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${
+                    desktopLanguageDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {/* Desktop Dropdown Menu */}
+              <AnimatePresence>
+                {desktopLanguageDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-40 rounded-lg border shadow-lg overflow-hidden z-50"
+                    style={{
+                      backgroundColor: 'var(--neutral-white)',
+                      borderColor: 'var(--neutral-medium)',
+                    }}
+                  >
+                    <Link
+                      href="/"
+                      locale="id"
+                      className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
+                        locale === 'id' ? 'bg-[var(--primary-cream)]' : ''
+                      }`}
+                      style={{
+                        color:
+                          locale === 'id'
+                            ? 'var(--primary-brown)'
+                            : 'var(--text-secondary)',
+                      }}
+                      onClick={() => setDesktopLanguageDropdownOpen(false)}
+                    >
+                      <span className="text-lg">🇮🇩</span>
+                      <span>Indonesia</span>
+                    </Link>
+                    <Link
+                      href="/"
+                      locale="en"
+                      className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
+                        locale === 'en' ? 'bg-[var(--primary-cream)]' : ''
+                      }`}
+                      style={{
+                        color:
+                          locale === 'en'
+                            ? 'var(--primary-brown)'
+                            : 'var(--text-secondary)',
+                      }}
+                      onClick={() => setDesktopLanguageDropdownOpen(false)}
+                    >
+                      <span className="text-lg">🇬🇧</span>
+                      <span>English</span>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* CTA Button - Desktop only */}
