@@ -94,6 +94,7 @@ export default function ProdukSection() {
             >
               <Link
                 href={`/produk/${product.slug}` as any}
+                prefetch={true}
                 className="group block h-full"
               >
                 <div
@@ -239,7 +240,7 @@ export default function ProdukSection() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <Link href="/produk" className="btn-dark btn-icon">
+          <Link href="/produk" prefetch={true} className="btn-dark btn-icon">
             <Package className="h-5 w-5" />
             {t('buttons.viewAll')}
             <ArrowRight className="h-5 w-5" />

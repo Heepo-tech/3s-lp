@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 import { Globe, Award, Users, Factory } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 import TextHighlighter from '@/components/fancy/text/text-highlighter'
 
-export default function CompanyProfile() {
+function CompanyProfile() {
   const t = useTranslations()
 
   // Factory working images for background marquee
@@ -640,3 +641,5 @@ export default function CompanyProfile() {
     </section>
   )
 }
+
+export default memo(CompanyProfile)

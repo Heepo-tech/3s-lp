@@ -116,6 +116,7 @@ export default function ProductsListingPage() {
                     pathname: '/produk/[slug]',
                     params: { slug: product.slug },
                   }}
+                  prefetch={true}
                   className="group block h-full"
                 >
                   <div

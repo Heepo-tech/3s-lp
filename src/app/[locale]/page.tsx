@@ -1,13 +1,42 @@
+import dynamic from 'next/dynamic'
+
 import ClientShowcase from '@/components/sections/ClientShowcase'
-import CompanyProfile from '@/components/sections/CompanyProfile'
 import CTASection from '@/components/sections/CTASection'
-import FAQ from '@/components/sections/FAQ'
 import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import HeroSection from '@/components/sections/HeroSection'
 import Keunggulan from '@/components/sections/Keunggulan'
 import ProdukSection from '@/components/sections/ProdukSection'
-import Sertifikasi from '@/components/sections/Sertifikasi'
+
+// Lazy load heavy components with images
+const CompanyProfile = dynamic(
+  () => import('@/components/sections/CompanyProfile'),
+  {
+    loading: () => (
+      <div className="min-h-[400px] flex items-center justify-center">
+        <div className="animate-pulse text-center">
+          <div
+            className="text-lg font-semibold"
+            style={{ color: 'var(--primary-brown)' }}
+          >
+            Loading...
+          </div>
+        </div>
+      </div>
+    ),
+    ssr: true,
+  }
+)
+
+const Sertifikasi = dynamic(() => import('@/components/sections/Sertifikasi'), {
+  loading: () => <div className="min-h-[200px]" />,
+  ssr: true,
+})
+
+const FAQ = dynamic(() => import('@/components/sections/FAQ'), {
+  loading: () => <div className="min-h-[200px]" />,
+  ssr: true,
+})
 
 export default function Home() {
   return (

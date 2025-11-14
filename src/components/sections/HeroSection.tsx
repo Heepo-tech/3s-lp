@@ -4,13 +4,14 @@ import { motion } from 'framer-motion'
 import { Send, Eye } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
 import { preloadQuoteForm } from '@/components/QuoteRequestForm.lazy'
 import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
-export default function HeroSection() {
+function HeroSection() {
   const t = useTranslations()
   const { openModal } = useQuoteRequestModal()
 
@@ -183,3 +184,5 @@ export default function HeroSection() {
     </section>
   )
 }
+
+export default memo(HeroSection)

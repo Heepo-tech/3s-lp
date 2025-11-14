@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  // Experimental optimizations for better performance
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'next-intl'],
+  },
+
   // Enable bundle analyzer when ANALYZE=true
   ...(process.env.ANALYZE === 'true' && {
     ...require('@next/bundle-analyzer')({
