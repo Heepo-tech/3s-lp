@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 
 import Footer from '@/components/sections/Footer'
-import Header from '@/components/sections/Header'
 import TentangKamiContent from '@/components/sections/TentangKamiContent'
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export default function TentangKamiPage() {
         className="relative z-10 flex-1 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
-        <Header />
         <TentangKamiContent />
       </div>
 
