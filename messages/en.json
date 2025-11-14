@@ -52,6 +52,11 @@
     "gradeLabel": "Grade:",
     "thicknessLabel": "Thickness:"
   },
+  "productsListingPage": {
+    "title": "Complete Plywood Products Catalog",
+    "subtitle": "Explore our full range of high-quality plywood products for various construction and furniture needs",
+    "showingResults": "Showing {count} products"
+  },
   "advantages": {
     "title": "Why Choose Us?",
     "subtitle": "The advantages that make us the preferred choice for professionals"

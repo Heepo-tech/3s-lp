@@ -52,6 +52,11 @@
     "gradeLabel": "Grade:",
     "thicknessLabel": "Ketebalan:"
   },
+  "productsListingPage": {
+    "title": "Katalog Lengkap Produk Plywood",
+    "subtitle": "Jelajahi rangkaian lengkap produk plywood berkualitas tinggi kami untuk berbagai kebutuhan konstruksi dan furnitur",
+    "showingResults": "Menampilkan {count} produk"
+  },
   "advantages": {
     "title": "Mengapa Memilih Kami?",
     "subtitle": "Keunggulan yang membuat kami menjadi pilihan utama para profesional"
