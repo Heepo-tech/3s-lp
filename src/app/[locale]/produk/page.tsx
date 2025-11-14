@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion'
 import { ArrowRight, Package } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { products } from '@/data/products'
 import { Link } from '@/i18n/navigation'
@@ -9,8 +8,8 @@ import { Link } from '@/i18n/navigation'
 // Product catalog may have price/availability updates
 export const revalidate = 1800
 
-export default function ProductsListingPage() {
-  const t = useTranslations()
+export default async function ProductsListingPage() {
+  const t = await getTranslations()
 
   // Map product slugs to translation keys
   const productKeyMap: Record<string, string> = {
@@ -57,11 +56,7 @@ export default function ProductsListingPage() {
         />
 
         <div className="relative z-10 mx-auto max-w-7xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
               style={{
@@ -80,7 +75,7 @@ export default function ProductsListingPage() {
             >
               {t('productsListingPage.subtitle')}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -91,28 +86,18 @@ export default function ProductsListingPage() {
       >
         <div className="mx-auto max-w-7xl">
           {/* Results Count */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-8"
-          >
+          <div className="mb-8">
             <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
               {t('productsListingPage.showingResults', {
                 count: allProducts.length,
               })}
             </p>
-          </motion.div>
+          </div>
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {allProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
-              >
+            {allProducts.map(product => (
+              <div key={product.id}>
                 <Link
                   href={{
                     pathname: '/produk/[slug]',
@@ -252,7 +237,7 @@ export default function ProductsListingPage() {
                     />
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
