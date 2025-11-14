@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Package } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { products } from '@/data/products'
@@ -120,48 +120,53 @@ export default function ProductsListingPage() {
                   className="group block h-full"
                 >
                   <div
-                    className="relative h-full overflow-hidden rounded-2xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2"
+                    className="relative h-full overflow-hidden rounded-2xl border-2 transition-all duration-300 md:hover:shadow-2xl md:hover:border-opacity-70"
                     style={{
                       backgroundColor: 'var(--neutral-white)',
                       borderColor: 'var(--neutral-medium)',
                     }}
                   >
-                    {/* Product Image */}
+                    {/* Left Accent Bar */}
                     <div
-                      className="relative h-48 sm:h-56 md:h-64 overflow-hidden"
-                      style={{ backgroundColor: 'var(--primary-cream)' }}
-                    >
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div
-                          className="text-6xl font-bold opacity-10"
-                          style={{ color: 'var(--primary-brown)' }}
-                        >
-                          {product.category}
-                        </div>
-                      </div>
-                      {/* Category Badge */}
-                      <div
-                        className="absolute top-4 right-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
-                        style={{ backgroundColor: 'var(--primary-brown)' }}
-                      >
-                        {product.category}
-                      </div>
-                    </div>
+                      className="absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-300 group-hover:w-2"
+                      style={{
+                        background:
+                          'linear-gradient(to bottom, var(--primary-brown), var(--primary-gold))',
+                      }}
+                    />
 
-                    {/* Product Info */}
-                    <div className="p-4 sm:p-6">
-                      <h3
-                        className="mb-2 text-xl sm:text-2xl font-bold group-hover:text-opacity-80 transition-opacity"
-                        style={{
-                          color: 'var(--text-primary)',
-                          fontFamily: 'var(--font-primary)',
-                        }}
-                      >
-                        {product.name}
-                      </h3>
+                    {/* Product Content */}
+                    <div className="p-6 sm:p-8">
+                      {/* Header with Category Badge */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <div
+                            className="inline-block rounded-lg px-3 py-1 text-xs font-bold mb-3"
+                            style={{
+                              backgroundColor: 'var(--primary-cream)',
+                              color: 'var(--primary-brown)',
+                            }}
+                          >
+                            {product.category}
+                          </div>
+                          <h3
+                            className="text-2xl sm:text-3xl font-bold leading-tight group-hover:text-opacity-80 transition-opacity"
+                            style={{
+                              color: 'var(--text-primary)',
+                              fontFamily: 'var(--font-primary)',
+                            }}
+                          >
+                            {product.name}
+                          </h3>
+                        </div>
+                        <Package
+                          className="w-8 h-8 opacity-20 transition-all duration-300 group-hover:opacity-40 group-hover:scale-110"
+                          style={{ color: 'var(--primary-brown)' }}
+                        />
+                      </div>
 
                       <p
-                        className="mb-3 sm:mb-4 text-sm leading-relaxed text-justified"
+                        className="mb-6 text-base leading-relaxed"
                         style={{
                           color: 'var(--text-secondary)',
                           fontFamily: 'var(--font-secondary)',
@@ -171,46 +176,77 @@ export default function ProductsListingPage() {
                       </p>
 
                       {/* Specifications */}
-                      <div className="mb-4 space-y-2">
-                        <div
-                          className="flex items-center gap-2 text-sm sm:text-xs"
-                          style={{ color: 'var(--text-muted)' }}
-                        >
-                          <span className="font-semibold">
+                      <div className="mb-6 space-y-4">
+                        {/* Grade */}
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="text-sm font-semibold min-w-[80px]"
+                            style={{ color: 'var(--primary-brown)' }}
+                          >
                             {t('productsSection.gradeLabel')}
                           </span>
-                          <span>{product.grade}</span>
+                          <span
+                            className="text-sm font-medium"
+                            style={{ color: 'var(--text-secondary)' }}
+                          >
+                            {product.grade}
+                          </span>
                         </div>
-                        <div className="flex flex-wrap gap-1">
-                          {product.thickness.slice(0, 4).map(thick => (
-                            <span
-                              key={thick}
-                              className="rounded-md px-1.5 sm:px-2 py-0.5 text-xs font-medium"
-                              style={{
-                                backgroundColor: 'var(--primary-cream)',
-                                color: 'var(--text-secondary)',
-                              }}
-                            >
-                              {thick}
-                            </span>
-                          ))}
+
+                        {/* Thickness Options */}
+                        <div>
+                          <span
+                            className="text-sm font-semibold block mb-2"
+                            style={{ color: 'var(--primary-brown)' }}
+                          >
+                            {t('productsSection.thicknessLabel')}
+                          </span>
+                          <div className="flex flex-wrap gap-2">
+                            {product.thickness.slice(0, 6).map(thick => (
+                              <span
+                                key={thick}
+                                className="rounded-lg px-3 py-1.5 text-sm font-semibold border transition-all duration-300 group-hover:border-opacity-70"
+                                style={{
+                                  backgroundColor: 'var(--primary-cream)',
+                                  color: 'var(--primary-brown)',
+                                  borderColor: 'var(--neutral-medium)',
+                                }}
+                              >
+                                {thick}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
-                      {/* CTA */}
+                      {/* CTA with Arrow */}
                       <div
-                        className="flex items-center gap-2 text-xs sm:text-sm font-semibold group-hover:gap-3 transition-all"
-                        style={{ color: 'var(--primary-gold)' }}
+                        className="flex items-center justify-between pt-4 border-t"
+                        style={{ borderColor: 'var(--neutral-medium)' }}
                       >
-                        {t('buttons.viewDetail')}
-                        <ArrowRight className="h-4 w-4" />
+                        <span
+                          className="text-sm font-bold transition-colors"
+                          style={{
+                            color: 'var(--primary-gold)',
+                            fontFamily: 'var(--font-primary)',
+                          }}
+                        >
+                          {t('buttons.viewDetail')}
+                        </span>
+                        <ArrowRight
+                          className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2"
+                          style={{ color: 'var(--primary-gold)' }}
+                        />
                       </div>
                     </div>
 
-                    {/* Hover Effect Border */}
+                    {/* Bottom Hover Effect Border */}
                     <div
-                      className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
-                      style={{ backgroundColor: 'var(--primary-brown)' }}
+                      className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-500 group-hover:w-full"
+                      style={{
+                        background:
+                          'linear-gradient(to right, var(--primary-brown), var(--primary-gold))',
+                      }}
                     />
                   </div>
                 </Link>
