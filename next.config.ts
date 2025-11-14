@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
   // Experimental optimizations for better performance
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react', 'next-intl'],
+    // Configure cache duration for prefetched routes
+    staleTimes: {
+      dynamic: 30, // Cache dynamic routes for 30 seconds
+      static: 180, // Cache static routes for 3 minutes
+    },
   },
 
   // Enable bundle analyzer when ANALYZE=true
