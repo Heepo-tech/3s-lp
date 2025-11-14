@@ -1,11 +1,13 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ArrowRight, Package } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { products } from '@/data/products'
 import { Link } from '@/i18n/navigation'
+
+// ISR: Revalidate every 30 minutes (1800 seconds)
+// Product catalog may have price/availability updates
+export const revalidate = 1800
 
 export default function ProductsListingPage() {
   const t = useTranslations()

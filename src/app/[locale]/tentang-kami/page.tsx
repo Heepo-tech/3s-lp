@@ -10,6 +10,10 @@ export const metadata: Metadata = {
     'Mengenal lebih dekat PT. Sekawan Sahabat Sejati, produsen plywood premium dengan pengalaman lebih dari 25 tahun melayani pasar lokal dan internasional.',
 }
 
+// ISR: Revalidate every 6 hours (21600 seconds)
+// Company information is very static
+export const revalidate = 21600
+
 export default function TentangKamiPage() {
   return (
     <div className="w-full min-h-screen flex flex-col">

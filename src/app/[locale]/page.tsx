@@ -38,6 +38,10 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ'), {
   ssr: true,
 })
 
+// ISR: Revalidate every 1 hour (3600 seconds)
+// Company profile content is relatively static but may need occasional updates
+export const revalidate = 3600
+
 export default function Home() {
   return (
     <div

@@ -92,6 +92,10 @@ interface BlogPostPageProps {
   }>
 }
 
+// ISR: Revalidate every 1 hour (3600 seconds)
+// Published blog posts are static but may have comment updates
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const posts = getAllPosts()
   const locales = ['id', 'en']
