@@ -49,7 +49,8 @@
     "title": "Produk Plywood Kami",
     "subtitle": "Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan proyek Anda",
     "description": "Produk berkualitas tinggi untuk kebutuhan konstruksi Anda",
-    "gradeLabel": "Grade:"
+    "gradeLabel": "Grade:",
+    "thicknessLabel": "Ketebalan:"
   },
   "advantages": {
     "title": "Mengapa Memilih Kami?",
