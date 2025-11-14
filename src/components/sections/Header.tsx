@@ -285,7 +285,6 @@ export default function Header() {
                     <Link
                       href="/"
                       locale="id"
-                      prefetch={true}
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
                         locale === 'id' ? 'bg-[var(--primary-cream)]' : ''
                       }`}
@@ -303,7 +302,6 @@ export default function Header() {
                     <Link
                       href="/"
                       locale="en"
-                      prefetch={true}
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
                         locale === 'en' ? 'bg-[var(--primary-cream)]' : ''
                       }`}
@@ -604,7 +602,6 @@ export default function Header() {
                             <Link
                               href="/"
                               locale="id"
-                              prefetch={true}
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'id'
                                   ? 'bg-[var(--primary-cream)]'
@@ -627,7 +624,6 @@ export default function Header() {
                             <Link
                               href="/"
                               locale="en"
-                              prefetch={true}
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'en'
                                   ? 'bg-[var(--primary-cream)]'
