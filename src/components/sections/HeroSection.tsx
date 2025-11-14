@@ -65,7 +65,7 @@ function HeroSection() {
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* World Map Background */}
-      <div className="absolute inset-0 mt-12 sm:mt-0 z-0 pointer-events-none scale-110 sm:scale-105 md:scale-100 lg:scale-100">
+      <div className="absolute inset-0 mt-12 sm:mt-0 z-0 pointer-events-none scale-150 sm:scale-125 md:scale-100 lg:scale-100">
         <WorldMap
           dots={heroMapDots}
           lineColor="rgba(82, 36, 5, 0.35)"
