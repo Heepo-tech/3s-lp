@@ -97,6 +97,20 @@ const nextConfig: NextConfig = {
     ]
   },
 
+  // Rewrites for pathname localization
+  async rewrites() {
+    return [
+      {
+        source: '/en/products',
+        destination: '/en/produk',
+      },
+      {
+        source: '/en/products/:slug',
+        destination: '/en/produk/:slug',
+      },
+    ]
+  },
+
   // Turbopack configuration
   turbopack: {
     rules: {
