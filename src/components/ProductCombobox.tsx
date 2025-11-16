@@ -70,10 +70,9 @@ export function ProductCombobox({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="p-0"
+        className="p-0 w-[var(--radix-popover-trigger-width)] overflow-hidden"
         align="start"
         sideOffset={8}
-        style={{ width: 'var(--radix-popover-trigger-width)' }}
       >
         <Command>
           <CommandInput
