@@ -8,17 +8,9 @@ import { memo } from 'react'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
-import { preloadQuoteForm } from '@/components/QuoteRequestForm.lazy'
-import { useQuoteRequestModal } from '@/contexts/QuoteRequestModalContext'
 
 function HeroSection() {
   const t = useTranslations()
-  const { openModal } = useQuoteRequestModal()
-
-  // Preload handler for hover/touch events
-  const handlePreload = () => {
-    preloadQuoteForm()
-  }
 
   const heroMapDots = [
     {
@@ -164,15 +156,14 @@ function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 w-full sm:w-auto"
           >
-            <button
-              onClick={openModal}
-              onMouseEnter={handlePreload}
-              onTouchStart={handlePreload}
+            <Link
+              href="#quote-request-form"
+              scroll={true}
               className="btn-primary btn-icon"
             >
               <Send className="h-5 w-5" />
-              {t('buttons.requestQuote')}
-            </button>
+              {t('buttons.getQuote')}
+            </Link>
 
             <Link href="#produk" className="btn-outline-dark btn-icon">
               <Eye className="h-5 w-5" />

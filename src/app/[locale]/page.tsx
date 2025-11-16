@@ -1,12 +1,12 @@
 import dynamic from 'next/dynamic'
 
 import ClientShowcase from '@/components/sections/ClientShowcase'
-import CTASection from '@/components/sections/CTASection'
 import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import HeroSection from '@/components/sections/HeroSection'
 import Keunggulan from '@/components/sections/Keunggulan'
 import ProdukSection from '@/components/sections/ProdukSection'
+import QuoteRequestSection from '@/components/sections/QuoteRequestSection'
 
 // Lazy load heavy components with images
 const CompanyProfile = dynamic(
@@ -61,7 +61,7 @@ export default function Home() {
         <ClientShowcase />
         <Sertifikasi />
         <FAQ />
-        <CTASection />
+        <QuoteRequestSection />
       </div>
 
       {/* Sticky Footer with lower z-index */}

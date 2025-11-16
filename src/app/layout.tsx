@@ -4,9 +4,6 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
-import LazyQuoteRequestForm from '@/components/QuoteRequestForm.lazy'
-import { QuoteRequestModalProvider } from '@/contexts/QuoteRequestModalContext'
-
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -116,11 +113,8 @@ export default async function RootLayout({
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
         suppressHydrationWarning
       >
-        <QuoteRequestModalProvider>
-          {children}
-          <LazyQuoteRequestForm />
-          <Toaster />
-        </QuoteRequestModalProvider>
+        {children}
+        <Toaster />
         <Analytics />
         <SpeedInsights />
       </body>
