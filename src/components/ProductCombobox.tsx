@@ -48,6 +48,8 @@ export function ProductCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
+          aria-label={t('quoteSection.form.productInterest')}
+          aria-invalid={error}
           className={cn(
             'w-full justify-between px-4 py-3 h-auto font-normal text-left',
             !value && 'text-muted-foreground',
@@ -67,7 +69,12 @@ export function ProductCombobox({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full p-0" align="start">
+      <PopoverContent
+        className="p-0"
+        align="start"
+        sideOffset={8}
+        style={{ width: 'var(--radix-popover-trigger-width)' }}
+      >
         <Command>
           <CommandInput
             placeholder={t('quoteSection.form.searchProduct')}
@@ -81,7 +88,15 @@ export function ProductCombobox({
                   key={product.value}
                   value={product.value}
                   onSelect={currentValue => {
-                    onChange(currentValue === value ? '' : currentValue)
+                    // cmdk normalizes values to lowercase, find the original value
+                    const selectedProduct = PRODUCT_OPTIONS.find(
+                      p => p.value.toLowerCase() === currentValue.toLowerCase()
+                    )
+                    onChange(
+                      selectedProduct?.value === value
+                        ? ''
+                        : selectedProduct?.value || ''
+                    )
                     setOpen(false)
                   }}
                   className="cursor-pointer"
