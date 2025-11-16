@@ -5,22 +5,14 @@ import { motion } from 'framer-motion'
 import { Send, Loader2, CheckCircle, Mail, Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
+import { ProductCombobox } from '@/components/ProductCombobox'
 import {
   quoteRequestSchema,
   type QuoteRequestFormData,
 } from '@/lib/schemas/quoteRequest'
-
-// Product options constant
-const PRODUCT_OPTIONS = [
-  { value: '', label: 'Pilih Jenis Produk' },
-  { value: 'Plywood Standar', label: 'Plywood Standar' },
-  { value: 'Plywood Marine', label: 'Plywood Marine' },
-  { value: 'Plywood Film Faced', label: 'Plywood Film Faced' },
-  { value: 'Plywood Decorative', label: 'Plywood Decorative' },
-] as const
 
 export default function QuoteRequestSection() {
   const t = useTranslations()
@@ -28,11 +20,15 @@ export default function QuoteRequestSection() {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm<QuoteRequestFormData>({
     resolver: zodResolver(quoteRequestSchema),
+    defaultValues: {
+      productInterest: '',
+    },
   })
 
   const onSubmit = async (data: QuoteRequestFormData) => {
@@ -241,22 +237,17 @@ export default function QuoteRequestSection() {
                     {t('quoteSection.form.productInterest')}{' '}
                     <span className="text-red-500">*</span>
                   </label>
-                  <select
-                    {...register('productInterest')}
-                    id="productInterest"
-                    className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all"
-                    style={{
-                      borderColor: errors.productInterest
-                        ? '#ef4444'
-                        : 'var(--neutral-medium)',
-                    }}
-                  >
-                    {PRODUCT_OPTIONS.map(option => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
+                  <Controller
+                    name="productInterest"
+                    control={control}
+                    render={({ field }) => (
+                      <ProductCombobox
+                        value={field.value}
+                        onChange={field.onChange}
+                        error={!!errors.productInterest}
+                      />
+                    )}
+                  />
                   {errors.productInterest && (
                     <p className="mt-1.5 text-sm text-red-500">
                       {errors.productInterest.message}

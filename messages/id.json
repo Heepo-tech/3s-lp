@@ -107,7 +107,9 @@
       "messagePlaceholder": "Jelaskan kebutuhan spesifik Anda...",
       "required": "wajib diisi",
       "submitButton": "Kirim Permintaan",
-      "submitting": "Mengirim..."
+      "submitting": "Mengirim...",
+      "searchProduct": "Cari produk...",
+      "noProductFound": "Produk tidak ditemukan"
     },
     "infoTitle": "Butuh Rekomendasi Produk yang Tepat?",
     "infoDescription": "Tim ahli kami siap membantu Anda menemukan solusi plywood terbaik untuk proyek Anda",
