@@ -29,7 +29,7 @@ export const routing = defineRouting({
     '/blog': '/blog',
     '/blog/[slug]': '/blog/[slug]',
   },
-}) satisfies Parameters<typeof createNavigation>[0]
+} satisfies Parameters<typeof createNavigation>[0])
 
 // Lightweight wrappers around Next.js' navigation APIs
 // that will consider the routing configuration

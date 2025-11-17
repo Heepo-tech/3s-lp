@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 // ISR: Revalidate every 6 hours (21600 seconds)
 // Company information is very static
+
 export const revalidate = 21600
 
 export default function TentangKamiPage() {

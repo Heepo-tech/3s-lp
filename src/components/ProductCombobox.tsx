@@ -21,10 +21,26 @@ import {
 import { cn } from '@/lib/utils'
 
 const PRODUCT_OPTIONS = [
-  { value: 'Plywood Standar', label: 'Plywood Standar' },
-  { value: 'Plywood Marine', label: 'Plywood Marine' },
-  { value: 'Plywood Film Faced', label: 'Plywood Film Faced' },
-  { value: 'Plywood Decorative', label: 'Plywood Decorative' },
+  {
+    value: 'Plywood Standar',
+    label: 'Plywood Standar',
+    searchValue: 'plywood standar',
+  },
+  {
+    value: 'Plywood Marine',
+    label: 'Plywood Marine',
+    searchValue: 'plywood marine',
+  },
+  {
+    value: 'Plywood Film Faced',
+    label: 'Plywood Film Faced',
+    searchValue: 'plywood film faced',
+  },
+  {
+    value: 'Plywood Decorative',
+    label: 'Plywood Decorative',
+    searchValue: 'plywood decorative',
+  },
 ] as const
 
 interface ProductComboboxProps {
@@ -122,7 +138,7 @@ export function ProductCombobox({
                   onSelect={currentValue => {
                     // cmdk normalizes values to lowercase, find the original value
                     const selectedProduct = PRODUCT_OPTIONS.find(
-                      p => p.value.toLowerCase() === currentValue
+                      p => p.searchValue === currentValue
                     )
                     onChange(
                       selectedProduct?.value === value

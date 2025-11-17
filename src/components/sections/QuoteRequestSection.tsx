@@ -3,12 +3,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { motion } from 'framer-motion'
 import { Send, Loader2, CheckCircle, Mail, Phone } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 import { ProductCombobox } from '@/components/ProductCombobox'
+import { CONTACT_INFO, EMAIL_SUBJECTS } from '@/config/contact'
 import {
   quoteRequestSchema,
   type QuoteRequestFormData,
@@ -16,6 +17,7 @@ import {
 
 export default function QuoteRequestSection() {
   const t = useTranslations()
+  const locale = useLocale()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
@@ -398,7 +400,7 @@ export default function QuoteRequestSection() {
                   <div className="space-y-3">
                     {/* Email Button */}
                     <a
-                      href="mailto:info@3s-plywood.com?subject=Konsultasi Rekomendasi Produk"
+                      href={`mailto:${CONTACT_INFO.email}?subject=${EMAIL_SUBJECTS.consultation[locale as keyof typeof EMAIL_SUBJECTS.consultation] || EMAIL_SUBJECTS.consultation.id}`}
                       className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80"
                       style={{
                         backgroundColor: 'rgba(116, 81, 45, 0.05)',
@@ -424,14 +426,14 @@ export default function QuoteRequestSection() {
                           className="text-sm font-semibold"
                           style={{ color: 'var(--primary-brown)' }}
                         >
-                          info@3s-plywood.com
+                          {CONTACT_INFO.email}
                         </p>
                       </div>
                     </a>
 
                     {/* Phone Button */}
                     <a
-                      href="tel:+622112345678"
+                      href={`tel:${CONTACT_INFO.phone}`}
                       className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80"
                       style={{
                         backgroundColor: 'rgba(116, 81, 45, 0.05)',
@@ -457,7 +459,7 @@ export default function QuoteRequestSection() {
                           className="text-sm font-semibold"
                           style={{ color: 'var(--primary-brown)' }}
                         >
-                          +62 21 1234 5678
+                          {CONTACT_INFO.phoneDisplay}
                         </p>
                       </div>
                     </a>
