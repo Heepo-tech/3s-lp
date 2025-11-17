@@ -245,15 +245,29 @@ export default function QuoteRequestForm() {
                   <select
                     {...register('productInterest')}
                     id="productInterest"
-                    className="w-full px-4 py-3 rounded-lg border-[0.5px] focus:outline-none focus:ring-1 transition-all"
+                    className="w-full px-4 py-3 rounded-lg border-[0.5px] focus:outline-none focus:ring-1 transition-all appearance-none cursor-pointer bg-white"
                     style={{
                       borderColor: errors.productInterest
                         ? '#ef4444'
                         : 'var(--neutral-medium)',
+                      color: 'var(--text-primary)',
+                      backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                      backgroundPosition: 'right 0.5rem center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: '1.5em 1.5em',
+                      paddingRight: '2.5rem',
                     }}
                   >
                     {PRODUCT_OPTIONS.map(option => (
-                      <option key={option.value} value={option.value}>
+                      <option
+                        key={option.value}
+                        value={option.value}
+                        style={{
+                          backgroundColor: 'white',
+                          color: 'var(--text-primary)',
+                          padding: '0.5rem',
+                        }}
+                      >
                         {option.label}
                       </option>
                     ))}

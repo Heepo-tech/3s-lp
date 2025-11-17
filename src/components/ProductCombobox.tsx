@@ -40,11 +40,20 @@ export function ProductCombobox({
 }: ProductComboboxProps) {
   const t = useTranslations()
   const [open, setOpen] = React.useState(false)
+  const [triggerWidth, setTriggerWidth] = React.useState<number>(0)
+  const triggerRef = React.useRef<HTMLButtonElement>(null)
+
+  React.useEffect(() => {
+    if (triggerRef.current) {
+      setTriggerWidth(triggerRef.current.offsetWidth)
+    }
+  }, [open])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
+          ref={triggerRef}
           variant="outline"
           role="combobox"
           aria-expanded={open}
@@ -70,18 +79,42 @@ export function ProductCombobox({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="p-0 w-[var(--radix-popover-trigger-width)] overflow-hidden"
+        className="p-0 border-2 shadow-xl"
         align="start"
         sideOffset={8}
+        style={{
+          width: triggerWidth > 0 ? `${triggerWidth}px` : 'auto',
+          maxHeight: '300px',
+          overflow: 'hidden',
+          backgroundColor: 'white',
+          borderColor: 'var(--neutral-medium)',
+        }}
       >
-        <Command>
+        <Command
+          className="max-h-[300px]"
+          style={{
+            backgroundColor: 'white',
+          }}
+        >
           <CommandInput
             placeholder={t('quoteSection.form.searchProduct')}
-            className="h-9"
+            className="h-9 border-b"
+            style={{
+              backgroundColor: 'white',
+              borderColor: 'var(--neutral-light)',
+            }}
           />
-          <CommandList>
+          <CommandList
+            style={{
+              backgroundColor: 'white',
+            }}
+          >
             <CommandEmpty>{t('quoteSection.form.noProductFound')}</CommandEmpty>
-            <CommandGroup>
+            <CommandGroup
+              style={{
+                backgroundColor: 'white',
+              }}
+            >
               {PRODUCT_OPTIONS.map(product => (
                 <CommandItem
                   key={product.value}
@@ -98,7 +131,14 @@ export function ProductCombobox({
                     )
                     setOpen(false)
                   }}
-                  className="cursor-pointer"
+                  className="cursor-pointer transition-colors hover:bg-[var(--primary-cream)] aria-selected:bg-[var(--primary-cream)]"
+                  style={{
+                    backgroundColor:
+                      value === product.value
+                        ? 'var(--primary-cream)'
+                        : 'white',
+                    color: 'var(--text-primary)',
+                  }}
                 >
                   {product.label}
                   <Check

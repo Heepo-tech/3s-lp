@@ -399,9 +399,8 @@ export default function QuoteRequestSection() {
                     {/* Email Button */}
                     <a
                       href="mailto:info@3s-plywood.com?subject=Konsultasi Rekomendasi Produk"
-                      className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80 border"
+                      className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80"
                       style={{
-                        borderColor: 'var(--primary-brown)',
                         backgroundColor: 'rgba(116, 81, 45, 0.05)',
                       }}
                     >
@@ -433,9 +432,8 @@ export default function QuoteRequestSection() {
                     {/* Phone Button */}
                     <a
                       href="tel:+622112345678"
-                      className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80 border"
+                      className="flex items-center gap-3 p-3 rounded-lg transition-all hover:opacity-80"
                       style={{
-                        borderColor: 'var(--primary-brown)',
                         backgroundColor: 'rgba(116, 81, 45, 0.05)',
                       }}
                     >
