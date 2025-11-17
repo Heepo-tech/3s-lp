@@ -22,13 +22,16 @@ export async function generateMetadata({
 
 export default function AboutUsPage() {
   return (
-    <div className="w-full h-screen overflow-auto">
+    <div
+      className="w-full"
+      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+    >
+      <Header />
       {/* Main Content with higher z-index for sticky footer */}
       <div
         className="relative z-10 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
-        <Header />
         <TentangKamiContent />
       </div>
 

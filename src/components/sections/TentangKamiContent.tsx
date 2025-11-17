@@ -352,7 +352,7 @@ export default function TentangKamiContent() {
 
       {/* Tim & Fasilitas */}
       <section
-        className="py-20 px-6 lg:px-8 pb-[500px]"
+        className="py-20 px-6 lg:px-8"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <div className="mx-auto max-w-7xl">

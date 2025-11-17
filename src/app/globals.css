@@ -105,6 +105,14 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-text-accent: var(--text-accent);
+
+  /* Shadcn/UI Components - Solid Backgrounds */
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--text-primary);
+  --color-accent: var(--primary-cream);
+  --color-accent-foreground: var(--text-primary);
+  --color-muted: var(--neutral-light);
+  --color-muted-foreground: var(--text-muted);
 }
 
 /* Base Typography Styles - Premium Quality */
@@ -388,6 +396,27 @@ select:focus-visible {
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--neutral-soft) var(--neutral-light);
+}
+
+/* Select Dropdown - Solid Background Fix */
+select {
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+/* Ensure option elements have solid white background */
+select option {
+  background-color: white;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* Fix for Chrome/Safari dropdown background */
+select::-webkit-scrollbar-track {
+  background: white;
 }
 
 /* Enhanced Visual Elements - Premium Effects */
