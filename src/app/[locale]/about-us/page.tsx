@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 
 import Footer from '@/components/sections/Footer'
-import Header from '@/components/sections/Header'
 import TentangKamiContent from '@/components/sections/TentangKamiContent'
 
 export async function generateMetadata({
@@ -26,7 +25,6 @@ export default function AboutUsPage() {
       className="w-full"
       style={{ backgroundColor: 'var(--primary-dark-brown)' }}
     >
-      <Header />
       {/* Main Content with higher z-index for sticky footer */}
       <div
         className="relative z-10 pb-8 sm:pb-12"
