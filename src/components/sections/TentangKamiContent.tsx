@@ -116,7 +116,7 @@ export default function TentangKamiContent() {
             transition={{ duration: 0.8 }}
           >
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white whitespace-nowrap overflow-hidden text-ellipsis px-4"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white px-4"
               style={{ fontFamily: 'var(--font-primary)' }}
             >
               {t('aboutUs.hero.title')}
@@ -133,11 +133,9 @@ export default function TentangKamiContent() {
 
       {/* Perjalanan Kami - Marquee Section */}
       <section
-        className="py-20 px-6 lg:px-8"
+        className="py-20 px-6 lg:px-8 overflow-hidden"
         style={{
           backgroundColor: 'var(--primary-cream)',
-          overflowX: 'visible',
-          overflowY: 'visible',
         }}
       >
         <div className="mx-auto max-w-7xl">
@@ -173,7 +171,6 @@ export default function TentangKamiContent() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="overflow-visible -mx-6 lg:-mx-8"
           >
             <SimpleMarquee
               baseVelocity={-1.5}

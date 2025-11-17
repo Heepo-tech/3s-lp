@@ -15,7 +15,7 @@ export const revalidate = 21600
 
 export default function TentangKamiPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col overflow-x-hidden">
       {/* Main Content with higher z-index for sticky footer */}
       <div
         className="relative z-10 flex-1 pb-8 sm:pb-12"
