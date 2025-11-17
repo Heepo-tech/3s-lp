@@ -105,6 +105,14 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-text-accent: var(--text-accent);
+
+  /* Shadcn/UI Components - Solid Backgrounds */
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--text-primary);
+  --color-accent: var(--primary-cream);
+  --color-accent-foreground: var(--text-primary);
+  --color-muted: var(--neutral-light);
+  --color-muted-foreground: var(--text-muted);
 }
 
 /* Base Typography Styles - Premium Quality */
@@ -275,7 +283,7 @@ a:hover:not([class*='btn-']) {
   text-decoration: none;
 }
 
-a:focus {
+a:focus:not([class*='btn-']) {
   outline: 2px solid var(--text-accent);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
@@ -301,9 +309,61 @@ a.elegant-link:hover::after {
   width: 100%;
 }
 
-/* Focus States */
+/* Focus States - Remove outline on mouse click, keep for keyboard navigation */
 *:focus {
+  outline: none;
+}
+
+*:focus-visible {
   outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+/* Aggressive focus style reset for all interactive elements */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[role='button']:focus,
+[tabindex]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep focus-visible for accessibility (keyboard navigation only) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+/* Override Tailwind's focus ring utilities on mouse/touch */
+.focus\:ring-1:focus:not(:focus-visible),
+.focus\:ring-2:focus:not(:focus-visible),
+.focus\:ring:focus:not(:focus-visible),
+.focus-visible\:ring-1:focus:not(:focus-visible),
+.focus-visible\:ring-2:focus:not(:focus-visible) {
+  --tw-ring-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* No focus outline utility - use on clickable elements */
+.no-focus-outline {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.no-focus-outline:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.no-focus-outline:focus-visible {
+  outline: 2px solid var(--primary-brown);
   outline-offset: 2px;
 }
 
@@ -336,6 +396,27 @@ a.elegant-link:hover::after {
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--neutral-soft) var(--neutral-light);
+}
+
+/* Select Dropdown - Solid Background Fix */
+select {
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+/* Ensure option elements have solid white background */
+select option {
+  background-color: white;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+/* Fix for Chrome/Safari dropdown background */
+select::-webkit-scrollbar-track {
+  background: white;
 }
 
 /* Enhanced Visual Elements - Premium Effects */
@@ -1031,15 +1112,14 @@ a.elegant-link:hover::after {
 .btn-primary:focus {
   outline: none;
   border-radius: 9999px;
-  box-shadow:
-    0 6px 16px rgba(82, 36, 5, 0.25),
-    0 0 0 3px rgba(82, 36, 5, 0.15);
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.25);
 }
 
 .btn-primary:focus-visible {
   border-radius: 9999px;
   outline: 2px solid var(--primary-brown);
   outline-offset: 2px;
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.25);
 }
 
 .btn-secondary {
@@ -1083,6 +1163,19 @@ a.elegant-link:hover::after {
   transform: translateY(0) scale(0.98);
 }
 
+.btn-secondary:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
+}
+
+.btn-secondary:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
+  box-shadow: 0 4px 12px rgba(82, 36, 5, 0.1);
+}
+
 .btn-dark {
   display: inline-flex;
   align-items: center;
@@ -1122,6 +1215,19 @@ a.elegant-link:hover::after {
 .btn-dark:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 2px 8px rgba(82, 36, 5, 0.25);
+}
+
+.btn-dark:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.3);
+}
+
+.btn-dark:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid var(--primary-brown);
+  outline-offset: 2px;
+  box-shadow: 0 6px 16px rgba(82, 36, 5, 0.3);
 }
 
 .btn-outline-light {
@@ -1164,6 +1270,19 @@ a.elegant-link:hover::after {
 
 .btn-outline-light:active {
   transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-light:focus {
+  outline: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-light:focus-visible {
+  border-radius: 9999px;
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-outline-dark {

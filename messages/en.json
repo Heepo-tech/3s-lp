@@ -9,6 +9,7 @@
   "buttons": {
     "contactUs": "Contact Us",
     "requestQuote": "Request a Quote",
+    "getQuote": "Get Quote",
     "viewProductSpecs": "View Product Specifications",
     "viewProducts": "View Products",
     "viewDetail": "View Detail",
@@ -49,7 +50,13 @@
     "title": "Our Plywood Products",
     "subtitle": "Various types of high-quality plywood to meet your project needs",
     "description": "High-quality products for your construction needs",
-    "gradeLabel": "Grade:"
+    "gradeLabel": "Grade:",
+    "thicknessLabel": "Thickness:"
+  },
+  "productsListingPage": {
+    "title": "Complete Plywood Products Catalog",
+    "subtitle": "Explore our full range of high-quality plywood products for various construction and furniture needs",
+    "showingResults": "Showing {count} products"
   },
   "advantages": {
     "title": "Why Choose Us?",
@@ -79,6 +86,41 @@
       "response": "Response time within 24 hours",
       "pricing": "Best price offers"
     }
+  },
+  "quoteSection": {
+    "title": "Request a Quotation",
+    "subtitle": "Fill out the form below and our team will contact you within 24 hours",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "name@company.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+62 xxx xxxx xxxx",
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "PT. Company Name",
+      "productInterest": "Product Type",
+      "productPlaceholder": "Select Product Type",
+      "quantity": "Quantity/Volume",
+      "quantityPlaceholder": "Example: 100 sheets, 50 m³",
+      "message": "Message/Special Requirements",
+      "messagePlaceholder": "Describe your specific needs...",
+      "required": "required",
+      "submitButton": "Send Request",
+      "submitting": "Sending...",
+      "searchProduct": "Search product...",
+      "noProductFound": "No product found"
+    },
+    "infoTitle": "Need the Right Product Recommendation?",
+    "infoDescription": "Our expert team is ready to help you find the best plywood solution for your project",
+    "benefits": {
+      "consultation": "Free consultation with product expert",
+      "response": "Response time within 24 hours",
+      "pricing": "Best price offers"
+    },
+    "contactTitle": "Or contact us directly:",
+    "emailLabel": "Email Us",
+    "phoneLabel": "Call Us"
   },
   "contact": {
     "title": "Contact Us",

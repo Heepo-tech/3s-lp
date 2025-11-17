@@ -1,14 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  CheckCircle,
-  Shield,
-  Leaf,
-  Truck,
-  Award,
-  HeadphonesIcon,
-} from 'lucide-react'
+import { Shield, Leaf, Award } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export default function Keunggulan() {
@@ -24,21 +17,6 @@ export default function Keunggulan() {
       icon: Award,
       title: t('advantagesSection.features.certification.title'),
       description: t('advantagesSection.features.certification.description'),
-    },
-    {
-      icon: CheckCircle,
-      title: t('advantagesSection.features.customization.title'),
-      description: t('advantagesSection.features.customization.description'),
-    },
-    {
-      icon: Truck,
-      title: t('advantagesSection.features.delivery.title'),
-      description: t('advantagesSection.features.delivery.description'),
-    },
-    {
-      icon: HeadphonesIcon,
-      title: t('advantagesSection.features.support.title'),
-      description: t('advantagesSection.features.support.description'),
     },
     {
       icon: Leaf,
@@ -70,7 +48,7 @@ export default function Keunggulan() {
             {t('advantages.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
@@ -125,7 +103,7 @@ export default function Keunggulan() {
 
                 <div
                   className="absolute bottom-0 left-0 h-1.5 w-0 rounded-full transition-all duration-300 group-hover:w-full"
-                  style={{ background: 'var(--gradient-gold)' }}
+                  style={{ backgroundColor: 'var(--primary-brown)' }}
                 />
               </motion.div>
             )

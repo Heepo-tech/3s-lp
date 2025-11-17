@@ -8,6 +8,10 @@ import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import { getAllPosts } from '@/lib/blog'
 
+// ISR: Revalidate every 15 minutes (900 seconds)
+// New blog posts need to be visible quickly
+export const revalidate = 900
+
 export async function generateMetadata({
   params,
 }: {

@@ -15,6 +15,16 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  // Experimental optimizations for better performance
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'next-intl'],
+    // Configure cache duration for prefetched routes
+    staleTimes: {
+      dynamic: 30, // Cache dynamic routes for 30 seconds
+      static: 180, // Cache static routes for 3 minutes
+    },
+  },
+
   // Enable bundle analyzer when ANALYZE=true
   ...(process.env.ANALYZE === 'true' && {
     ...require('@next/bundle-analyzer')({
@@ -22,10 +32,18 @@ const nextConfig: NextConfig = {
     }),
   }),
 
-  // Image optimization
+  // Image optimization with aggressive caching
   images: {
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 2592000, // 30 days cache for static images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 
   // Security headers
@@ -47,6 +65,58 @@ const nextConfig: NextConfig = {
             value: 'origin-when-cross-origin',
           },
         ],
+      },
+      // Aggressive caching for static images
+      {
+        source: '/working/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/products/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache for Next.js optimized images
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
+
+  // Rewrites for pathname localization
+  async rewrites() {
+    return [
+      {
+        source: '/en/products',
+        destination: '/en/produk',
+      },
+      {
+        source: '/en/products/:slug',
+        destination: '/en/produk/:slug',
       },
     ]
   },

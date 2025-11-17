@@ -10,6 +10,10 @@ type Props = {
   params: { slug: string }
 }
 
+// ISR: Revalidate every 1 hour (3600 seconds)
+// Product specifications are relatively stable
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const slugs = getAllProductSlugs()
   return slugs.map(slug => ({ slug }))

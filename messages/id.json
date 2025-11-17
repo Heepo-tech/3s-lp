@@ -9,6 +9,7 @@
   "buttons": {
     "contactUs": "Hubungi Kami",
     "requestQuote": "Ajukan Permintaan Penawaran",
+    "getQuote": "Dapatkan Penawaran",
     "viewProductSpecs": "Lihat Spesifikasi Produk",
     "viewProducts": "Lihat Produk",
     "viewDetail": "Lihat Detail",
@@ -49,7 +50,13 @@
     "title": "Produk Plywood Kami",
     "subtitle": "Berbagai jenis plywood berkualitas tinggi untuk memenuhi kebutuhan proyek Anda",
     "description": "Produk berkualitas tinggi untuk kebutuhan konstruksi Anda",
-    "gradeLabel": "Grade:"
+    "gradeLabel": "Grade:",
+    "thicknessLabel": "Ketebalan:"
+  },
+  "productsListingPage": {
+    "title": "Katalog Lengkap Produk Plywood",
+    "subtitle": "Jelajahi rangkaian lengkap produk plywood berkualitas tinggi kami untuk berbagai kebutuhan konstruksi dan furnitur",
+    "showingResults": "Menampilkan {count} produk"
   },
   "advantages": {
     "title": "Mengapa Memilih Kami?",
@@ -79,6 +86,41 @@
       "response": "Response time 1x24 jam",
       "pricing": "Penawaran dengan harga terbaik"
     }
+  },
+  "quoteSection": {
+    "title": "Ajukan Permintaan Penawaran",
+    "subtitle": "Isi formulir di bawah ini dan tim kami akan menghubungi Anda dalam waktu 1x24 jam",
+    "form": {
+      "fullName": "Nama Lengkap",
+      "fullNamePlaceholder": "Masukkan nama lengkap Anda",
+      "email": "Email",
+      "emailPlaceholder": "nama@perusahaan.com",
+      "phone": "Nomor Telepon",
+      "phonePlaceholder": "+62 xxx xxxx xxxx",
+      "companyName": "Nama Perusahaan",
+      "companyNamePlaceholder": "PT. Nama Perusahaan",
+      "productInterest": "Jenis Produk",
+      "productPlaceholder": "Pilih Jenis Produk",
+      "quantity": "Kuantitas/Volume",
+      "quantityPlaceholder": "Contoh: 100 lembar, 50 m³",
+      "message": "Pesan/Kebutuhan Khusus",
+      "messagePlaceholder": "Jelaskan kebutuhan spesifik Anda...",
+      "required": "wajib diisi",
+      "submitButton": "Kirim Permintaan",
+      "submitting": "Mengirim...",
+      "searchProduct": "Cari produk...",
+      "noProductFound": "Produk tidak ditemukan"
+    },
+    "infoTitle": "Butuh Rekomendasi Produk yang Tepat?",
+    "infoDescription": "Tim ahli kami siap membantu Anda menemukan solusi plywood terbaik untuk proyek Anda",
+    "benefits": {
+      "consultation": "Konsultasi gratis dengan product expert",
+      "response": "Response time 1x24 jam",
+      "pricing": "Penawaran dengan harga terbaik"
+    },
+    "contactTitle": "Atau hubungi kami langsung:",
+    "emailLabel": "Email Kami",
+    "phoneLabel": "Telepon Kami"
   },
   "contact": {
     "title": "Hubungi Kami",

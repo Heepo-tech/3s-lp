@@ -55,7 +55,7 @@ export function WorldMap({
   }
 
   return (
-    <div className="w-full aspect-[3/2] sm:aspect-[2/1] bg-transparent relative font-sans">
+    <div className="w-full aspect-[4/3] sm:aspect-[2/1] bg-transparent relative font-sans">
       <svg
         viewBox="0 0 800 400"
         className="w-full h-full"
