@@ -18,7 +18,7 @@ export default function TentangKamiPage() {
     <div className="w-full min-h-screen flex flex-col overflow-x-hidden">
       {/* Main Content with higher z-index for sticky footer */}
       <div
-        className="relative z-10 flex-1 pb-[400px] lg:pb-[500px]"
+        className="relative z-10 flex-1 pb-0"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <TentangKamiContent />
