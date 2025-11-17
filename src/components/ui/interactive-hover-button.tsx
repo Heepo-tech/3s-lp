@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@radix-ui/react-icons'
+import { ArrowRight } from 'lucide-react'
 import React from 'react'
 
 import { cn } from '@/lib/utils'
@@ -93,7 +93,7 @@ export function InteractiveHoverButton({
         }}
       >
         <span>{textContent}</span>
-        <ArrowRightIcon className="h-5 w-5" aria-hidden="true" />
+        <ArrowRight className="h-5 w-5" aria-hidden="true" />
       </div>
     </Component>
   )
