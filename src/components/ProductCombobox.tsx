@@ -122,7 +122,7 @@ export function ProductCombobox({
                   onSelect={currentValue => {
                     // cmdk normalizes values to lowercase, find the original value
                     const selectedProduct = PRODUCT_OPTIONS.find(
-                      p => p.value.toLowerCase() === currentValue.toLowerCase()
+                      p => p.value.toLowerCase() === currentValue
                     )
                     onChange(
                       selectedProduct?.value === value
