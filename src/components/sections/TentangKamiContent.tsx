@@ -169,7 +169,7 @@ export default function TentangKamiContent() {
         {
           src: '/products/IMG_5721.jpg',
           alt: 'Quality Plywood Sheets',
-          size: 'standard',
+          size: 'wide',
         },
       ],
     },
