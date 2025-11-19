@@ -354,6 +354,10 @@
           "label": "Factory Area"
         }
       }
+    },
+    "gallery": {
+      "title": "Our Facilities & Production Team",
+      "subtitle": "See firsthand our modern production facilities and the professional team supporting our product quality"
     }
   },
   "blog": {

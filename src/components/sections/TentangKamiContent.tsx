@@ -4,10 +4,176 @@ import { motion } from 'framer-motion'
 import { Users, Award, Target, Heart } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
+import BentoGallery, { type GalleryPage } from '@/components/fancy/BentoGallery'
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 
 export default function TentangKamiContent() {
   const t = useTranslations()
+
+  // Gallery pages - 4 pages total
+  // Pages 1-3: Working/factory photos (24 images)
+  // Page 4: Product photos (7 images)
+  const galleryPages: GalleryPage[] = [
+    {
+      id: 1,
+      photos: [
+        // Row 1: large card (2x2) spans rows 1-2, cols 1-2, then 2 standard
+        {
+          src: '/working/IMG_5687.jpg',
+          alt: 'Factory Overview',
+          size: 'large',
+        },
+        {
+          src: '/working/IMG_5688.jpg',
+          alt: 'Production Process',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5690.jpg',
+          alt: 'Quality Control',
+          size: 'standard',
+        },
+        // Row 2: large continues, 2 standard cards
+        {
+          src: '/working/IMG_5692.jpg',
+          alt: 'Manufacturing Equipment',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5695.jpg',
+          alt: 'Skilled Workers',
+          size: 'standard',
+        },
+        // Row 3: wide card (2x1) and 2 standard
+        { src: '/working/IMG_5704.jpg', alt: 'Production Line', size: 'wide' },
+        {
+          src: '/working/IMG_5698.jpg',
+          alt: 'Plywood Processing',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5701.jpg',
+          alt: 'Modern Machinery',
+          size: 'standard',
+        },
+      ],
+    },
+    {
+      id: 2,
+      photos: [
+        // Row 1: wide card (2x1) and 2 standard
+        { src: '/working/IMG_5706.jpg', alt: 'Final Inspection', size: 'wide' },
+        {
+          src: '/working/IMG_5708.jpg',
+          alt: 'Wood Processing',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5710.jpg',
+          alt: 'Assembly Line',
+          size: 'standard',
+        },
+        // Row 2: large card (2x2) spans rows 2-3, cols 1-2, then 2 standard
+        {
+          src: '/working/IMG_5713.jpg',
+          alt: 'Warehouse Facility',
+          size: 'large',
+        },
+        {
+          src: '/working/IMG_5714.jpg',
+          alt: 'Quality Testing',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5691.jpg',
+          alt: 'Material Storage',
+          size: 'standard',
+        },
+        // Row 3: large continues, 2 standard
+        { src: '/working/IMG_5693.jpg', alt: 'Loading Bay', size: 'standard' },
+        {
+          src: '/working/IMG_5689.jpg',
+          alt: 'Production Facility',
+          size: 'standard',
+        },
+      ],
+    },
+    {
+      id: 3,
+      photos: [
+        // Row 1: 4 standard cards
+        {
+          src: '/working/IMG_5722.jpg',
+          alt: 'Export Preparation',
+          size: 'standard',
+        },
+        {
+          src: '/working/IMG_5723.jpg',
+          alt: 'Safety Equipment',
+          size: 'standard',
+        },
+        { src: '/working/IMG_5702.jpg', alt: 'Wood Cutting', size: 'standard' },
+        { src: '/working/IMG_5705.jpg', alt: 'Team Meeting', size: 'standard' },
+        // Row 2: large card (2x2) spans rows 2-3, cols 1-2, then 2 standard
+        {
+          src: '/working/IMG_5703.jpg',
+          alt: 'Finishing Station',
+          size: 'large',
+        },
+        {
+          src: '/working/IMG_5707.jpg',
+          alt: 'Equipment Maintenance',
+          size: 'standard',
+        },
+        { src: '/working/IMG_5709.jpg', alt: 'Raw Material', size: 'standard' },
+        // Row 3: large continues, wide card (2x1)
+        { src: '/working/IMG_5696.jpg', alt: 'Control Room', size: 'wide' },
+      ],
+    },
+    {
+      id: 4,
+      photos: [
+        // Row 1: large product card (2x2) spans rows 1-2, then 2 standard products
+        {
+          src: '/products/IMG_5715.jpg',
+          alt: 'Premium Plywood Product',
+          size: 'large',
+        },
+        {
+          src: '/products/IMG_5716.jpg',
+          alt: 'Marine Plywood',
+          size: 'standard',
+        },
+        {
+          src: '/products/IMG_5717.jpg',
+          alt: 'Film Faced Plywood',
+          size: 'standard',
+        },
+        // Row 2: large continues, 2 standard products
+        {
+          src: '/products/IMG_5718.jpg',
+          alt: 'Standard Plywood',
+          size: 'standard',
+        },
+        {
+          src: '/products/IMG_5719.jpg',
+          alt: 'Construction Grade',
+          size: 'standard',
+        },
+        // Row 3: wide product card (2x1) showcasing product line
+        {
+          src: '/products/IMG_5720.jpg',
+          alt: 'Plywood Product Range',
+          size: 'wide',
+        },
+        {
+          src: '/products/IMG_5721.jpg',
+          alt: 'Quality Plywood Sheets',
+          size: 'standard',
+        },
+      ],
+    },
+  ]
 
   // Build achievements array from translations
   const achievements = [
@@ -356,101 +522,130 @@ export default function TentangKamiContent() {
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+          {/* Text Content & Stats - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-primary)',
+              }}
             >
-              <h2
-                className="text-3xl md:text-4xl font-bold mb-6"
+              {t('aboutUs.team.title')}
+            </h2>
+            <p
+              className="text-lg leading-relaxed mb-8 max-w-3xl mx-auto"
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
+            >
+              {t('aboutUs.team.description')}
+            </p>
+
+            {/* Statistics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div>
+                <div
+                  className="text-5xl font-bold mb-2"
+                  style={{
+                    color: 'var(--primary-dark-brown)',
+                    fontFamily: 'var(--font-primary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.employees.value')}
+                </div>
+                <div
+                  className="text-base"
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontFamily: 'var(--font-secondary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.employees.label')}
+                </div>
+              </div>
+              <div>
+                <div
+                  className="text-5xl font-bold mb-2"
+                  style={{
+                    color: 'var(--primary-dark-brown)',
+                    fontFamily: 'var(--font-primary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.engineers.value')}
+                </div>
+                <div
+                  className="text-base"
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontFamily: 'var(--font-secondary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.engineers.label')}
+                </div>
+              </div>
+              <div>
+                <div
+                  className="text-5xl font-bold mb-2"
+                  style={{
+                    color: 'var(--primary-dark-brown)',
+                    fontFamily: 'var(--font-primary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.factory.value')}
+                </div>
+                <div
+                  className="text-base"
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontFamily: 'var(--font-secondary)',
+                  }}
+                >
+                  {t('aboutUs.team.stats.factory.label')}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Gallery Section - Full Width Below */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-20"
+          >
+            <div className="text-center mb-12">
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-4"
                 style={{
                   color: 'var(--text-primary)',
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                {t('aboutUs.team.title')}
-              </h2>
+                {t('aboutUs.gallery.title')}
+              </h3>
               <p
-                className="text-lg leading-relaxed mb-6 text-justified"
+                className="text-base leading-relaxed max-w-2xl mx-auto"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
                 }}
               >
-                {t('aboutUs.team.description')}
+                {t('aboutUs.gallery.subtitle')}
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <div
-                    className="text-4xl font-bold mb-2"
-                    style={{
-                      color: 'var(--primary-dark-brown)',
-                      fontFamily: 'var(--font-primary)',
-                    }}
-                  >
-                    {t('aboutUs.team.stats.employees.value')}
-                  </div>
-                  <div
-                    className="text-sm"
-                    style={{ color: 'var(--text-muted)' }}
-                  >
-                    {t('aboutUs.team.stats.employees.label')}
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="text-4xl font-bold mb-2"
-                    style={{
-                      color: 'var(--primary-dark-brown)',
-                      fontFamily: 'var(--font-primary)',
-                    }}
-                  >
-                    {t('aboutUs.team.stats.engineers.value')}
-                  </div>
-                  <div
-                    className="text-sm"
-                    style={{ color: 'var(--text-muted)' }}
-                  >
-                    {t('aboutUs.team.stats.engineers.label')}
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="text-4xl font-bold mb-2"
-                    style={{
-                      color: 'var(--primary-dark-brown)',
-                      fontFamily: 'var(--font-primary)',
-                    }}
-                  >
-                    {t('aboutUs.team.stats.factory.value')}
-                  </div>
-                  <div
-                    className="text-sm"
-                    style={{ color: 'var(--text-muted)' }}
-                  >
-                    {t('aboutUs.team.stats.factory.label')}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="rounded-2xl overflow-hidden"
-            >
-              <div
-                className="aspect-video rounded-2xl flex items-center justify-center text-white text-2xl font-bold"
-                style={{ background: 'var(--gradient-brown)' }}
-              >
-                [Factory Image/Video Placeholder]
-              </div>
-            </motion.div>
-          </div>
+            {/* Bento Gallery Component */}
+            <BentoGallery pages={galleryPages} />
+          </motion.div>
         </div>
       </section>
     </>
