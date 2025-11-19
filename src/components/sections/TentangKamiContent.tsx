@@ -230,9 +230,9 @@ export default function TentangKamiContent() {
   const marqueeItems = achievements.map((achievement, index) => (
     <div
       key={index}
-      className="mx-8 flex flex-col items-center justify-center rounded-xl border p-8 min-w-[300px]"
+      className="mx-8 flex flex-col items-start justify-center rounded-xl border p-8 min-w-[300px] shadow-sm hover:shadow-md transition-all duration-300 bg-white/50 backdrop-blur-sm"
       style={{
-        backgroundColor: 'var(--neutral-white)',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
         borderColor: 'var(--neutral-medium)',
       }}
     >
@@ -246,7 +246,7 @@ export default function TentangKamiContent() {
         {achievement.year}
       </div>
       <div
-        className="text-center text-sm font-medium"
+        className="text-left text-sm font-medium"
         style={{
           color: 'var(--text-secondary)',
           fontFamily: 'var(--font-secondary)',
@@ -377,7 +377,7 @@ export default function TentangKamiContent() {
                 {t('aboutUs.vision.title')}
               </h3>
               <p
-                className="text-lg leading-relaxed text-justified"
+                className="text-lg leading-relaxed text-left"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -408,7 +408,7 @@ export default function TentangKamiContent() {
                 {t('aboutUs.mission.title')}
               </h3>
               <ul
-                className="space-y-3 text-base leading-relaxed text-justified"
+                className="space-y-3 text-base leading-relaxed text-left"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
@@ -479,7 +479,7 @@ export default function TentangKamiContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="text-center p-6 rounded-xl border bg-white"
+                  className="text-left p-6 rounded-xl border bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                   style={{ borderColor: 'var(--neutral-medium)' }}
                 >
                   <div
@@ -501,7 +501,7 @@ export default function TentangKamiContent() {
                     {value.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed text-justified"
+                    className="text-sm leading-relaxed text-left"
                     style={{
                       color: 'var(--text-secondary)',
                       fontFamily: 'var(--font-secondary)',
