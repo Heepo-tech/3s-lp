@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, Mail, FileText, Download, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, Mail, FileText, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 import type { Product } from '@/data/products'
@@ -57,160 +57,124 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             Kembali ke Produk
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Product Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+          {/* Product Info - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div
+              className="rounded-xl px-4 py-2 inline-block mb-4"
+              style={{
+                backgroundColor: 'var(--primary-brown)',
+                color: 'white',
+              }}
             >
+              <span className="text-sm font-semibold">{product.category}</span>
+            </div>
+
+            <h1
+              className="text-4xl md:text-5xl font-bold mb-4"
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-primary)',
+              }}
+            >
+              {product.name}
+            </h1>
+
+            <p
+              className="text-lg mb-6 leading-relaxed text-justified"
+              style={{
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-secondary)',
+              }}
+            >
+              {product.description}
+            </p>
+
+            {/* Grade */}
+            <div className="mb-6">
               <div
-                className="aspect-square rounded-2xl overflow-hidden border"
-                style={{
-                  backgroundColor: 'var(--primary-cream)',
-                  borderColor: 'var(--neutral-medium)',
-                }}
+                className="text-sm font-semibold mb-2"
+                style={{ color: 'var(--text-muted)' }}
               >
-                <div className="w-full h-full flex flex-col items-center justify-center p-12">
-                  <div
-                    className="text-8xl font-bold mb-4 opacity-20"
-                    style={{ color: 'var(--primary-brown)' }}
-                  >
-                    {product.category}
-                  </div>
-                  <div
-                    className="text-2xl font-bold text-center"
+                Grade:
+              </div>
+              <div
+                className="text-xl font-bold"
+                style={{ color: 'var(--primary-dark-brown)' }}
+              >
+                {product.grade}
+              </div>
+            </div>
+
+            {/* Sizes */}
+            <div className="mb-6">
+              <div
+                className="text-sm font-semibold mb-2"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                Available Sizes:
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {product.sizes.map(size => (
+                  <span
+                    key={size}
+                    className="rounded-lg px-4 py-2 text-sm font-medium border"
                     style={{
+                      backgroundColor: 'var(--neutral-white)',
                       color: 'var(--text-primary)',
-                      fontFamily: 'var(--font-primary)',
+                      borderColor: 'var(--neutral-medium)',
                     }}
                   >
-                    {product.name}
-                  </div>
-                </div>
+                    {size}
+                  </span>
+                ))}
               </div>
-            </motion.div>
+            </div>
 
-            {/* Product Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            {/* Thickness */}
+            <div className="mb-8">
               <div
-                className="rounded-xl px-4 py-2 inline-block mb-4"
-                style={{
-                  backgroundColor: 'var(--primary-gold)',
-                  color: 'white',
-                }}
+                className="text-sm font-semibold mb-2"
+                style={{ color: 'var(--text-muted)' }}
               >
-                <span className="text-sm font-semibold">
-                  {product.category}
-                </span>
+                Thickness Options:
               </div>
+              <div className="flex flex-wrap gap-2">
+                {product.thickness.map(thick => (
+                  <span
+                    key={thick}
+                    className="rounded-lg px-4 py-2 text-sm font-medium"
+                    style={{
+                      backgroundColor: 'var(--primary-brown)',
+                      color: 'white',
+                    }}
+                  >
+                    {thick}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-              <h1
-                className="text-4xl md:text-5xl font-bold mb-4"
-                style={{
-                  color: 'var(--text-primary)',
-                  fontFamily: 'var(--font-primary)',
-                }}
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="mailto:info@3s-plywood.com"
+                className="btn-primary btn-icon"
               >
-                {product.name}
-              </h1>
+                <Mail className="h-5 w-5" />
+                Hubungi Kami
+              </a>
 
-              <p
-                className="text-lg mb-6 leading-relaxed text-justified"
-                style={{
-                  color: 'var(--text-secondary)',
-                  fontFamily: 'var(--font-secondary)',
-                }}
-              >
-                {product.description}
-              </p>
-
-              {/* Grade */}
-              <div className="mb-6">
-                <div
-                  className="text-sm font-semibold mb-2"
-                  style={{ color: 'var(--text-muted)' }}
-                >
-                  Grade:
-                </div>
-                <div
-                  className="text-xl font-bold"
-                  style={{ color: 'var(--primary-dark-brown)' }}
-                >
-                  {product.grade}
-                </div>
-              </div>
-
-              {/* Sizes */}
-              <div className="mb-6">
-                <div
-                  className="text-sm font-semibold mb-2"
-                  style={{ color: 'var(--text-muted)' }}
-                >
-                  Available Sizes:
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {product.sizes.map(size => (
-                    <span
-                      key={size}
-                      className="rounded-lg px-4 py-2 text-sm font-medium border"
-                      style={{
-                        backgroundColor: 'var(--neutral-white)',
-                        color: 'var(--text-primary)',
-                        borderColor: 'var(--neutral-medium)',
-                      }}
-                    >
-                      {size}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Thickness */}
-              <div className="mb-8">
-                <div
-                  className="text-sm font-semibold mb-2"
-                  style={{ color: 'var(--text-muted)' }}
-                >
-                  Thickness Options:
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {product.thickness.map(thick => (
-                    <span
-                      key={thick}
-                      className="rounded-lg px-4 py-2 text-sm font-medium"
-                      style={{
-                        backgroundColor: 'var(--primary-gold)',
-                        color: 'white',
-                      }}
-                    >
-                      {thick}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="mailto:info@3s-plywood.com"
-                  className="btn-primary btn-icon"
-                >
-                  <Mail className="h-5 w-5" />
-                  Hubungi Kami
-                </a>
-
-                <Link href="/quotation" className="btn-outline-dark btn-icon">
-                  <FileText className="h-5 w-5" />
-                  Request Quote
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+              <Link href="/quotation" className="btn-outline-dark btn-icon">
+                <FileText className="h-5 w-5" />
+                Request Quote
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -228,7 +192,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             }}
           >
             Spesifikasi{' '}
-            <span style={{ color: 'var(--primary-gold)' }}>Teknis</span>
+            <span style={{ color: 'var(--primary-brown)' }}>Teknis</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -278,7 +242,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 }}
               >
                 Keunggulan{' '}
-                <span style={{ color: 'var(--primary-gold)' }}>Produk</span>
+                <span style={{ color: 'var(--primary-brown)' }}>Produk</span>
               </h2>
               <ul className="space-y-4">
                 {product.features.map((feature, index) => (
@@ -292,7 +256,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   >
                     <CheckCircle2
                       className="h-6 w-6 flex-shrink-0 mt-0.5"
-                      style={{ color: 'var(--primary-gold)' }}
+                      style={{ color: 'var(--primary-brown)' }}
                     />
                     <span
                       className="text-base"
@@ -317,7 +281,9 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 }}
               >
                 Aplikasi{' '}
-                <span style={{ color: 'var(--primary-gold)' }}>Penggunaan</span>
+                <span style={{ color: 'var(--primary-brown)' }}>
+                  Penggunaan
+                </span>
               </h2>
               <ul className="space-y-4">
                 {product.applications.map((application, index) => (
@@ -331,7 +297,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   >
                     <CheckCircle2
                       className="h-6 w-6 flex-shrink-0 mt-0.5"
-                      style={{ color: 'var(--primary-gold)' }}
+                      style={{ color: 'var(--primary-brown)' }}
                     />
                     <span
                       className="text-base"
@@ -347,57 +313,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section
-        className="py-16 px-6 lg:px-8"
-        style={{ backgroundColor: 'var(--primary-dark-brown)' }}
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4 text-white"
-              style={{ fontFamily: 'var(--font-primary)' }}
-            >
-              Tertarik dengan{' '}
-              <span style={{ color: 'var(--primary-gold)' }}>
-                {product.name}
-              </span>
-              ?
-            </h2>
-            <p
-              className="text-lg mb-8 text-white/80"
-              style={{ fontFamily: 'var(--font-secondary)' }}
-            >
-              Hubungi tim kami untuk konsultasi gratis dan penawaran harga
-              terbaik
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:info@3s-plywood.com"
-                className="btn-primary btn-icon"
-              >
-                <Mail className="h-5 w-5" />
-                Hubungi Kami
-              </a>
-
-              <a
-                href="/downloads/product-catalog.pdf"
-                className="btn-outline-light btn-icon"
-              >
-                <Download className="h-5 w-5" />
-                Download Katalog
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
     </>
