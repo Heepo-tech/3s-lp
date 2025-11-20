@@ -264,16 +264,15 @@ export default function TentangKamiContent() {
         className="relative py-20 px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: 'var(--primary-dark-brown)' }}
       >
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 20% 50%, var(--primary-gold) 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-            }}
-          />
-        </div>
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(248, 244, 225, 0.08) 1.5px, transparent 1.5px)',
+            backgroundSize: '40px 40px',
+            backgroundPosition: 'center',
+          }}
+        />
 
         <div className="relative mx-auto max-w-5xl text-center">
           <motion.div
@@ -351,10 +350,19 @@ export default function TentangKamiContent() {
 
       {/* Visi & Misi */}
       <section
-        className="py-20 px-6 lg:px-8"
+        className="relative py-20 px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: 'var(--neutral-white)' }}
       >
-        <div className="mx-auto max-w-7xl">
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(45, 20, 4, 0.15) 1.5px, transparent 1.5px)',
+            backgroundSize: '40px 40px',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
