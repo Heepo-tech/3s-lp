@@ -161,6 +161,13 @@ body {
   overflow-y: auto;
 }
 
+/* Optimize page rendering for smooth loader transitions */
+#__next,
+[data-nextjs-scroll-focus-boundary] {
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
 /* Typography Hierarchy - Compact & Clean */
 .text-display {
   font-size: 2.75rem;
