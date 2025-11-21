@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle2, Mail, FileText, ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
 
 import type { Product } from '@/data/products'
+import { Link } from '@/i18n/navigation'
 
 interface ProductDetailProps {
   product: Product
@@ -31,7 +31,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </Link>
             <span>/</span>
             <Link
-              href="/#produk"
+              href={{ pathname: '/', hash: 'produk' }}
               className="hover:opacity-70 transition-opacity"
             >
               Produk
@@ -49,7 +49,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       >
         <div className="mx-auto max-w-7xl">
           <Link
-            href="/#produk"
+            href={{ pathname: '/', hash: 'produk' }}
             className="inline-flex items-center gap-2 mb-8 text-sm font-medium transition-opacity hover:opacity-70"
             style={{ color: 'var(--text-secondary)' }}
           >
@@ -169,7 +169,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 Hubungi Kami
               </a>
 
-              <Link href="/quotation" className="btn-outline-dark btn-icon">
+              <Link
+                href={{ pathname: '/', hash: 'quote-request-form' }}
+                className="btn-outline-dark btn-icon"
+              >
                 <FileText className="h-5 w-5" />
                 Request Quote
               </Link>
@@ -255,7 +258,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle2
-                      className="h-6 w-6 flex-shrink-0 mt-0.5"
+                      className="h-6 w-6 shrink-0 mt-0.5"
                       style={{ color: 'var(--primary-brown)' }}
                     />
                     <span
@@ -296,7 +299,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle2
-                      className="h-6 w-6 flex-shrink-0 mt-0.5"
+                      className="h-6 w-6 shrink-0 mt-0.5"
                       style={{ color: 'var(--primary-brown)' }}
                     />
                     <span

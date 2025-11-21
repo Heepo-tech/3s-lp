@@ -135,16 +135,8 @@ export function ProductCombobox({
                 <CommandItem
                   key={product.value}
                   value={product.value}
-                  onSelect={currentValue => {
-                    // cmdk normalizes values to lowercase, find the original value
-                    const selectedProduct = PRODUCT_OPTIONS.find(
-                      p => p.searchValue === currentValue
-                    )
-                    onChange(
-                      selectedProduct?.value === value
-                        ? ''
-                        : selectedProduct?.value || ''
-                    )
+                  onSelect={() => {
+                    onChange(product.value === value ? '' : product.value)
                     setOpen(false)
                   }}
                   className="cursor-pointer transition-colors hover:bg-[var(--primary-cream)] aria-selected:bg-[var(--primary-cream)]"

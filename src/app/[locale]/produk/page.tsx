@@ -1,6 +1,7 @@
 import { ArrowRight, Package } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 
+import { LineShadowText } from '@/components/ui/line-shadow-text'
 import { products } from '@/data/products'
 import { Link } from '@/i18n/navigation'
 
@@ -39,32 +40,40 @@ export default async function ProductsListingPage() {
   const allProducts = products.map(getTranslatedProduct)
 
   return (
-    <>
-      {/* Hero Section */}
-      <section
-        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: 'var(--primary-cream)' }}
-      >
-        {/* Dotted Background Pattern */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-30"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, var(--primary-brown) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }}
-        />
+    <div
+      className="min-h-screen relative"
+      style={{ backgroundColor: 'var(--primary-cream)' }}
+    >
+      {/* Dotted Background Pattern - Global */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, var(--primary-brown) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
 
-        <div className="relative z-10 mx-auto max-w-7xl text-center">
+      {/* Hero Section */}
+      <section className="relative z-10 py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
           <div>
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 flex flex-col items-center gap-2"
               style={{
                 color: 'var(--text-primary)',
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              {t('productsListingPage.title')}
+              <div className="flex flex-wrap justify-center gap-x-3">
+                <LineShadowText shadowColor="var(--text-primary)">
+                  Katalog
+                </LineShadowText>
+                <LineShadowText shadowColor="var(--text-primary)">
+                  Lengkap
+                </LineShadowText>
+                <span>Produk Plywood</span>
+              </div>
             </h1>
             <p
               className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
@@ -80,10 +89,7 @@ export default async function ProductsListingPage() {
       </section>
 
       {/* Products Grid Section */}
-      <section
-        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: 'var(--neutral-white)' }}
-      >
+      <section className="relative z-10 py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {/* Results Count */}
           <div className="mb-8">
@@ -242,6 +248,6 @@ export default async function ProductsListingPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

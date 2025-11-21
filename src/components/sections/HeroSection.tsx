@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 
 import { WorldMap } from '@/components/fancy/blocks/world-map'
-import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
+import { LineShadowText } from '@/components/ui/line-shadow-text'
 
 function HeroSection() {
   const t = useTranslations()
@@ -109,28 +109,34 @@ function HeroSection() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Headline with Vertical Cut Reveal */}
+          {/* Headline with Line Shadow Text */}
           <div className="mb-6 w-full">
             <div className="w-full flex justify-center">
               <div className="block w-full max-w-5xl text-center">
-                <VerticalCutReveal
-                  containerClassName="!flex !justify-center !items-center !w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
-                  wordLevelClassName="!inline"
-                  autoStart={true}
+                <h1
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight flex flex-col items-center gap-2"
+                  style={{
+                    fontFamily: 'var(--font-primary)',
+                    color: 'var(--primary-dark-brown)',
+                  }}
                 >
-                  <h1
-                    style={{
-                      fontFamily: 'var(--font-primary)',
-                      color: 'var(--primary-dark-brown)',
-                      textAlign: 'center',
-                      width: '100%',
-                      display: 'block',
-                      margin: '0 auto',
-                    }}
-                  >
-                    {t('hero.title')}
-                  </h1>
-                </VerticalCutReveal>
+                  <div className="flex flex-wrap justify-center gap-x-3">
+                    <span>Plywood</span>
+                    <LineShadowText shadowColor="var(--primary-dark-brown)">
+                      Premium,
+                    </LineShadowText>
+                  </div>
+                  <div className="flex flex-wrap justify-center gap-x-3">
+                    <span>Dipercaya Pasar</span>
+                    <LineShadowText shadowColor="var(--primary-dark-brown)">
+                      Lokal
+                    </LineShadowText>
+                    <span>&</span>
+                  </div>
+                  <LineShadowText shadowColor="var(--primary-dark-brown)">
+                    Internasional
+                  </LineShadowText>
+                </h1>
               </div>
             </div>
           </div>

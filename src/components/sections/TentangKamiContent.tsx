@@ -304,13 +304,7 @@ export default function TentangKamiContent() {
         }}
       >
         <div className="mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <h2
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{
@@ -329,14 +323,9 @@ export default function TentangKamiContent() {
             >
               {t('aboutUs.journey.subtitle')}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <div className="w-full">
             <SimpleMarquee
               baseVelocity={-1}
               direction="left"
@@ -344,7 +333,7 @@ export default function TentangKamiContent() {
             >
               {marqueeItems}
             </SimpleMarquee>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -364,11 +353,7 @@ export default function TentangKamiContent() {
         />
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="rounded-2xl p-8 border"
               style={{
                 backgroundColor: 'var(--primary-cream)',
@@ -393,13 +378,9 @@ export default function TentangKamiContent() {
               >
                 {t('aboutUs.vision.content')}
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="rounded-2xl p-8 border"
               style={{
                 backgroundColor: 'var(--primary-cream)',
@@ -439,7 +420,7 @@ export default function TentangKamiContent() {
                   <span>{t('aboutUs.mission.items.item4')}</span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

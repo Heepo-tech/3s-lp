@@ -10,7 +10,6 @@ import BlogPostHeader from '@/components/blog/BlogPostHeader'
 import RelatedPosts from '@/components/blog/RelatedPosts'
 import CTASection from '@/components/sections/CTASection'
 import Footer from '@/components/sections/Footer'
-import Header from '@/components/sections/Header'
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 
 // MDX components for custom styling
@@ -165,8 +164,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         className="relative z-10 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
-        <Header />
-
         {/* Blog Post Header */}
         <BlogPostHeader post={post} />
 

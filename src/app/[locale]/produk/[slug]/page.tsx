@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import Footer from '@/components/sections/Footer'
-import Header from '@/components/sections/Header'
 import ProductDetail from '@/components/sections/ProductDetail'
 import { getProductBySlug, getAllProductSlugs } from '@/data/products'
 
@@ -57,7 +56,6 @@ export default async function ProductPage({ params }: Props) {
         className="relative z-10 pb-8 sm:pb-12"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
-        <Header />
         <ProductDetail product={product} />
       </div>
 
