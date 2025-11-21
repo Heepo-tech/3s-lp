@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle2, Mail, FileText, ArrowLeft } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import type { Product } from '@/data/products'
 import { Link } from '@/i18n/navigation'
@@ -11,6 +12,46 @@ interface ProductDetailProps {
 }
 
 export default function ProductDetail({ product }: ProductDetailProps) {
+  const t = useTranslations()
+
+  // Map product slugs to translation keys
+  const productKeyMap: Record<string, string> = {
+    'plywood-standar': 'standard',
+    'plywood-marine': 'marine',
+    'plywood-film-faced': 'filmFaced',
+    'plywood-decorative': 'decorative',
+    'plywood-commercial': 'commercial',
+    'plywood-engineered': 'engineered',
+  }
+
+  const key = productKeyMap[product.slug]
+
+  // Get translated data
+  const name = key ? t(`productData.${key}.name`) : product.name
+  const description = key
+    ? t(`productData.${key}.description`)
+    : product.description
+  const category = key ? t(`productData.${key}.category`) : product.category
+  const grade = key ? t(`productData.${key}.grade`) : product.grade
+
+  // Handle arrays (features, applications) which are objects in JSON
+  const features = key
+    ? Object.values(
+        t.raw(`productData.${key}.features`) as Record<string, string>
+      )
+    : product.features
+
+  const applications = key
+    ? Object.values(
+        t.raw(`productData.${key}.applications`) as Record<string, string>
+      )
+    : product.applications
+
+  // Handle specifications
+  const specifications = key
+    ? (t.raw(`productData.${key}.specifications`) as Record<string, string>)
+    : product.specifications
+
   return (
     <>
       {/* Breadcrumb */}
@@ -27,17 +68,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             style={{ color: 'var(--text-muted)' }}
           >
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              Home
+              {t('navigation.home')}
             </Link>
             <span>/</span>
             <Link
               href={{ pathname: '/', hash: 'produk' }}
               className="hover:opacity-70 transition-opacity"
             >
-              Produk
+              {t('navigation.products')}
             </Link>
             <span>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>{product.name}</span>
+            <span style={{ color: 'var(--text-primary)' }}>{name}</span>
           </div>
         </div>
       </section>
@@ -54,7 +95,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             style={{ color: 'var(--text-secondary)' }}
           >
             <ArrowLeft className="h-4 w-4" />
-            Kembali ke Produk
+            {t('productDetail.backToProducts')}
           </Link>
 
           {/* Product Info - Full Width */}
@@ -71,7 +112,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 color: 'white',
               }}
             >
-              <span className="text-sm font-semibold">{product.category}</span>
+              <span className="text-sm font-semibold">{category}</span>
             </div>
 
             <h1
@@ -81,7 +122,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              {product.name}
+              {name}
             </h1>
 
             <p
@@ -91,7 +132,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 fontFamily: 'var(--font-secondary)',
               }}
             >
-              {product.description}
+              {description}
             </p>
 
             {/* Grade */}
@@ -100,13 +141,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="text-sm font-semibold mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Grade:
+                {t('productsSection.gradeLabel')}
               </div>
               <div
                 className="text-xl font-bold"
                 style={{ color: 'var(--primary-dark-brown)' }}
               >
-                {product.grade}
+                {grade}
               </div>
             </div>
 
@@ -116,7 +157,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="text-sm font-semibold mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Available Sizes:
+                {t('productDetail.availableSizes')}
               </div>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map(size => (
@@ -141,7 +182,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="text-sm font-semibold mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
-                Thickness Options:
+                {t('productDetail.thicknessOptions')}
               </div>
               <div className="flex flex-wrap gap-2">
                 {product.thickness.map(thick => (
@@ -166,7 +207,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="btn-primary btn-icon"
               >
                 <Mail className="h-5 w-5" />
-                Hubungi Kami
+                {t('buttons.contactUs')}
               </a>
 
               <Link
@@ -174,7 +215,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="btn-outline-dark btn-icon"
               >
                 <FileText className="h-5 w-5" />
-                Request Quote
+                {t('buttons.requestQuote')}
               </Link>
             </div>
           </motion.div>
@@ -194,37 +235,34 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               fontFamily: 'var(--font-primary)',
             }}
           >
-            Spesifikasi{' '}
-            <span style={{ color: 'var(--primary-brown)' }}>Teknis</span>
+            {t('productDetail.specifications')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {Object.entries(product.specifications).map(
-              ([key, value], index) => (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="grid grid-cols-[auto_1fr] items-center gap-3 p-6 rounded-xl border bg-white"
-                  style={{ borderColor: 'var(--neutral-medium)' }}
+            {Object.entries(specifications).map(([key, value], index) => (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="grid grid-cols-[auto_1fr] items-center gap-3 p-6 rounded-xl border bg-white"
+                style={{ borderColor: 'var(--neutral-medium)' }}
+              >
+                <span
+                  className="text-sm font-semibold capitalize whitespace-nowrap"
+                  style={{ color: 'var(--text-muted)' }}
                 >
-                  <span
-                    className="text-sm font-semibold capitalize whitespace-nowrap"
-                    style={{ color: 'var(--text-muted)' }}
-                  >
-                    {key}:
-                  </span>
-                  <span
-                    className="text-sm font-bold text-right break-words"
-                    style={{ color: 'var(--text-primary)' }}
-                  >
-                    {value}
-                  </span>
-                </motion.div>
-              )
-            )}
+                  {t(`productData.specifications.${key}`)}:
+                </span>
+                <span
+                  className="text-sm font-bold text-right wrap-break-word"
+                  style={{ color: 'var(--text-primary)' }}
+                >
+                  {value}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -244,11 +282,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                Keunggulan{' '}
-                <span style={{ color: 'var(--primary-brown)' }}>Produk</span>
+                {t('productDetail.advantages')}
               </h2>
               <ul className="space-y-4">
-                {product.features.map((feature, index) => (
+                {features.map((feature, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -283,13 +320,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                Aplikasi{' '}
-                <span style={{ color: 'var(--primary-brown)' }}>
-                  Penggunaan
-                </span>
+                {t('productDetail.applications')}
               </h2>
               <ul className="space-y-4">
-                {product.applications.map((application, index) => (
+                {applications.map((application, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
