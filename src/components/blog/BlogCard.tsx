@@ -24,14 +24,14 @@ export default function BlogCard({ post, locale }: BlogCardProps) {
         className="block group h-full"
       >
         <div
-          className="relative h-full rounded-xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden hover:border-[var(--primary-brown)]"
+          className="relative h-full rounded-xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden hover:border-(--primary-brown)"
           style={{
             backgroundColor: 'var(--neutral-white)',
             borderColor: 'var(--neutral-medium)',
           }}
         >
           {/* Cover Image */}
-          <div className="relative w-full aspect-[16/9] overflow-hidden">
+          <div className="relative w-full aspect-video overflow-hidden">
             <Image
               src={post.coverImage}
               alt={post.title}

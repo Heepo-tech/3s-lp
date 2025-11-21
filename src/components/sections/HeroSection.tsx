@@ -66,7 +66,7 @@ function HeroSection() {
       </div>
 
       {/* Fade Effects for World Map */}
-      <div className="absolute inset-0 z-[2] pointer-events-none">
+      <div className="absolute inset-0 z-2 pointer-events-none">
         {/* Fade Effect - Top (Extended and stronger) */}
         <div
           className="absolute top-0 left-0 right-0 h-40 sm:h-48 md:h-64 lg:h-72"
@@ -121,21 +121,30 @@ function HeroSection() {
                   }}
                 >
                   <div className="flex flex-wrap justify-center gap-x-3">
-                    <span>Plywood</span>
+                    {t('hero.titleStructure.line1.text') && (
+                      <span>{t('hero.titleStructure.line1.text')}</span>
+                    )}
                     <LineShadowText shadowColor="var(--primary-dark-brown)">
-                      Premium,
+                      {t('hero.titleStructure.line1.highlight')}
                     </LineShadowText>
                   </div>
                   <div className="flex flex-wrap justify-center gap-x-3">
-                    <span>Dipercaya Pasar</span>
+                    {t('hero.titleStructure.line2.text') && (
+                      <span>{t('hero.titleStructure.line2.text')}</span>
+                    )}
                     <LineShadowText shadowColor="var(--primary-dark-brown)">
-                      Lokal
+                      {t('hero.titleStructure.line2.highlight')}
                     </LineShadowText>
-                    <span>&</span>
+                    <span>{t('hero.titleStructure.line2.suffix')}</span>
                   </div>
-                  <LineShadowText shadowColor="var(--primary-dark-brown)">
-                    Internasional
-                  </LineShadowText>
+                  <div className="flex flex-wrap justify-center gap-x-3">
+                    {t('hero.titleStructure.line3.text') && (
+                      <span>{t('hero.titleStructure.line3.text')}</span>
+                    )}
+                    <LineShadowText shadowColor="var(--primary-dark-brown)">
+                      {t('hero.titleStructure.line3.highlight')}
+                    </LineShadowText>
+                  </div>
                 </h1>
               </div>
             </div>

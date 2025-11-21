@@ -10,6 +10,7 @@ import BlogPostHeader from '@/components/blog/BlogPostHeader'
 import RelatedPosts from '@/components/blog/RelatedPosts'
 import CTASection from '@/components/sections/CTASection'
 import Footer from '@/components/sections/Footer'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 
 // MDX components for custom styling
@@ -158,10 +159,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = getRelatedPosts(slug, post.category, 3)
 
   return (
-    <div className="w-full h-screen overflow-auto">
-      {/* Main Content with higher z-index for sticky footer */}
+    <div
+      className="w-full"
+      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+    >
+      {/* Main Content */}
       <div
-        className="relative z-10 pb-8 sm:pb-12"
+        className="relative z-10"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         {/* Blog Post Header */}
@@ -179,8 +183,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <CTASection />
       </div>
 
-      {/* Sticky Footer with lower z-index */}
-      <Footer />
+      {/* Sticky Footer */}
+      <StickyFooterWrapper>
+        <Footer />
+      </StickyFooterWrapper>
     </div>
   )
 }

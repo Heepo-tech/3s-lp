@@ -30,6 +30,21 @@
   },
   "hero": {
     "title": "Premium Plywood, Trusted in Local & International Markets",
+    "titleStructure": {
+      "line1": {
+        "text": "",
+        "highlight": "Premium Plywood,"
+      },
+      "line2": {
+        "text": "Trusted in",
+        "highlight": "Local",
+        "suffix": "&"
+      },
+      "line3": {
+        "text": "",
+        "highlight": "International Markets"
+      }
+    },
     "subtitle": "With international certification, strict quality control, and global distribution network, we ensure consistent, timely supply of plywood that meets your project standards. No delays, no quality compromises.",
     "cta1": "About Us",
     "cta2": "View Products"

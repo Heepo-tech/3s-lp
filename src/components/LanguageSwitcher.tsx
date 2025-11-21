@@ -205,7 +205,7 @@ export default function LanguageSwitcher({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-36 rounded-lg border bg-white p-1.5 shadow-lg z-[100]"
+            className="absolute right-0 mt-2 w-36 rounded-lg border bg-white p-1.5 shadow-lg z-100"
             style={{ borderColor: 'var(--neutral-medium)' }}
           >
             {languages.map(lang => (

@@ -55,7 +55,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative z-0 bottom-0 left-0 w-full overflow-hidden pt-12 sm:pt-16 lg:pt-20"
+      className="relative z-0 w-full overflow-hidden pt-12 sm:pt-16 lg:pt-20"
       style={{ backgroundColor: '#2D1404' }}
     >
       {/* Dotted Background Pattern */}
@@ -260,13 +260,20 @@ export default function Footer() {
                 >
                   Designed by
                 </span>
-                <Image
-                  src="/Hepoo-Logo.png"
-                  alt="Hepoo Design"
-                  width={100}
-                  height={40}
-                  className="h-10 w-auto hover:scale-105 transition-transform"
-                />
+                <a
+                  href="https://heepo.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Image
+                    src="/Hepoo-Logo.png"
+                    alt="Heepo Design"
+                    width={70}
+                    height={28}
+                    className="h-7 w-auto grayscale hover:grayscale-0 transition-all duration-300 hover:scale-105"
+                  />
+                </a>
               </div>
             </div>
 

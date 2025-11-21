@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import Footer from '@/components/sections/Footer'
 import TentangKamiContent from '@/components/sections/TentangKamiContent'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 
 export const metadata: Metadata = {
   title: 'Tentang Kami',
@@ -20,16 +21,18 @@ export default function TentangKamiPage() {
       className="w-full"
       style={{ backgroundColor: 'var(--primary-dark-brown)' }}
     >
-      {/* Main Content with higher z-index for sticky footer */}
+      {/* Main Content */}
       <div
-        className="relative z-10 pb-8 sm:pb-12"
+        className="relative z-10"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <TentangKamiContent />
       </div>
 
-      {/* Sticky Footer with lower z-index */}
-      <Footer />
+      {/* Sticky Footer */}
+      <StickyFooterWrapper>
+        <Footer />
+      </StickyFooterWrapper>
     </div>
   )
 }

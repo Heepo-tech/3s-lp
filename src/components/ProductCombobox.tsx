@@ -139,7 +139,7 @@ export function ProductCombobox({
                     onChange(product.value === value ? '' : product.value)
                     setOpen(false)
                   }}
-                  className="cursor-pointer transition-colors hover:bg-[var(--primary-cream)] aria-selected:bg-[var(--primary-cream)]"
+                  className="cursor-pointer transition-colors hover:bg-(--primary-cream) aria-selected:bg-(--primary-cream)"
                   style={{
                     backgroundColor:
                       value === product.value

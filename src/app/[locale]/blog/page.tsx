@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import BlogCard from '@/components/blog/BlogCard'
 import CTASection from '@/components/sections/CTASection'
 import Footer from '@/components/sections/Footer'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 import { LineShadowText } from '@/components/ui/line-shadow-text'
 import { getAllPosts } from '@/lib/blog'
 
@@ -40,10 +41,13 @@ export default async function BlogPage({
   const posts = getAllPosts()
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div
+      className="w-full"
+      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+    >
       {/* Main Content */}
       <main
-        className="flex-grow"
+        className="relative z-10"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         {/* Hero Section */}
@@ -133,7 +137,9 @@ export default async function BlogPage({
       </main>
 
       {/* Sticky Footer */}
-      <Footer />
+      <StickyFooterWrapper>
+        <Footer />
+      </StickyFooterWrapper>
     </div>
   )
 }

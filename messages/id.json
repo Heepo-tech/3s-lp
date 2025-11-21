@@ -30,6 +30,21 @@
   },
   "hero": {
     "title": "Plywood Premium, Dipercaya Pasar Lokal & Internasional",
+    "titleStructure": {
+      "line1": {
+        "text": "",
+        "highlight": "Plywood Premium,"
+      },
+      "line2": {
+        "text": "Dipercaya Pasar",
+        "highlight": "Lokal",
+        "suffix": "&"
+      },
+      "line3": {
+        "text": "",
+        "highlight": "Internasional"
+      }
+    },
     "subtitle": "Dengan sertifikasi internasional, kontrol kualitas ketat, dan jaringan distribusi global, kami memastikan pasokan plywood yang konsisten, tepat waktu, dan sesuai standar proyek Anda. Tidak ada penundaan, tidak ada kompromi kualitas.",
     "cta1": "Tentang Kami",
     "cta2": "Lihat Produk"

@@ -63,15 +63,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Link>
     ),
-    img: props => (
-      <Image
-        {...(props as any)}
-        width={800}
-        height={600}
-        className="rounded-lg shadow-md"
-        alt={props.alt || ''}
-      />
-    ),
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+      const src = typeof props.src === 'string' ? props.src : ''
+      return (
+        <Image
+          src={src || '/images/blog/default.jpg'}
+          width={800}
+          height={600}
+          className="rounded-lg shadow-md"
+          alt={props.alt || ''}
+        />
+      )
+    },
     ...components,
   }
 }

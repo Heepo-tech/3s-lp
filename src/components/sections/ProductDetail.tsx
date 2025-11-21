@@ -207,17 +207,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="flex items-center justify-between p-6 rounded-xl border bg-white"
+                  className="grid grid-cols-[auto_1fr] items-center gap-3 p-6 rounded-xl border bg-white"
                   style={{ borderColor: 'var(--neutral-medium)' }}
                 >
                   <span
-                    className="text-base font-semibold capitalize"
+                    className="text-sm font-semibold capitalize whitespace-nowrap"
                     style={{ color: 'var(--text-muted)' }}
                   >
                     {key}:
                   </span>
                   <span
-                    className="text-lg font-bold"
+                    className="text-sm font-bold text-right break-words"
                     style={{ color: 'var(--text-primary)' }}
                   >
                     {value}

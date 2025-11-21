@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import Footer from '@/components/sections/Footer'
 import ProductDetail from '@/components/sections/ProductDetail'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 import { getProductBySlug, getAllProductSlugs } from '@/data/products'
 
 type Props = {
@@ -50,17 +51,22 @@ export default async function ProductPage({ params }: Props) {
   }
 
   return (
-    <div className="w-full h-screen overflow-auto">
-      {/* Main Content with higher z-index for sticky footer */}
+    <div
+      className="w-full"
+      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+    >
+      {/* Main Content */}
       <div
-        className="relative z-10 pb-8 sm:pb-12"
+        className="relative z-10"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <ProductDetail product={product} />
       </div>
 
-      {/* Sticky Footer with lower z-index */}
-      <Footer />
+      {/* Sticky Footer */}
+      <StickyFooterWrapper>
+        <Footer />
+      </StickyFooterWrapper>
     </div>
   )
 }

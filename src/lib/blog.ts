@@ -60,7 +60,12 @@ export function getPostBySlug(slug: string): BlogPost | null {
       readingTime: stats.text,
     } as BlogPost
   } catch (error) {
-    console.error(`Error reading post ${slug}:`, error)
+    // Silently handle errors - post will be excluded from the list
+    // In development, you can uncomment the line below for debugging
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.error(`Error reading post ${slug}:`, error)
+    }
     return null
   }
 }

@@ -353,7 +353,7 @@ function CompanyProfile() {
       </div>
 
       {/* Fade Effects Layer - Adjusted for Mobile vs Desktop */}
-      <div className="absolute inset-0 z-[1] pointer-events-none">
+      <div className="absolute inset-0 z-1 pointer-events-none">
         {/* Fade Effect - Top (Shorter on mobile for more visibility) */}
         <div
           className="absolute top-0 left-0 right-0 h-16 md:h-24 lg:h-32"

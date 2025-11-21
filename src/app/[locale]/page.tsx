@@ -9,6 +9,7 @@ import HeroSection from '@/components/sections/HeroSection'
 import Keunggulan from '@/components/sections/Keunggulan'
 import ProdukSection from '@/components/sections/ProdukSection'
 import QuoteRequestSection from '@/components/sections/QuoteRequestSection'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 
 // Lazy load only non-critical below-the-fold components
 const Sertifikasi = dynamic(() => import('@/components/sections/Sertifikasi'), {
@@ -35,9 +36,9 @@ export default function Home() {
         style={{ backgroundColor: 'var(--primary-dark-brown)' }}
       >
         <Header />
-        {/* Main Content with higher z-index for sticky footer */}
+        {/* Main Content */}
         <div
-          className="relative z-10 pb-8 sm:pb-12"
+          className="relative z-10"
           style={{ backgroundColor: 'var(--primary-cream)' }}
         >
           <HeroSection />
@@ -50,8 +51,10 @@ export default function Home() {
           <QuoteRequestSection />
         </div>
 
-        {/* Sticky Footer with lower z-index */}
-        <Footer />
+        {/* Sticky Footer */}
+        <StickyFooterWrapper>
+          <Footer />
+        </StickyFooterWrapper>
       </div>
     </PageReadyWrapper>
   )
