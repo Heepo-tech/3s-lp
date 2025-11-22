@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, Mail, FileText, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, Mail, FileText } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
+import { BackButton } from '@/components/ui/back-button'
 import type { Product } from '@/data/products'
 import { Link } from '@/i18n/navigation'
 
@@ -72,7 +73,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </Link>
             <span>/</span>
             <Link
-              href={{ pathname: '/', hash: 'produk' }}
+              href="/produk"
               className="hover:opacity-70 transition-opacity"
             >
               {t('navigation.products')}
@@ -89,14 +90,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         style={{ background: 'var(--gradient-warm)' }}
       >
         <div className="mx-auto max-w-7xl">
-          <Link
-            href={{ pathname: '/', hash: 'produk' }}
-            className="inline-flex items-center gap-2 mb-8 text-sm font-medium transition-opacity hover:opacity-70"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {t('productDetail.backToProducts')}
-          </Link>
+          <BackButton
+            label={t('productDetail.backToProducts')}
+            className="mb-8"
+          />
 
           {/* Product Info - Full Width */}
           <motion.div
