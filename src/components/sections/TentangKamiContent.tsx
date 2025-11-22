@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 
 import BentoGallery, { type GalleryPage } from '@/components/fancy/BentoGallery'
 import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
+import { LineShadowText } from '@/components/ui/line-shadow-text'
 
 export default function TentangKamiContent() {
   const t = useTranslations()
@@ -262,33 +263,49 @@ export default function TentangKamiContent() {
       {/* Hero Section */}
       <section
         className="relative py-20 px-6 lg:px-8 overflow-hidden"
-        style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+        style={{ backgroundColor: 'var(--primary-cream)' }}
       >
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage:
-              'radial-gradient(circle, rgba(248, 244, 225, 0.08) 1.5px, transparent 1.5px)',
+              'radial-gradient(circle, rgba(82, 36, 5, 0.15) 1.5px, transparent 1.5px)',
             backgroundSize: '40px 40px',
             backgroundPosition: 'center',
           }}
         />
 
-        <div className="relative mx-auto max-w-5xl text-center">
+        <div className="relative z-10 mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white px-4"
-              style={{ fontFamily: 'var(--font-primary)' }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 px-4"
+              style={{
+                fontFamily: 'var(--font-primary)',
+                color: 'var(--primary-dark-brown)',
+              }}
             >
-              {t('aboutUs.hero.title')}
+              <span>{t('company.titlePrefix')} </span>
+              {t('company.companyName')
+                .split(' ')
+                .map((word, index, arr) => (
+                  <span key={index}>
+                    <LineShadowText shadowColor="var(--primary-dark-brown)">
+                      {word}
+                    </LineShadowText>
+                    {index < arr.length - 1 && ' '}
+                  </span>
+                ))}
             </h1>
             <p
-              className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed text-center max-w-3xl mx-auto"
-              style={{ fontFamily: 'var(--font-secondary)' }}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-center max-w-3xl mx-auto"
+              style={{
+                fontFamily: 'var(--font-secondary)',
+                color: 'var(--primary-brown)',
+              }}
             >
               {t('aboutUs.hero.subtitle')}
             </p>
