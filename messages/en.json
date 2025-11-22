@@ -27,7 +27,9 @@
     "standard": "Standard Plywood",
     "marine": "Marine Plywood",
     "filmFaced": "Film Faced Plywood",
-    "decorative": "Decorative Plywood"
+    "decorative": "Decorative Plywood",
+    "commercial": "Commercial Plywood",
+    "engineered": "Engineered Plywood"
   },
   "hero": {
     "title": "Premium Plywood, Trusted in Local & International Markets",
