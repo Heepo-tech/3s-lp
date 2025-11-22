@@ -66,21 +66,23 @@ export default async function ProductsListingPage() {
           <div className="mx-auto max-w-7xl text-center">
             <div>
               <h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 flex flex-col items-center gap-2"
+                className="text-balance text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl mb-6 flex flex-col items-center"
                 style={{
                   color: 'var(--text-primary)',
                   fontFamily: 'var(--font-primary)',
                 }}
               >
-                <div className="flex flex-wrap justify-center gap-x-3">
+                <div className="flex flex-wrap justify-center gap-x-3 sm:gap-x-4">
                   <LineShadowText shadowColor="var(--text-primary)">
                     Katalog
                   </LineShadowText>
                   <LineShadowText shadowColor="var(--text-primary)">
                     Lengkap
                   </LineShadowText>
-                  <span>Produk Plywood</span>
                 </div>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 sm:mt-4">
+                  Produk Plywood
+                </span>
               </h1>
               <p
                 className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"

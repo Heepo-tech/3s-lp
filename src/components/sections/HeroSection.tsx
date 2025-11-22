@@ -53,7 +53,7 @@ function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] pt-20 sm:pt-24 md:pt-0 flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] sm:min-h-[80vh] lg:min-h-[90vh] pt-14 sm:pt-24 md:pt-0 flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       {/* World Map Background */}
@@ -102,19 +102,19 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 text-center lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-16 md:py-20 lg:py-24 text-center lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-5 sm:space-y-8"
         >
           {/* Headline with Line Shadow Text */}
-          <div className="mb-6 w-full">
+          <div className="mb-3 sm:mb-6 w-full">
             <div className="w-full flex justify-center">
               <div className="block w-full max-w-5xl text-center">
                 <h1
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight flex flex-col items-center gap-2"
+                  className="text-balance text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl mb-3 sm:mb-6 flex flex-col items-center gap-2"
                   style={{
                     fontFamily: 'var(--font-primary)',
                     color: 'var(--primary-dark-brown)',
@@ -155,7 +155,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 text-justified"
+            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4 text-center"
             style={{
               fontFamily: 'var(--font-secondary)',
               color: 'var(--primary-brown)',

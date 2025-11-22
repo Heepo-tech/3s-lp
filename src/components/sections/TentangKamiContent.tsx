@@ -282,23 +282,27 @@ export default function TentangKamiContent() {
             transition={{ duration: 0.5 }}
           >
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 px-4"
+              className="text-balance text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl mb-6 flex flex-col items-center"
               style={{
                 fontFamily: 'var(--font-primary)',
                 color: 'var(--primary-dark-brown)',
               }}
             >
-              <span>{t('company.titlePrefix')} </span>
-              {t('company.companyName')
-                .split(' ')
-                .map((word, index, arr) => (
-                  <span key={index}>
-                    <LineShadowText shadowColor="var(--primary-dark-brown)">
-                      {word}
-                    </LineShadowText>
-                    {index < arr.length - 1 && ' '}
-                  </span>
-                ))}
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-4">
+                {t('company.titlePrefix')}
+              </span>
+              <div className="flex flex-wrap justify-center gap-x-3 sm:gap-x-4">
+                {t('company.companyName')
+                  .split(' ')
+                  .map((word, index, arr) => (
+                    <span key={index}>
+                      <LineShadowText shadowColor="var(--primary-dark-brown)">
+                        {word}
+                      </LineShadowText>
+                      {index < arr.length - 1 && ' '}
+                    </span>
+                  ))}
+              </div>
             </h1>
             <p
               className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-center max-w-3xl mx-auto"
