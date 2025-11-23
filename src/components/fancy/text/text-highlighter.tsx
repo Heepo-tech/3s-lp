@@ -4,6 +4,7 @@ import { motion, Transition, useInView, UseInViewOptions } from 'motion/react'
 import {
   ElementType,
   forwardRef,
+  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -135,24 +136,27 @@ export const TextHighlighter = forwardRef<
 
     const ElementTag = as || 'span'
 
-    // Get background size based on direction
-    const getBackgroundSize = (animated: boolean) => {
-      switch (currentDirection) {
-        case 'ltr':
-          return animated ? '100% 100%' : '0% 100%'
-        case 'rtl':
-          return animated ? '100% 100%' : '0% 100%'
-        case 'ttb':
-          return animated ? '100% 100%' : '100% 0%'
-        case 'btt':
-          return animated ? '100% 100%' : '100% 0%'
-        default:
-          return animated ? '100% 100%' : '0% 100%'
-      }
-    }
+    // Get background size based on direction - memoized to prevent unnecessary recalculations
+    const getBackgroundSize = useCallback(
+      (animated: boolean) => {
+        switch (currentDirection) {
+          case 'ltr':
+            return animated ? '100% 100%' : '0% 100%'
+          case 'rtl':
+            return animated ? '100% 100%' : '0% 100%'
+          case 'ttb':
+            return animated ? '100% 100%' : '100% 0%'
+          case 'btt':
+            return animated ? '100% 100%' : '100% 0%'
+          default:
+            return animated ? '100% 100%' : '0% 100%'
+        }
+      },
+      [currentDirection]
+    )
 
-    // Get background position based on direction
-    const getBackgroundPosition = () => {
+    // Get background position based on direction - memoized to prevent unnecessary recalculations
+    const getBackgroundPosition = useCallback(() => {
       switch (currentDirection) {
         case 'ltr':
           return '0% 0%'
@@ -165,19 +169,19 @@ export const TextHighlighter = forwardRef<
         default:
           return '0% 0%'
       }
-    }
+    }, [currentDirection])
 
     const animatedSize = useMemo(
       () => getBackgroundSize(shouldAnimate),
-      [shouldAnimate, currentDirection]
+      [shouldAnimate, getBackgroundSize]
     )
     const initialSize = useMemo(
       () => getBackgroundSize(false),
-      [currentDirection]
+      [getBackgroundSize]
     )
     const backgroundPosition = useMemo(
       () => getBackgroundPosition(),
-      [currentDirection]
+      [getBackgroundPosition]
     )
 
     const highlightStyle = {

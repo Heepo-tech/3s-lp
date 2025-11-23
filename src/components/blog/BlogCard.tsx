@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { Calendar, Clock, Tag } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
@@ -14,40 +11,28 @@ interface BlogCardProps {
   locale: string
 }
 
-export default function BlogCard({ post, index = 0, locale }: BlogCardProps) {
+export default function BlogCard({ post, locale }: BlogCardProps) {
   const t = useTranslations()
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-    >
+    <article className="h-full">
       <Link
         href={{
           pathname: '/blog/[slug]',
           params: { slug: post.slug },
         }}
-        className="block group"
+        locale={locale}
+        className="block group h-full"
       >
         <div
-          className="relative h-full rounded-xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden"
+          className="relative h-full rounded-xl border transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-2 overflow-hidden hover:border-(--primary-brown)"
           style={{
             backgroundColor: 'var(--neutral-white)',
             borderColor: 'var(--neutral-medium)',
           }}
-          onMouseEnter={e => {
-            if (window.innerWidth >= 768) {
-              e.currentTarget.style.borderColor = 'var(--primary-brown)'
-            }
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--neutral-medium)'
-          }}
         >
           {/* Cover Image */}
-          <div className="relative w-full aspect-[16/9] overflow-hidden">
+          <div className="relative w-full aspect-video overflow-hidden">
             <Image
               src={post.coverImage}
               alt={post.title}
@@ -79,7 +64,7 @@ export default function BlogCard({ post, index = 0, locale }: BlogCardProps) {
           </div>
 
           {/* Content */}
-          <div className="p-6">
+          <div className="p-6 flex flex-col h-[calc(100%-aspect-[16/9])]">
             {/* Metadata */}
             <div className="flex items-center gap-4 mb-3 text-sm">
               <span
@@ -158,6 +143,6 @@ export default function BlogCard({ post, index = 0, locale }: BlogCardProps) {
           />
         </div>
       </Link>
-    </motion.article>
+    </article>
   )
 }

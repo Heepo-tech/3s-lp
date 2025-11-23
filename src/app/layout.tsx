@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
+import PageLoader from '@/components/PageLoader'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -109,10 +110,20 @@ export default async function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
+      <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <PageLoader />
         {children}
         <Toaster />
         <Analytics />

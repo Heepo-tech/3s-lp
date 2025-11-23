@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Tag, User, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import VerticalCutReveal from '@/components/fancy/text/vertical-cut-reveal'
+import { BackButton } from '@/components/ui/back-button'
+import { Link } from '@/i18n/navigation'
 import type { BlogPost } from '@/types/blog'
 
 interface BlogPostHeaderProps {
@@ -19,6 +20,11 @@ export default function BlogPostHeader({ post }: BlogPostHeaderProps) {
       style={{ backgroundColor: 'var(--primary-cream)' }}
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {/* Back Button */}
+        <div className="mb-4">
+          <BackButton label="Back" />
+        </div>
+
         {/* Breadcrumbs */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}

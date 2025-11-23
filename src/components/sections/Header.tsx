@@ -70,6 +70,8 @@ export default function Header() {
     { name: t('products.marine'), slug: 'plywood-marine' },
     { name: t('products.filmFaced'), slug: 'plywood-film-faced' },
     { name: t('products.decorative'), slug: 'plywood-decorative' },
+    { name: t('products.commercial'), slug: 'plywood-commercial' },
+    { name: t('products.engineered'), slug: 'plywood-engineered' },
   ]
 
   const LogoContent = () => (
@@ -286,7 +288,7 @@ export default function Header() {
                       href="/"
                       locale="id"
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
-                        locale === 'id' ? 'bg-[var(--primary-cream)]' : ''
+                        locale === 'id' ? 'bg-(--primary-cream)' : ''
                       }`}
                       style={{
                         color:
@@ -303,7 +305,7 @@ export default function Header() {
                       href="/"
                       locale="en"
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
-                        locale === 'en' ? 'bg-[var(--primary-cream)]' : ''
+                        locale === 'en' ? 'bg-(--primary-cream)' : ''
                       }`}
                       style={{
                         color:
@@ -334,9 +336,25 @@ export default function Header() {
       </Navbar>
 
       {/* Mobile Hamburger Button - Outside Navbar, Always on Top */}
-      <button
+      {/* Mobile Hamburger Button - Outside Navbar, Always on Top */}
+      <motion.button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="lg:hidden fixed top-6 right-4 md:right-6 z-[70] flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
+        initial={{
+          opacity: 1,
+          y: 0,
+          pointerEvents: 'auto',
+        }}
+        animate={{
+          opacity: isFooterVisible ? 0 : 1,
+          y: isFooterVisible ? -100 : 0,
+          pointerEvents: isFooterVisible ? 'none' : 'auto',
+        }}
+        transition={{
+          type: 'tween',
+          duration: 0.3,
+          ease: 'easeOut',
+        }}
+        className="lg:hidden fixed top-6 right-4 md:right-6 z-70 flex items-center justify-center w-12 h-12 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl"
         style={{
           backgroundColor: mobileMenuOpen ? 'var(--primary-brown)' : 'white',
           color: mobileMenuOpen ? 'white' : 'var(--text-primary)',
@@ -349,7 +367,7 @@ export default function Header() {
         ) : (
           <Menu className="h-6 w-6" />
         )}
-      </button>
+      </motion.button>
 
       {/* New Mobile Menu - Slide in from right */}
       <AnimatePresence>
@@ -604,7 +622,7 @@ export default function Header() {
                               locale="id"
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'id'
-                                  ? 'bg-[var(--primary-cream)]'
+                                  ? 'bg-(--primary-cream)'
                                   : 'hover:bg-gray-50'
                               }`}
                               onClick={() => {
@@ -626,7 +644,7 @@ export default function Header() {
                               locale="en"
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'en'
-                                  ? 'bg-[var(--primary-cream)]'
+                                  ? 'bg-(--primary-cream)'
                                   : 'hover:bg-gray-50'
                               }`}
                               onClick={() => {

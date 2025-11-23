@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import Footer from '@/components/sections/Footer'
-import Header from '@/components/sections/Header'
 import ProductDetail from '@/components/sections/ProductDetail'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 import { getProductBySlug, getAllProductSlugs } from '@/data/products'
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // ISR: Revalidate every 1 hour (3600 seconds)
@@ -20,7 +20,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = getProductBySlug(params.slug)
+  const { slug } = await params
+  const product = getProductBySlug(slug)
 
   if (!product) {
     return {
@@ -41,26 +42,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProductPage({ params }: Props) {
-  const product = getProductBySlug(params.slug)
+export default async function ProductPage({ params }: Props) {
+  const { slug } = await params
+  const product = getProductBySlug(slug)
 
   if (!product) {
     notFound()
   }
 
   return (
-    <div className="w-full h-screen overflow-auto">
-      {/* Main Content with higher z-index for sticky footer */}
+    <div
+      className="w-full"
+      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
+    >
+      {/* Main Content */}
       <div
-        className="relative z-10 pb-8 sm:pb-12"
+        className="relative z-10"
         style={{ backgroundColor: 'var(--primary-cream)' }}
       >
-        <Header />
         <ProductDetail product={product} />
       </div>
 
-      {/* Sticky Footer with lower z-index */}
-      <Footer />
+      {/* Sticky Footer */}
+      <StickyFooterWrapper>
+        <Footer />
+      </StickyFooterWrapper>
     </div>
   )
 }

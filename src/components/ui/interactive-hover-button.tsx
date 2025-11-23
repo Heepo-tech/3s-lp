@@ -3,11 +3,14 @@ import React from 'react'
 
 import { cn } from '@/lib/utils'
 
-type InteractiveHoverButtonProps =
-  React.AnchorHTMLAttributes<HTMLAnchorElement> &
-    React.ButtonHTMLAttributes<HTMLButtonElement> & {
-      href?: string
-    }
+type InteractiveHoverButtonProps = {
+  href?: string
+  children: React.ReactNode
+  className?: string
+} & (
+  | React.AnchorHTMLAttributes<HTMLAnchorElement>
+  | React.ButtonHTMLAttributes<HTMLButtonElement>
+)
 
 export function InteractiveHoverButton({
   children,
@@ -53,7 +56,7 @@ export function InteractiveHoverButton({
       style={{
         borderColor: 'rgba(78, 31, 0, 0.3)', // Semi-transparent brown border
       }}
-      {...(props as any)}
+      {...(props as React.HTMLAttributes<HTMLElement>)}
     >
       {/* Background Ripple - Expands on Hover */}
       <span

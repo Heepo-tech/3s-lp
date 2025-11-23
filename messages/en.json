@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "home": "Home",
     "products": "Products",
     "company": "Company",
     "certification": "Certification",
@@ -26,10 +27,27 @@
     "standard": "Standard Plywood",
     "marine": "Marine Plywood",
     "filmFaced": "Film Faced Plywood",
-    "decorative": "Decorative Plywood"
+    "decorative": "Decorative Plywood",
+    "commercial": "Commercial Plywood",
+    "engineered": "Engineered Plywood"
   },
   "hero": {
     "title": "Premium Plywood, Trusted in Local & International Markets",
+    "titleStructure": {
+      "line1": {
+        "text": "",
+        "highlight": "Premium Plywood,"
+      },
+      "line2": {
+        "text": "Trusted in",
+        "highlight": "Local",
+        "suffix": "&"
+      },
+      "line3": {
+        "text": "",
+        "highlight": "International Markets"
+      }
+    },
     "subtitle": "With international certification, strict quality control, and global distribution network, we ensure consistent, timely supply of plywood that meets your project standards. No delays, no quality compromises.",
     "cta1": "About Us",
     "cta2": "View Products"
@@ -86,6 +104,14 @@
       "response": "Response time within 24 hours",
       "pricing": "Best price offers"
     }
+  },
+  "productDetail": {
+    "backToProducts": "Back to Products",
+    "availableSizes": "Available Sizes",
+    "thicknessOptions": "Thickness Options",
+    "specifications": "Technical Specifications",
+    "advantages": "Product Advantages",
+    "applications": "Usage Applications"
   },
   "quoteSection": {
     "title": "Request a Quotation",
@@ -354,6 +380,10 @@
           "label": "Factory Area"
         }
       }
+    },
+    "gallery": {
+      "title": "Our Facilities & Production Team",
+      "subtitle": "See firsthand our modern production facilities and the professional team supporting our product quality"
     }
   },
   "blog": {
@@ -390,6 +420,12 @@
         "app3": "Packing and crating",
         "app4": "Interior design",
         "app5": "Partitions and walls"
+      },
+      "specifications": {
+        "material": "Hardwood/Softwood mix",
+        "glue": "MR/WBP",
+        "moisture": "8-14%",
+        "density": "550-700 kg/m³"
       }
     },
     "marine": {
@@ -411,6 +447,12 @@
         "app3": "Outdoor furniture",
         "app4": "Bathroom and kitchen cabinets",
         "app5": "Basements and damp areas"
+      },
+      "specifications": {
+        "material": "100% Hardwood",
+        "glue": "WBP (Phenolic)",
+        "moisture": "8-12%",
+        "density": "650-750 kg/m³"
       }
     },
     "filmFaced": {
@@ -432,6 +474,12 @@
         "app3": "Concrete casting",
         "app4": "Infrastructure projects",
         "app5": "High-rise buildings"
+      },
+      "specifications": {
+        "material": "Birch/Hardwood",
+        "glue": "WBP (Phenolic)",
+        "moisture": "8-12%",
+        "density": "700-800 kg/m³"
       }
     },
     "decorative": {
@@ -453,6 +501,12 @@
         "app3": "Wall paneling",
         "app4": "Decorative ceilings",
         "app5": "Custom woodwork"
+      },
+      "specifications": {
+        "material": "Premium Hardwood",
+        "glue": "E1 Low Emission",
+        "moisture": "8-12%",
+        "density": "600-700 kg/m³"
       }
     },
     "commercial": {
@@ -474,6 +528,12 @@
         "app3": "Temporary construction",
         "app4": "Pallets and container flooring",
         "app5": "General purpose"
+      },
+      "specifications": {
+        "material": "Mixed Hardwood",
+        "glue": "MR",
+        "moisture": "8-14%",
+        "density": "500-650 kg/m³"
       }
     },
     "engineered": {
@@ -495,6 +555,12 @@
         "app3": "Industrial applications",
         "app4": "Heavy-duty furniture",
         "app5": "Engineered construction"
+      },
+      "specifications": {
+        "material": "Select Hardwood",
+        "glue": "WBP",
+        "moisture": "8-12%",
+        "density": "650-750 kg/m³"
       }
     },
     "specifications": {

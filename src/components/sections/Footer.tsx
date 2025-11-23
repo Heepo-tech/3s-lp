@@ -8,6 +8,7 @@ import {
   MapPin,
   Phone,
 } from 'lucide-react'
+import Image from 'next/image'
 import NextLink from 'next/link'
 import { useTranslations } from 'next-intl'
 
@@ -54,7 +55,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative sticky z-0 bottom-0 left-0 w-full overflow-hidden pt-12 sm:pt-16 lg:pt-20"
+      className="relative z-0 w-full overflow-hidden pt-12 sm:pt-16 lg:pt-20"
       style={{ backgroundColor: '#2D1404' }}
     >
       {/* Dotted Background Pattern */}
@@ -85,7 +86,7 @@ export default function Footer() {
               >
                 <div className="flex items-start gap-3">
                   <MapPin
-                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 mt-0.5"
+                    className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 mt-0.5"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
@@ -100,7 +101,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone
-                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0"
+                    className="h-5 w-5 sm:h-6 sm:w-6 shrink-0"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
@@ -119,7 +120,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail
-                    className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0"
+                    className="h-5 w-5 sm:h-6 sm:w-6 shrink-0"
                     style={{ color: '#F8F7F3' }}
                   />
                   <div>
@@ -244,12 +245,37 @@ export default function Footer() {
             className="mt-6 sm:mt-8 flex flex-col items-center justify-between gap-4 border-t pt-4 sm:pt-6 md:flex-row"
             style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}
           >
-            <p
-              className="text-xs sm:text-sm text-center md:text-left"
-              style={{ color: '#F8F7F3', opacity: 0.6 }}
-            >
-              {t('footer.copyright', { year: currentYear })}
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+              <p
+                className="text-xs sm:text-sm text-center md:text-left"
+                style={{ color: '#F8F7F3', opacity: 0.6 }}
+              >
+                {t('footer.copyright', { year: currentYear })}
+              </p>
+              <div className="hidden md:block w-px h-3 bg-white/20"></div>
+              <div className="flex items-center gap-2">
+                <span
+                  className="text-xs sm:text-sm"
+                  style={{ color: '#F8F7F3', opacity: 0.6 }}
+                >
+                  Designed by
+                </span>
+                <a
+                  href="https://heepo.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Image
+                    src="/Hepoo-Logo.png"
+                    alt="Heepo Design"
+                    width={70}
+                    height={28}
+                    className="h-7 w-auto grayscale hover:grayscale-0 transition-all duration-300 hover:scale-105"
+                  />
+                </a>
+              </div>
+            </div>
 
             {/* Social Media Links */}
             <div className="flex gap-3 sm:gap-4">

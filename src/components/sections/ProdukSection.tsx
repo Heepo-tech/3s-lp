@@ -93,7 +93,10 @@ export default function ProdukSection() {
               transition={{ delay: index * 0.05, duration: 0.3 }}
             >
               <Link
-                href={`/produk/${product.slug}` as any}
+                href={{
+                  pathname: '/produk/[slug]',
+                  params: { slug: product.slug },
+                }}
                 prefetch={true}
                 className="group block h-full"
               >
@@ -158,7 +161,7 @@ export default function ProdukSection() {
                       {/* Grade */}
                       <div className="flex items-center gap-3">
                         <span
-                          className="text-sm font-semibold min-w-[80px]"
+                          className="text-sm font-semibold min-w-20"
                           style={{ color: 'var(--primary-brown)' }}
                         >
                           {t('productsSection.gradeLabel')}

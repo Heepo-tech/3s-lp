@@ -14,6 +14,7 @@ jobs:
     name: ESLint, ʦ TypeScript, 💅 Prettier, and 🃏 Test
     runs-on: ubuntu-latest
     env:
+      # Note: Add RESEND_API_KEY to repository secrets for email functionality
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
     steps:
       - name: Checkout repo

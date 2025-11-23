@@ -1,4 +1,15 @@
 @import 'tailwindcss';
+@import '../lib/tw-animate.css';
+
+@theme {
+  --color-border: var(--neutral-medium);
+  --color-input: var(--neutral-medium);
+  --color-ring: var(--primary-brown);
+  --color-background: var(--neutral-white);
+  --color-foreground: var(--text-primary);
+}
+
+@custom-variant dark (&:is(.dark *));
 
 /* PT. Sekawan Sahabat Sejati - Plywood Theme Color System */
 :root {
@@ -113,6 +124,15 @@
   --color-accent-foreground: var(--text-primary);
   --color-muted: var(--neutral-light);
   --color-muted-foreground: var(--text-muted);
+  --animate-line-shadow: line-shadow 15s linear infinite;
+  @keyframes line-shadow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% -100%;
+    }
+  }
 }
 
 /* Base Typography Styles - Premium Quality */
@@ -131,6 +151,13 @@ body {
     'liga' 1;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+/* Optimize page rendering for smooth loader transitions */
+#__next,
+[data-nextjs-scroll-focus-boundary] {
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 /* Typography Hierarchy - Compact & Clean */
@@ -1495,5 +1522,14 @@ select::-webkit-scrollbar-track {
   .btn-outline-dark:hover,
   .btn-outline-light:hover {
     transform: none;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

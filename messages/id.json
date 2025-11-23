@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "home": "Beranda",
     "products": "Produk",
     "company": "Perusahaan",
     "certification": "Sertifikasi",
@@ -26,10 +27,27 @@
     "standard": "Plywood Standar",
     "marine": "Plywood Marine",
     "filmFaced": "Plywood Film Faced",
-    "decorative": "Plywood Decorative"
+    "decorative": "Plywood Decorative",
+    "commercial": "Plywood Commercial",
+    "engineered": "Plywood Engineered"
   },
   "hero": {
     "title": "Plywood Premium, Dipercaya Pasar Lokal & Internasional",
+    "titleStructure": {
+      "line1": {
+        "text": "",
+        "highlight": "Plywood Premium,"
+      },
+      "line2": {
+        "text": "Dipercaya Pasar",
+        "highlight": "Lokal",
+        "suffix": "&"
+      },
+      "line3": {
+        "text": "",
+        "highlight": "Internasional"
+      }
+    },
     "subtitle": "Dengan sertifikasi internasional, kontrol kualitas ketat, dan jaringan distribusi global, kami memastikan pasokan plywood yang konsisten, tepat waktu, dan sesuai standar proyek Anda. Tidak ada penundaan, tidak ada kompromi kualitas.",
     "cta1": "Tentang Kami",
     "cta2": "Lihat Produk"
@@ -86,6 +104,14 @@
       "response": "Response time 1x24 jam",
       "pricing": "Penawaran dengan harga terbaik"
     }
+  },
+  "productDetail": {
+    "backToProducts": "Kembali ke Produk",
+    "availableSizes": "Ukuran Tersedia",
+    "thicknessOptions": "Pilihan Ketebalan",
+    "specifications": "Spesifikasi Teknis",
+    "advantages": "Keunggulan Produk",
+    "applications": "Aplikasi Penggunaan"
   },
   "quoteSection": {
     "title": "Ajukan Permintaan Penawaran",
@@ -354,6 +380,10 @@
           "label": "Area Pabrik"
         }
       }
+    },
+    "gallery": {
+      "title": "Fasilitas & Tim Produksi Kami",
+      "subtitle": "Lihat langsung fasilitas produksi modern dan tim profesional yang mendukung kualitas produk kami"
     }
   },
   "blog": {
@@ -390,6 +420,12 @@
         "app3": "Packing dan crating",
         "app4": "Interior design",
         "app5": "Partisi dan dinding"
+      },
+      "specifications": {
+        "material": "Campuran Hardwood/Softwood",
+        "glue": "MR/WBP",
+        "moisture": "8-14%",
+        "density": "550-700 kg/m³"
       }
     },
     "marine": {
@@ -411,6 +447,12 @@
         "app3": "Furniture outdoor",
         "app4": "Bathroom dan kitchen cabinet",
         "app5": "Basement dan area lembab"
+      },
+      "specifications": {
+        "material": "100% Hardwood",
+        "glue": "WBP (Phenolic)",
+        "moisture": "8-12%",
+        "density": "650-750 kg/m³"
       }
     },
     "filmFaced": {
@@ -432,6 +474,12 @@
         "app3": "Concrete shuttering",
         "app4": "Proyek infrastruktur",
         "app5": "High-rise building"
+      },
+      "specifications": {
+        "material": "Birch/Hardwood",
+        "glue": "WBP (Phenolic)",
+        "moisture": "8-12%",
+        "density": "700-800 kg/m³"
       }
     },
     "decorative": {
@@ -453,6 +501,12 @@
         "app3": "Wall paneling",
         "app4": "Ceiling dekoratif",
         "app5": "Custom woodwork"
+      },
+      "specifications": {
+        "material": "Premium Hardwood",
+        "glue": "E1 Low Emission",
+        "moisture": "8-12%",
+        "density": "600-700 kg/m³"
       }
     },
     "commercial": {
@@ -474,6 +528,12 @@
         "app3": "Konstruksi sementara",
         "app4": "Pallet dan container flooring",
         "app5": "General purpose"
+      },
+      "specifications": {
+        "material": "Mixed Hardwood",
+        "glue": "MR",
+        "moisture": "8-14%",
+        "density": "500-650 kg/m³"
       }
     },
     "engineered": {
@@ -495,6 +555,12 @@
         "app3": "Industrial application",
         "app4": "Heavy duty furniture",
         "app5": "Engineered construction"
+      },
+      "specifications": {
+        "material": "Select Hardwood",
+        "glue": "WBP",
+        "moisture": "8-12%",
+        "density": "650-750 kg/m³"
       }
     },
     "specifications": {

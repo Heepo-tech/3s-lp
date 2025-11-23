@@ -121,7 +121,7 @@ export default function FAQ() {
                       transition={{ duration: 0.2 }}
                     >
                       <X
-                        className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0"
+                        className="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
                         style={{ color: 'var(--primary-brown)' }}
                       />
                     </motion.div>
@@ -133,7 +133,7 @@ export default function FAQ() {
                       transition={{ duration: 0.2 }}
                     >
                       <Plus
-                        className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0"
+                        className="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
                         style={{ color: 'var(--primary-brown)' }}
                       />
                     </motion.div>

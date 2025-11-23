@@ -366,7 +366,7 @@ export default function QuoteRequestSection() {
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle
-                        className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 mt-0.5"
+                        className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 mt-0.5"
                         style={{ color: 'var(--primary-gold)' }}
                       />
                       <span

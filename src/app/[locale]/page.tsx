@@ -1,33 +1,17 @@
 import dynamic from 'next/dynamic'
 
+import PageReadyWrapper from '@/components/PageReadyWrapper'
 import ClientShowcase from '@/components/sections/ClientShowcase'
+import CompanyProfile from '@/components/sections/CompanyProfile'
 import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import HeroSection from '@/components/sections/HeroSection'
 import Keunggulan from '@/components/sections/Keunggulan'
 import ProdukSection from '@/components/sections/ProdukSection'
 import QuoteRequestSection from '@/components/sections/QuoteRequestSection'
+import StickyFooterWrapper from '@/components/StickyFooterWrapper'
 
-// Lazy load heavy components with images
-const CompanyProfile = dynamic(
-  () => import('@/components/sections/CompanyProfile'),
-  {
-    loading: () => (
-      <div className="min-h-[400px] flex items-center justify-center">
-        <div className="animate-pulse text-center">
-          <div
-            className="text-lg font-semibold"
-            style={{ color: 'var(--primary-brown)' }}
-          >
-            Loading...
-          </div>
-        </div>
-      </div>
-    ),
-    ssr: true,
-  }
-)
-
+// Lazy load only non-critical below-the-fold components
 const Sertifikasi = dynamic(() => import('@/components/sections/Sertifikasi'), {
   loading: () => <div className="min-h-[200px]" />,
   ssr: true,
@@ -46,28 +30,32 @@ export const revalidate = 3600
 
 export default function Home() {
   return (
-    <div
-      className="w-full"
-      style={{ backgroundColor: 'var(--primary-dark-brown)' }}
-    >
-      <Header />
-      {/* Main Content with higher z-index for sticky footer */}
+    <PageReadyWrapper>
       <div
-        className="relative z-10 pb-8 sm:pb-12"
-        style={{ backgroundColor: 'var(--primary-cream)' }}
+        className="w-full"
+        style={{ backgroundColor: 'var(--primary-dark-brown)' }}
       >
-        <HeroSection />
-        <CompanyProfile />
-        <ProdukSection />
-        <Keunggulan />
-        <ClientShowcase />
-        <Sertifikasi />
-        <FAQ />
-        <QuoteRequestSection />
-      </div>
+        <Header />
+        {/* Main Content */}
+        <div
+          className="relative z-10"
+          style={{ backgroundColor: 'var(--primary-cream)' }}
+        >
+          <HeroSection />
+          <CompanyProfile />
+          <ProdukSection />
+          <Keunggulan />
+          <ClientShowcase />
+          <Sertifikasi />
+          <FAQ />
+          <QuoteRequestSection />
+        </div>
 
-      {/* Sticky Footer with lower z-index */}
-      <Footer />
-    </div>
+        {/* Sticky Footer */}
+        <StickyFooterWrapper>
+          <Footer />
+        </StickyFooterWrapper>
+      </div>
+    </PageReadyWrapper>
   )
 }
