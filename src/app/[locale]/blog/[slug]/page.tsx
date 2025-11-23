@@ -97,22 +97,24 @@ interface BlogPostPageProps {
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
   const locales = ['id', 'en']
+  const paths = []
 
-  return locales.flatMap(locale =>
-    posts.map(post => ({
-      locale,
-      slug: post.slug,
-    }))
-  )
+  for (const locale of locales) {
+    const posts = getAllPosts(locale)
+    for (const post of posts) {
+      paths.push({ locale, slug: post.slug })
+    }
+  }
+
+  return paths
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     return {
@@ -149,14 +151,14 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     notFound()
   }
 
-  const relatedPosts = getRelatedPosts(slug, post.category, 3)
+  const relatedPosts = getRelatedPosts(slug, post.category, 3, locale)
 
   return (
     <div

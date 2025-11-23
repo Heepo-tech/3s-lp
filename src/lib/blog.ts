@@ -11,19 +11,21 @@ const contentDirectory = path.join(process.cwd(), 'content/blog')
 /**
  * Get all blog posts from the content directory
  */
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(locale: string = 'id'): BlogPost[] {
+  const localeDirectory = path.join(contentDirectory, locale)
+
   // Check if directory exists
-  if (!fs.existsSync(contentDirectory)) {
+  if (!fs.existsSync(localeDirectory)) {
     return []
   }
 
-  const fileNames = fs.readdirSync(contentDirectory)
+  const fileNames = fs.readdirSync(localeDirectory)
 
   const posts = fileNames
     .filter(fileName => fileName.endsWith('.mdx'))
     .map(fileName => {
-      const slug = fileName.replace(/\.mdx$/, '')
-      return getPostBySlug(slug)
+      const slug = fileName.replace('.mdx', '')
+      return getPostBySlug(slug, locale)
     })
     .filter((post): post is BlogPost => post !== null)
 
@@ -33,9 +35,12 @@ export function getAllPosts(): BlogPost[] {
 /**
  * Get a single blog post by slug
  */
-export function getPostBySlug(slug: string): BlogPost | null {
+export function getPostBySlug(
+  slug: string,
+  locale: string = 'id'
+): BlogPost | null {
   try {
-    const fullPath = path.join(contentDirectory, `${slug}.mdx`)
+    const fullPath = path.join(contentDirectory, locale, `${slug}.mdx`)
 
     if (!fs.existsSync(fullPath)) {
       return null
@@ -87,9 +92,10 @@ export function sortPostsByDate(posts: BlogPost[]): BlogPost[] {
 export function getRelatedPosts(
   currentSlug: string,
   category: string,
-  limit = 3
+  limit = 3,
+  locale: string = 'id'
 ): BlogPost[] {
-  const allPosts = getAllPosts()
+  const allPosts = getAllPosts(locale)
 
   return allPosts
     .filter(post => post.slug !== currentSlug && post.category === category)
@@ -99,16 +105,19 @@ export function getRelatedPosts(
 /**
  * Get posts by category
  */
-export function getPostsByCategory(category: string): BlogPost[] {
-  const allPosts = getAllPosts()
+export function getPostsByCategory(
+  category: string,
+  locale: string = 'id'
+): BlogPost[] {
+  const allPosts = getAllPosts(locale)
   return allPosts.filter(post => post.category === category)
 }
 
 /**
  * Get all unique categories
  */
-export function getAllCategories(): string[] {
-  const allPosts = getAllPosts()
+export function getAllCategories(locale: string = 'id'): string[] {
+  const allPosts = getAllPosts(locale)
   const categories = allPosts.map(post => post.category)
   return Array.from(new Set(categories))
 }
@@ -116,8 +125,11 @@ export function getAllCategories(): string[] {
 /**
  * Get blog post metadata for SEO
  */
-export function getPostMetadata(slug: string): BlogMetadata | null {
-  const post = getPostBySlug(slug)
+export function getPostMetadata(
+  slug: string,
+  locale: string = 'id'
+): BlogMetadata | null {
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     return null

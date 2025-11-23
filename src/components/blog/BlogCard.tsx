@@ -21,6 +21,7 @@ export default function BlogCard({ post, locale }: BlogCardProps) {
           pathname: '/blog/[slug]',
           params: { slug: post.slug },
         }}
+        locale={locale}
         className="block group h-full"
       >
         <div

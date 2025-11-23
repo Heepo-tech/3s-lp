@@ -38,7 +38,7 @@ export default async function BlogPage({
 }) {
   const { locale } = await params
   const t = await getTranslations({ locale })
-  const posts = getAllPosts()
+  const posts = getAllPosts(locale)
 
   return (
     <div
