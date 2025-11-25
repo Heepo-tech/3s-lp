@@ -228,7 +228,7 @@ export default function Footer() {
             style={{ borderColor: 'rgba(248, 247, 243, 0.2)' }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d107.1534!3d-6.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwN8KwMDknMTIuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.195151522227!2d110.2257641740927!3d-7.55325597457717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a83da0b2f13b7%3A0x823fbf23475d4a2c!2sPT.%20Sekawan%20Sahabat%20Sejati!5e0!3m2!1sid!2sid!4v1764076840003!5m2!1sid!2sid"
               width="100%"
               height="160"
               className="sm:h-[200px] md:h-[250px]"
