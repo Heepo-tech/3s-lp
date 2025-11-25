@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
+import CookieBanner from '@/components/analytics/CookieBanner'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import PageLoader from '@/components/PageLoader'
 import './globals.css'
 
@@ -20,6 +22,12 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || 'https://www.3s-plywood.com'
+  ),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default:
       'PT. Sekawan Sahabat Sejati - Plywood Premium Berkualitas Internasional',
@@ -123,9 +131,11 @@ export default async function RootLayout({
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <GoogleAnalytics />
         <PageLoader />
         {children}
         <Toaster />
+        <CookieBanner />
         <Analytics />
         <SpeedInsights />
       </body>
