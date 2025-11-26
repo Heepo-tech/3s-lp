@@ -287,6 +287,7 @@ export default function Header() {
                     <Link
                       href="/"
                       locale="id"
+                      prefetch={true}
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
                         locale === 'id' ? 'bg-(--primary-cream)' : ''
                       }`}
@@ -304,6 +305,7 @@ export default function Header() {
                     <Link
                       href="/"
                       locale="en"
+                      prefetch={true}
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
                         locale === 'en' ? 'bg-(--primary-cream)' : ''
                       }`}
@@ -556,14 +558,16 @@ export default function Header() {
 
                 {/* Sertifikasi */}
                 <motion.div variants={mobileItemVariants}>
-                  <NextLink
-                    href="/sertifikasi"
+                  <Link
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    href={'/sertifikasi' as any}
+                    prefetch={true}
                     className="block text-base font-semibold transition-colors"
                     style={{ color: 'var(--text-primary)' }}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {t('navigation.certification')}
-                  </NextLink>
+                  </Link>
                 </motion.div>
               </div>
 
@@ -620,6 +624,7 @@ export default function Header() {
                             <Link
                               href="/"
                               locale="id"
+                              prefetch={true}
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'id'
                                   ? 'bg-(--primary-cream)'
@@ -642,6 +647,7 @@ export default function Header() {
                             <Link
                               href="/"
                               locale="en"
+                              prefetch={true}
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                                 locale === 'en'
                                   ? 'bg-(--primary-cream)'

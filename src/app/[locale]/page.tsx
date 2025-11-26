@@ -1,17 +1,36 @@
 import dynamic from 'next/dynamic'
 
+import HiddenPrefetchLinks from '@/components/HiddenPrefetchLinks'
 import PageReadyWrapper from '@/components/PageReadyWrapper'
-import ClientShowcase from '@/components/sections/ClientShowcase'
+import RoutePrefetcher from '@/components/RoutePrefetcher'
 import CompanyProfile from '@/components/sections/CompanyProfile'
 import Footer from '@/components/sections/Footer'
 import Header from '@/components/sections/Header'
 import HeroSection from '@/components/sections/HeroSection'
-import Keunggulan from '@/components/sections/Keunggulan'
 import ProdukSection from '@/components/sections/ProdukSection'
-import QuoteRequestSection from '@/components/sections/QuoteRequestSection'
 import StickyFooterWrapper from '@/components/StickyFooterWrapper'
-
 // Lazy load only non-critical below-the-fold components
+const ClientShowcase = dynamic(
+  () => import('@/components/sections/ClientShowcase'),
+  {
+    loading: () => <div className="min-h-[200px]" />,
+    ssr: true,
+  }
+)
+
+const Keunggulan = dynamic(() => import('@/components/sections/Keunggulan'), {
+  loading: () => <div className="min-h-[200px]" />,
+  ssr: true,
+})
+
+const QuoteRequestSection = dynamic(
+  () => import('@/components/sections/QuoteRequestSection'),
+  {
+    loading: () => <div className="min-h-[200px]" />,
+    ssr: true,
+  }
+)
+
 const Sertifikasi = dynamic(() => import('@/components/sections/Sertifikasi'), {
   loading: () => <div className="min-h-[200px]" />,
   ssr: true,
@@ -31,6 +50,8 @@ export const revalidate = 3600
 export default function Home() {
   return (
     <PageReadyWrapper>
+      <RoutePrefetcher />
+      <HiddenPrefetchLinks />
       <div
         className="w-full"
         style={{ backgroundColor: 'var(--primary-dark-brown)' }}

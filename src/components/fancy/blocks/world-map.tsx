@@ -2,6 +2,7 @@
 
 import DottedMap from 'dotted-map'
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 
 interface WorldMapProps {
   dots?: Array<{
@@ -17,21 +18,23 @@ export function WorldMap({
   lineColor = 'rgba(82, 36, 5, 0.6)',
   mapDotsColor = 'rgba(82, 36, 5, 0.3)',
 }: WorldMapProps) {
-  const map = new DottedMap({
-    height: 100,
-    grid: 'diagonal',
-    region: {
-      lat: { min: -45, max: 60 }, // Australia to North China
-      lng: { min: -180, max: 180 }, // Full width to include Americas
-    },
-  })
+  const svgMap = useMemo(() => {
+    const map = new DottedMap({
+      height: 100,
+      grid: 'diagonal',
+      region: {
+        lat: { min: -45, max: 60 }, // Australia to North China
+        lng: { min: -180, max: 180 }, // Full width to include Americas
+      },
+    })
 
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: mapDotsColor,
-    shape: 'circle',
-    backgroundColor: 'transparent',
-  })
+    return map.getSVG({
+      radius: 0.22,
+      color: mapDotsColor,
+      shape: 'circle',
+      backgroundColor: 'transparent',
+    })
+  }, [mapDotsColor])
 
   const projectPoint = (lat: number, lng: number) => {
     const latMin = -45

@@ -72,6 +72,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           height={600}
           className="rounded-lg shadow-md"
           alt={props.alt || ''}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 800px"
         />
       )
     },

@@ -81,6 +81,7 @@ const mdxComponents = {
       width={800}
       height={600}
       className="rounded-lg shadow-md"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 800px"
     />
   ),
 }

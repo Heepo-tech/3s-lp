@@ -9,8 +9,9 @@ import {
   Phone,
 } from 'lucide-react'
 import Image from 'next/image'
-import NextLink from 'next/link'
 import { useTranslations } from 'next-intl'
+
+import { Link } from '@/i18n/navigation'
 
 export default function Footer() {
   const t = useTranslations()
@@ -151,8 +152,10 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 {quickLinks.produk.map(link => (
                   <li key={link.name}>
-                    <NextLink
-                      href={link.href}
+                    <Link
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      href={link.href as any}
+                      prefetch={true}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
@@ -161,7 +164,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </NextLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -178,8 +181,10 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 {quickLinks.perusahaan.map(link => (
                   <li key={link.name}>
-                    <NextLink
-                      href={link.href}
+                    <Link
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      href={link.href as any}
+                      prefetch={true}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
@@ -188,7 +193,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </NextLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -205,8 +210,10 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 {quickLinks.bantuan.map(link => (
                   <li key={link.name}>
-                    <NextLink
-                      href={link.href}
+                    <Link
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      href={link.href as any}
+                      prefetch={true}
                       className="transition-colors"
                       style={{ color: '#F8F7F3', opacity: 0.7 }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
@@ -215,7 +222,7 @@ export default function Footer() {
                       }
                     >
                       {link.name}
-                    </NextLink>
+                    </Link>
                   </li>
                 ))}
               </ul>

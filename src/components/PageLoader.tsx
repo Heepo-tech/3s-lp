@@ -30,82 +30,29 @@ export default function PageLoader() {
 
     // Multi-stage progressive loading animation
     const runProgressiveAnimation = () => {
-      // Stage 1: 0 -> 60 (Slow - simulating resource download)
-      animationRef.current = animate(count, 60, {
-        duration: 5,
+      // Fast initial load to 90%
+      animationRef.current = animate(count, 90, {
+        duration: 0.8, // Much faster initial load
         ease: 'easeOut',
         onComplete: () => {
           if (hasLoadedRef.current) {
-            // If already loaded, skip to finalization
             finalizeLoading()
-            return
           }
-
-          // Stage 2: 60 -> 85 (Medium - simulating parsing)
-          animationRef.current = animate(count, 85, {
-            duration: 3,
-            ease: 'easeInOut',
-            onComplete: () => {
-              if (hasLoadedRef.current) {
-                finalizeLoading()
-                return
-              }
-
-              // Stage 3: 85 -> 95 (Fast - simulating hydration)
-              animationRef.current = animate(count, 95, {
-                duration: 2,
-                ease: 'easeIn',
-                onComplete: () => {
-                  // Hold at 95% waiting for actual load
-                  if (!hasLoadedRef.current) {
-                    // Safety: Force complete after timeout
-                    setTimeout(() => {
-                      if (!hasLoadedRef.current) {
-                        finalizeLoading()
-                      }
-                    }, 5000)
-                  }
-                },
-              })
-            },
-          })
         },
       })
     }
 
     const finalizeLoading = () => {
-      const currentValue = count.get()
-
-      // Smart completion based on current progress
-      if (currentValue < 60) {
-        // Fast forward to 95, then smooth to 100
-        animationRef.current = animate(count, 95, {
-          duration: 1.2,
-          ease: 'easeOut',
-          onComplete: () => {
-            animate(count, 100, {
-              duration: 0.5,
-              ease: 'easeInOut',
-              onComplete: completeLoading,
-            })
-          },
-        })
-      } else if (currentValue < 95) {
-        // Smooth progression to 100
-        const duration = (100 - currentValue) * 0.03
-        animate(count, 100, {
-          duration: Math.max(0.5, duration),
-          ease: 'easeInOut',
-          onComplete: completeLoading,
-        })
-      } else {
-        // Already near completion
-        animate(count, 100, {
-          duration: 0.4,
-          ease: 'easeOut',
-          onComplete: completeLoading,
-        })
+      // Immediate completion when ready
+      if (animationRef.current) {
+        animationRef.current.stop()
       }
+
+      animate(count, 100, {
+        duration: 0.3,
+        ease: 'easeOut',
+        onComplete: completeLoading,
+      })
     }
 
     const completeLoading = () => {
@@ -211,9 +158,9 @@ export default function PageLoader() {
           exit={{
             x: '-100%',
             transition: {
-              duration: 1.0, // Increased from 0.9 to 1.0 for smoother visibility
+              duration: 0.5, // Reduced for snappier feel
               ease: [0.76, 0, 0.24, 1],
-              delay: 0, // No delay, start immediately
+              delay: 0,
             },
           }}
         >
