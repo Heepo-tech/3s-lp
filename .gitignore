@@ -64,3 +64,6 @@ sitemap-*.xml
 
 # Large video files
 public/videos/
+
+# OpenNext
+.open-next/
