@@ -11,6 +11,7 @@ import {
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
+import { products } from '@/data/products'
 import { Link } from '@/i18n/navigation'
 
 export default function Footer() {
@@ -18,24 +19,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const quickLinks = {
-    produk: [
-      {
-        name: t('productData.standard.name'),
-        href: '/produk/plywood-standar' as const,
-      },
-      {
-        name: t('productData.marine.name'),
-        href: '/produk/plywood-marine' as const,
-      },
-      {
-        name: t('productData.filmFaced.name'),
-        href: '/produk/plywood-film-faced' as const,
-      },
-      {
-        name: t('productData.decorative.name'),
-        href: '/produk/plywood-decorative' as const,
-      },
-    ],
+    produk: products.map(product => ({
+      name: t(`productData.${product.translationKey}.name`),
+      href: `/produk/${product.slug}` as const,
+    })),
     perusahaan: [
       { name: t('navigation.aboutUs'), href: '/tentang-kami' as const },
       { name: t('navigation.blog'), href: '/blog' as const },

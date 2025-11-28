@@ -2,6 +2,7 @@ export interface Product {
   id: string
   name: string
   slug: string
+  translationKey: string
   category: string
   description: string
   shortDescription: string
@@ -24,6 +25,7 @@ export const products: Product[] = [
     id: '1',
     name: 'Plywood Standar',
     slug: 'plywood-standar',
+    translationKey: 'standard',
     category: 'Standard',
     shortDescription:
       'Plywood serbaguna untuk berbagai kebutuhan konstruksi dan furniture',
@@ -58,6 +60,7 @@ export const products: Product[] = [
     id: '2',
     name: 'Plywood Marine',
     slug: 'plywood-marine',
+    translationKey: 'marine',
     category: 'Premium',
     shortDescription: 'Plywood tahan air untuk aplikasi maritim dan outdoor',
     description:
@@ -91,6 +94,7 @@ export const products: Product[] = [
     id: '3',
     name: 'Plywood Film Faced',
     slug: 'plywood-film-faced',
+    translationKey: 'filmFaced',
     category: 'Professional',
     shortDescription:
       'Plywood dengan lapisan film untuk bekisting dan formwork',
@@ -125,6 +129,7 @@ export const products: Product[] = [
     id: '4',
     name: 'Plywood Decorative',
     slug: 'plywood-decorative',
+    translationKey: 'decorative',
     category: 'Premium',
     shortDescription:
       'Plywood dekoratif dengan finish natural untuk interior mewah',
@@ -159,6 +164,7 @@ export const products: Product[] = [
     id: '5',
     name: 'Plywood Commercial',
     slug: 'plywood-commercial',
+    translationKey: 'commercial',
     category: 'Standard',
     shortDescription: 'Plywood komersial ekonomis untuk proyek skala besar',
     description:
@@ -192,6 +198,7 @@ export const products: Product[] = [
     id: '6',
     name: 'Plywood Engineered',
     slug: 'plywood-engineered',
+    translationKey: 'engineered',
     category: 'Professional',
     shortDescription: 'Plywood engineered untuk aplikasi struktural demanding',
     description:
