@@ -95,6 +95,9 @@ const eslintConfig = [
       'playwright-report/**',
       'test-results/**',
       '*.config.{js,ts,mjs}',
+      '.vercel/**',
+      '.open-next/**',
+      '.wrangler/**',
     ],
   },
 ]
