@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Leaf, Award } from 'lucide-react'
+import { ShieldCheck, Globe, ClipboardCheck } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export default function Keunggulan() {
@@ -9,17 +9,17 @@ export default function Keunggulan() {
 
   const keunggulanList = [
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: t('advantagesSection.features.quality.title'),
       description: t('advantagesSection.features.quality.description'),
     },
     {
-      icon: Award,
+      icon: ClipboardCheck,
       title: t('advantagesSection.features.certification.title'),
       description: t('advantagesSection.features.certification.description'),
     },
     {
-      icon: Leaf,
+      icon: Globe,
       title: t('advantagesSection.features.price.title'),
       description: t('advantagesSection.features.price.description'),
     },
@@ -48,10 +48,11 @@ export default function Keunggulan() {
             {t('advantages.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justify"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
+              textAlignLast: 'center',
             }}
           >
             {t('advantagesSection.subtitle')}
@@ -82,7 +83,7 @@ export default function Keunggulan() {
                 </div>
 
                 <h3
-                  className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold"
+                  className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-left"
                   style={{
                     color: 'var(--text-primary)',
                     fontFamily: 'var(--font-primary)',
@@ -92,7 +93,7 @@ export default function Keunggulan() {
                 </h3>
 
                 <p
-                  className="text-sm sm:text-base leading-relaxed text-justified"
+                  className="text-sm sm:text-base leading-relaxed text-left"
                   style={{
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-secondary)',

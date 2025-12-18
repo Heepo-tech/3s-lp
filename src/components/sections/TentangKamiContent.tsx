@@ -5,7 +5,6 @@ import { Users, Award, Target, Heart } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import BentoGallery, { type GalleryPage } from '@/components/fancy/BentoGallery'
-import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
 import { LineShadowText } from '@/components/ui/line-shadow-text'
 
 export default function TentangKamiContent() {
@@ -176,34 +175,6 @@ export default function TentangKamiContent() {
     },
   ]
 
-  // Build achievements array from translations
-  const achievements = [
-    {
-      year: t('aboutUs.journey.achievements.item1.year'),
-      title: t('aboutUs.journey.achievements.item1.title'),
-    },
-    {
-      year: t('aboutUs.journey.achievements.item2.year'),
-      title: t('aboutUs.journey.achievements.item2.title'),
-    },
-    {
-      year: t('aboutUs.journey.achievements.item3.year'),
-      title: t('aboutUs.journey.achievements.item3.title'),
-    },
-    {
-      year: t('aboutUs.journey.achievements.item4.year'),
-      title: t('aboutUs.journey.achievements.item4.title'),
-    },
-    {
-      year: t('aboutUs.journey.achievements.item5.year'),
-      title: t('aboutUs.journey.achievements.item5.title'),
-    },
-    {
-      year: t('aboutUs.journey.achievements.item6.year'),
-      title: t('aboutUs.journey.achievements.item6.title'),
-    },
-  ]
-
   // Build values array from translations
   const values = [
     {
@@ -227,36 +198,6 @@ export default function TentangKamiContent() {
       description: t('aboutUs.values.items.sustainability.description'),
     },
   ]
-
-  const marqueeItems = achievements.map((achievement, index) => (
-    <div
-      key={index}
-      className="mx-8 flex flex-col items-start justify-center rounded-xl border p-8 min-w-[300px] shadow-sm hover:shadow-md transition-all duration-300 bg-white/50 backdrop-blur-sm"
-      style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderColor: 'var(--neutral-medium)',
-      }}
-    >
-      <div
-        className="mb-3 text-4xl font-bold"
-        style={{
-          color: 'var(--primary-gold)',
-          fontFamily: 'var(--font-primary)',
-        }}
-      >
-        {achievement.year}
-      </div>
-      <div
-        className="text-left text-sm font-medium"
-        style={{
-          color: 'var(--text-secondary)',
-          fontFamily: 'var(--font-secondary)',
-        }}
-      >
-        {achievement.title}
-      </div>
-    </div>
-  ))
 
   return (
     <>
@@ -305,56 +246,16 @@ export default function TentangKamiContent() {
               </div>
             </h1>
             <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-center max-w-3xl mx-auto"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-justify max-w-3xl mx-auto"
               style={{
                 fontFamily: 'var(--font-secondary)',
                 color: 'var(--primary-brown)',
+                textAlignLast: 'center',
               }}
             >
               {t('aboutUs.hero.subtitle')}
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Perjalanan Kami - Marquee Section */}
-      <section
-        className="py-20 px-6 lg:px-8 overflow-hidden"
-        style={{
-          backgroundColor: 'var(--primary-cream)',
-        }}
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{
-                color: 'var(--text-primary)',
-                fontFamily: 'var(--font-primary)',
-              }}
-            >
-              {t('aboutUs.journey.title')}
-            </h2>
-            <p
-              className="text-lg md:text-xl max-w-3xl mx-auto"
-              style={{
-                color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-secondary)',
-              }}
-            >
-              {t('aboutUs.journey.subtitle')}
-            </p>
-          </div>
-
-          <div className="w-full">
-            <SimpleMarquee
-              baseVelocity={-1}
-              direction="left"
-              slowdownOnHover={true}
-            >
-              {marqueeItems}
-            </SimpleMarquee>
-          </div>
         </div>
       </section>
 

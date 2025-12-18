@@ -3,19 +3,12 @@
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
-import SimpleMarquee from '@/components/fancy/blocks/simple-marquee'
-
 const clients = [
-  { name: 'IKEA', logo: '/images/clients/ikea.png' },
-  { name: 'Ashley Furniture', logo: '/images/clients/ashley.png' },
-  { name: 'Home Depot', logo: '/images/clients/homedepot.png' },
-  { name: 'Kingspan', logo: '/images/clients/kingspan.png' },
-  { name: 'Waskita Karya', logo: '/images/clients/waskita.png' },
-  { name: 'Adhi Karya', logo: '/images/clients/adhikarya.png' },
-  { name: 'Wijaya Karya', logo: '/images/clients/wijaya.png' },
-  { name: 'Pembangunan Perumahan', logo: '/images/clients/pp.png' },
-  { name: 'Agung Podomoro', logo: '/images/clients/agungpodomoro.png' },
-  { name: 'Ciputra Group', logo: '/images/clients/ciputra.png' },
+  { name: 'Vita Group Global', logo: '/images/clients/vita-group.png' }, // Placeholder paths
+  {
+    name: 'Pinnacle Trade and Solution Pte. Ltd',
+    logo: '/images/clients/pinnacle.png',
+  },
 ]
 
 export default function ClientShowcase() {
@@ -62,14 +55,16 @@ export default function ClientShowcase() {
             {t('clients.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justified"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justify"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
+              textAlignLast: 'center',
             }}
           >
-            Lebih dari 100 perusahaan di seluruh dunia mempercayai kualitas
-            produk kami
+            Menjalin kerja sama jangka panjang dengan pelaku industri melalui
+            kualitas yang konsisten dan spesifikasi yang jelas. Berikut adalah
+            beberapa perusahaan besar yang telah bekerja sama dengan kami.
           </p>
         </motion.div>
 
@@ -78,35 +73,11 @@ export default function ClientShowcase() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="relative overflow-hidden"
+          className="relative"
         >
-          <SimpleMarquee
-            baseVelocity={-2}
-            direction="left"
-            slowdownOnHover={true}
-          >
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12">
             {clientItems}
-          </SimpleMarquee>
-
-          {/* Fade Effect - Left Side */}
-          <div
-            className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 md:w-40 lg:w-48 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to right, #f8f7f3 0%, #f8f7f3 20%, rgba(248, 247, 243, 0.8) 40%, rgba(248, 247, 243, 0.4) 60%, rgba(248, 247, 243, 0.1) 80%, transparent 100%)',
-              zIndex: 20,
-            }}
-          />
-
-          {/* Fade Effect - Right Side */}
-          <div
-            className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 md:w-40 lg:w-48 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to left, #f8f7f3 0%, #f8f7f3 20%, rgba(248, 247, 243, 0.8) 40%, rgba(248, 247, 243, 0.4) 60%, rgba(248, 247, 243, 0.1) 80%, transparent 100%)',
-              zIndex: 20,
-            }}
-          />
+          </div>
         </motion.div>
       </div>
     </section>

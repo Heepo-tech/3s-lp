@@ -573,7 +573,7 @@ function CompanyProfile() {
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              1998
+              2009
             </div>
             <div
               className="text-xs sm:text-sm md:text-base"
@@ -591,7 +591,7 @@ function CompanyProfile() {
                 fontFamily: 'var(--font-primary)',
               }}
             >
-              50+
+              10+
             </div>
             <div
               className="text-xs sm:text-sm md:text-base"

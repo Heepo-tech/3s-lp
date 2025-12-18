@@ -6,34 +6,16 @@ import { useTranslations } from 'next-intl'
 
 const certifications = [
   {
-    name: 'ISO 9001:2015',
-    description: 'Quality Management System',
-    year: '2020',
-    category: 'Quality',
-  },
-  {
-    name: 'FSC Certified',
-    description: 'Forest Stewardship Council',
-    year: '2019',
-    category: 'Sustainability',
-  },
-  {
-    name: 'ISO 14001:2015',
-    description: 'Environmental Management',
-    year: '2021',
-    category: 'Environment',
-  },
-  {
-    name: 'CARB P2',
+    name: 'CARB',
     description: 'California Air Resources Board',
-    year: '2020',
-    category: 'Safety',
+    year: '2024',
+    category: 'Emission',
   },
   {
-    name: 'CE Marking',
-    description: 'European Conformity',
-    year: '2021',
-    category: 'Standard',
+    name: 'EPA',
+    description: 'Environmental Protection Agency',
+    year: '2024',
+    category: 'Environment',
   },
   {
     name: 'JAS Standard',
@@ -85,10 +67,11 @@ export default function Sertifikasi() {
             {t('certificationSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justify"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
+              textAlignLast: 'center',
             }}
           >
             {t('certificationSection.subtitle')}

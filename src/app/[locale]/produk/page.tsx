@@ -14,19 +14,9 @@ export const revalidate = 1800
 export default async function ProductsListingPage() {
   const t = await getTranslations()
 
-  // Map product slugs to translation keys
-  const productKeyMap: Record<string, string> = {
-    'plywood-standar': 'standard',
-    'plywood-marine': 'marine',
-    'plywood-film-faced': 'filmFaced',
-    'plywood-decorative': 'decorative',
-    'plywood-commercial': 'commercial',
-    'plywood-engineered': 'engineered',
-  }
-
   // Get translated product data
   const getTranslatedProduct = (product: (typeof products)[0]) => {
-    const key = productKeyMap[product.slug]
+    const key = product.translationKey
     if (!key) return product
 
     return {
@@ -85,10 +75,11 @@ export default async function ProductsListingPage() {
                 </span>
               </h1>
               <p
-                className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-justify"
                 style={{
                   color: 'var(--text-secondary)',
                   fontFamily: 'var(--font-secondary)',
+                  textAlignLast: 'center',
                 }}
               >
                 {t('productsListingPage.subtitle')}

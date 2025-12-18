@@ -8,6 +8,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useState, useEffect } from 'react'
 
 import { Navbar, NavBody, NavbarLogo } from '@/components/ui/resizable-navbar'
+import { products as productsData } from '@/data/products'
 import { useFooterVisibility } from '@/hooks/useFooterVisibility'
 import { Link } from '@/i18n/navigation'
 
@@ -65,14 +66,10 @@ export default function Header() {
     open: { opacity: 1, y: 0 },
   }
 
-  const products = [
-    { name: t('products.standard'), slug: 'plywood-standar' },
-    { name: t('products.marine'), slug: 'plywood-marine' },
-    { name: t('products.filmFaced'), slug: 'plywood-film-faced' },
-    { name: t('products.decorative'), slug: 'plywood-decorative' },
-    { name: t('products.commercial'), slug: 'plywood-commercial' },
-    { name: t('products.engineered'), slug: 'plywood-engineered' },
-  ]
+  const products = productsData.map(product => ({
+    name: t(`productData.${product.translationKey}.name`),
+    slug: product.slug,
+  }))
 
   const LogoContent = () => (
     <>

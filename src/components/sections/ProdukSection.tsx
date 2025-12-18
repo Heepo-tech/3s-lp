@@ -10,19 +10,9 @@ import { Link } from '@/i18n/navigation'
 export default function ProdukSection() {
   const t = useTranslations()
 
-  // Map product slugs to translation keys
-  const productKeyMap: Record<string, string> = {
-    'plywood-standar': 'standard',
-    'plywood-marine': 'marine',
-    'plywood-film-faced': 'filmFaced',
-    'plywood-decorative': 'decorative',
-    'plywood-commercial': 'commercial',
-    'plywood-engineered': 'engineered',
-  }
-
   // Get translated product data
   const getTranslatedProduct = (product: (typeof products)[0]) => {
-    const key = productKeyMap[product.slug]
+    const key = product.translationKey
     if (!key) return product
 
     return {
@@ -73,10 +63,11 @@ export default function ProdukSection() {
             {t('productsSection.title')}
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-center"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0 text-justify"
             style={{
               color: 'var(--text-secondary)',
               fontFamily: 'var(--font-secondary)',
+              textAlignLast: 'center',
             }}
           >
             {t('productsSection.subtitle')}

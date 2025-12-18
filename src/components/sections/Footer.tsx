@@ -137,7 +137,7 @@ export default function Footer() {
                 {t('footer.products')}
               </h3>
               <ul className="space-y-2 text-sm">
-                {quickLinks.produk.map(link => (
+                {quickLinks.produk.slice(0, 5).map(link => (
                   <li key={link.name}>
                     <Link
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -154,6 +154,18 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href={'/produk' as any}
+                    prefetch={true}
+                    className="transition-colors font-semibold flex items-center gap-1"
+                    style={{ color: '#F8F7F3', opacity: 0.9, marginTop: '8px' }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '0.9')}
+                  >
+                    {t('footer.links.viewAll')} &rarr;
+                  </Link>
+                </li>
               </ul>
             </div>
 
